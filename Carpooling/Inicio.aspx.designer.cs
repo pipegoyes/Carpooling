@@ -10,42 +10,42 @@
 namespace Carpooling {
     
     
-    public partial class SiteMaster {
+    public partial class Inicio {
         
         /// <summary>
-        /// HeadContent control.
+        /// lblCiudadOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.Label lblCiudadOrigen;
         
         /// <summary>
-        /// HeadLoginView control.
+        /// txbCiudadOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
+        protected global::System.Web.UI.WebControls.TextBox txbCiudadOrigen;
         
         /// <summary>
-        /// NavigationMenu control.
+        /// lblCiudadDestino control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
+        protected global::System.Web.UI.WebControls.Label lblCiudadDestino;
         
         /// <summary>
-        /// MainContent control.
+        /// txbCiudadDestino control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.TextBox txbCiudadDestino;
     }
 }
