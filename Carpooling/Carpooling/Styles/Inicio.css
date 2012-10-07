@@ -1,0 +1,22 @@
+﻿.mapaDiv{
+	background-color: aqua;
+	width: 100%;
+	height: 500px;
+	text-align: center;
+	margin-top: 20px; 
+}
+.bannerInfoDiv{
+	background-color: lime;
+	height: 150px;
+}
+.buscadorDiv{
+	background-color: red;
+}
+.buscadorElemento{
+	background-color: fuchsia;
+	float: left;
+	padding: 10px;
+}
+.divClear{
+	clear: both;
+}

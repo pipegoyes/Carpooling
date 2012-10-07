@@ -5,10 +5,13 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Inicio.css" rel="stylesheet" type="text/css" />
+
+
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body onload="initialize()">
     <form runat="server">
     <div class="page">
         <div class="header">
