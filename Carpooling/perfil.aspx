@@ -5,57 +5,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <!-- <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" /> -->
-    <link href="~/Styles/Perfil.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <%--<link href="~/Styles/Perfil.css" rel="stylesheet" type="text/css" />--%>
     <script type="text/javascript" src="./Scripts/jquery-1.4.1.js"></script>
 </head>
 <body>
 
-<div id="principal">
+<div id="principal" class="doc">
 
 <div class="privateProfile site clearfix">
 	<div class="column">
-		<div class="name">Mariano Gomez</div>
+		<div class="name">
+            <asp:Label ID="lblNombresApellidos" runat="server" Text="Nombres Apellidos"></asp:Label>         
+		</div>
 		<div class="border userInfo">
 			<div class="imageWrp">
-				<div class="userImg border">
-					
-						<%--<img src="http://s3.amazonaws.com/carpool-profile/10-1-S.jpg" class="-large" id="">--%>
+				<div class="userImg border">				
 					    <asp:Image ID="imgFotoPerfil" runat="server"  CssClass="-large" ImageUrl="Resources/imgFotoPerfilHombre.png"/>
 				</div>
 			</div>
 			<div class="stats clearfix">
-				<div class="col">
-					<div class="label">Miembro desde:</div>
-					<div class="text">07/11/2011</div>
-				</div>
-				<div class="col">
-					<div class="label">Última visita:</div>
-					<div class="text">05/10/2012</div>
-				</div>
+				<div class="labelCenter">Miembro desde:</div>	
+                <div class="textCenter">
+                    <asp:Label ID="lblMiembroDesde" runat="server" Text="Marzo 23 de 2011"></asp:Label>                             
+                </div>			                
 			</div>
 		</div>
-		<div class="box">
-			<div class="title">Sobre Mi:</div>
+		<div class="border box">
+            <div class="title">Sexo:</div>
 			<div class="text">
-				
-					
-					
-						Sin especificar.
-					
-				
+			    <asp:Label ID="lblSexo" runat="server" Text="Masculino"></asp:Label>
 			</div>
+
+            <div class="clearfix"></div>
+            <div class="title">Fecha de nacimiento:</div>
+			<div class="text">
+			    <asp:Label ID="lblFechaNacimiento" runat="server" Text="01/01/2012"></asp:Label>
+			</div>
+
+            <div class="clearfix"></div>
+            <div class="title">Edad:</div>
+			<div class="text">
+			    <asp:Label ID="lblEdad" runat="server" Text="01/01/2012"></asp:Label>
+			</div>
+
+            <div class="clearfix"></div>
+            <div class="title">Ciudad de residencia:</div>
+			<div class="text">
+			    <asp:Label ID="lblCiudadResidencia" runat="server" Text="Bogota, Colombia"></asp:Label>
+			</div>
+
+            <div class="clearfix"></div>
+            <div class="title">Ocupación:</div>
+			<div class="text">
+			    <asp:Label ID="lblOcupacion" runat="server" Text="Ingeniero Civil"></asp:Label>
+			</div>
+
 		</div>
+
+        <div class="border box">
+            <div class="title">Más Info:</div>
+            <div class="clearfix"></div>
+			<div class="text">
+			    <asp:Label ID="lblMasInfo" runat="server" Text="Colombia, oficialmente República de Colombia, es un país de América ubicado en la zona noroccidental de América del Sur, organizado constitucionalmente como una república unitaria descentralizada.10 Su capital es Bogotá. Su superficie es de 2 070 408 km2, de los cuales 1 141 748 km2 corresponden a su territorio continental y los restantes 928 660 km2 a su extensión marítima, de la cual mantiene diferendos limítrofes con Venezuela y Nicaragua.11 Limita al este con Venezuela y Brasil, al sur con Perú y Ecuador y al noroeste con Panamá; en cuanto a límites marítimos					"></asp:Label>
+			</div>
+         
+        </div>
 	</div>
 	<div class="body">
 		<div class="nameWrp">
 			<div class="name">Perfil público de Mariano Gomez</div>
 		</div>
 		<div class="data border clearfix">
-			<div class="sex"><span>Sexo: </span>
-			
-			Masculino
-			</div>
 			<div class="age"><span>Fecha Nac: </span>
 				
 					
@@ -104,6 +125,7 @@
 		
 	</div>
 
+    <div class="site clearfix"></div>
     			<div class="nameWrp ridesTitle">
 				<div class="name">Últimos viajes publicados</div>
 			</div>	
@@ -558,7 +580,7 @@
 	</a>
 
 			</div>
-
+    
 </div>
 
 
