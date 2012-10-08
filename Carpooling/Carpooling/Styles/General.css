@@ -1,0 +1,21 @@
+﻿.bannerInfoDiv{
+	background-color: lime;
+	height: 150px;
+}
+.titulo{
+	color: green;
+	font-size: medium;
+	border-bottom: thin solid green;
+}
+.text{
+	margin-top: 10px;
+}
+.leftPosition{
+	float: left;
+}
+.rightPosition{
+	float: right;
+}
+.divRelleno{
+	height: 10px;
+}

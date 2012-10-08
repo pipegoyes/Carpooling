@@ -5,7 +5,7 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/Inicio.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/General.css" rel="stylesheet" type="text/css" />
 
 
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">

@@ -1,0 +1,62 @@
+﻿.ultimosViajes{
+	float: left;
+	width: 49%;
+	padding: 20px;
+}
+.inicioSesion{
+	border: thin solid green; 
+	background-color: #F1F1F1;
+	padding: 20px;
+	float: left;
+	width: 377px;
+}
+.labelCampo, .textBoxCampo{
+
+	float: left;
+	padding: 5px;
+}
+.labelCampo{
+	text-align: right;
+	width: 118px;
+}
+
+.btnIniciarSesion{
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 122px;
+}
+.divClear{
+	clear: both;
+}
+#textoInicioSesion{
+	padding-bottom: 15px;
+}
+#olvidoContraseña{
+	color: green;
+}
+/*--Estilos de los ultimos viajes--*/
+.viajeUV{
+	border: thin solid green;
+	background-color: #F1F1F1;
+}
+.labelCampoUV{
+	width: 50px;
+	text-align: right;
+}
+.valorCampoUV{
+	width: 100px;
+	text-align: left;
+	padding-left: 10px;
+	color: black;
+}
+.pictureUV{
+	width: 60px;
+	height: 60px;
+	border: thin solid gray;
+	margin-right: 10px;
+}
+
+
+
+
