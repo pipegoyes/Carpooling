@@ -67,12 +67,16 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Inicio.aspx" />
+    <Content Include="InicioSesion.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Resources\btnBuscarViaje.png" />
+    <Content Include="Resources\btnIniciarSesion.png" />
     <Content Include="Resources\imgFotoPerfilHombre.png" />
     <Content Include="Resources\imgFotoPerfilMujer.png" />
     <Content Include="Scripts\Inicio.js" />
+    <Content Include="Styles\General.css" />
     <Content Include="Styles\Inicio.css" />
+    <Content Include="Styles\InicioSesion.css" />
     <Content Include="Styles\Perfil.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -140,6 +144,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
