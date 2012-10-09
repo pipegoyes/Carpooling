@@ -67,15 +67,20 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="BuscarViaje.aspx" />
+    <Content Include="CrearViajePaso1.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="Resources\btnAgregarParadas.png" />
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
+    <Content Include="Resources\deleteIcon.png" />
     <Content Include="Resources\imgFotoPerfilHombre.png" />
     <Content Include="Resources\imgFotoPerfilMujer.png" />
+    <Content Include="Scripts\CrearViajePaso1.js" />
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Styles\BuscarViaje.css" />
+    <Content Include="Styles\CrearViajePaso1.css" />
     <Content Include="Styles\General.css" />
     <Content Include="Styles\Inicio.css" />
     <Content Include="Styles\InicioSesion.css" />
@@ -136,6 +141,13 @@
     </Compile>
     <Compile Include="BuscarViaje.aspx.designer.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearViajePaso1.aspx.cs">
+      <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearViajePaso1.aspx.designer.cs">
+      <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

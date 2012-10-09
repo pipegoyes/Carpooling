@@ -9,6 +9,7 @@
 }
 .text{
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .leftPosition{
 	float: left;
@@ -16,6 +17,15 @@
 .rightPosition{
 	float: right;
 }
+.divMediaLinea{
+	border-top: thin solid #559B2B;
+	width: 50%;
+	height: 15px;	
+}
+
 .divRelleno{
 	height: 10px;
+}
+.divClear{
+	clear: both;
 }
