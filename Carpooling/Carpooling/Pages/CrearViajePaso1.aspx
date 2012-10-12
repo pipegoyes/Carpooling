@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso1.aspx.cs" Inherits="Carpooling.CrearViajePaso1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/CrearViajePaso1.js"></script>
+    <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -19,7 +19,7 @@
         </div>
         <div class="creacionElemento">
             <%--<div>Agregar paradas</div>  --%>  
-            <asp:ImageButton ImageUrl="Resources/btnAgregarParadas.png" runat="server"/>
+            <asp:ImageButton ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>
         </div>
         <div class="divClear"></div>
         <div class="divMediaLinea"></div>
@@ -59,7 +59,7 @@
             <div class="titulo">Verifique su ruta</div>
             <div id="contenedorMapa">Mapa</div>
             <div class="divRelleno"></div>
-            <div id="btnSiguientePaso" class="rightPosition">Siguiente paso</div>
+            <div id="btnSiguientePaso" onclick="nextStep()"class="rightPosition">Siguiente paso</div>
         </div>
     </div>
 

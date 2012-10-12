@@ -61,17 +61,18 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="Pages\About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="BuscarViaje.aspx" />
-    <Content Include="CrearViajePaso1.aspx" />
-    <Content Include="CrearViajePaso2.aspx" />
-    <Content Include="Inicio.aspx" />
-    <Content Include="InicioSesion.aspx" />
-    <Content Include="Perfil.aspx" />
+    <Content Include="Pages\BuscarViaje.aspx" />
+    <Content Include="Pages\CrearViajePaso1.aspx" />
+    <Content Include="Pages\CrearViajePaso2.aspx" />
+    <Content Include="Pages\Inicio.aspx" />
+    <Content Include="Pages\InicioSesion.aspx" />
+    <Content Include="Pages\PublicacionViajeExitosa.aspx" />
+    <Content Include="Pages\Perfil.aspx" />
     <Content Include="Resources\btnAgregarParadas.png" />
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
@@ -80,6 +81,7 @@
     <Content Include="Resources\imgFotoPerfilMujer.png" />
     <Content Include="Scripts\CrearViajePaso1.js" />
     <Content Include="Scripts\Inicio.js" />
+    <Content Include="Scripts\PublicacionViajeExitosa.js" />
     <Content Include="Styles\BuscarViaje.css" />
     <Content Include="Styles\CrearViajePaso1.css" />
     <Content Include="Styles\CrearViajePaso2.css" />
@@ -87,8 +89,9 @@
     <Content Include="Styles\Inicio.css" />
     <Content Include="Styles\InicioSesion.css" />
     <Content Include="Styles\Perfil.css" />
+    <Content Include="Styles\PublicacionViajeExitosa.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Pages\Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -102,11 +105,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
+    <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
+    <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
@@ -137,56 +140,63 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BuscarViaje.aspx.cs">
+    <Compile Include="Pages\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BuscarViaje.aspx.designer.cs">
+    <Compile Include="Pages\BuscarViaje.aspx.designer.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrearViajePaso1.aspx.cs">
+    <Compile Include="Pages\CrearViajePaso1.aspx.cs">
       <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CrearViajePaso1.aspx.designer.cs">
+    <Compile Include="Pages\CrearViajePaso1.aspx.designer.cs">
       <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrearViajePaso2.aspx.cs">
+    <Compile Include="Pages\CrearViajePaso2.aspx.cs">
       <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CrearViajePaso2.aspx.designer.cs">
+    <Compile Include="Pages\CrearViajePaso2.aspx.designer.cs">
       <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Pages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.aspx.cs">
+    <Compile Include="Pages\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
+    <Compile Include="Pages\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InicioSesion.aspx.cs">
+    <Compile Include="Pages\InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InicioSesion.aspx.designer.cs">
+    <Compile Include="Pages\InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Perfil.aspx.cs">
+    <Compile Include="Pages\PublicacionViajeExitosa.aspx.cs">
+      <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PublicacionViajeExitosa.aspx.designer.cs">
+      <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Perfil.aspx.designer.cs">
+    <Compile Include="Pages\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
