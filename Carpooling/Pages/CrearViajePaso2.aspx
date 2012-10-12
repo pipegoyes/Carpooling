@@ -64,16 +64,8 @@
             </div>
             <div class="divClear"></div>
         </div>
-        
-        
-        <div class="creacionElemento2 centerDivs">
-            <div class=" lblCreacion2 leftPosition centerDivs">Rol*</div>
-            <div class=" txbCreacion2 leftPosition centerDivs">
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>    
-            </div>
-            <div class="divClear"></div>
-        </div>
+         
     </div>
-    <div id="botonSiguiente2" class="rightPosition">Publicar</div>
+    <div id="botonSiguiente2"  class="rightPosition">Publicar</div>
     
 </asp:Content>

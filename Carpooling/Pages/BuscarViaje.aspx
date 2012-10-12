@@ -56,7 +56,7 @@
             <div class="rightPosition">
                 <div class="divRelleno"></div>
                 <div class="rightPosition">
-                    <asp:Image ID="Image1" CssClass="pictureUV" ImageUrl="Resources/imgFotoPerfilHombre.png" runat="server"/>
+                    <asp:Image ID="Image1" CssClass="pictureUV" ImageUrl="../Resources/imgFotoPerfilHombre.png" runat="server"/>
                 </div>
                 <div class="valorCampoUV rightPosition">Andres Felipe</div>
                 <div class="divClear"></div>
@@ -95,7 +95,7 @@
             <div class="rightPosition">
                 <div class="divRelleno"></div>
                 <div class="rightPosition">
-                    <asp:Image ID="Image2" CssClass="pictureUV" ImageUrl="Resources/imgFotoPerfilHombre.png" runat="server"/>
+                    <asp:Image ID="Image2" CssClass="pictureUV" ImageUrl="../Resources/imgFotoPerfilHombre.png" runat="server"/>
                 </div>
                 <div class="valorCampoUV rightPosition">Andres Felipe</div>
                 <div class="divClear"></div>

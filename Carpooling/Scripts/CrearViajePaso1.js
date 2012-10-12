@@ -3,6 +3,10 @@
     initialize();
 });
 
+function nextStep() {
+    window.location = "CrearViajePaso2.aspx";
+}
+
 var geocoder;
 var map;
 var directionsDisplay;

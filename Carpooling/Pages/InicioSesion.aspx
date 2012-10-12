@@ -40,7 +40,7 @@
             <div class="rightPosition">
                 <div class="divRelleno"></div>
                 <div class="rightPosition">
-                    <asp:Image ID="Image1" CssClass="pictureUV" ImageUrl="Resources/imgFotoPerfilHombre.png" runat="server"/>
+                    <asp:Image ID="Image1" CssClass="pictureUV" ImageUrl="../Resources/imgFotoPerfilHombre.png" runat="server"/>
                 </div>
                 <div class="valorCampoUV rightPosition">Andres Felipe</div>
                 <div class="divClear"></div>
@@ -69,7 +69,7 @@
         </div>
         <div class="divClear"></div>
         <div class="btnIniciarSesion">
-            <asp:ImageButton ID="btnIniciarSesion" ImageUrl="Resources/btnIniciarSesion.png" runat="server"/>
+            <asp:ImageButton ID="btnIniciarSesion" ImageUrl="../Resources/btnIniciarSesion.png" runat="server"/>
         </div>
         
         <div id="olvidoContraseña">¿Olvido su contraseña?</div>

@@ -10,69 +10,87 @@
 namespace Carpooling {
     
     
-    public partial class CrearViajePaso2 {
+    public partial class perfil {
         
         /// <summary>
-        /// lblDesde control.
+        /// lblNombresApellidos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesde;
+        protected global::System.Web.UI.WebControls.Label lblNombresApellidos;
         
         /// <summary>
-        /// txbHacia control.
+        /// imgFotoPerfil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txbHacia;
+        protected global::System.Web.UI.WebControls.Image imgFotoPerfil;
         
         /// <summary>
-        /// txbRol control.
+        /// lblMiembroDesde control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbRol;
+        protected global::System.Web.UI.WebControls.Label lblMiembroDesde;
         
         /// <summary>
-        /// txbTarifax control.
+        /// lblSexo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbTarifax;
+        protected global::System.Web.UI.WebControls.Label lblSexo;
         
         /// <summary>
-        /// txbFechaPartida control.
+        /// lblFechaNacimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbFechaPartida;
+        protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
         
         /// <summary>
-        /// txbCupos control.
+        /// lblEdad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCupos;
+        protected global::System.Web.UI.WebControls.Label lblEdad;
         
         /// <summary>
-        /// TextBox3 control.
+        /// lblCiudadResidencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.Label lblCiudadResidencia;
+        
+        /// <summary>
+        /// lblOcupacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOcupacion;
+        
+        /// <summary>
+        /// lblMasInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMasInfo;
     }
 }
