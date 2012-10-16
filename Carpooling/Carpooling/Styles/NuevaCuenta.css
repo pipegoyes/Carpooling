@@ -1,0 +1,121 @@
+﻿.datosContenedor {
+    background-color: #F8FBFA;
+    border: thin solid #CAE7C2;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    text-align: center;
+    width: 400px;
+}
+
+.titulo {
+    border-bottom: thin solid green;
+    color: green;
+    font-size: medium;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.contenido {
+    padding: 0;
+    text-align: center;
+}
+
+.campoDato {
+    clear: both;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.textoCampo, .valorCampo {
+    text-align: left;
+    width: 100%;
+}
+
+.valorCampo2 {
+    display: inline-block;
+    width: 100%;
+}
+
+.textoCampo {
+    font-weight: bold;
+}
+
+.valorCampo {
+}
+
+    .valorCampo .nombres input[type="text"] {
+        margin: 0;
+        padding: 0;
+        padding-top: 3px;
+        width: 49%;
+    }
+
+    .valorCampo input[type="text"] {
+        width: 100%;
+    }
+
+.botones {
+    text-align: right;
+}
+
+    .botones input[type="submit"] {
+        background-color: #549A2B;
+        background-image: -moz-linear-gradient(center top, #6CC437, #549A2B);
+        border: 1px solid transparent;
+        -moz-border-radius: 2px 2px 2px 2px;
+        -webkit-border-radius: 2px 2px 2px 2px;
+        border-radius: 2px 2px 2px 2px;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-family: arial,sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        height: 29px;
+        line-height: 29px;
+        margin: 0;
+        padding: 0 8px;
+        text-align: center;
+        -webkit-text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        text-transform: uppercase;
+        vertical-align: bottom;
+        width: 120px;
+    }
+
+.marcoImagen {
+    border: 1px solid #EAE8E8;
+    display: inline-block;
+    height: 154px;
+    margin: 0;
+    padding: 0;
+    width: 154px;
+}
+
+.imagenFoto {
+    border: 2px solid white;
+    height: 150px;
+    padding: 0;
+    width: 150px;
+}
+
+
+.modalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.50;
+    opacity: 0.50;
+}
+
+.updateProgress {
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    height: 200px;
+    position: absolute;
+    width: 400px;
+}
