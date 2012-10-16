@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Ajax Control Toolkit .NET4\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,6 +65,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NuevaCuenta.aspx" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
@@ -73,7 +78,9 @@
     <Content Include="Pages\InicioSesion.aspx" />
     <Content Include="Pages\PublicacionViajeExitosa.aspx" />
     <Content Include="Pages\Perfil.aspx" />
+    <Content Include="Resources\ajax_loader.gif" />
     <Content Include="Resources\btnAgregarParadas.png" />
+    <Content Include="Perfil3.aspx" />
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
     <Content Include="Resources\deleteIcon.png" />
@@ -83,12 +90,15 @@
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Scripts\PublicacionViajeExitosa.js" />
     <Content Include="Styles\BuscarViaje.css" />
+    <Content Include="Styles\NuevaCuenta.css" />
     <Content Include="Styles\CrearViajePaso1.css" />
     <Content Include="Styles\CrearViajePaso2.css" />
     <Content Include="Styles\General.css" />
     <Content Include="Styles\Inicio.css" />
     <Content Include="Styles\InicioSesion.css" />
     <Content Include="Styles\Perfil.css" />
+    <Content Include="Styles\Perfil2.css" />
+    <Content Include="Styles\Perfil3.css" />
     <Content Include="Styles\PublicacionViajeExitosa.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Pages\Default.aspx" />
@@ -105,6 +115,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NuevaCuenta.aspx.cs">
+      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaCuenta.aspx.designer.cs">
+      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,6 +216,13 @@
     <Compile Include="Pages\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Perfil3.aspx.cs">
+      <DependentUpon>Perfil3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil3.aspx.designer.cs">
+      <DependentUpon>Perfil3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -215,6 +239,16 @@
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{2c034f7d-c4d5-444e-b569-e18a59d11235}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{13754c67-06b8-42bb-ab21-1383d757579d}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -228,7 +262,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58224</DevelopmentServerPort>
+          <DevelopmentServerPort>58225</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -11,8 +11,10 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="initialize()">
+<body>
     <form runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>   
+
     <div class="page">
         <div class="header">
             <div class="title">

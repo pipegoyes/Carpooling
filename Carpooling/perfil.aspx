@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <%--<link href="~/Styles/Perfil.css" rel="stylesheet" type="text/css" />--%>
+    <link href="~/Styles/Perfil.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="./Scripts/jquery-1.4.1.js"></script>
 </head>
 <body>
