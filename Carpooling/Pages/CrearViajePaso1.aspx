@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso1.aspx.cs" Inherits="Carpooling.CrearViajePaso1" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
@@ -6,61 +7,229 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
-    <div class="titulo">Paso 1. Crear ruta de viaje</div>
-    <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
-    <div>
-        <div class="creacionElemento">
-            <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-            <div><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></div>
-        </div>
-        <div class="creacionElemento">
-            <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-            <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
-        </div>
-        <div class="creacionElemento">
-            <%--<div>Agregar paradas</div>  --%>  
-            <asp:ImageButton ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>
-        </div>
-        <div class="divClear"></div>
-        <div class="divMediaLinea"></div>
+    <asp:UpdatePanel ID="CrearViajePanel" runat="server">
+        <ContentTemplate>
+            <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+                <asp:View ID="ViewRuta" runat="server">
+                    <div class="titulo">Paso 1. Crear ruta de viaje</div>
+                    <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
+                    <div>
+                        <div class="creacionElemento">
+                            <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
+                            <div><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></div>
+                        </div>
+                        <div class="creacionElemento">
+                            <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
+                            <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
+                        </div>
+                        <div class="creacionElemento">
+                            <asp:ImageButton ID="ImageButton1" ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>
+                        </div>
+                        <div class="divClear"></div>
+                        <div class="divMediaLinea"></div>
 
-        <div id="contenedorParadas">
-            <div class="paradaElemento">
-                <div class="labelParadas leftPosition">
-                    <asp:Label ID="lblParada1" Text="Parada 1" runat="server"></asp:Label>
-                </div>
-                <div class="leftPosition">
-                    <asp:TextBox ID="txbParada1" runat="server"></asp:TextBox>
-                </div>
-                <div class="btnEliminar leftPosition"></div>
-                <div class="divClear"></div>
-            </div>
-            <div class="paradaElemento">
-                <div class="labelParadas leftPosition">
-                    <asp:Label ID="Label1" Text="Parada 2" runat="server"></asp:Label>
-                </div>
-                <div class="leftPosition">
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                </div>
-                <div class="btnEliminar leftPosition"></div>
-                <div class="divClear"></div>
-            </div>
-            <div class="paradaElemento">
-                <div class="labelParadas leftPosition">
-                    <asp:Label ID="Label2" Text="Parada 3" runat="server"></asp:Label>
-                </div>
-                <div class="leftPosition">
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                </div>
-                <div class="btnEliminar leftPosition"></div>
-                <div class="divClear"></div>
-            </div>
+                        <div id="contenedorParadas">
+                            <div class="paradaElemento">
+                                <div class="labelParadas leftPosition">
+                                    <asp:Label ID="lblParada1" Text="Parada 1" runat="server"></asp:Label>
+                                </div>
+                                <div class="leftPosition">
+                                    <asp:TextBox ID="txbParada1" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="btnEliminar leftPosition"></div>
+                                <div class="divClear"></div>
+                            </div>
+                            <div class="paradaElemento">
+                                <div class="labelParadas leftPosition">
+                                    <asp:Label ID="Label1" Text="Parada 2" runat="server"></asp:Label>
+                                </div>
+                                <div class="leftPosition">
+                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="btnEliminar leftPosition"></div>
+                                <div class="divClear"></div>
+                            </div>
+                            <div class="paradaElemento">
+                                <div class="labelParadas leftPosition">
+                                    <asp:Label ID="Label2" Text="Parada 3" runat="server"></asp:Label>
+                                </div>
+                                <div class="leftPosition">
+                                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="btnEliminar leftPosition"></div>
+                                <div class="divClear"></div>
+                            </div>
             
-            <div class="titulo">Verifique su ruta</div>
-            <div id="contenedorMapa">Mapa</div>
-            <div class="divRelleno"></div>
-            <div id="btnSiguientePaso" onclick="nextStep()"class="rightPosition">Siguiente paso</div>
-        </div>
-    </div>
+                            <div class="titulo">Verifique su ruta</div>
+                            <div id="contenedorMapa">Mapa</div>
+                            <div class="divRelleno"></div>
+                            <%--<div id="btnSiguientePaso"class="rightPosition">Siguiente paso</div>--%>
+                            <asp:Button ID="btnSiguientePaso" CssClass="rightPosition"  Text="Siguiente paso" OnClick="BtnSiguientePasoClick" runat="server"/>
+                        </div>
+                    </div>        
 
+                </asp:View>
+                <asp:View ID="ViewDatosViaje" runat="server">
+              
+                    <div class="titulo">Paso 2. Datos del viaje</div>
+                    <div class="text">Configura todos los datos de tu viaje</div>
+    
+    
+                    <div id="contenedorRutaViaje" class="contenedorElementos">
+                        <div class="creacionElemento2 centerDivs">
+                            <div class="subtitulo">Ruta de viaje</div>
+                        </div>
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Desde</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:Label ID="lblDesde" Text="Bogota" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Hacia</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:Label ID="txbHacia" Text="Cali" runat="server"></asp:Label>    
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+                    </div>
+    
+    
+                    <div class="contenedorElementos">
+                        <div class="creacionElemento2 centerDivs">
+                            <div class="subtitulo">Informacion basica</div>
+                        </div>
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Rol*</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:TextBox ID="txbRol" runat="server"></asp:TextBox>    
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+        
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Tarifa contributiva*</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:TextBox ID="txbTarifax" runat="server"></asp:TextBox>    
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+        
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Fecha de partida*</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>    
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+        
+                        <div class="creacionElemento2 centerDivs">
+                            <div class=" lblCreacion2 leftPosition centerDivs">Cupos*</div>
+                            <div class=" txbCreacion2 leftPosition centerDivs">
+                                <asp:TextBox ID="txbCupos" runat="server"></asp:TextBox>    
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+         
+                    </div>
+                    <%--<div id="btnPublicar"  class="rightPosition">Publicar</div>--%>
+                    <asp:Button ID="btnPublicar" CssClass="rightPosition" Text="Publicar" OnClick="BtnPublicarClick" runat="server"/>
+                </asp:View>  
+                <asp:View ID="ViewPublicacionExitosa" runat="server">
+                    <div class="titulo">Publicacion exitosa</div>
+                    <div id="DivRutaViaje" class="leftPosition">
+                        <div class="subtitulo">Ruta de viaje</div>
+                        <div class="leftPosition contenedorSecundarioRV">
+                            <div class="leftPosition labelRutaViaje">Desde</div>
+                            <div class="leftPosition textoRutaViaje">
+                                <asp:Label ID="Label3" Text="Bogota" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                            <div class="leftPosition labelRutaViaje">pasa por</div>
+                            <div class="leftPosition textoRutaViaje">
+                                <asp:Label ID="lblPasaPor1" Text="Chia" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                            <div class="leftPosition labelRutaViaje">Desde</div>
+                            <div class="leftPosition textoRutaViaje">
+                                <asp:Label ID="lblHasta" Text="Cali" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+
+
+                        <div  class="leftPosition contenedorSecundarioRV">
+                            <div class="rightPosition textoRutaViaje">
+                                <asp:Label ID="lblDistancia" Text="372 km" runat="server"></asp:Label>
+                            </div>
+                            <div class="rightPosition labelRutaViaje">Distancia</div>
+                            <div class="divClear"></div>
+                            <div class="rightPosition textoRutaViaje">
+                                <asp:Label ID="lblTiempoEstimado" Text="6 horas" runat="server"></asp:Label>
+                            </div>
+                            <div class="rightPosition labelRutaViaje" >Tiempo Estimado</div>
+                            <div class="divClear"></div>
+
+                        </div>
+                        <div class="divClear"></div>
+
+                    </div>
+    
+                    <div id="DivDivDatosViaje" class="leftPosition">
+                        <div class="subtitulo">Datos del viaje</div>
+                        <div>
+                            <div class="leftPosition labelDatosViaje">Fecha de viaje</div>
+                            <div class="leftPosition">
+                                <asp:Label ID="lblFechaViaje" Text="04/13/2012 15:00" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+                        <div>
+                            <div class="leftPosition labelDatosViaje">Tarifa contributiva</div>
+                            <div class="leftPosition">
+                                <asp:Label ID="Label4" Text="$65.000 Col" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+                        <div>
+                            <div class="leftPosition labelDatosViaje">Cupos</div>
+                            <div class="leftPosition">
+                                <asp:Label ID="Label5" Text="3 Sillas" runat="server"></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                        </div>
+                        <div class="subtitulo">Datos adicionales</div>
+                        <div>
+                            <div>Comentario</div>
+                            <div>
+                                <asp:Label ID="Label6"  Text="Se permite fumar, se requiere una previa llamada para confimar" runat="server"></asp:Label>
+                            </div>
+    
+                        </div>
+        
+                    </div>
+                    <div class="divClear"></div>
+                    <div id="Div2">Google Map</div>
+                </asp:View>
+            </asp:MultiView>  
+        </ContentTemplate>
+        
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnPublicar" EventName="Click"/>
+            <asp:AsyncPostBackTrigger ControlID="btnSiguientePaso" EventName="Click"/>
+        </Triggers>
+
+    </asp:UpdatePanel>
+    <asp:UpdatePanelAnimationExtender ID="UpdatePanelAnimationExtender1" runat="server" TargetControlID="CrearViajePanel">
+        <Animations>
+            <OnUpdating>                
+                <FadeOut Duration=".5" Fps="20" MinimumOpacity=".5" MaximumOpacity="1"/>
+            </OnUpdating>           
+            <OnUpdated>
+                <FadeIn Duration=".5" Fps="20" MinimumOpacity="0" MaximumOpacity="1"/>                
+            </OnUpdated>    
+        </Animations>        
+    </asp:UpdatePanelAnimationExtender>
+    
 </asp:Content>
