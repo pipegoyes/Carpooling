@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso2.aspx.cs" Inherits="Carpooling.CrearViajePaso2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link type="text/css" rel="stylesheet" href="/Styles/CrearViajePaso2.css"/>
+    <script type="text/javascript" src="/Scripts/CrearViajePaso2.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -66,6 +67,6 @@
         </div>
          
     </div>
-    <div id="botonSiguiente2"  class="rightPosition">Publicar</div>
+    <div id="botonSiguiente2" onclick="publicar()"  class="rightPosition">Publicar</div>
     
 </asp:Content>

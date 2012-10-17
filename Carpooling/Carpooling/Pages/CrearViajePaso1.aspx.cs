@@ -13,5 +13,15 @@ namespace Carpooling
         {
 
         }
+
+        protected void BtnSiguientePasoClick(object sender, EventArgs e)
+        {
+            this.MultiView1.ActiveViewIndex = 1;
+        }
+
+        protected void BtnPublicarClick(object sender, EventArgs e)
+        {
+            this.MultiView1.ActiveViewIndex = 2;
+        }
     }
 }

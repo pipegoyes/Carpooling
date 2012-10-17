@@ -55,8 +55,8 @@ namespace Carpooling
                 nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
                 nuevoUsuario.FUMADOR = chkFumador.Checked;
                 nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
-                nuevoUsuario.FOTO = imgFoto.
-                nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
+                //nuevoUsuario.FOTO = imgFoto.
+                //nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
 
             }
             catch (Exception ex)
