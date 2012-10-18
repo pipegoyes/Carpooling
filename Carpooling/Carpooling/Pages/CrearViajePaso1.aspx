@@ -4,6 +4,21 @@
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
+    <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var pbControl = null;
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_beginRequest(BeginRequestHandler);
+        prm.add_endRequest(EndRequestHandler);
+        function BeginRequestHandler(sender, args) {
+            pbControl = args.get_postBackElement();  //the control causing the postback 
+            pbControl.disabled = true;
+        }
+        function EndRequestHandler(sender, args) {
+            pbControl.disabled = false;
+            pbControl = null;
+        }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -16,7 +31,7 @@
                     <div>
                         <div class="creacionElemento">
                             <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-                            <div><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></div>
+                            <div><asp:TextBox ID="txbCiudadOrigen" runat="server"></asp:TextBox></div>
                         </div>
                         <div class="creacionElemento">
                             <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
@@ -44,7 +59,7 @@
                                     <asp:Label ID="Label1" Text="Parada 2" runat="server"></asp:Label>
                                 </div>
                                 <div class="leftPosition">
-                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txbParada2" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="btnEliminar leftPosition"></div>
                                 <div class="divClear"></div>
@@ -54,17 +69,20 @@
                                     <asp:Label ID="Label2" Text="Parada 3" runat="server"></asp:Label>
                                 </div>
                                 <div class="leftPosition">
-                                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txbParada3" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="btnEliminar leftPosition"></div>
                                 <div class="divClear"></div>
                             </div>
+                            <div id="btnConstruirMapa" onclick="GenerarRuta()">Crear Ruta</div>
             
                             <div class="titulo">Verifique su ruta</div>
                             <div id="contenedorMapa">Mapa</div>
                             <div class="divRelleno"></div>
                             <%--<div id="btnSiguientePaso"class="rightPosition">Siguiente paso</div>--%>
-                            <asp:Button ID="btnSiguientePaso" CssClass="rightPosition"  Text="Siguiente paso" OnClick="BtnSiguientePasoClick" runat="server"/>
+                            <div class="botones">
+                                <asp:Button ID="btnSiguientePaso" CssClass="rightPosition"  Text="Siguiente paso" OnClick="BtnSiguientePasoClick" runat="server"/>    
+                            </div>
                         </div>
                     </div>        
 
@@ -134,7 +152,11 @@
          
                     </div>
                     <%--<div id="btnPublicar"  class="rightPosition">Publicar</div>--%>
-                    <asp:Button ID="btnPublicar" CssClass="rightPosition" Text="Publicar" OnClick="BtnPublicarClick" runat="server"/>
+                    <div class="botones">
+                        <asp:Button ID="btnAtras2" Text="Atras" OnClick="BtnAtras" runat="server"/>
+                        <asp:Button ID="btnPublicar" CssClass="rightPosition" Text="Publicar" OnClick="BtnPublicarClick" runat="server"/>    
+                    </div>
+                    
                 </asp:View>  
                 <asp:View ID="ViewPublicacionExitosa" runat="server">
                     <div class="titulo">Publicacion exitosa</div>
@@ -218,18 +240,9 @@
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnPublicar" EventName="Click"/>
             <asp:AsyncPostBackTrigger ControlID="btnSiguientePaso" EventName="Click"/>
+            <asp:AsyncPostBackTrigger ControlID="btnAtras2" EventName="Click"/>
         </Triggers>
 
     </asp:UpdatePanel>
-    <asp:UpdatePanelAnimationExtender ID="UpdatePanelAnimationExtender1" runat="server" TargetControlID="CrearViajePanel">
-        <Animations>
-            <OnUpdating>                
-                <FadeOut Duration=".5" Fps="20" MinimumOpacity=".5" MaximumOpacity="1"/>
-            </OnUpdating>           
-            <OnUpdated>
-                <FadeIn Duration=".5" Fps="20" MinimumOpacity="0" MaximumOpacity="1"/>                
-            </OnUpdated>    
-        </Animations>        
-    </asp:UpdatePanelAnimationExtender>
     
 </asp:Content>

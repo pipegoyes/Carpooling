@@ -23,5 +23,13 @@ namespace Carpooling
         {
             this.MultiView1.ActiveViewIndex = 2;
         }
+
+        protected  void BtnAtras(object sender, EventArgs e)
+        {
+            if(this.MultiView1.ActiveViewIndex >-1)
+            {
+                this.MultiView1.ActiveViewIndex -= 1;
+            }
+        }
     }
 }
