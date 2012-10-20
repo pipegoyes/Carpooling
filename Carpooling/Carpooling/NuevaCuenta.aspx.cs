@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing.Imaging;
+using Image = System.Drawing.Image;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,9 +15,20 @@ namespace Carpooling
 {
     public partial class NuevaCuenta : System.Web.UI.Page
     {
+        private Stream m_imagenUsuarioBinary;
+        private string m_imagenUsuarioPath;
+        private string m_folderProfileImages;
+    
+  
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {                       
+            //TODO: la var m_folderProfileImages debe cargarse desde un archivo de configuracion
+            m_folderProfileImages = "ProfileImages";
 
+            //recupera la ruta del la imagen
+            var hfdImagePathValue = Request.Form["hfdImagePath"];
+            if (!String.IsNullOrEmpty(hfdImagePathValue))
+                m_imagenUsuarioPath = hfdImagePathValue;
         }
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
@@ -55,14 +70,59 @@ namespace Carpooling
                 nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
                 nuevoUsuario.FUMADOR = chkFumador.Checked;
                 nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
+<<<<<<< .mine
+
+
+                //nuevoUsuario.FOTO = imgFoto.
+                nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
+=======
                 //nuevoUsuario.FOTO = imgFoto.
                 //nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
+>>>>>>> .r21
 
             }
             catch (Exception ex)
-            {
-                    
+            {                    
                 throw;
+            }
+        }
+
+        protected void AsyncFileUpload1_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
+        {
+            try
+            {
+                m_imagenUsuarioBinary = AsyncFileUpload1.FileContent;
+
+                if (m_imagenUsuarioBinary == null) return;
+
+                // write the image using a guid name instead to avoid conflicts ... 
+                var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
+                var destFolder = Server.MapPath(AppRelativeTemplateSourceDirectory + "/" + m_folderProfileImages + "/");
+                var imageUpload = Image.FromStream(m_imagenUsuarioBinary);
+                
+                // all images end up as jpg  
+                imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
+
+                //arma la ruta relativa de la imagen
+                m_imagenUsuarioPath = "/" + m_folderProfileImages + "/" + uniqueName;
+
+                //registra los scripts en el cliente para cambiar el valor de los controles              
+                ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "hfdImagePath",
+                    "top.document.getElementById('hfdImagePath').value='" + m_imagenUsuarioPath + "'; " +
+                    "top.document.getElementById('imgFotoModal').src='" + m_imagenUsuarioPath + "';" ,true);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        protected void View3_Activate(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(m_imagenUsuarioPath))
+            {
+                ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "imgFoto",
+                    "top.document.getElementById('imgFoto').src='" + m_imagenUsuarioPath + "';", true);
             }
         }
     }

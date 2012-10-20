@@ -1,4 +1,8 @@
-﻿.datosContenedor {
+﻿.divNone {
+    display: none;
+}
+
+.datosContenedor {
     background-color: #F8FBFA;
     border: thin solid #CAE7C2;
     -moz-border-radius: 5px;
@@ -36,18 +40,6 @@
     width: 100%;
 }
 
-.valorCampo2 {
-    display: inline-block;
-    width: 100%;
-}
-
-.textoCampo {
-    font-weight: bold;
-}
-
-.valorCampo {
-}
-
     .valorCampo .nombres input[type="text"] {
         margin: 0;
         padding: 0;
@@ -58,6 +50,16 @@
     .valorCampo input[type="text"] {
         width: 100%;
     }
+
+.textoCampo {
+    font-weight: bold;
+}
+
+.valorCampo2 {
+    display: inline-block;
+    width: 100%;
+}
+
 
 .botones {
     text-align: right;
@@ -90,18 +92,22 @@
 .marcoImagen {
     border: 1px solid #EAE8E8;
     display: inline-block;
-    height: 154px;
     margin: 0;
+    margin-bottom: 5px;
     padding: 0;
-    width: 154px;
 }
 
 .imagenFoto {
     border: 2px solid white;
     height: 150px;
+    horiz-align: center;
+    margin: 0;
     padding: 0;
+    vertical-align: middle;
     width: 150px;
 }
+
+
 
 
 .modalBackground {
@@ -113,9 +119,13 @@
 
 .updateProgress {
     background-color: #FFFFFF;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
     border-style: solid;
     border-width: 1px;
     height: 200px;
-    position: absolute;
+    padding: 20px;
     width: 400px;
 }
+
