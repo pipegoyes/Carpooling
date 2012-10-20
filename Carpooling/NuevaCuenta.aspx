@@ -1,12 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NuevaCuenta.aspx.cs" Inherits="Carpooling.NuevaCuenta" %>
-
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
 
 <%-- Desactiva el control que hace el ajax postback --%>    
-<script type="text/javascript">
+<%--<script type="text/javascript">
     var pbControl = null;
     var prm = Sys.WebForms.PageRequestManager.getInstance();
     prm.add_beginRequest(BeginRequestHandler);
@@ -19,16 +18,64 @@
         pbControl.disabled = false;
         pbControl = null;
     }
-</script>
+</script>--%>
+    
+<%--    //funcion que se ejecuta al cancelar el cuadro modal de cargar imagen
+    function onCancel_ImageUserModalPopup() {
+        var modalCambiarFoto = '<%= lnkCambiarFoto_ModalPopupExtender.ClientID %>';
+        var pnl = '<%= pnlModalCargarImagen.ClientID %>';
+        
+        window.$find(pnl).css("display","none");
+        window.$find(modalCambiarFoto).hide();
+    }--%>
+
+<script type="text/javascript">
+    //
+    var pathImagen;
+    function lnkCambiarFoto_OnClick() {
+        pathImagen = $("#hfdImagePath").attr("value");
+        $("#imgFotoModal").attr("src", $("#imgFoto").attr("src"));
+        $("#ctl00_MainContent_AsyncFileUpload1_ctl02").attr("value", null);
+    }
+
+    //funcion que se ejecuta al aceptar el cuadro modal de cargar imagen
+    function onOk_ImageUserModalPopup() {           
+        var imageUserPath = $("#hfdImagePath").attr("value");
+        if (imageUserPath != "") {
+            $("#imgFoto").attr("src", imageUserPath);
+        }
+    }
+    
+    //funcion que se ejecuta al cancelar el cuadro modal de cargar imagen
+    function onCancel_ImageUserModalPopup() {
+        $("#hfdImagePath").attr("value", pathImagen);
+        $("#imgFotoModal").attr("src", $("#imgFoto").attr("src"));
+    }
+    
+    //funcion que se ejecuta con el click en el boton quitar imagen del popup modal de cambiar imagen
+    function BtnQuitarImagen_OnClick() {
+        $("#imgFotoModal").attr("src", "/Resources/imgFotoPerfilHombre.jpg");
+        $("#hfdImagePath").attr("value", "/Resources/imgFotoPerfilHombre.jpg");
+    }
+    
+    //muestra la animacion de cuando se carga la foto del perfil
+    function onClientUploadStared(sender, e) {
+        $("#imgFotoModal").attr("src", "/Resources/ajax_loader.gif");
+    }
+</script>    
+      
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      
+    
+    <input id="hfdImagePath" type="hidden" name="hfdImagePath" value="/Resources/imgFotoPerfilHombre.jpg"/>      
+
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>        
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            
-            <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+               
+            <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="2">
                 <asp:View ID="View1" runat="server">
                     <div id="datosPersonales" class="datosContenedor">
                         <div class="titulo">1. Datos basicos</div>
@@ -37,11 +84,9 @@
                                 <div class="textoCampo">Nombres:</div>
                                 <div>
                                     <asp:TextBox ID="txtNombres" runat="server" CssClass="valorCampo2"></asp:TextBox>
-                                    <asp:TextBoxWatermarkExtender ID="txtNombres_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtNombres" WatermarkText="Nombres">
-                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:TextBoxWatermarkExtender ID="txtNombres_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtNombres" WatermarkText="Nombres"></asp:TextBoxWatermarkExtender>
                                     <asp:TextBox ID="txtApellidos" runat="server" CssClass="valorCampo2"></asp:TextBox>
-                                    <asp:TextBoxWatermarkExtender ID="txtApellidos_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtApellidos" WatermarkText="Apellidos">
-                                    </asp:TextBoxWatermarkExtender>
+                                    <asp:TextBoxWatermarkExtender ID="txtApellidos_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtApellidos" WatermarkText="Apellidos"></asp:TextBoxWatermarkExtender>
                                 </div>
                             </div>
                             <div class="campoDato">
@@ -95,8 +140,7 @@
                                 <div class="textoCampo">Fecha de nacimiento:</div>
                                 <div class="valorCampo">
                                     <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
-                                    <asp:CalendarExtender ID="txtFechaNacimiento_CalendarExtender" runat="server" Enabled="True" TargetControlID="txtFechaNacimiento">
-                                    </asp:CalendarExtender>
+                                    <asp:CalendarExtender ID="txtFechaNacimiento_CalendarExtender" runat="server" Enabled="True" TargetControlID="txtFechaNacimiento"></asp:CalendarExtender>
                                 </div>
                             </div>
                             <div class="campoDato">
@@ -145,16 +189,18 @@
                         </div>
                     </div>                
                 </asp:View>
-                <asp:View ID="View3" runat="server">
+                <asp:View ID="View3" runat="server" OnActivate="View3_Activate">
                     <div id="datosAdicionales" class=" datosContenedor">
                         <div class="titulo">3. Datos Adicionales</div>
                         <div class="contenido">
                             <div class="campoDato">
                                 <div class="textoCampo">Foto de perfil:</div>
                                 <div class="marcoImagen">
-                                    <asp:Image ID="imgFoto" runat="server" CssClass="imagenFoto" ImageUrl="Resources/imgFotoPerfilHombre.png" />
+                                    <img id="imgFoto" class="imagenFoto" src="/Resources/imgFotoPerfilHombre.jpg" alt=""/>
                                 </div>
-                                <asp:AsyncFileUpload ID="imgFotoUpload" runat="server"  />
+                                <div class="divClear">
+                                    <asp:LinkButton ID="lnkCambiarFoto" runat="server" OnClientClick="lnkCambiarFoto_OnClick()">Cambiar imagen</asp:LinkButton>
+                                </div>                               
                             </div>
                             <div class="campoDato">
                                 <div class="textoCampo">¿Algo mas que quieras que tus compañeros de viaje conozcan?</div>
@@ -165,18 +211,45 @@
                         </div>
                         <div class="botones">
                             <asp:Button ID="btnAtras2" runat="server" Text="Atras" OnClick="btnAtras2_Click"/>                
-                            <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click"/>                
-<%--                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                <ContentTemplate>
-                                    
-                                    </ContentTemplate>
-                            </asp:UpdatePanel>--%>
-                            
+                            <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click"/>                                            
                         </div>
-                    </div>                
+                    </div>       
+
+                    
+                    <asp:Panel ID="pnlModalCargarImagen" runat="server" CssClass="updateProgress" Style="display: none;">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <img id="imgFotoModal" class="imagenFoto" src="/Resources/imgFotoPerfilHombre.jpg" alt=""/>
+                                
+                                <asp:Image ID="Image1" runat="server" style="display: none;" ImageUrl="/Resources/uploading.gif"/>
+                                <asp:AsyncFileUpload ID="AsyncFileUpload1"  runat="server" onpropertychange="add()" style="display: block;" 
+                                    ThrobberID="Image1" OnUploadedComplete="AsyncFileUpload1_UploadedComplete" 
+                                    OnClientUploadStarted="onClientUploadStared"/>
+                                   
+                                <input id="btnAceptarImagen" type="button" value="Aceptar"/>                         
+                                <input id="BtnQuitarImagen" type="button" value="Quitar" onclick="BtnQuitarImagen_OnClick()"/>
+                                <input id="btnCancelarImagen" type="button" value="Cancelar"/>
+                                <input id="BtnBuscarImagen" type="button" value="Buscar..." onclick="ctl00_MainContent_AsyncFileUpload1_ctl02.click()" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </asp:Panel>                   
+                    
+                    <asp:ModalPopupExtender 
+                        ID="lnkCambiarFoto_ModalPopupExtender" 
+                        DropShadow="True"
+                        OkControlID="btnAceptarImagen" 
+                        CancelControlID="btnCancelarImagen"
+                        OnOkScript="onOk_ImageUserModalPopup()"
+                        OnCancelScript="onCancel_ImageUserModalPopup()"
+                        PopupControlID="pnlModalCargarImagen"
+                        TargetControlID="lnkCambiarFoto"
+                        BackgroundCssClass="modalBackground" 
+                        PopupDragHandleControlID="btnCancelarImagen"
+                        runat="server" >                
+                    </asp:ModalPopupExtender>                    
+                    
                 </asp:View>
             </asp:MultiView>
-
 
         </ContentTemplate>
         
@@ -185,20 +258,29 @@
             <asp:AsyncPostBackTrigger ControlID="btnSiguiente1" EventName="Click"  />
             <asp:AsyncPostBackTrigger ControlID="btnAtras1" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="btnAtras2" EventName="Click" />
-        </Triggers>
-
+        </Triggers>      
+               
     </asp:UpdatePanel>
     
-    <asp:UpdatePanelAnimationExtender ID="UpdatePanelAnimationExtender1" runat="server" TargetControlID="UpdatePanel1">
+
+
+
+    
+    
+    
+    
+
+
+<%--    <asp:UpdatePanelAnimationExtender ID="UpdatePanelAnimationExtender1" runat="server" TargetControlID="UpdatePanel1">
         <Animations>
-            <OnUpdating>                
+            <OnUpdating>
                 <FadeOut Duration=".5" Fps="20" MinimumOpacity=".5" MaximumOpacity="1"/>
-            </OnUpdating>           
+            </OnUpdating>
             <OnUpdated>
                 <FadeIn Duration=".5" Fps="20" MinimumOpacity="0" MaximumOpacity="1"/>                
             </OnUpdated>    
         </Animations>        
-    </asp:UpdatePanelAnimationExtender>
+    </asp:UpdatePanelAnimationExtender>--%>
 
     
     
