@@ -46,9 +46,6 @@
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="Gaia.WebWidgets, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="Gaia.WebWidgets.CommunityExtensions, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="Gaia.WebWidgets.ComponentModel.3.7.1734.44, Version=3.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
@@ -57,6 +54,9 @@
     <Reference Include="Gaia.WebWidgets.Extensions, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="GaiaPackage, Version=1.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="GaiaPackage.NET4, Version=1.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
@@ -98,6 +98,7 @@
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
     <Content Include="Resources\deleteIcon.png" />
+    <Content Include="Resources\heroAccent.png" />
     <Content Include="Resources\imgFotoPerfilHombre.jpg" />
     <Content Include="Resources\imgFotoPerfilMujer.jpg" />
     <Content Include="Resources\uploading.gif" />
