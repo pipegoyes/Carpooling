@@ -2,9 +2,13 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
     <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
     <script type="text/javascript">
         var pbControl = null;
         var prm = Sys.WebForms.PageRequestManager.getInstance();
@@ -18,10 +22,11 @@
             pbControl.disabled = false;
             pbControl = null;
         }
-</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
+    <ajaxToolkit:ToolkitScriptManager runat="server"/>
     <asp:UpdatePanel ID="CrearViajePanel" runat="server">
         <ContentTemplate>
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
@@ -29,21 +34,23 @@
                     <div class="titulo">Paso 1. Crear ruta de viaje</div>
                     <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
                     <div>
-                        <div class="creacionElemento">
-                            <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-                            <div><asp:TextBox ID="txbCiudadOrigen" runat="server"></asp:TextBox></div>
+                        <div>
+                            <div class="leftPosition centerDivs elemento">
+                                <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
+                                <div><asp:TextBox ID="txbCiudadOrigen" runat="server"></asp:TextBox></div>
+                            </div>
+                            <div class="leftPosition centerDivs elemento">
+                                <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
+                                <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
+                            </div>
+                            <div class="divClear"></div>
                         </div>
-                        <div class="creacionElemento">
-                            <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-                            <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
-                        </div>
-                        <div class="creacionElemento">
-                            <asp:ImageButton ID="ImageButton1" ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>
-                        </div>
-                        <div class="divClear"></div>
+                        <div class="leftPosition centerDivs elemento">Agregar
+                                <%--<asp:ImageButton ID="ImageButton1" ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>--%>
+                            </div>
                         <div class="divMediaLinea"></div>
 
-                        <div id="contenedorParadas">
+                        <%--<div id="contenedorParadas">
                             <div class="paradaElemento">
                                 <div class="labelParadas leftPosition">
                                     <asp:Label ID="lblParada1" Text="Parada 1" runat="server"></asp:Label>
@@ -74,15 +81,17 @@
                                 <div class="btnEliminar leftPosition"></div>
                                 <div class="divClear"></div>
                             </div>
-                            <div id="btnConstruirMapa" onclick="GenerarRuta()">Crear Ruta</div>
+                            
             
                             <div class="titulo">Verifique su ruta</div>
-                            <div id="contenedorMapa">Mapa</div>
+                            
                             <div class="divRelleno"></div>
-                            <%--<div id="btnSiguientePaso"class="rightPosition">Siguiente paso</div>--%>
-                            <div class="botones">
+                            
+                        </div>--%>
+                        <div id="btnConstruirMapa" onclick="GenerarRuta()">Crear Ruta</div>
+                        <div id="contenedorMapa">Mapa</div>
+                        <div class="botones">
                                 <asp:Button ID="btnSiguientePaso" CssClass="rightPosition"  Text="Siguiente paso" OnClick="BtnSiguientePasoClick" runat="server"/>    
-                            </div>
                         </div>
                     </div>        
 
