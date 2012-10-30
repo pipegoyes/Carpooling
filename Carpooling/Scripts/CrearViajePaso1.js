@@ -7,6 +7,25 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 //var map;
 
+function CrearParada() {
+    var divContenedor = $("[id*=contenedorParadas]").first();
+    var i = document.getElementById("contenedorParadas").childNodes.length;
+    var paradaNombre = "txbParada" + i;
+    $("<div />", { "class": "parada", id: "divParada" + i })
+        .append($("<span />", { "class":"labelParada",ID: "label" + i }).text ="Parada"+i)
+        .append($("<input />", { type: "text", id: paradaNombre }))
+    //TODO pendiente por el boton de eliminar parada
+//        .append($("<div />", { "class": "btnEliminar", id: "btnEliminar" + i }))
+        .appendTo("#contenedorParadas");
+    autocompletar(paradaNombre);
+}
+
+function autocompletar(paradaNombre) {
+    var input = document.getElementById(paradaNombre);
+    var autocomplete = new google.maps.places.Autocomplete(input);
+//    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+//    });
+}
 
 
 function initialize() {
@@ -20,7 +39,6 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("contenedorMapa"),mapOptions);
-//    var input = $("[id*=txbCiudadOrigen]");
     
     var input = document.getElementById("MainContent_txbCiudadOrigen");
     var autocomplete = new google.maps.places.Autocomplete(input);
@@ -37,7 +55,6 @@ function initialize() {
 
     autocompleteCiudadDestino.bindTo('bounds', map);
     google.maps.event.addListener(autocompleteCiudadDestino, 'place_changed', function () {
-        //        alert("funciona");
         GenerarRuta();
     });
 
@@ -106,19 +123,25 @@ function GenerarRuta() {
     var ciudadOrigen = document.getElementById("MainContent_txbCiudadOrigen").value;
     var ciudadDestino = document.getElementById("MainContent_txbCiudadDestino").value;
     var directionsService = new google.maps.DirectionsService();
-    var parada1 = $('[id*=txbParada1]').val();  
-    var parada2 = $('[id*=txbParada2]').val();  
+
+    // carpool vias
+    var rideWaypointsString = '';
+    var rideWaypoints = new Array();
+    $("[id*=txbParada]").each(function () {
+        if ($(this).val() != '') {
+            rideWaypoints.push({
+                location: $(this).val(),
+                stopover: true
+            });
+            rideWaypointsString += $(this).val() + ',';
+        }
+    });
+
+
     var directionRequest = {
         origin: ciudadOrigen,
         destination: ciudadDestino,
-//        waypoints: [
-//            {
-//                location: parada1,
-//                stopover: false
-//            }, {
-//                location: parada2,
-//                stopover:false
-//            }],
+        waypoints: rideWaypoints,
         provideRouteAlternatives: false,
         travelMode: google.maps.TravelMode.DRIVING
     };
