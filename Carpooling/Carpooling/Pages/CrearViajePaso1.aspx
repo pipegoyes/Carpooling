@@ -45,10 +45,12 @@
                             </div>
                             <div class="divClear"></div>
                         </div>
-                        <div class="leftPosition centerDivs elemento">Agregar
-                                <%--<asp:ImageButton ID="ImageButton1" ImageUrl="../Resources/btnAgregarParadas.png" runat="server"/>--%>
-                            </div>
+                        <div class="leftPosition centerDivs elemento" onclick="CrearParada()">Agregar parada</div>
                         <div class="divMediaLinea"></div>
+                        <div class="divClear"></div>
+                        <div id="contenedorParadas">
+                            
+                        </div>
 
                         <%--<div id="contenedorParadas">
                             <div class="paradaElemento">

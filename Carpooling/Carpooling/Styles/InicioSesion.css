@@ -10,22 +10,21 @@
 	float: left;
 	width: 377px;
 }
-.labelCampo, .textBoxCampo{
+.parada{
+	background-color: red;
+}
+.labelParada
+{
+	background-color: lime;
+}
 
-	float: left;
-	padding: 5px;
+.textBoxCampo{
+	width: 365px;
 }
 .labelCampo{
-	text-align: right;
-	width: 118px;
+	font-size: medium;
 }
 
-.btnIniciarSesion{
-	margin-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 122px;
-}
 #textoInicioSesion{
 	padding-bottom: 15px;
 }
