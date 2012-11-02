@@ -22,7 +22,8 @@ namespace Carpooling
         protected void BtnPublicarClick(object sender, EventArgs e)
         {
             //this.MultiView1.ActiveViewIndex = 2;
-            Server.Transfer("PublicacionViajeExitosa.aspx");
+            //Server.Transfer("PublicacionViajeExitosa.aspx");
+            Response.Redirect("PublicacionViajeExitosa.aspx");
         }
 
         protected  void BtnAtras(object sender, EventArgs e)
