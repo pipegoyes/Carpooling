@@ -21,6 +21,38 @@
     });
 });
 
+function publicarViaje() {
+//    var jsonEnvio = directionRequest;
+//    var jsonEnvio = JSON.stringify({ rutaViaje: "Miruta" });
+    $.ajax({
+        type: "POST",
+        url: "CrearViaje1.aspx/PublicarViajeAsynch",
+//        data: JSON.stringify(jsonEnvio),
+//        contentType: "application/json; chartset:utf-8",
+//        dataType: "json",
+//        beforeSend: function () {
+//            //            createDikv("divContMensaje", nombreDiv, null, "divCargando");
+//        },
+//        complete: function () {
+////            alert("Publicacion Exitosa");
+//        },
+        success:
+                function (result) {
+                    if (result.d == true) {
+                        alert("Publicacion Exitosa");
+//                        window.location = "../Paginas/Preconfirmar.aspx";
+                    } else {
+                        alert("Publicacion NO Exitosa");
+//                        window.location = "../Paginas/IngresarPedido.aspx";
+                        //                        jAlert("No puede preconfirmar un Pedido sin produtos", "Error Preconfirmando", null);
+                    }
+                },
+        error: function () { jAlert("Error publicando el viaje", "Error de Publicacion", null); },
+        async: false
+    });
+    alert("Request was sent");
+}
+
 function llenarInfoPaso2() {
     $("<div />", {id: "divCiudadOrigenLbl"})
         .append($("<span />", { "class": "label"}).text = "Ciudad origen: ")
@@ -180,7 +212,7 @@ function GenerarRuta() {
     });
 
 
-    var directionRequest = {
+    directionRequest = {
         origin: ciudadOrigen,
         destination: ciudadDestino,
         waypoints: rideWaypoints,
@@ -197,13 +229,3 @@ function GenerarRuta() {
     });
 }
 
-
-
-function BeginRequestHandler(sender, args) {
-    pbControl = args.get_postBackElement();  //the control causing the postback 
-    pbControl.disabled = true;
-}
-function EndRequestHandler(sender, args) {
-    pbControl.disabled = false;
-    pbControl = null;
-}

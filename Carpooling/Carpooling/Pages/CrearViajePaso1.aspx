@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
-    <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
+    <%--<link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />--%>
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 
@@ -37,7 +37,7 @@
 
                 <div id="btnConstruirMapa" onclick="GenerarRuta()">Crear Ruta</div>
                 <div id="contenedorMapa">Mapa</div>
-                <div id="btnSiguientePaso" class="botones" onclick="">Boton siguiente</div>
+                <div id="btnSiguientePaso" class="boton rightPosition" onclick="">Boton siguiente</div>
             </div>
         </div>
                         
@@ -52,22 +52,8 @@
                         <div class="subtitulo">Ruta de viaje</div>
                     </div>
                     <div id="divInfoPaso2">
-                        
+                        <%--aqui va la informacion del primer paso--%>
                     </div>
-                    <%--<div class="creacionElemento2 centerDivs">
-                        <div class=" lblCreacion2 leftPosition centerDivs">Desde</div>
-                        <div class=" txbCreacion2 leftPosition centerDivs">
-                            <asp:Label ID="lblDesde" Text="Bogota" runat="server"></asp:Label>
-                        </div>
-                        <div class="divClear"></div>
-                    </div>
-                    <div class="creacionElemento2 centerDivs">
-                        <div class=" lblCreacion2 leftPosition centerDivs">Hacia</div>
-                        <div class=" txbCreacion2 leftPosition centerDivs">
-                            <asp:Label ID="txbHacia" Text="Cali" runat="server"></asp:Label>    
-                        </div>
-                        <div class="divClear"></div>
-                    </div>--%>
                 </div>
     
     
@@ -108,11 +94,8 @@
                     </div>
          
                 </div>
-                <%--<div id="btnPublicar"  class="rightPosition">Publicar</div>--%>
-                <div id="btnAtras" class="botones">Atras</div>
-                <div id="btnPublicar" class="botones">
-                    <asp:Button ID="Button1" CssClass="rightPosition" Text="Publicar" OnClick="BtnPublicarClick" runat="server"/>    
-                </div>
+                <div id="btnAtras" class="boton leftPosition">Atras</div>
+                <div id="btnPublicar" class="boton rightPosition" onclick="publicarViaje()" >Publicar</div>
               </div>      
     </ContentTemplate>
 </asp:Content>

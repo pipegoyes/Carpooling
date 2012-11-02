@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministracionUsuario.cs" />
+    <Compile Include="BussinessObjects\DirectionRequest.cs" />
+    <Compile Include="BussinessObjects\Parada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

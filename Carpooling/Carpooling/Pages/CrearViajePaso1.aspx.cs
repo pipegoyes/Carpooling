@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Web.Services;
+using BusinessLayer.BussinessObjects;
 namespace Carpooling
 {
     public partial class CrearViajePaso1 : System.Web.UI.Page
@@ -12,6 +13,13 @@ namespace Carpooling
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        [WebMethod]
+        public static bool PublicarViajeAsynch()
+        {
+            return true;
         }
 
         protected void BtnSiguientePasoClick(object sender, EventArgs e)
