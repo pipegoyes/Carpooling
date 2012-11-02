@@ -2,29 +2,47 @@
     //Cargar el mapa cuando se hayan cargado todos los componentes de la pagina
     initialize();
     $("[id*=btnSiguientePaso]").click(function () {
-        $("[id*=divPaso1]").slideToggle(1000, function () {
-            //Complete
-        });
-        $("[id*=divPaso2]").fadeIn("slow", null);
-
-    });
-
-    $("[id*=btnPublicar]").click(function () {
-        $("[id*=divPaso2]").slideToggle(1000, function () {
-            //Complete
-        });
-        $("[id*=divPublicacionExitosa]").fadeIn("slow", null);
-
+        if ($("[id*=txbCiudadOrigen]").val() == '') {
+            alert("Debe ingresar una ciudad de origen!");
+        } else if ($("[id*=txbCiudadDestino]").val() == '') {
+            alert("Debe ingresar una ciudad de destino!");
+        } else {
+            $("[id*=divInfoPaso2]").empty();
+            llenarInfoPaso2();
+            $("[id*=divPaso1]").slideToggle(1000, null);
+            $("[id*=divPaso2]").fadeIn("slow", null);
+        }
     });
 
     $("[id*=btnAtras]").click(function () {
-        $("[id*=divPaso1]").slideToggle(1000, function () {
-            //Complete
-        });
+        $("[id*=divPaso1]").slideToggle(1000, null);
         $("[id*=divPaso2]").fadeOut("slow", null);
 
     });
 });
+
+function llenarInfoPaso2() {
+    $("<div />", {id: "divCiudadOrigenLbl"})
+        .append($("<span />", { "class": "label"}).text = "Ciudad origen: ")
+        .append($("<span />", { id: "lblCiudadOrigen" }).text = $("[id*=txbCiudadOrigen]").val())
+        .appendTo("#divInfoPaso2");
+    $("[id*=txbParada]").each(function () {
+        if ($(this).val() != '') {
+            $("<div />", { })
+                .append($("<span />", { }).text = "Parada: ")
+                .append($("<span />", { }).text = $(this).val())
+                .appendTo("#divInfoPaso2");
+        }
+
+    });
+
+
+
+    $("<div />", { id: "divCiudadDestinoLbl"})
+        .append($("<span />", { "class": "label" }).text = "Ciudad destino: ")
+        .append($("<span />", { id: "lblCiudadDestino" }).text = $("[id*=txbCiudadDestino]").val())
+        .appendTo("#divInfoPaso2");
+}
 
 var directionsDisplay;
 var map;
