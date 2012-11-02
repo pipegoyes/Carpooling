@@ -1,11 +1,35 @@
 ﻿$(document).ready(function () {
     //Cargar el mapa cuando se hayan cargado todos los componentes de la pagina
     initialize();
+    $("[id*=btnSiguientePaso]").click(function () {
+        $("[id*=divPaso1]").slideToggle(1000, function () {
+            //Complete
+        });
+        $("[id*=divPaso2]").fadeIn("slow", null);
+
+    });
+
+    $("[id*=btnPublicar]").click(function () {
+        $("[id*=divPaso2]").slideToggle(1000, function () {
+            //Complete
+        });
+        $("[id*=divPublicacionExitosa]").fadeIn("slow", null);
+
+    });
+
+    $("[id*=btnAtras]").click(function () {
+        $("[id*=divPaso1]").slideToggle(1000, function () {
+            //Complete
+        });
+        $("[id*=divPaso2]").fadeOut("slow", null);
+
+    });
 });
 
 var directionsDisplay;
+var map;
 var directionsService = new google.maps.DirectionsService();
-//var map;
+var directionRequest;
 
 function CrearParada() {
     var divContenedor = $("[id*=contenedorParadas]").first();
@@ -38,7 +62,7 @@ function initialize() {
         zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("contenedorMapa"),mapOptions);
+    map = new google.maps.Map(document.getElementById("contenedorMapa"), mapOptions);
     
     var input = document.getElementById("MainContent_txbCiudadOrigen");
     var autocomplete = new google.maps.places.Autocomplete(input);
@@ -155,25 +179,13 @@ function GenerarRuta() {
     });
 }
 
-//function autocompleteCity() {
-//    var texto = $("[id*=txbPrueba]").val();
-//    var key = "AIzaSyC - _VdOgJeuq0exLR38Un_LoM5DilB_1_0";
-//    
-//    if(texto.length>3) {
-//        var url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + texto + "&types=geocode&language=fr&sensor=false&key=" + key;
-//        $.ajax({
-//            type: "GET",
-//            url: url,
-//            contentType: "application/json; charset=utf-8",
-//            dataType: "json",
-//            async: false,
-//            success: function (msg) {
-//                alert("Successful");
-//            },
-//            error: function (msg) {
-//                alert("Failed");
-//            }
-//        });    
-//    }
-//}
 
+
+function BeginRequestHandler(sender, args) {
+    pbControl = args.get_postBackElement();  //the control causing the postback 
+    pbControl.disabled = true;
+}
+function EndRequestHandler(sender, args) {
+    pbControl.disabled = false;
+    pbControl = null;
+}
