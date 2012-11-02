@@ -5,3 +5,17 @@
 .elemento{
 	width: 50%;
 }
+.btnEliminar{
+	background-image: url(../Resources/deleteIcon.png);
+	width: 21px;
+	height: 20px;
+}
+#divPaso1{
+	display: block;
+}
+#divPaso2{
+	display: none;
+}
+#divPublicacionExitosa{
+	display: none;
+}

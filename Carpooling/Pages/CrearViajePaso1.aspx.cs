@@ -16,20 +16,21 @@ namespace Carpooling
 
         protected void BtnSiguientePasoClick(object sender, EventArgs e)
         {
-            this.MultiView1.ActiveViewIndex = 1;
+            //this.MultiView1.ActiveViewIndex = 1;
         }
 
         protected void BtnPublicarClick(object sender, EventArgs e)
         {
-            this.MultiView1.ActiveViewIndex = 2;
+            //this.MultiView1.ActiveViewIndex = 2;
+            Server.Transfer("PublicacionViajeExitosa.aspx");
         }
 
         protected  void BtnAtras(object sender, EventArgs e)
         {
-            if(this.MultiView1.ActiveViewIndex >-1)
-            {
-                this.MultiView1.ActiveViewIndex -= 1;
-            }
+            //if(this.MultiView1.ActiveViewIndex >-1)
+            //{
+            //    this.MultiView1.ActiveViewIndex -= 1;
+            //}
         }
 
 
