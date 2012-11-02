@@ -1,1 +1,26 @@
-﻿.creacionElemento2{	width: 350px;	padding-bottom: 10px;}.contenedorElementos{	border: thin dashed green;}.lblCreacion2{	width: 165px;	padding-right: 10px;	text-align: right;}.txbCreacion2{	width: 175px;}#contenedorRutaViaje{	border: 1px solid transparent;}#botonSiguiente2{	font-family: arial,sans-serif;	background-color: #549A2B;	background-image: -moz-linear-gradient(center top , #6CC437, #549A2B);	border: 1px solid transparent;	color: #FFFFFF;	text-shadow: 0 1px rgba(0, 0, 0, 0.1);	text-transform: uppercase;	border-radius: 2px 2px 2px 2px;	font-size: 11px;	font-weight: bold;	line-height: 27px;	padding: 0 8px;	text-align: center;	margin-bottom: 20px;	margin-top: 20px;	width: 120px;}
+﻿.creacionElemento{
+
+	margin-left: auto;
+	margin-right: auto;
+	width: 260px;
+	padding: 10px;
+}
+.labelElemento{
+	width: 105px;
+	text-align: right;
+	padding-right: 10px;
+}
+.textElemento{
+}
+.informacionBasica{
+	border: thin dashed green;
+}
+.subtitulo{
+	color: green;
+	margin-left: auto;
+	margin-right: auto;
+	width: 140px;
+	border-bottom: thin solid green;
+	text-align: center;
+	line-height: 27px;
+}

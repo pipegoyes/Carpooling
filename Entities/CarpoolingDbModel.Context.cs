@@ -26,5 +26,10 @@ namespace Entities
         }
     
         public DbSet<USUARIO> USUARIO { get; set; }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }
