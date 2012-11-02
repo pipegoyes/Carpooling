@@ -51,7 +51,10 @@
                     <div class="creacionElemento2 centerDivs">
                         <div class="subtitulo">Ruta de viaje</div>
                     </div>
-                    <div class="creacionElemento2 centerDivs">
+                    <div id="divInfoPaso2">
+                        
+                    </div>
+                    <%--<div class="creacionElemento2 centerDivs">
                         <div class=" lblCreacion2 leftPosition centerDivs">Desde</div>
                         <div class=" txbCreacion2 leftPosition centerDivs">
                             <asp:Label ID="lblDesde" Text="Bogota" runat="server"></asp:Label>
@@ -64,7 +67,7 @@
                             <asp:Label ID="txbHacia" Text="Cali" runat="server"></asp:Label>    
                         </div>
                         <div class="divClear"></div>
-                    </div>
+                    </div>--%>
                 </div>
     
     
