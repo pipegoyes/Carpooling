@@ -99,6 +99,7 @@
     <Content Include="Perfil3.aspx" />
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
+    <Content Include="Resources\Calendar_scheduleHS.png" />
     <Content Include="Resources\deleteIcon.png" />
     <Content Include="Resources\heroAccent.png" />
     <Content Include="Resources\imgFotoPerfilHombre.jpg" />
