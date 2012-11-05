@@ -7,10 +7,6 @@ namespace BusinessLayer.BussinessObjects
 {
     public class Parada
     {
-        //rideWaypoints.push({
-        //        location: $(this).val(),
-        //        stopover: true
-        //    });
         public string Location { get; set; }
         public bool Stopover { get; set; }
 

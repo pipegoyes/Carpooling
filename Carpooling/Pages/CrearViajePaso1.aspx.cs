@@ -21,6 +21,5 @@ namespace Carpooling
             return "Origen del viaje - " + request.Origin;
         }
 
-
     }
 }

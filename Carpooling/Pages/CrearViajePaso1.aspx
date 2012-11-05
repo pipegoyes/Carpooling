@@ -62,7 +62,7 @@
                 <div class="labelInformacionBasica leftPosition">Rol*</div>
                 <div class="txbInformacionBasica leftPosition">
                     <asp:TextBox ID="txbRol" runat="server"></asp:TextBox>   
-                    <asp:RequiredFieldValidator ID="validadorRol" ControlToValidate="txbRol" Display="None" ErrorMessage="El rol es un dato requerido" runat="server"/> 
+                    <asp:RequiredFieldValidator ID="validadorRol" ControlToValidate="txbRol" Display="None" ErrorMessage="<b>Valor requerido</b><br>Viajero o Pasajero</br> " runat="server"/> 
                     <ajaxToolkit:ValidatorCalloutExtender 
                     runat="Server"
                     ID="ajaxValidatorRol"
@@ -95,7 +95,8 @@
             <div>
                 <div class="labelInformacionBasica leftPosition ">Fecha de partida*</div>
                 <div class="txbInformacionBasica leftPosition ">
-                    <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>    
+                    <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>   
+                    <ajaxToolkit:CalendarExtender runat="server" TargetControlID="txbFechaPartida" PopupPosition="Right"/> 
                 </div>
                  <asp:RequiredFieldValidator ID="validadorFechaPartida" ControlToValidate="txbFechaPartida" Display="None" ErrorMessage="La Fecha de partida es un dato requerido" runat="server"/> 
                     <ajaxToolkit:ValidatorCalloutExtender 
@@ -129,7 +130,7 @@
 
 
             <div id="btnAtras" class="boton leftPosition">Atras</div>
-            <asp:Button ID="btnPublicar" CssClass="rightPosition" OnClientClick="publicarViaje()" Text="Publicar" runat="server"/>
+            <asp:Button ID="btnPublicar" CssClass="rightPosition" OnClientClick="publicarViaje();" Text="Publicar" runat="server"/>
             <div class="divClear"></div>
             <%--<div id="btnPublicar" class="boton rightPosition" onclick="publicarViaje()" >Publicar</div>--%>
         </div>      

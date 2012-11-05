@@ -47,12 +47,14 @@ function publicarViaje() {
         complete: function () {
             //            alert("Publicacion Exitosa");
         },
-        error: function () { alert("Error publicando el viaje", "Error de Publicacion", null); },
+        error: function () { alert("Error publicando el viaje", "Error de Publicacion", null);
+            return false; },
         async: false,
         success: function (result) {
             // Do something interesting here.
             alert("El viaje se ha creado exitosamente!");
         }
+
     });
 
 }
