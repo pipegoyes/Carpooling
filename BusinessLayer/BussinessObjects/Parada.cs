@@ -11,8 +11,8 @@ namespace BusinessLayer.BussinessObjects
         //        location: $(this).val(),
         //        stopover: true
         //    });
-        public string location { get; set; }
-        public bool stopover { get; set; }
+        public string Location { get; set; }
+        public bool Stopover { get; set; }
 
     }
 }

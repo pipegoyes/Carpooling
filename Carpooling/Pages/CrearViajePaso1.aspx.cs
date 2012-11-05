@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Services;
 using BusinessLayer.BussinessObjects;
 namespace Carpooling
 {
@@ -15,38 +15,12 @@ namespace Carpooling
 
         }
 
-
         [WebMethod]
-        public static bool PublicarViajeAsynch()
+        public static string PublicarViajeAsynch(Viaje request)
         {
-            return true;
-        }
-
-        protected void BtnSiguientePasoClick(object sender, EventArgs e)
-        {
-            //this.MultiView1.ActiveViewIndex = 1;
-        }
-
-        protected void BtnPublicarClick(object sender, EventArgs e)
-        {
-            //this.MultiView1.ActiveViewIndex = 2;
-            //Server.Transfer("PublicacionViajeExitosa.aspx");
-            Response.Redirect("PublicacionViajeExitosa.aspx");
-        }
-
-        protected  void BtnAtras(object sender, EventArgs e)
-        {
-            //if(this.MultiView1.ActiveViewIndex >-1)
-            //{
-            //    this.MultiView1.ActiveViewIndex -= 1;
-            //}
+            return "Origen del viaje - " + request.Origin;
         }
 
 
-        //[System.Web.Services.WebMethod]
-        //public void AutocompletarTextBox(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

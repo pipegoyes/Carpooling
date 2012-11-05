@@ -1,27 +1,6 @@
-﻿#contenedorMapa{
-	height: 400px;
-	width: 100%;
-}
-.elemento{
-	width: 50%;
-}
-.btnEliminar{
-	background-image: url(../Resources/deleteIcon.png);
-	width: 21px;
-	height: 20px;
-}
-#divPaso1{
-	display: block;
-}
-#divPaso2{
-	display: none;
-}
-#divPublicacionExitosa{
-	display: none;
-}
-.boton{
+﻿.boton{
 	width: 110px;
-	height: 16px;
+	height: 13px;
 	margin-top: 15px;
 	text-align: center;
 	background-color: green;
@@ -37,4 +16,42 @@
 	margin-right: 8px;
 	text-transform: uppercase;;
 	background-image: -moz-linear-gradient(center top, #6CC437, #549A2B);
+}
+.elementoPaso1{
+	width: 50%;
+}
+.labelInformacionBasica{
+	width: 40%;
+	text-align: right;
+	margin-top: 10px;
+	padding-right: 10px; 
+}
+.txbInformacionBasica{
+	width: 50%;
+}
+.CustomValidatorCalloutStyle div, 
+.CustomValidatorCalloutStyle td { 
+    border:solid 1px blue; background-color: #ffff8a; 
+}
+.invalidValue{
+	background-color: lemonchiffon;
+}
+
+.btnEliminar{
+	background-image: url(../Resources/deleteIcon.png);
+	width: 21px;
+	height: 20px;
+}
+#contenedorMapa{
+	height: 400px;
+	width: 100%;
+}
+#divPaso1{
+	display: block;
+}
+#divPaso2{
+	display: none;
+}
+#divPublicacionExitosa{
+	display: none;
 }
