@@ -19,38 +19,42 @@
         $("[id*=divPaso2]").fadeOut("slow", null);
 
     });
+
+    var jsonEnvio = {};
+    jsonEnvio.origin = "BOgota";
+    jsonEnvio.destination = "Cali";
+    
 });
 
 function publicarViaje() {
-//    var jsonEnvio = directionRequest;
-//    var jsonEnvio = JSON.stringify({ rutaViaje: "Miruta" });
+    var jsonViaje = {};
+    jsonViaje.origin = directionRequest.origin;
+    jsonViaje.destination = directionRequest.destination;
+    jsonViaje.wayPoints = directionRequest.waypoints;
+    jsonViaje.tarifa = $("[id*=txbTarifa]").val();
+    jsonViaje.cupos = $("[id*=txbCupos]").val();
+    jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
+    jsonViaje.rol = $("[id*=txbRol]").val();
     $.ajax({
         type: "POST",
-        url: "CrearViaje1.aspx/PublicarViajeAsynch",
-//        data: JSON.stringify(jsonEnvio),
-//        contentType: "application/json; chartset:utf-8",
-//        dataType: "json",
-//        beforeSend: function () {
-//            //            createDikv("divContMensaje", nombreDiv, null, "divCargando");
-//        },
-//        complete: function () {
-////            alert("Publicacion Exitosa");
-//        },
-        success:
-                function (result) {
-                    if (result.d == true) {
-                        alert("Publicacion Exitosa");
-//                        window.location = "../Paginas/Preconfirmar.aspx";
-                    } else {
-                        alert("Publicacion NO Exitosa");
-//                        window.location = "../Paginas/IngresarPedido.aspx";
-                        //                        jAlert("No puede preconfirmar un Pedido sin produtos", "Error Preconfirmando", null);
-                    }
-                },
-        error: function () { jAlert("Error publicando el viaje", "Error de Publicacion", null); },
-        async: false
+        url: "CrearViajePaso1.aspx/PublicarViajeAsynch",
+        data: JSON.stringify({ request: jsonViaje }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function () {
+            //            createDikv("divContMensaje", nombreDiv, null, "divCargando");
+        },
+        complete: function () {
+            //            alert("Publicacion Exitosa");
+        },
+        error: function () { alert("Error publicando el viaje", "Error de Publicacion", null); },
+        async: false,
+        success: function (result) {
+            // Do something interesting here.
+            alert("El viaje se ha creado exitosamente!");
+        }
     });
-    alert("Request was sent");
+
 }
 
 function llenarInfoPaso2() {

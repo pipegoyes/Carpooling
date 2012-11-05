@@ -58,6 +58,9 @@
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
     </Reference>
@@ -101,9 +104,11 @@
     <Content Include="Resources\imgFotoPerfilHombre.jpg" />
     <Content Include="Resources\imgFotoPerfilMujer.jpg" />
     <Content Include="Resources\uploading.gif" />
+    <Content Include="Resources\warning.gif" />
     <Content Include="Scripts\AutocompletarCiudad.js" />
     <Content Include="Scripts\CrearViajePaso1.js" />
     <Content Include="Scripts\Inicio.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\PublicacionViajeExitosa.js" />
     <Content Include="Styles\BuscarViaje.css" />
     <Content Include="Styles\NuevaCuenta.css" />
@@ -119,9 +124,6 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

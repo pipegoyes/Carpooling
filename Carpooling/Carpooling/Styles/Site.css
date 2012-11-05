@@ -8,7 +8,8 @@ body {
     background-color: #fff;
     border-top: solid 10px #000;
     color: #333;
-    font-size: .85em;
+    /*font-size: .85em;*/
+    font-size: medium;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -439,8 +440,9 @@ fieldset {
 		/*font-size: 1.2em;*/
 		font-weight: 600;
 		padding: 7px;
-		margin-right: 8px;
-		width: auto;
+		margin-top: 15px;
+		margin-bottom: 0px;
+		width: 126px;
 		text-transform: uppercase;;
 		background-image: -moz-linear-gradient(center top, #6CC437, #549A2B);
     }
