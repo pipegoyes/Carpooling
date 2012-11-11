@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     //Cargar el mapa cuando se hayan cargado todos los componentes de la pagina
     initialize();
+    
     $("[id*=btnSiguientePaso]").click(function () {
         if ($("[id*=txbCiudadOrigen]").val() == '') {
             alert("Debe ingresar una ciudad de origen!");
@@ -23,7 +24,7 @@
     var jsonEnvio = {};
     jsonEnvio.origin = "BOgota";
     jsonEnvio.destination = "Cali";
-    
+
 });
 
 function publicarViaje() {
@@ -34,7 +35,8 @@ function publicarViaje() {
     jsonViaje.tarifa = $("[id*=txbTarifa]").val();
     jsonViaje.cupos = $("[id*=txbCupos]").val();
     jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
-    jsonViaje.rol = $("[id*=txbRol]").val();
+    jsonViaje.rol = true;
+
     $.ajax({
         type: "POST",
         url: "CrearViajePaso1.aspx/PublicarViajeAsynch",
@@ -47,12 +49,22 @@ function publicarViaje() {
         complete: function () {
             //            alert("Publicacion Exitosa");
         },
-        error: function () { alert("Error publicando el viaje", "Error de Publicacion", null);
-            return false; },
+        error: function () {
+            
+            return false;
+        },
         async: false,
         success: function (result) {
             // Do something interesting here.
-            alert("El viaje se ha creado exitosamente!");
+            //---Mensjae exitoso
+            $("#dialog-message").dialog({
+                modal: true,
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
         }
 
     });

@@ -50,8 +50,17 @@
 	display: block;
 }
 #divPaso2{
-	display: none;
+	display: block;
 }
 #divPublicacionExitosa{
+	display: none;
+}
+#comboBoxHora,#comboBoxMinutos{
+	width: 20px;
+}
+#divCupos, #divTarifa,#divHora{
+	padding-top: 10px;
+}
+#dialog-message{
 	display: none;
 }

@@ -58,31 +58,49 @@ namespace Carpooling {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txbRol control.
+        /// txbFechaPartida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbRol;
+        protected global::System.Web.UI.WebControls.TextBox txbFechaPartida;
         
         /// <summary>
-        /// validadorRol control.
+        /// validadorFechaPartida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorRol;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorFechaPartida;
         
         /// <summary>
-        /// ajaxValidatorRol control.
+        /// ajaxValidatorFechaPartida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ajaxValidatorRol;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ajaxValidatorFechaPartida;
+        
+        /// <summary>
+        /// btnRolConductor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton btnRolConductor;
+        
+        /// <summary>
+        /// btnRolPasajero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton btnRolPasajero;
         
         /// <summary>
         /// txbTarifa control.
@@ -112,31 +130,13 @@ namespace Carpooling {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ajaxValidatorTarifa;
         
         /// <summary>
-        /// txbFechaPartida control.
+        /// txbHora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbFechaPartida;
-        
-        /// <summary>
-        /// validadorFechaPartida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorFechaPartida;
-        
-        /// <summary>
-        /// ajaxValidatorFechaPartida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ajaxValidatorFechaPartida;
+        protected global::System.Web.UI.WebControls.TextBox txbHora;
         
         /// <summary>
         /// txbCupos control.
@@ -146,24 +146,6 @@ namespace Carpooling {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbCupos;
-        
-        /// <summary>
-        /// validadorCupos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorCupos;
-        
-        /// <summary>
-        /// ajaxValidatorCupos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ajaxValidatorCupos;
         
         /// <summary>
         /// btnPublicar control.
