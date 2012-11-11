@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NuevaCuenta.aspx.cs" Inherits="Carpooling.NuevaCuenta" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
 
 <%-- Desactiva el control que hace el ajax postback --%>    
@@ -83,7 +83,7 @@
     </section>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" class="content-wrapper main-content clear-fix">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
     <input id="hfdImagePath" type="hidden" name="hfdImagePath" value="/Resources/imgFotoPerfilHombre.jpg"/>      
 

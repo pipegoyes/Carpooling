@@ -11,8 +11,7 @@
     <script type="text/javascript" src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
     <link href="~/Styles/jquery-ui-1.9.1.custom.css" rel="stylesheet" type="text/css"/>
 
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
     <form runat="server">
