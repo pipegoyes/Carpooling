@@ -15,7 +15,6 @@ namespace Carpooling
 {
     public partial class NuevaCuenta : System.Web.UI.Page
     {
-        private Stream m_imagenUsuarioBinary;
         private string m_imagenUsuarioPath;
         private string m_folderProfileImages;
     
@@ -70,8 +69,10 @@ namespace Carpooling
                 nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
                 nuevoUsuario.FUMADOR = chkFumador.Checked;
                 nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
-                //nuevoUsuario.FOTO = imgFoto.
+                nuevoUsuario.FOTO = ObtenerArrayImagenPerfil();
                 nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
+
+                AdministracionUsuario.CrearUsuario(nuevoUsuario);
             }
             catch (Exception ex)
             {                    
@@ -79,18 +80,41 @@ namespace Carpooling
             }
         }
 
+
+        protected byte[] ObtenerArrayImagenPerfil()
+        {
+            byte[] arrayImagen = null;
+            try
+            {
+                if (!String.IsNullOrEmpty(m_imagenUsuarioPath))
+                {
+                    var fileInfo = new FileInfo(Server.MapPath(AppRelativeTemplateSourceDirectory + m_imagenUsuarioPath));
+                    arrayImagen = new byte[fileInfo.Length];
+                    var fileStream = fileInfo.OpenRead();
+                    fileStream.Read(arrayImagen, 0, arrayImagen.Length);
+                    fileStream.Close();
+                }
+            }
+            catch (Exception)
+            {
+                    
+                throw;
+            }
+            return arrayImagen;
+        }
+
         protected void AsyncFileUpload1_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
         {
             try
             {
-                m_imagenUsuarioBinary = AsyncFileUpload1.FileContent;
+                var streamImagen = AsyncFileUpload1.FileContent;
 
-                if (m_imagenUsuarioBinary == null) return;
+                if (streamImagen == null) return;
 
                 // write the image using a guid name instead to avoid conflicts ... 
                 var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
                 var destFolder = Server.MapPath(AppRelativeTemplateSourceDirectory + "/" + m_folderProfileImages + "/");
-                var imageUpload = Image.FromStream(m_imagenUsuarioBinary);
+                var imageUpload = Image.FromStream(streamImagen);
                 
                 // all images end up as jpg  
                 imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
