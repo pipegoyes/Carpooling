@@ -12,13 +12,19 @@ namespace Carpooling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //List<int> listHoras = Enumerable.Range(00, 24).ToList();
+            //List<int> listMinutos = Enumerable.Range(00, 59).ToList();
+            //this.comboBoxHour.DataSource = listHoras;
+            //this.comboBoxMinutos.DataSource = listMinutos;
+            //this.btnRolConductor.Checked
         }
 
         [WebMethod]
         public static string PublicarViajeAsynch(Viaje request)
         {
-            return "Origen del viaje - " + request.Origin;
+
+
+            return "Origen del viaje - " + request.Tarifa; ;
         }
 
     }

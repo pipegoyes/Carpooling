@@ -13,6 +13,6 @@ namespace BusinessLayer.BussinessObjects
         public string Tarifa { get; set; }
         public int Cupos { get; set; }
         public string FechaPartida { get; set; }
-        public string Rol { get; set; }
+        public bool Rol { get; set; }
     }
 }

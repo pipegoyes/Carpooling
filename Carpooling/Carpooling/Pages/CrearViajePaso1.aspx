@@ -6,11 +6,13 @@
     <script type="text/javascript" src="../Scripts/CrearViajePaso1.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-
+    <script type="text/javascript" src="/Scripts/CreacionComponentes.js"></script>
+    
+    <script type="text/javascript" src="/Scripts/jqueryUI/globalize.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
-    <ContentTemplate>
+<%--    <ContentTemplate>--%>
         <div id="divPaso1">
             <div class="titulo">Paso 1. Crear ruta de viaje</div>
             <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
@@ -58,47 +60,13 @@
     
             <div class="subtitulo">Informacion basica</div>
             
-            <div>
-                <div class="labelInformacionBasica leftPosition">Rol*</div>
-                <div class="txbInformacionBasica leftPosition">
-                    <asp:TextBox ID="txbRol" runat="server"></asp:TextBox>   
-                    <asp:RequiredFieldValidator ID="validadorRol" ControlToValidate="txbRol" Display="None" ErrorMessage="<b>Valor requerido</b><br>Viajero o Pasajero</br> " runat="server"/> 
-                    <ajaxToolkit:ValidatorCalloutExtender 
-                    runat="Server"
-                    ID="ajaxValidatorRol"
-                    TargetControlID="validadorRol" 
-                    Width="350px"
-                    HighlightCssClass="invalidValue" 
-                    CssClass="CustomValidatorCalloutStyle"
-                    PopupPosition="Right"
-                    WarningIconImageUrl="~/Resources/warning.gif"/>
-                </div>
-                <div class="divClear"></div>
-            </div>
-            <div>
-                <div class="labelInformacionBasica leftPosition">Tarifa contributiva*</div>
-                <div class="txbInformacionBasica leftPosition">
-                    <asp:TextBox ID="txbTarifa" runat="server"></asp:TextBox>   
-                </div>
-                <asp:RequiredFieldValidator ID="validadorTarifa" ControlToValidate="txbTarifa" Display="None" ErrorMessage="La Tarifa es un dato requerido" runat="server"/> 
-                    <ajaxToolkit:ValidatorCalloutExtender 
-                    runat="Server"
-                    ID="ajaxValidatorTarifa"
-                    TargetControlID="validadorTarifa" 
-                    Width="350px"
-                    HighlightCssClass="invalidValue" 
-                    CssClass="CustomValidatorCalloutStyle"
-                    PopupPosition="Right"
-                    WarningIconImageUrl="~/Resources/warning.gif"/>
-                <div class="divClear"></div>
-            </div>
+            
             <div>
                 <div class="labelInformacionBasica leftPosition ">Fecha de partida*</div>
                 <div class="txbInformacionBasica leftPosition ">
-                    <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>   
-                    <ajaxToolkit:CalendarExtender runat="server" TargetControlID="txbFechaPartida" PopupPosition="Right"/> 
+                    <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>
                 </div>
-                 <asp:RequiredFieldValidator ID="validadorFechaPartida" ControlToValidate="txbFechaPartida" Display="None" ErrorMessage="La Fecha de partida es un dato requerido" runat="server"/> 
+                 <asp:RequiredFieldValidator ID="validadorFechaPartida" ControlToValidate="txbFechaPartida" Display="None" ErrorMessage="<b>Valor requerido</b><br>La Fecha de partida es un dato requerido</br>" runat="server"/> 
                     <ajaxToolkit:ValidatorCalloutExtender 
                     runat="Server"
                     ID="ajaxValidatorFechaPartida"
@@ -110,16 +78,28 @@
                     WarningIconImageUrl="~/Resources/warning.gif"/>
                 <div class="divClear"></div>
             </div>
+            
             <div>
-                <div class="leftPosition labelInformacionBasica">Cupos*</div>
-                <div class="leftPosition txbInformacionBasica">
-                    <asp:TextBox ID="txbCupos" runat="server"></asp:TextBox>    
+                <div class="labelInformacionBasica leftPosition">Rol*</div>
+                <div class="txbInformacionBasica leftPosition">
+                     <div id="roles">
+                        <asp:RadioButton runat="server" ID="btnRolConductor" Text="Conductor" Checked="True" CssClass="leftPosition" GroupName="rol"/>
+                        <asp:RadioButton runat="server" ID="btnRolPasajero" Text="Pasajero" GroupName="rol" CssClass="leftPosition"/>
+                    </div>
+                    
                 </div>
-                <asp:RequiredFieldValidator ID="validadorCupos" ControlToValidate="txbCupos" Display="None" ErrorMessage="El numero de cupos es un dato requerido" runat="server"/> 
+                <div class="divClear"></div>
+            </div>
+            <div id="divTarifa">
+                <div class="labelInformacionBasica leftPosition">Tarifa contributiva*</div>
+                <div class="txbInformacionBasica leftPosition">
+                    <asp:TextBox ID="txbTarifa" runat="server" value="10000"></asp:TextBox>   
+                </div>
+                <asp:RequiredFieldValidator ID="validadorTarifa" ControlToValidate="txbTarifa" Display="None" ErrorMessage="<b>Valor requerido</b><br>La Tarifa es un dato requerido</br>" runat="server"/> 
                     <ajaxToolkit:ValidatorCalloutExtender 
                     runat="Server"
-                    ID="ajaxValidatorCupos"
-                    TargetControlID="validadorCupos" 
+                    ID="ajaxValidatorTarifa"
+                    TargetControlID="validadorTarifa" 
                     Width="350px"
                     HighlightCssClass="invalidValue" 
                     CssClass="CustomValidatorCalloutStyle"
@@ -127,12 +107,38 @@
                     WarningIconImageUrl="~/Resources/warning.gif"/>
                 <div class="divClear"></div>
             </div>
+            
+            
+            <div id="divHora">
+                <div class="labelInformacionBasica leftPosition ">Hora de partida*</div>
+                <div class="txbInformacionBasica leftPosition ">
+                     <asp:TextBox runat="server" ID="txbHora" value="08:30 PM"></asp:TextBox>
+                </div>
+                <div class="divClear"></div>
+            </div>
 
+
+            <div id="divCupos">
+                <div class="leftPosition labelInformacionBasica">Cupos*</div>
+                <div class="leftPosition txbInformacionBasica">
+                    <asp:TextBox ID="txbCupos" runat="server" name="value" value="1"></asp:TextBox>    
+                </div>
+                <div class="divClear"></div>
+            </div>
+            <div id="dialog-message" title="Download complete" style="display: none">
+                <p>
+                    <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
+                    Tu viaje ha sido creado exitosamente, ahora ya eres parte de la comunidad de Carpooling !
+                </p>
+                <p>
+                    Currently using <b>36% of your storage space</b>.
+                </p>
+            </div>
 
             <div id="btnAtras" class="boton leftPosition">Atras</div>
-            <asp:Button ID="btnPublicar" CssClass="rightPosition" OnClientClick="publicarViaje();" Text="Publicar" runat="server"/>
+            <asp:Button ID="btnPublicar"  CssClass="rightPosition" OnClientClick="publicarViaje();" Text="Publicar" runat="server"/>
             <div class="divClear"></div>
             <%--<div id="btnPublicar" class="boton rightPosition" onclick="publicarViaje()" >Publicar</div>--%>
         </div>      
-    </ContentTemplate>
+    <%--</ContentTemplate>--%>
 </asp:Content>

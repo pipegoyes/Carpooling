@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gaia.WebWidgets, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="Gaia.WebWidgets.CommunityExtensions, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
@@ -56,6 +57,7 @@
     <Reference Include="GaiaPackage.NET4, Version=1.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
@@ -63,6 +65,7 @@
     </Reference>
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -81,6 +84,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jqueryUI\globalize.js" />
     <Content Include="NuevaCuenta.aspx" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
@@ -99,7 +103,7 @@
     <Content Include="Perfil3.aspx" />
     <Content Include="Resources\btnBuscarViaje.png" />
     <Content Include="Resources\btnIniciarSesion.png" />
-    <Content Include="Resources\Calendar_scheduleHS.png" />
+    <Content Include="Styles\images\Calendar_scheduleHS.png" />
     <Content Include="Resources\deleteIcon.png" />
     <Content Include="Resources\heroAccent.png" />
     <Content Include="Resources\imgFotoPerfilHombre.jpg" />
@@ -107,11 +111,29 @@
     <Content Include="Resources\uploading.gif" />
     <Content Include="Resources\warning.gif" />
     <Content Include="Scripts\AutocompletarCiudad.js" />
+    <Content Include="Scripts\CreacionComponentes.js" />
     <Content Include="Scripts\CrearViajePaso1.js" />
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jqueryUI\jquery-ui-1.9.1.custom.min.js" />
     <Content Include="Scripts\PublicacionViajeExitosa.js" />
     <Content Include="Styles\BuscarViaje.css" />
+    <Content Include="Styles\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Styles\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Styles\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Styles\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Styles\images\ui-icons_808080_256x240.png" />
+    <Content Include="Styles\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Styles\images\ui-icons_8DC262_256x240.png" />
+    <Content Include="Styles\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Styles\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\jquery-ui-1.9.1.custom.css" />
     <Content Include="Styles\NuevaCuenta.css" />
     <Content Include="Styles\CrearViajePaso1.css" />
     <Content Include="Styles\CrearViajePaso2.css" />
