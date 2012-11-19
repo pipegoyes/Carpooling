@@ -25,11 +25,8 @@ namespace Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<USUARIO> USUARIO { get; set; }
-
-        public override int SaveChanges()
-        {
-            return base.SaveChanges();
-        }
+        public DbSet<CORDENADA> CORDENADA { get; set; }
+        public DbSet<TRAYECTO> TRAYECTO { get; set; }
+        public DbSet<VIAJE> VIAJE { get; set; }
     }
 }
