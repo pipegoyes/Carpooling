@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLayer.BussinessObjects;
+using BusinessLayer.Servicios;
 namespace Carpooling
 {
     public partial class CrearViajePaso1 : System.Web.UI.Page
@@ -22,7 +23,7 @@ namespace Carpooling
         [WebMethod]
         public static string PublicarViajeAsynch(Viaje request)
         {
-
+            Transformador.CrearViajeEntity(request);
 
             return "Origen del viaje - " + request.Tarifa; ;
         }

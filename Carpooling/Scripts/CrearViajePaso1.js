@@ -29,9 +29,20 @@
 
 function publicarViaje() {
     var jsonViaje = {};
-    jsonViaje.origin = directionRequest.origin;
-    jsonViaje.destination = directionRequest.destination;
-    jsonViaje.wayPoints = directionRequest.waypoints;
+    jsonViaje.origin = listCoordenadas[0];
+    jsonViaje.destination = listCoordenadas[1];
+    var listParadas = [];
+    if(listCoordenadas.length >2) {
+        for (var i = 2; i < listCoordenadas.length; i++) {
+            listParadas.push(listCoordenadas[i]);
+        }
+    }
+
+    //    jsonViaje.origin = directionRequest.origin;
+    //    jsonViaje.destination = directionRequest.destination;
+    //    jsonViaje.wayPoints = directionRequest.waypoints;
+    
+    jsonViaje.wayPoints = listParadas;
     jsonViaje.tarifa = $("[id*=txbTarifa]").val();
     jsonViaje.cupos = $("[id*=txbCupos]").val();
     jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
@@ -98,6 +109,7 @@ var directionsDisplay;
 var map;
 var directionsService = new google.maps.DirectionsService();
 var directionRequest;
+var geocoder;
 
 function CrearParada() {
     var divContenedor = $("[id*=contenedorParadas]").first();
@@ -115,15 +127,16 @@ function CrearParada() {
 function autocompletar(paradaNombre) {
     var input = document.getElementById(paradaNombre);
     var autocomplete = new google.maps.places.Autocomplete(input);
-//    google.maps.event.addListener(autocomplete, 'place_changed', function () {
-//    });
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        GenerarRuta();
+    });
 }
 
 
 function initialize() {
 
     directionsDisplay = new window.google.maps.DirectionsRenderer();
-    
+    geocoder = new google.maps.Geocoder();
     var bogota = new google.maps.LatLng(4.78, -74.05);
     var mapOptions = {
         center: bogota,
@@ -210,10 +223,15 @@ function BuscarCiudad() {
     });
 }
 
+var listCiudades;
+var listCoordenadas;
 function GenerarRuta() {
-
+    listCoordenadas = [];
     var ciudadOrigen = document.getElementById("MainContent_txbCiudadOrigen").value;
+    geocode(ciudadOrigen);
     var ciudadDestino = document.getElementById("MainContent_txbCiudadDestino").value;
+    geocode(ciudadDestino);
+
     var directionsService = new google.maps.DirectionsService();
 
     // carpool vias
@@ -225,6 +243,7 @@ function GenerarRuta() {
                 location: $(this).val(),
                 stopover: true
             });
+            geocode($(this).val());
             rideWaypointsString += $(this).val() + ',';
         }
     });
@@ -247,3 +266,20 @@ function GenerarRuta() {
     });
 }
 
+function geocode(ciudad) {
+    geocoder.geocode({
+        address: ciudad,
+        partialmatch: true
+    },
+    function geocodeResult(results, status) {
+        if (status == 'OK' && results.length > 0) {
+//            alert(results[0].geometry.location);
+            listCoordenadas.push({ "latitud": results[0].geometry.location.Ya,
+                                    "longitud": results[0].geometry.location.Za,
+                                    "direccion": ciudad
+            });
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+}

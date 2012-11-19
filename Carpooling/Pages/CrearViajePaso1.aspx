@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso1.aspx.cs" Inherits="Carpooling.CrearViajePaso1" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso1.aspx.cs" Inherits="Carpooling.CrearViajePaso1" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
@@ -37,7 +37,7 @@
 
                 <div id="btnConstruirMapa" onclick="GenerarRuta()">Crear Ruta</div>
                 <div id="contenedorMapa">Mapa</div>
-                <div id="btnSiguientePaso" class="boton rightPosition" onclick="">Boton siguiente</div>
+                <div id="btnSiguientePaso" class="boton rightPosition">Boton siguiente</div>
             </div>
         </div>
                         
