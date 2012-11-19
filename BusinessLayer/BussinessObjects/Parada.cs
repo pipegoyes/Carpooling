@@ -7,8 +7,9 @@ namespace BusinessLayer.BussinessObjects
 {
     public class Parada
     {
-        public string Location { get; set; }
-        public bool Stopover { get; set; }
+        public decimal Latitud { get; set; }
+        public decimal Longitud { get; set; }
+        public string Direccion { get; set; }
 
     }
 }
