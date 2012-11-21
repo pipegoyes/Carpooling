@@ -128,7 +128,7 @@
             <div id="dialog-message" title="Download complete" style="display: none">
                 <p>
                     <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                    Tu viaje ha sido creado exitosamente, ahora ya eres parte de la comunidad de Carpooling !
+                    Tu viaje ha sido creado exitosamente, ahoraPartidaStr ya eres parte de la comunidad de Carpooling !
                 </p>
                 <p>
                     Currently using <b>36% of your storage space</b>.

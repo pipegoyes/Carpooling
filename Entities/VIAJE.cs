@@ -28,5 +28,6 @@ namespace Entities
         public System.TimeSpan HORA_PARTIDA { get; set; }
     
         public virtual ICollection<TRAYECTO> TRAYECTO { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
 }

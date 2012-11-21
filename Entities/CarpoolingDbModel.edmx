@@ -8,6 +8,7 @@
         <EntityContainer Name="CARPOOLINGModelStoreContainer">
           <EntitySet Name="CORDENADA" EntityType="CARPOOLINGModel.Store.CORDENADA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TRAYECTO" EntityType="CARPOOLINGModel.Store.TRAYECTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USUARIO" EntityType="CARPOOLINGModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VIAJE" EntityType="CARPOOLINGModel.Store.VIAJE" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_TRAYECTO_CORDENADA_DESTINO" Association="CARPOOLINGModel.Store.FK_TRAYECTO_CORDENADA_DESTINO">
             <End Role="CORDENADA" EntitySet="CORDENADA" />
@@ -21,10 +22,11 @@
             <End Role="VIAJE" EntitySet="VIAJE" />
             <End Role="TRAYECTO" EntitySet="TRAYECTO" />
           </AssociationSet>
+          <AssociationSet Name="FK_VIAJE_USUARIO" Association="CARPOOLINGModel.Store.FK_VIAJE_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VIAJE" EntitySet="VIAJE" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6005: The data type 'geography' is not supported; the column 'GEOGRAPHY_DATA' in table 'CARPOOLING.dbo.CORDENADA' was excluded.
-      -->
         <EntityType Name="CORDENADA">
           <Key>
             <PropertyRef Name="ID_CORDENADA" />
@@ -47,6 +49,26 @@
           <Property Name="INDEX_ORIGEN" Type="int" Nullable="false" />
           <Property Name="INDEX_DESTINO" Type="int" Nullable="false" />
           <Property Name="ES_SIMPLE" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="50" />
+          <Property Name="APELLIDOS" Type="varchar" MaxLength="50" />
+          <Property Name="CONTRASENIA" Type="varchar" MaxLength="20" />
+          <Property Name="FECHA_NACIMIENTO" Type="date" />
+          <Property Name="CIUDAD_RESIDENCIA" Type="varchar" MaxLength="20" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="SEXO" Type="bit" />
+          <Property Name="OCUPACION" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONO_FIJO" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONO_MOVIL" Type="varchar" MaxLength="50" />
+          <Property Name="FUMADOR" Type="char" MaxLength="1" />
+          <Property Name="VEHICULO_PROPIO" Type="char" MaxLength="1" />
+          <Property Name="FOTO" Type="varbinary(max)" />
+          <Property Name="MAS_INFO" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="VIAJE">
           <Key>
@@ -96,6 +118,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_VIAJE_USUARIO">
+          <End Role="USUARIO" Type="CARPOOLINGModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="VIAJE" Type="CARPOOLINGModel.Store.VIAJE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="VIAJE">
+              <PropertyRef Name="CREADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -115,6 +149,11 @@
           <AssociationSet Name="FK_TRAYECTO_VIAJE" Association="CARPOOLINGModel.FK_TRAYECTO_VIAJE">
             <End Role="VIAJE" EntitySet="VIAJE" />
             <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+          </AssociationSet>
+          <EntitySet Name="USUARIO" EntityType="CARPOOLINGModel.USUARIO" />
+          <AssociationSet Name="FK_VIAJE_USUARIO" Association="CARPOOLINGModel.FK_VIAJE_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VIAJE" EntitySet="VIAJE" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="CORDENADA">
@@ -157,6 +196,7 @@
           <Property Type="Byte" Name="CUPOS" />
           <Property Type="Time" Name="HORA_PARTIDA" Nullable="false" />
           <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLINGModel.FK_TRAYECTO_VIAJE" FromRole="VIAJE" ToRole="TRAYECTO" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLINGModel.FK_VIAJE_USUARIO" FromRole="VIAJE" ToRole="USUARIO" />
         </EntityType>
         <Association Name="FK_TRAYECTO_CORDENADA_DESTINO">
           <End Type="CARPOOLINGModel.CORDENADA" Role="CORDENADA" Multiplicity="1" />
@@ -191,6 +231,39 @@
             </Principal>
             <Dependent Role="TRAYECTO">
               <PropertyRef Name="ID_VIAJE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Type="String" Name="ID_USUARIO" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLINGModel.FK_VIAJE_USUARIO" FromRole="USUARIO" ToRole="VIAJE" />
+          <Property Type="String" Name="NOMBRES" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDOS" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CONTRASENIA" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" />
+          <Property Type="String" Name="CIUDAD_RESIDENCIA" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMAIL" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="SEXO" />
+          <Property Type="String" Name="OCUPACION" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TELEFONO_FIJO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TELEFONO_MOVIL" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FUMADOR" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="VEHICULO_PROPIO" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Binary" Name="FOTO" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="MAS_INFO" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_VIAJE_USUARIO">
+          <End Type="CARPOOLINGModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="CARPOOLINGModel.VIAJE" Role="VIAJE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="VIAJE">
+              <PropertyRef Name="CREADOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -238,6 +311,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="CARPOOLINGModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="MAS_INFO" ColumnName="MAS_INFO" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="VEHICULO_PROPIO" ColumnName="VEHICULO_PROPIO" />
+                <ScalarProperty Name="FUMADOR" ColumnName="FUMADOR" />
+                <ScalarProperty Name="TELEFONO_MOVIL" ColumnName="TELEFONO_MOVIL" />
+                <ScalarProperty Name="TELEFONO_FIJO" ColumnName="TELEFONO_FIJO" />
+                <ScalarProperty Name="OCUPACION" ColumnName="OCUPACION" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CIUDAD_RESIDENCIA" ColumnName="CIUDAD_RESIDENCIA" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -272,9 +366,14 @@
           <ConnectorPoint PointX="5.625" PointY="1.9037223307291664" />
         </AssociationConnector>
         <AssociationConnector Association="CARPOOLINGModel.FK_TRAYECTO_VIAJE" >
-          <ConnectorPoint PointX="4.875" PointY="6.5285953776041659" />
-          <ConnectorPoint PointX="6.375" PointY="6.5285953776041659" />
+          <ConnectorPoint PointX="4.875" PointY="6.62474609375" />
+          <ConnectorPoint PointX="6.375" PointY="6.62474609375" />
           <ConnectorPoint PointX="6.375" PointY="4.1340950520833335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CARPOOLINGModel.USUARIO" Width="1.5" PointX="1.125" PointY="5.875" Height="1.4033821614583335" />
+        <AssociationConnector Association="CARPOOLINGModel.FK_VIAJE_USUARIO" >
+          <ConnectorPoint PointX="2.625" PointY="6.5766910807291667" />
+          <ConnectorPoint PointX="3.375" PointY="6.5766910807291667" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

@@ -28,5 +28,6 @@ namespace Entities
         public DbSet<CORDENADA> CORDENADA { get; set; }
         public DbSet<TRAYECTO> TRAYECTO { get; set; }
         public DbSet<VIAJE> VIAJE { get; set; }
+        public DbSet<USUARIO> USUARIO { get; set; }
     }
 }
