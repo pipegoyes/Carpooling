@@ -14,13 +14,19 @@ namespace BusinessLayer.Servicios
             try
             {
                 VIAJE viajeDao = new VIAJE();
+                
+                //TODO deberia ser el creador real
                 viajeDao.CREADOR = "PIPE";
-                //viajeDao.HORA_PARTIDA = viajeActual.HoraPartida;
+
+                viajeDao.HORA_PARTIDA = ObtenerHoraPartida(viajeActual.HoraPartida);
+                
                 //TODO no podria ser una band el vehiculo
                 viajeDao.CUPOS = Convert.ToByte(viajeActual.Cupos);
                 
-                //TODO esta fecha de creacion deberia ser con la hora y fecha del servidor
+                //TODO esta fecha de creacion deberia ser con la horaPartidaStr y fecha del servidor
                 viajeDao.FECHA_CREACION = DateTime.Now;
+                
+                
                 viajeActual.FechaPartida = viajeActual.FechaPartida;
 
                 List<Parada> listParadas = new List<Parada>();
@@ -71,6 +77,26 @@ namespace BusinessLayer.Servicios
             }
         }
 
-        
+        private static TimeSpan ObtenerHoraPartida(string horaPartidaStr)
+        {
+            try
+            {
+                //TODO tener cuidado de que de la hora de partida siempre cumpla el formato
+                string horaFragmentada = horaPartidaStr.Split(':').ToList().First();
+                int horaInt = Convert.ToInt32(horaFragmentada);
+                string minutosFragmentados = horaPartidaStr.Split(':').ToList()[1].Substring(0,2);
+                string diaNoche = horaPartidaStr.Substring(horaPartidaStr.Length - 2, 2);
+                if (diaNoche.Equals("PM"))
+                    horaInt += 12;
+
+                TimeSpan horaPartidaTS = new TimeSpan(horaInt, Convert.ToInt32(minutosFragmentados), 00);
+                return horaPartidaTS;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
     }
 }

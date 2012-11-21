@@ -28,6 +28,8 @@
 });
 
 function publicarViaje() {
+    
+    //Objeto que representa el viaje
     var jsonViaje = {};
     jsonViaje.origin = listCoordenadas[0];
     jsonViaje.destination = listCoordenadas[1];
@@ -38,15 +40,12 @@ function publicarViaje() {
         }
     }
 
-    //    jsonViaje.origin = directionRequest.origin;
-    //    jsonViaje.destination = directionRequest.destination;
-    //    jsonViaje.wayPoints = directionRequest.waypoints;
-    
     jsonViaje.wayPoints = listParadas;
     jsonViaje.tarifa = $("[id*=txbTarifa]").val();
     jsonViaje.cupos = $("[id*=txbCupos]").val();
     jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
-    jsonViaje.rol = true;
+    jsonViaje.esConductor = $("[id*=btnRolConductor]").is(':checked') ? true : false;
+    jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
     $.ajax({
         type: "POST",
@@ -58,16 +57,16 @@ function publicarViaje() {
             //            createDikv("divContMensaje", nombreDiv, null, "divCargando");
         },
         complete: function () {
-            //            alert("Publicacion Exitosa");
+            alert("Publicacion Exitosa");
         },
         error: function () {
-            
+
             return false;
         },
         async: false,
         success: function (result) {
-            // Do something interesting here.
             //---Mensjae exitoso
+            alert("Su viaje ha sido creado exitosamente");
             $("#dialog-message").dialog({
                 modal: true,
                 buttons: {
@@ -126,7 +125,12 @@ function CrearParada() {
 
 function autocompletar(paradaNombre) {
     var input = document.getElementById(paradaNombre);
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var options = {
+        types: ['(cities)'],
+        componentRestrictions: { country: "co" }
+    };
+
+    var autocomplete = new google.maps.places.Autocomplete(input,options);
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
         GenerarRuta();
     });
@@ -144,12 +148,16 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById("contenedorMapa"), mapOptions);
-    
+
     var input = document.getElementById("MainContent_txbCiudadOrigen");
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var options = {
+        types: ['(cities)'],
+        componentRestrictions: { country: "co" }
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
     
     var ciudadDestino = document.getElementById("MainContent_txbCiudadDestino");
-    var autocompleteCiudadDestino = new google.maps.places.Autocomplete(ciudadDestino);
+    var autocompleteCiudadDestino = new google.maps.places.Autocomplete(ciudadDestino, options);
     
     autocomplete.bindTo('bounds', map);
 

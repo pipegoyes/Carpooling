@@ -63,12 +63,12 @@ namespace Carpooling
                 nuevoUsuario.FECHA_NACIMIENTO = txtFechaNacimiento_CalendarExtender.SelectedDate;
                 nuevoUsuario.CIUDAD_RESIDENCIA = txtCiudad.Text;
                 nuevoUsuario.EMAIL = txtCorreoElectronico.Text;
-                nuevoUsuario.SEXO = Byte.Parse(rdbSexo.SelectedValue);
+                //nuevoUsuario.SEXO = Byte.Parse(rdbSexo.SelectedValue);
                 nuevoUsuario.OCUPACION = txtOcupacion.Text;
                 nuevoUsuario.TELEFONO_FIJO = txtTelefonoFijo.Text;
                 nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
-                nuevoUsuario.FUMADOR = chkFumador.Checked;
-                nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
+                //nuevoUsuario.FUMADOR = chkFumador.Checked;
+                //nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
                 nuevoUsuario.FOTO = ObtenerArrayImagenPerfil();
                 nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
 

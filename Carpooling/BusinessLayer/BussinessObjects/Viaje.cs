@@ -12,7 +12,7 @@ namespace BusinessLayer.BussinessObjects
         public List<Parada> Waypoints { get; set; }
         public string Tarifa { get; set; }
         public int Cupos { get; set; }
-        public string FechaPartida { get; set; }
+        public DateTime FechaPartida { get; set; }
         public bool EsConductor { get; set; }
         public string HoraPartida { get; set; }
     }
