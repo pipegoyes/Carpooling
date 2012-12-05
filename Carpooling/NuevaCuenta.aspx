@@ -2,7 +2,17 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>
+    <link href="Styles/fineuploader.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.wijmo/globalize.cultures.js"></script>
+    <script src="Scripts/jquery.fineuploader/jquery.fineuploader-3.0.js"></script>
+
+    <%--<script src="Scripts/jquery.fineuploader/fileuploader.js"></script>--%>
 
 <%-- Desactiva el control que hace el ajax postback --%>    
 <%--<script type="text/javascript">
@@ -30,6 +40,123 @@
     }--%>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        //Aplica los estilos del tema al terminar de cargar la pagina
+        AplicarCCS();
+    });
+    
+    function CrearUploader() {
+        $('#fine-uploader').fineUploader({
+            request: {
+                endpoint: 'FilesUploader.html'
+            },
+            text: {
+                uploadButton: 'Buscar',
+                failUpload: 'Falló la subida de la imagen.',
+                dragZone: 'Arrastra la imagen para subirla'
+            },
+            failedUploadTextDisplay: {
+                mode: 'none'
+            },
+            multiple: false,
+            acceptFiles: 'image/*',
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'png', 'gif'],
+                sizeLimit: 102400000 // 50 kB = 50 * 1024 bytes
+            },
+            //callbacks: {
+            //    onComplete: function(id, fileName, responseJSON) {
+            //        if (responseJSON.success) {
+            //            $('#thumbnail-fine-uploader').append('<img src="img/success.jpg" alt="' + fileName + '">');
+            //        }
+            //    }
+            //},
+            disableCancelForFormUploads: true,
+            disableDefaultDropzone: true,
+            template: '<div class="qq-uploader">' +
+                        '<pre class="qq-upload-drop-area" style="display= none;"><span>{dragZoneText}</span></pre>' +
+                        '<div class="qq-upload-button ui-button" style="width: auto;">{uploadButtonText}</div>' +
+                        '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
+                      '</div>',
+            classes: {
+                success: 'alert alert-success',
+                fail: 'alert alert-error'
+            },
+            debug: true
+        }).on('complete', function (event, id, filename, responseJSON) {
+                    if (responseJSON.success) {
+            //            $('#thumbnail-fine-uploader').append('<img src="img/success.jpg" alt="' + fileName + '">');
+                    }
+        });
+
+        $('.qq-upload-button').attr('id', 'btnSeleccionarImagen');
+        $('.qq-upload-button').css('line-height', '30px');
+        $('#btnSeleccionarImagen').width(90);
+        $('#btnSeleccionarImagen').height(29);
+        $('#btnSeleccionarImagen').removeClass('qq-upload-button qq-upload-button-hover qq-upload-button-focus');
+        $('#btnSeleccionarImagen').addClass('ui-button ui-widget ui-state-default ui-button-text-only ui-corner-all');
+        
+        $(":input[type='file']").hover(
+          function () {
+              $('#btnSeleccionarImagen').removeClass('ui-state-default qq-upload-button-hover ui-state-active qq-upload-button-focus');
+              $('#btnSeleccionarImagen').addClass('ui-state-hover');
+          },
+          function () {
+              $('#btnSeleccionarImagen').removeClass('ui-state-hover  qq-upload-button-hover ui-state-active qq-upload-button-focus');
+              $('#btnSeleccionarImagen').addClass('ui-state-default');
+          }
+        );
+        
+        $(":input[type='file']").mouseup(function () {
+            $('#btnSeleccionarImagen').removeClass('ui-state-active qq-upload-button-focus');
+        }).mousedown(function () {
+            $('#btnSeleccionarImagen').removeClass('qq-upload-button-focus');
+            $('#btnSeleccionarImagen').addClass('ui-state-active');
+        });
+    }
+
+    function AplicarCCS() {       
+        //Creacion de controles especiales
+        $(":input[type='text'],:input[type='password'],textarea").wijtextbox();
+        $("#btnAceptarImagen").button();
+        $('#btnQuitarImagen').button();
+                 
+        $('#<%:btnSiguiente.ClientID%>').button(); 
+        $('#<%:btnAtras1.ClientID%>').button(); 
+        $('#<%:btnSiguiente1.ClientID%>').button(); 
+        $('#<%:btnAtras2.ClientID%>').button(); 
+        $('#<%:btnFinalizar.ClientID%>').button(); 
+
+        $('#<%:ddlOcupacion.ClientID%>').wijdropdown(); 
+        $('#<%:ddlPais.ClientID%>').wijdropdown(); 
+        $('#<%:ddlDepartamento.ClientID%>').wijdropdown(); 
+        $('#<%:ddlCiudad.ClientID%>').wijdropdown(); 
+
+        $('#<%:txtFechaNacimiento.ClientID%>').wijinputdate({ dateFormat: 'D', culture: 'es', showTrigger: true }); 
+               
+        $("#genero_usuario").buttonset();
+        $("#caracteristicas_usuarios").buttonset();
+        
+        $("#dialogoCambiarFoto").wijdialog({ 
+            autoOpen: false, 
+            resizable: false, 
+            height: 287, 
+            width: 360, 
+            modal: true,
+            //buttons: { 
+            //"Seleccionar imagen": function () { $(this).wijdialog("close"); },
+                
+            //Cancel: function () { 
+            //    $(this).wijdialog("close"); 
+            //} 
+            //} 
+            
+            open: function (e) { CrearUploader();}
+        }); 
+    }
+
+
+
     //
     var pathImagen;
     function lnkCambiarFoto_OnClick() {
@@ -68,7 +195,7 @@
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <section class="featured">
-        <div class="content-wrapper">
+        <div id="header_page" class="content-wrapper">
             <hgroup class="title">
                 <h1>Home Page.</h1>
                 <h2>Modify this template to jump-start your ASP.NET application.</h2>
@@ -84,155 +211,222 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
+       
     <input id="hfdImagePath" type="hidden" name="hfdImagePath" value="/Resources/imgFotoPerfilHombre.jpg"/>      
-
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>        
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" OnPreRender="UpdatePanel1_PreRender">
         <ContentTemplate>
                
-            <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="2">
+            <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="1">
                 <asp:View ID="View1" runat="server">
-                    <div id="datosPersonales" class="datosContenedor">
-                        <div class="titulo">1. Datos basicos</div>
-                        <div class="contenido">
-                            <div class="campoDato">
-                                <div class="textoCampo">Nombres:</div>
-                                <div>
-                                    <asp:TextBox ID="txtNombres" runat="server" CssClass="valorCampo2"></asp:TextBox>
-                                    <asp:TextBoxWatermarkExtender ID="txtNombres_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtNombres" WatermarkText="Nombres"></asp:TextBoxWatermarkExtender>
-                                    <asp:TextBox ID="txtApellidos" runat="server" CssClass="valorCampo2"></asp:TextBox>
-                                    <asp:TextBoxWatermarkExtender ID="txtApellidos_TextBoxWatermarkExtender" runat="server" Enabled="True" TargetControlID="txtApellidos" WatermarkText="Apellidos"></asp:TextBoxWatermarkExtender>
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Correo electronico:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtCorreoElectronico" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Confirmar correo electronico:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtReCorreoElectronico" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Nombre de usuario:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Contraseña:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtContrasena" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Confirmar contraseña:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtReContrasena" runat="server"></asp:TextBox>
-                                </div>
+                       
+                    <div id="titulo1" class="ui-widget-header ui-corner-all tituloBox">
+                        <img src="/Resources/orderedList1.png" alt="" class="float-left"/>
+                        <span class="tituloFont">Información de la cuenta</span>
+                        <img src="/Resources/orderedList3.png" alt="" class="float-right"/>
+                        <img src="/Resources/orderedList2.png" alt="" class="float-right"/>
+                    </div>
+                                                              
+                    <div class="contenidoBox">
+                        
+                        <div class="clear-fix">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Nombre de usuario:</label>
+                                <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="txtNombreUsuario_Validation1" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El nombre de usuario es requerido" Display="None"></asp:RequiredFieldValidator>
+                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC1" runat="server" TargetControlID="txtNombreUsuario_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtNombreUsuario_Validation2" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El nombre de usuario debe tener entre 8 a 50 caracteres" ValidationExpression="^\S{7,49}$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC2" runat="server" TargetControlID="txtNombreUsuario_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtNombreUsuario_Validation3" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El formato del nombre de usuario proporcionando no es valido" ValidationExpression="^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC3" runat="server" TargetControlID="txtNombreUsuario_Validation3" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>                                
                             </div>
                         </div>
-                        <div class="botones">
+                        
+                        <div class="clear-fix-margin-top">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Correo electronico:</label>
+                                <asp:TextBox ID="txtCorreoElectronico" runat="server"></asp:TextBox>                                    
+                                <asp:RequiredFieldValidator ID="txtCorreoElectronico_Validation1" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="El correo electronico es requerido" Display="None"></asp:RequiredFieldValidator>
+                                <asp:ValidatorCalloutExtender ID="txtCorreoElectronico_VC1" runat="server" TargetControlID="txtCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtCorreoElectronico_Validation2" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="El formato del correo electronico proporcionado no es valido" ValidationExpression="^[a-z][\w\.]+@([\w\-]+\.)+[a-z]{2,7}$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtCorreoElectronico_VC2" runat="server" TargetControlID="txtCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                            </div>                            
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <label>Confirme el correo electronico:</label>                                       
+                                <asp:TextBox ID="txtReCorreoElectronico" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="txtReCorreoElectronico_Validation1" runat="server" ControlToValidate="txtReCorreoElectronico" ErrorMessage="La confirmación del correo electronico es requerida" Display="None"></asp:RequiredFieldValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC1" runat="server" TargetControlID="txtReCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtReCorreoElectronico_Validation2" runat="server" ControlToValidate="txtReCorreoElectronico" ErrorMessage="El formato del correo electronico proporcionado no es valido" ValidationExpression="^[a-z][\w\.]+@([\w\-]+\.)+[a-z]{2,7}$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC2" runat="server" TargetControlID="txtReCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <asp:CompareValidator ID="txtReCorreoElectronico_Validation3" runat="server" ControlToValidate="txtReCorreoElectronico" ControlToCompare="txtCorreoElectronico"  ErrorMessage="La confirmación del correo electronico no coincide" Display="None"></asp:CompareValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC3" runat="server" TargetControlID="txtReCorreoElectronico_Validation3" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                            </div>                           
+                        </div>    
+                        
+                        <div class="clear-fix-margin-top">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Contraseña:</label>
+                                <asp:TextBox ID="txtContrasena" runat="server" type="password"></asp:TextBox>                                    
+                                <asp:RequiredFieldValidator ID="txtContrasena_Validation1" runat="server" ControlToValidate="txtContrasena" ErrorMessage="La constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
+                                <asp:ValidatorCalloutExtender ID="txtContrasena_VC1" runat="server" TargetControlID="txtContrasena_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtContrasena_Validation2" runat="server" ControlToValidate="txtContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtContrasena_VC2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                            </div>                            
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <label>Confirme la contraseña:</label>
+                                <asp:TextBox ID="txtReContrasena" runat="server" type="password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="txtReContrasena_Validator1" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="La confirmación de la constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC1" runat="server" TargetControlID="txtReContrasena_Validator1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <asp:RegularExpressionValidator ID="txtReContrasena_Validator2" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC2" runat="server" TargetControlID="txtReContrasena_Validator2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <asp:CompareValidator ID="txtReContrasena_Validator3" runat="server" ControlToValidate="txtReContrasena" ControlToCompare="txtContrasena"  ErrorMessage="La confirmación de la contraseña no coincide" Display="None"></asp:CompareValidator>
+                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC3" runat="server" TargetControlID="txtReContrasena_Validator3" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                            </div>                          
+                        </div>    
+          
+                    </div>
+
+                    <div class="botonesBox">
                             <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" OnClick="btnSiguiente_Click" />                
-                        </div>
-                    </div>                
+                    </div>
 
                 </asp:View>
+         
                 <asp:View ID="View2" runat="server">
-                    <div id="datosContacto" class="datosContenedor">      
-                        <div class="titulo">2. Datos personales y contacto</div>
-                        <div class="contenido">
-                            <div class="campoDato">
-                                <div class="textoCampo">Ciudad:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtCiudad" runat="server"></asp:TextBox>
-                                </div>
+                
+                    <div id="titulo2" class="ui-widget-header ui-corner-all tituloBox">
+                        <img src="/Resources/orderedList1.png" alt="" class="float-left"/>
+                        <img src="/Resources/orderedList2.png" alt="" class="float-left"/>
+                        <span class="tituloFont">Información personal</span>        
+                        <img src="/Resources/orderedList3.png" alt="" class="float-right"/>
+                    </div>                        
+
+                    <div class="contenidoBox">
+                            
+                        <div class="clear-fix">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Nombres:</label>                        
+                                <asp:TextBox ID="txtNombres" runat="server"></asp:TextBox>                                
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Fecha de nacimiento:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
-                                    <asp:CalendarExtender ID="txtFechaNacimiento_CalendarExtender" runat="server" Enabled="True" TargetControlID="txtFechaNacimiento"></asp:CalendarExtender>
-                                </div>
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <label>Apellidos:</label>         
+                                <asp:TextBox ID="txtApellidos" runat="server"></asp:TextBox>
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Sexo:</div>
-                                <div class="valorCampo">
-                                    <asp:RadioButtonList ID="rdbSexo" runat="server">
-                                        <asp:ListItem Value="1" Text="Masculino"></asp:ListItem>
-                                        <asp:ListItem Value="2" Text="Femenino" ></asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </div>
+                        </div>                          
+                        
+                        <div class="clear-fix-margin-top">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Fecha de nacimiento:</label>         
+                                <asp:TextBox ID="txtFechaNacimiento" runat="server"></asp:TextBox>
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Ocupación:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtOcupacion" runat="server"></asp:TextBox>
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <label>Genero:</label>         
+                                <div id="genero_usuario">
+                                    <asp:RadioButton ID="rbtHombre" runat="server" Text ="Hombre" GroupName="genero_usuario"/>
+                                    <asp:RadioButton ID="rbtMujer" runat="server" Text ="Mujer" GroupName="genero_usuario"/>
                                 </div>
+                                
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Teléfono fijo::</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtTelefonoFijo" runat="server"></asp:TextBox>
-                                </div>
+                        </div>    
+                        
+                        <div class="clear-fix-margin-top">
+                            <div class="float-left columna-x3 columna-x3-left">
+                                <label>País:</label>
+                                <asp:DropDownList ID="ddlPais" runat="server">
+                                    <asp:ListItem Value="57">Colombia</asp:ListItem>
+                                </asp:DropDownList>   
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Teléfono Movil:</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtTelefonoMovil" runat="server"></asp:TextBox>
-                                </div>
+                            <div class="float-left columna-x3 columna-x3-middle">
+                                <label>Departamento:</label>
+                                <asp:DropDownList ID="ddlDepartamento" runat="server">
+                                    <asp:ListItem Value="1">Cundinamarca</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Fumador:</div>
-                                <div class="valorCampo">
-                                    <asp:CheckBox ID="chkFumador" runat="server" />
-                                </div>
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">Vehiculo propio:</div>
-                                <div class="valorCampo">
-                                    <asp:CheckBox ID="chkVehiculoPropio" runat="server" />
-                                </div>
+                            <div class="float-left columna-x3 columna-x3-right">
+                                <label>Ciudad:</label>
+                                <asp:DropDownList ID="ddlCiudad" runat="server">
+                                    <asp:ListItem Value="1">Bogotá</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="botones">
-                            <asp:Button ID="btnAtras1" runat="server" Text="Atras" OnClick="btnAtras1_Click"/>                
+                        
+                        <div class="clear-fix-margin-top">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Teléfono fijo:</label>
+                                <asp:TextBox ID="txtTelefonoFijo" runat="server"></asp:TextBox>
+                            </div>                            
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <label>Teléfono Movil:</label>
+                                <asp:TextBox ID="txtTelefonoMovil" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="botonesBox">
+                            <asp:Button ID="btnAtras1" runat="server" CausesValidation="False" Text="Atras" OnClick="btnAtras1_Click"/>                
                             <asp:Button ID="btnSiguiente1" runat="server" Text="Siguiente" OnClick="btnSiguiente1_Click"/>                
                         </div>
-                    </div>                
+                
                 </asp:View>
-                <asp:View ID="View3" runat="server" OnActivate="View3_Activate">
-                    <div id="datosAdicionales" class=" datosContenedor">
-                        <div class="titulo">3. Datos Adicionales</div>
-                        <div class="contenido">
-                            <div class="campoDato">
-                                <div class="textoCampo">Foto de perfil:</div>
-                                <div class="marcoImagen">
+                <asp:View ID="View3" runat="server" OnActivate="View3_Activate" OnPreRender="View3_PreRender">
+
+                    <div id="titutlo3" class="ui-widget-header ui-corner-all tituloBox">
+                        <img src="/Resources/orderedList1.png" alt="" class="float-left"/>
+                        <img src="/Resources/orderedList2.png" alt="" class="float-left"/>
+                        <img src="/Resources/orderedList3.png" alt="" class="float-left"/>
+                        <span class="tituloFont">Información Adicional</span>                                
+                    </div>   
+                    
+                    <div class="contenidoBox">                            
+                        <div class="clear-fix">
+                            <div class="float-left columna-x2 columna-x2-left">
+                                <label>Foto de perfil:</label>
+                                <div id="contenedor_imagen" class="clear-fix-margin-top ui-widget ui-state-default ui-corner-all" style="text-align: center;">
                                     <img id="imgFoto" class="imagenFoto" src="/Resources/imgFotoPerfilHombre.jpg" alt=""/>
-                                </div>
-                                <div class="divClear">
-                                    <asp:LinkButton ID="lnkCambiarFoto" runat="server" OnClientClick="lnkCambiarFoto_OnClick()">Cambiar imagen</asp:LinkButton>
-                                </div>                               
-                            </div>
-                            <div class="campoDato">
-                                <div class="textoCampo">¿Algo mas que quieras que tus compañeros de viaje conozcan?</div>
-                                <div class="valorCampo">
-                                    <asp:TextBox ID="txtMasInformacion" runat="server"></asp:TextBox>
+                                    <div class="clear-fix-margin">
+                                        <%--<asp:LinkButton ID="lnkCambiarFoto" runat="server" OnClientClick="lnkCambiarFoto_OnClick()">Cambiar imagen</asp:LinkButton>--%>
+                                        <asp:LinkButton ID="lnkCambiarFoto" runat="server" OnClientClick="$('#dialogoCambiarFoto').wijdialog('open')">Cambiar imagen</asp:LinkButton>
+                                        <%--<div id="fine-uploader" style="width: 140px; margin: 0 auto;"></div>--%>
+                                        <%--<input type="button" id="LinkButton1" onclick="$('#dialogoCambiarFoto').wijdialog('open')" value="cambiar foto"/>--%>                                       
+                                    </div>                                           
                                 </div>
                             </div>
+                            <div class="float-left columna-x2 columna-x2-right">
+                                <div class="clear-fix">
+                                    <label>Ocupación:</label>
+                                    <asp:DropDownList ID="ddlOcupacion" runat="server">
+                                        <asp:ListItem Value="1">Ingeniero</asp:ListItem>
+                                        <asp:ListItem Value="2">Estudiante</asp:ListItem>
+                                        <asp:ListItem Value="3">Médico</asp:ListItem>
+                                    </asp:DropDownList>   
+                                </div>
+                                <div class="clear-fix-margin-top">
+                                    <label>Selcciona los que te describan:</label>
+                                    <div id="caracteristicas_usuarios">
+                                        <asp:CheckBox ID="chkFumador" runat="server" Text="Soy fumador"/>
+                                        <asp:CheckBox ID="chkVehiculoPropio" runat="server" Text="Tengo vehículo"/>
+                                    </div>
+                                </div>                            
+                                <div class="clear-fix-margin-top">
+                                    <label>¿Algo más que quieras que tus compañeros de viaje conozcan?</label>    
+                                    <asp:TextBox ID="txtMasInformacion" runat="server" TextMode="MultiLine" rows="2"></asp:TextBox>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="botones">
-                            <asp:Button ID="btnAtras2" runat="server" Text="Atras" OnClick="btnAtras2_Click"/>                
-                            <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click"/>                                            
-                        </div>
-                    </div>       
+                    </div>                            
+                            
+                    <div class="botonesBox">
+                        <asp:Button ID="btnAtras2" runat="server" Text="Atras" OnClick="btnAtras2_Click"/>                
+                        <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click"/>                                            
+                    </div>
 
                     
-                    <asp:Panel ID="pnlModalCargarImagen" runat="server" CssClass="updateProgress" Style="display: none;">
+
+
+                    
+                    <%--<asp:Panel ID="pnlModalCargarImagen" runat="server" CssClass="updateProgress" Style="display: none;">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
                                 <img id="imgFotoModal" class="imagenFoto" src="/Resources/imgFotoPerfilHombre.jpg" alt=""/>
@@ -241,16 +435,32 @@
                                 <asp:AsyncFileUpload ID="AsyncFileUpload1"  runat="server" onpropertychange="add()" style="display: block;" 
                                     ThrobberID="Image1" OnUploadedComplete="AsyncFileUpload1_UploadedComplete" 
                                     OnClientUploadStarted="onClientUploadStared"/>
-                                   
+                                 
+                                
+
+
                                 <input id="btnAceptarImagen" type="button" value="Aceptar"/>                         
                                 <input id="BtnQuitarImagen" type="button" value="Quitar" onclick="BtnQuitarImagen_OnClick()"/>
                                 <input id="btnCancelarImagen" type="button" value="Cancelar"/>
                                 <input id="BtnBuscarImagen" type="button" value="Buscar..." onclick="ctl00_MainContent_AsyncFileUpload1_ctl02.click()" />
                             </ContentTemplate>
                         </asp:UpdatePanel>
-                    </asp:Panel>                   
+                    </asp:Panel>--%>                   
                     
-                    <asp:ModalPopupExtender 
+                    <div id="dialogoCambiarFoto" title="Cambiar foto">
+                        <div class="clear-fix-margin" style="text-align: center; vertical-align: middle;">
+                            <img id="imagenFotoModal" class="imagenFoto" src="/Resources/imgFotoPerfilHombre.jpg" alt=""/>
+                        </div>                        
+                        <div id="dialogoBotonesBox" class="clear-fix dialogoBotonesBox" style="margin: 0 auto;">
+                            <div id="fine-uploader" class="float-left" style="width: 90px; margin-left: 20px;"></div>
+                            <input id="btnQuitarImagen" type="button" value="Quitar" style="margin-left: 4px"></input>
+                            <input id="btnAceptarImagen" class="float-right" type="button" value="Aceptar" style="margin-right: 20px;"></input>
+                        </div>
+                    </div> 	
+
+                    
+
+                    <%--<asp:ModalPopupExtender 
                         ID="lnkCambiarFoto_ModalPopupExtender" 
                         DropShadow="True"
                         OkControlID="btnAceptarImagen" 
@@ -262,7 +472,7 @@
                         BackgroundCssClass="modalBackground" 
                         PopupDragHandleControlID="btnCancelarImagen"
                         runat="server" >                
-                    </asp:ModalPopupExtender>                    
+                    </asp:ModalPopupExtender>--%>                    
                     
                 </asp:View>
             </asp:MultiView>
@@ -282,7 +492,7 @@
 
 
     
-    
+ 
     
     
 

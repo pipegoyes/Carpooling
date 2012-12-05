@@ -47,7 +47,7 @@ namespace Carpooling
 
         protected void btnAtras2_Click(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 1;            
+            MultiView1.ActiveViewIndex = 1;
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
@@ -55,27 +55,27 @@ namespace Carpooling
             System.Threading.Thread.Sleep(3000);
             try
             {
-                var nuevoUsuario = new USUARIO();
-                nuevoUsuario.ID_USUARIO = txtNombreUsuario.Text;
-                nuevoUsuario.NOMBRES = txtNombres.Text;
-                nuevoUsuario.APELLIDOS = txtApellidos.Text;
-                nuevoUsuario.CONTRASENIA = txtContrasena.Text;
-                nuevoUsuario.FECHA_NACIMIENTO = txtFechaNacimiento_CalendarExtender.SelectedDate;
-                nuevoUsuario.CIUDAD_RESIDENCIA = txtCiudad.Text;
-                nuevoUsuario.EMAIL = txtCorreoElectronico.Text;
+                //var nuevoUsuario = new USUARIO();
+                //nuevoUsuario.ID_USUARIO = txtNombreUsuario.Text;
+                //nuevoUsuario.NOMBRES = txtNombres.Text;
+                //nuevoUsuario.APELLIDOS = txtApellidos.Text;
+                //nuevoUsuario.CONTRASENIA = txtContrasena.Text;
+                //nuevoUsuario.FECHA_NACIMIENTO = txtFechaNacimiento_CalendarExtender.SelectedDate;
+                //nuevoUsuario.CIUDAD_RESIDENCIA = txtCiudad.Text;
+                //nuevoUsuario.EMAIL = txtCorreoElectronico.Text;
                 //nuevoUsuario.SEXO = Byte.Parse(rdbSexo.SelectedValue);
-                nuevoUsuario.OCUPACION = txtOcupacion.Text;
-                nuevoUsuario.TELEFONO_FIJO = txtTelefonoFijo.Text;
-                nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
+                //nuevoUsuario.OCUPACION = txtOcupacion.Text;
+                //nuevoUsuario.TELEFONO_FIJO = txtTelefonoFijo.Text;
+                //nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
                 //nuevoUsuario.FUMADOR = chkFumador.Checked;
                 //nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
-                nuevoUsuario.FOTO = ObtenerArrayImagenPerfil();
-                nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
+                //nuevoUsuario.FOTO = ObtenerArrayImagenPerfil();
+                //nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
 
-                AdministracionUsuario.CrearUsuario(nuevoUsuario);
+                //AdministracionUsuario.CrearUsuario(nuevoUsuario);
             }
             catch (Exception ex)
-            {                    
+            {
                 throw;
             }
         }
@@ -97,7 +97,7 @@ namespace Carpooling
             }
             catch (Exception)
             {
-                    
+
                 throw;
             }
             return arrayImagen;
@@ -107,25 +107,25 @@ namespace Carpooling
         {
             try
             {
-                var streamImagen = AsyncFileUpload1.FileContent;
+                //var streamImagen = AsyncFileUpload1.FileContent;
 
-                if (streamImagen == null) return;
+                //if (streamImagen == null) return;
 
-                // write the image using a guid name instead to avoid conflicts ... 
-                var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
-                var destFolder = Server.MapPath(AppRelativeTemplateSourceDirectory + "/" + m_folderProfileImages + "/");
-                var imageUpload = Image.FromStream(streamImagen);
-                
-                // all images end up as jpg  
-                imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
+                //// write the image using a guid name instead to avoid conflicts ... 
+                //var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
+                //var destFolder = Server.MapPath(AppRelativeTemplateSourceDirectory + "/" + m_folderProfileImages + "/");
+                //var imageUpload = Image.FromStream(streamImagen);
 
-                //arma la ruta relativa de la imagen
-                m_imagenUsuarioPath = "/" + m_folderProfileImages + "/" + uniqueName;
+                //// all images end up as jpg  
+                //imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
 
-                //registra los scripts en el cliente para cambiar el valor de los controles              
-                ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "hfdImagePath",
-                    "top.document.getElementById('hfdImagePath').value='" + m_imagenUsuarioPath + "'; " +
-                    "top.document.getElementById('imgFotoModal').src='" + m_imagenUsuarioPath + "';" ,true);
+                ////arma la ruta relativa de la imagen
+                //m_imagenUsuarioPath = "/" + m_folderProfileImages + "/" + uniqueName;
+
+                ////registra los scripts en el cliente para cambiar el valor de los controles              
+                //ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "hfdImagePath",
+                //    "top.document.getElementById('hfdImagePath').value='" + m_imagenUsuarioPath + "'; " +
+                //    "top.document.getElementById('imgFotoModal').src='" + m_imagenUsuarioPath + "';" ,true);
             }
             catch (Exception ex)
             {
@@ -137,9 +137,21 @@ namespace Carpooling
         {
             if (!String.IsNullOrEmpty(m_imagenUsuarioPath))
             {
-                ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "imgFoto",
-                    "top.document.getElementById('imgFoto').src='" + m_imagenUsuarioPath + "';", true);
+                //ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "imgFoto",
+                //    "top.document.getElementById('imgFoto').src='" + m_imagenUsuarioPath + "';", true);
             }
+        }
+
+        protected void UpdatePanel1_PreRender(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "cssWij",
+                "AplicarCCS();", true);
+        }
+
+        protected void View3_PreRender(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(View3, View3.GetType(), "Uploader",
+                "CrearUploader();", true);
         }
     }
 }

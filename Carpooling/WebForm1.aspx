@@ -1,88 +1,98 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Carpooling.WebForm1" %>
 
-<%@ Register Assembly="Gaia.WebWidgets" Namespace="Gaia.WebWidgets" TagPrefix="gaia" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>    
-    <script type="text/javascript" src="/Scripts/jquery-1.4.1.min.js"></script>
+    <link href="Styles/fineuploader.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.8.2.min.js"></script> 
+    <script src="Scripts/jquery.fineuploader/jquery.fineuploader-3.0.js"></script>
     
-    <style type="text/css">
-         .file_input_textbox
-        {
-	        float: left;
-        }
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
 
-        .file_input_div
-        {
-	        position: relative; 
-	        width: 96px; 
-	        height: 30px;
-            background-color: red;
-	        overflow: hidden;
-        }
+<style>
+      /* Fine Uploader
+      -------------------------------------------------- */
+      .qq-upload-list {
+          display: none;
 
-        .file_input_button
-        {
-	        width: 98px; 
-	        position: absolute; 
-	        top: 0px;
-            right: 0;
-	        background-color: #33BB00;
-	        color: #FFFFFF;
-	        border-style: solid;
-            z-index: 0;
-            cursor: pointer;
-        }
-
-        .file_input_hidden
-        {
-	        font-size: 45px; 
-	        position: absolute; 
-	        right: 0px; 
-	        top: 0px; 
-	        opacity: 1; 
-	
-	        filter: alpha(opacity=1); 
-	        -ms-filter: "alpha(opacity=1)"; 
-	        -khtml-opacity: 0; 
-	        -moz-opacity: 0;            
-        }       
-
-
+        text-align: left;
+      }
+ 
+      /* For the bootstrapped demos */
+      li.alert-success {
+          display: none;
+        background-color: #DFF0D8;
+      }
+ 
+      li.alert-error {
+          display: none;
+        background-color: #F2DEDE;
+      }
+ 
+      .alert-error .qq-upload-failed-text {
+        display: /*inline*/ none;
+      }
     </style>
+    
 
+    <script>     
+        
+    $(document).ready(function () {
+            
+            $('#fine-uploader').fineUploader({
+                request: {
+                    endpoint: 'FilesUploader.html'
+                },
+                text: {
+                    uploadButton: 'Seleccionar'
+                },
+                multiple: false,
+                acceptFiles: 'image/*',
+                validation: {
+                    allowedExtensions: ['jpeg', 'jpg', 'png', 'gif'],
+                    sizeLimit: 102400000 // 50 kB = 50 * 1024 bytes
+                },
+                debug: true
+            });
+        
+
+            $('#bootstrapped-fine-uploader').fineUploader({
+                request: {
+                    endpoint: 'FilesUploader.html'
+                },
+                text: {
+                    uploadButton: '<i class="icon-upload icon-white"></i> Test me now and upload a file'
+                },
+                template: '<div class="qq-uploader span12">' +
+                            '<pre class="qq-upload-drop-area span12"><span>{dragZoneText}</span></pre>' +
+                            '<div class="qq-upload-button btn btn-success" style="width: auto;">{uploadButtonText}</div>' +
+                            '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
+                          '</div>',
+                classes: {
+                    success: 'alert alert-success',
+                    fail: 'alert alert-error'
+                },
+                debug: true
+            });
+        });
+        
+
+    </script>
 </head>
-<body>    
-    <form id="form1" runat="server">
-        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>        
+<body>
+    <form id="Form1" runat="server">    
     <div>
 
- 
+            <div id="bootstrapped-fine-uploader"></div>    
         
+                    <br/>
 
-<%--<input type="text" id="fileName" class="file_input_textbox" readonly="readonly">--%>
- 
-<div class="file_input_div">
-    
-  
-  <asp:AsyncFileUpload ID="AsyncFileUpload1" runat="server" style="height: 30px; cursor: pointer; position: absolute; top:0; right: 0; opacity: 0; z-index:9;"  ThrobberID="Image1"/>
-    <input type="button" value="Search files" class="file_input_button" />
-  <%--<input type="file" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value;" />--%>
-    
-    
-</div>        
-        <asp:Image ID="Image1" runat="server" ImageUrl="/Resources/uploading.gif"/>
-        
-        
-        
-        
+            <div id="fine-uploader"></div>    
 
-
+        
+        
     </div>
     </form>
 </body>
