@@ -63,6 +63,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CarpoolingDbModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpoolingDbModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpoolingDbModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CORDENADA.cs">
       <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
     </Compile>
@@ -71,7 +86,7 @@
       <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIO.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+      <DependentUpon>CarpoolingDbModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="VIAJE.cs">
       <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
@@ -99,6 +114,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
       <LastGenOutput>CarpoolingDbModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="CarpoolingDbModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarpoolingDbModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarpoolingDbModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel1.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CarpoolingDbModel1.edmx.diagram">
+      <DependentUpon>CarpoolingDbModel1.edmx</DependentUpon>
+    </None>
+    <None Include="CarpoolingDbModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel1.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
