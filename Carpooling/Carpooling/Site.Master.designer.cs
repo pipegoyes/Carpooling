@@ -22,6 +22,15 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
+        /// form_page control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_page;
+        
+        /// <summary>
         /// A1 control.
         /// </summary>
         /// <remarks>

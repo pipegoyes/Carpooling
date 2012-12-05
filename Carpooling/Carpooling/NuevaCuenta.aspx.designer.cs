@@ -49,40 +49,67 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// txtNombres control.
+        /// txtNombreUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombres;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
         
         /// <summary>
-        /// txtNombres_TextBoxWatermarkExtender control.
+        /// txtNombreUsuario_Validation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtNombres_TextBoxWatermarkExtender;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNombreUsuario_Validation1;
         
         /// <summary>
-        /// txtApellidos control.
+        /// txtNombreUsuario_VC1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidos;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC1;
         
         /// <summary>
-        /// txtApellidos_TextBoxWatermarkExtender control.
+        /// txtNombreUsuario_Validation2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtApellidos_TextBoxWatermarkExtender;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtNombreUsuario_Validation2;
+        
+        /// <summary>
+        /// txtNombreUsuario_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC2;
+        
+        /// <summary>
+        /// txtNombreUsuario_Validation3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtNombreUsuario_Validation3;
+        
+        /// <summary>
+        /// txtNombreUsuario_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC3;
         
         /// <summary>
         /// txtCorreoElectronico control.
@@ -94,6 +121,42 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.TextBox txtCorreoElectronico;
         
         /// <summary>
+        /// txtCorreoElectronico_Validation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCorreoElectronico_Validation1;
+        
+        /// <summary>
+        /// txtCorreoElectronico_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtCorreoElectronico_VC1;
+        
+        /// <summary>
+        /// txtCorreoElectronico_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtCorreoElectronico_Validation2;
+        
+        /// <summary>
+        /// txtCorreoElectronico_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtCorreoElectronico_VC2;
+        
+        /// <summary>
         /// txtReCorreoElectronico control.
         /// </summary>
         /// <remarks>
@@ -103,13 +166,58 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.TextBox txtReCorreoElectronico;
         
         /// <summary>
-        /// txtNombreUsuario control.
+        /// txtReCorreoElectronico_Validation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtReCorreoElectronico_Validation1;
+        
+        /// <summary>
+        /// txtReCorreoElectronico_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReCorreoElectronico_VC1;
+        
+        /// <summary>
+        /// txtReCorreoElectronico_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtReCorreoElectronico_Validation2;
+        
+        /// <summary>
+        /// txtReCorreoElectronico_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReCorreoElectronico_VC2;
+        
+        /// <summary>
+        /// txtReCorreoElectronico_Validation3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator txtReCorreoElectronico_Validation3;
+        
+        /// <summary>
+        /// txtReCorreoElectronico_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReCorreoElectronico_VC3;
         
         /// <summary>
         /// txtContrasena control.
@@ -121,6 +229,42 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.TextBox txtContrasena;
         
         /// <summary>
+        /// txtContrasena_Validation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtContrasena_Validation1;
+        
+        /// <summary>
+        /// txtContrasena_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC1;
+        
+        /// <summary>
+        /// txtContrasena_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtContrasena_Validation2;
+        
+        /// <summary>
+        /// txtContrasena_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC2;
+        
+        /// <summary>
         /// txtReContrasena control.
         /// </summary>
         /// <remarks>
@@ -128,6 +272,60 @@ namespace Carpooling {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReContrasena;
+        
+        /// <summary>
+        /// txtReContrasena_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtReContrasena_Validator1;
+        
+        /// <summary>
+        /// txtReContrasena_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReContrasena_VC1;
+        
+        /// <summary>
+        /// txtReContrasena_Validator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtReContrasena_Validator2;
+        
+        /// <summary>
+        /// txtReContrasena_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReContrasena_VC2;
+        
+        /// <summary>
+        /// txtReContrasena_Validator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator txtReContrasena_Validator3;
+        
+        /// <summary>
+        /// txtReContrasena_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReContrasena_VC3;
         
         /// <summary>
         /// btnSiguiente control.
@@ -148,13 +346,22 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.View View2;
         
         /// <summary>
-        /// txtCiudad control.
+        /// txtNombres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
+        protected global::System.Web.UI.WebControls.TextBox txtNombres;
+        
+        /// <summary>
+        /// txtApellidos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtApellidos;
         
         /// <summary>
         /// txtFechaNacimiento control.
@@ -166,31 +373,49 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
         
         /// <summary>
-        /// txtFechaNacimiento_CalendarExtender control.
+        /// rbtHombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtFechaNacimiento_CalendarExtender;
+        protected global::System.Web.UI.WebControls.RadioButton rbtHombre;
         
         /// <summary>
-        /// rdbSexo control.
+        /// rbtMujer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdbSexo;
+        protected global::System.Web.UI.WebControls.RadioButton rbtMujer;
         
         /// <summary>
-        /// txtOcupacion control.
+        /// ddlPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOcupacion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPais;
+        
+        /// <summary>
+        /// ddlDepartamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento;
+        
+        /// <summary>
+        /// ddlCiudad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
         
         /// <summary>
         /// txtTelefonoFijo control.
@@ -209,24 +434,6 @@ namespace Carpooling {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoMovil;
-        
-        /// <summary>
-        /// chkFumador control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkFumador;
-        
-        /// <summary>
-        /// chkVehiculoPropio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkVehiculoPropio;
         
         /// <summary>
         /// btnAtras1 control.
@@ -265,6 +472,33 @@ namespace Carpooling {
         protected global::System.Web.UI.WebControls.LinkButton lnkCambiarFoto;
         
         /// <summary>
+        /// ddlOcupacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlOcupacion;
+        
+        /// <summary>
+        /// chkFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkFumador;
+        
+        /// <summary>
+        /// chkVehiculoPropio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkVehiculoPropio;
+        
+        /// <summary>
         /// txtMasInformacion control.
         /// </summary>
         /// <remarks>
@@ -290,50 +524,5 @@ namespace Carpooling {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFinalizar;
-        
-        /// <summary>
-        /// pnlModalCargarImagen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlModalCargarImagen;
-        
-        /// <summary>
-        /// UpdatePanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
-        /// <summary>
-        /// Image1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-        
-        /// <summary>
-        /// AsyncFileUpload1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AsyncFileUpload AsyncFileUpload1;
-        
-        /// <summary>
-        /// lnkCambiarFoto_ModalPopupExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender lnkCambiarFoto_ModalPopupExtender;
     }
 }
