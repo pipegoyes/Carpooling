@@ -47,22 +47,11 @@
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Gaia.WebWidgets, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="Gaia.WebWidgets.CommunityExtensions, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="Gaia.WebWidgets.ComponentModel.3.7.1734.44, Version=3.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="Gaia.WebWidgets.Design, Version=1.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="Gaia.WebWidgets.Effects, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="Gaia.WebWidgets.Extensions, Version=3.7.1734.101, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="GaiaPackage, Version=1.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
-    <Reference Include="GaiaPackage.NET4, Version=1.7.1734.44, Culture=neutral, PublicKeyToken=e3fc7cc7a1b1114a, processorArchitecture=MSIL" />
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
       <Private>True</Private>
@@ -84,17 +73,16 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\loading.gif" />
-    <Content Include="Resources\orderedList0.png" />
-    <Content Include="Resources\orderedList1.png" />
-    <Content Include="Resources\orderedList2.png" />
-    <Content Include="Resources\orderedList3.png" />
-    <Content Include="Resources\orderedList4.png" />
-    <Content Include="Resources\orderedList5.png" />
-    <Content Include="Resources\orderedList6.png" />
-    <Content Include="Resources\orderedList7.png" />
-    <Content Include="Resources\orderedList8.png" />
-    <Content Include="Resources\orderedList9.png" />
+    <Content Include="Styles\images\orderedList0.png" />
+    <Content Include="Styles\images\orderedList1.png" />
+    <Content Include="Styles\images\orderedList2.png" />
+    <Content Include="Styles\images\orderedList3.png" />
+    <Content Include="Styles\images\orderedList4.png" />
+    <Content Include="Styles\images\orderedList5.png" />
+    <Content Include="Styles\images\orderedList6.png" />
+    <Content Include="Styles\images\orderedList7.png" />
+    <Content Include="Styles\images\orderedList8.png" />
+    <Content Include="Styles\images\orderedList9.png" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery.fineuploader\fileuploader.js" />
     <Content Include="Scripts\jquery.fineuploader\jquery.fineuploader-3.0.js" />
@@ -103,32 +91,27 @@
     <Content Include="Scripts\jquery.wijmo\jquery.wijmo-complete.all.2.2.1.min.js" />
     <Content Include="Scripts\jquery.wijmo\jquery.wijmo-open.all.2.2.1.min.js" />
     <Content Include="Scripts\jqueryUI\globalize.js" />
-    <Content Include="NuevaCuenta.aspx" />
-    <Content Include="Pages\About.aspx" />
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
-    <Content Include="Pages\BuscarViaje.aspx" />
-    <Content Include="Pages\CrearViajePaso1.aspx" />
-    <Content Include="Pages\CrearViajePaso2.aspx" />
-    <Content Include="Pages\Inicio.aspx" />
-    <Content Include="Pages\InicioSesion.aspx" />
-    <Content Include="Pages\PublicacionViajeExitosa.aspx" />
-    <Content Include="Pages\Perfil.aspx" />
-    <Content Include="Resources\ajax_loader.gif" />
-    <Content Include="Resources\btnAgregarParadas.png" />
-    <Content Include="Perfil3.aspx" />
-    <Content Include="Resources\btnBuscarViaje.png" />
-    <Content Include="Resources\btnIniciarSesion.png" />
+    <Content Include="Front\Cuentas\NuevaCuenta.aspx" />
+    <Content Include="Front\Viajes\BuscarViaje.aspx" />
+    <Content Include="Front\Viajes\CrearViajePaso1.aspx" />
+    <Content Include="Front\Viajes\CrearViajePaso2.aspx" />
+    <Content Include="Front\Inicio.aspx" />
+    <Content Include="Front\InicioSesion.aspx" />
+    <Content Include="Front\Viajes\PublicacionViajeExitosa.aspx" />
+    <Content Include="Front\Cuentas\Perfil.aspx" />
+    <Content Include="Styles\images\ajax_loader.gif" />
+    <Content Include="Styles\images\btnAgregarParadas.png" />
+    <Content Include="Front\Cuentas\Perfil3.aspx" />
+    <Content Include="Styles\images\btnBuscarViaje.png" />
+    <Content Include="Styles\images\btnIniciarSesion.png" />
     <Content Include="Styles\fineuploader.css" />
     <Content Include="Styles\images\Calendar_scheduleHS.png" />
-    <Content Include="Resources\deleteIcon.png" />
-    <Content Include="Resources\heroAccent.png" />
-    <Content Include="Resources\imgFotoPerfilHombre.jpg" />
-    <Content Include="Resources\imgFotoPerfilMujer.jpg" />
-    <Content Include="Resources\uploading.gif" />
-    <Content Include="Resources\warning.gif" />
+    <Content Include="Styles\images\deleteIcon.png" />
+    <Content Include="Styles\images\heroAccent.png" />
+    <Content Include="Styles\images\imgFotoPerfilHombre.jpg" />
+    <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
+    <Content Include="Styles\images\uploading.gif" />
+    <Content Include="Styles\images\warning.gif" />
     <Content Include="Scripts\AutocompletarCiudad.js" />
     <Content Include="Scripts\CreacionComponentes.js" />
     <Content Include="Scripts\CrearViajePaso1.js" />
@@ -151,7 +134,6 @@
     <Content Include="Styles\Perfil3.css" />
     <Content Include="Styles\PublicacionViajeExitosa.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Pages\Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Styles\themes\aristo\images\scrollbar-horizontal.png" />
     <Content Include="Styles\themes\aristo\images\scrollbar-vertical.png" />
@@ -371,121 +353,81 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilesUploader.cs" />
-    <Compile Include="NuevaCuenta.aspx.cs">
+    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.cs">
       <DependentUpon>NuevaCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NuevaCuenta.aspx.designer.cs">
+    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.designer.cs">
       <DependentUpon>NuevaCuenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BuscarViaje.aspx.cs">
+    <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\BuscarViaje.aspx.designer.cs">
+    <Compile Include="Front\Viajes\BuscarViaje.aspx.designer.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CrearViajePaso1.aspx.cs">
+    <Compile Include="Front\Viajes\CrearViajePaso1.aspx.cs">
       <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\CrearViajePaso1.aspx.designer.cs">
+    <Compile Include="Front\Viajes\CrearViajePaso1.aspx.designer.cs">
       <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CrearViajePaso2.aspx.cs">
+    <Compile Include="Front\Viajes\CrearViajePaso2.aspx.cs">
       <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\CrearViajePaso2.aspx.designer.cs">
+    <Compile Include="Front\Viajes\CrearViajePaso2.aspx.designer.cs">
       <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Inicio.aspx.cs">
+    <Compile Include="Front\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Inicio.aspx.designer.cs">
+    <Compile Include="Front\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\InicioSesion.aspx.cs">
+    <Compile Include="Front\InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\InicioSesion.aspx.designer.cs">
+    <Compile Include="Front\InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PublicacionViajeExitosa.aspx.cs">
+    <Compile Include="Front\Viajes\PublicacionViajeExitosa.aspx.cs">
       <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PublicacionViajeExitosa.aspx.designer.cs">
+    <Compile Include="Front\Viajes\PublicacionViajeExitosa.aspx.designer.cs">
       <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Perfil.aspx.cs">
+    <Compile Include="Front\Cuentas\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Perfil.aspx.designer.cs">
+    <Compile Include="Front\Cuentas\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Perfil3.aspx.cs">
+    <Compile Include="Front\Cuentas\Perfil3.aspx.cs">
       <DependentUpon>Perfil3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Perfil3.aspx.designer.cs">
+    <Compile Include="Front\Cuentas\Perfil3.aspx.designer.cs">
       <DependentUpon>Perfil3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\FilesUploader.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
+    <Compile Include="Front\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="Front\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
@@ -497,12 +439,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="ProfileImages\" />
+    <Folder Include="CacheImagen\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
-    <Content Include="Site.Master" />
+    <Content Include="Front\Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
@@ -510,7 +450,7 @@
       <Name>BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{13754c67-06b8-42bb-ab21-1383d757579d}</Project>
+      <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
