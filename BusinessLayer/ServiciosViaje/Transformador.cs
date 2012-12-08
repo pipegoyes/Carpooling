@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BusinessLayer.BussinessObjects;
-using Entities;
-using DataLayer;
-namespace BusinessLayer.Servicios
+using DataLayer.AdministradorBD;
+using DataLayer.ModeloEntityFramework.P;
+using Entities.Negocio;
+
+namespace BusinessLayer.ServiciosViaje
 {
     public class Transformador
     {
