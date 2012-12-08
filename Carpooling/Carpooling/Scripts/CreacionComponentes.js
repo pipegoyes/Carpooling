@@ -16,7 +16,7 @@
     //-----------FechaPArtida
     $("[id*=txbFechaPartida]").datepicker({
         showOn: "button",
-        buttonImage: "../Styles/images/Calendar_scheduleHS.png",
+        buttonImage: "/Styles/images/Calendar_scheduleHS.png",
         buttonImageOnly: true,
         minDate: 0, 
     });
