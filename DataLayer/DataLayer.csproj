@@ -30,15 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,19 +47,102 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultorDB.cs" />
-    <Compile Include="GeneradorInserts.cs" />
+    <Compile Include="AdministradorBD\ConsultorDB.cs" />
+    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\M\USUARIO.cs">
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.Context.cs">
+      <DependentUpon>CarpoolingDbModel.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.cs">
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.Designer.cs">
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\CORDENADA.cs">
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\TRAYECTO.cs">
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\P\VIAJE.cs">
+      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdministradorBD\GeneradorInserts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioDL.cs" />
+    <Compile Include="AdministradorBD\UsuarioDL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="ModeloEntityFramework\P\CarpoolingDbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarpoolingDbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModeloEntityFramework\M\CarpoolingDbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarpoolingDbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.edmx.diagram">
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+    </None>
+    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel.cs</LastGenOutput>
+    </None>
+    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.edmx.diagram">
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+    </None>
+    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
+      <LastGenOutput>CarpoolingDbModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tranformador\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{13754c67-06b8-42bb-ab21-1383d757579d}</Project>
+      <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

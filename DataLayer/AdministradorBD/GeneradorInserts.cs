@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Entities;
-namespace DataLayer
+using DataLayer.ModeloEntityFramework.P;
+
+namespace DataLayer.AdministradorBD
 {
     public class GeneradorInserts
     {
