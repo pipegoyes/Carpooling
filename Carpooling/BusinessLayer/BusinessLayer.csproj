@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -43,11 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministracionUsuario.cs" />
-    <Compile Include="BussinessObjects\Parada.cs" />
-    <Compile Include="BussinessObjects\Viaje.cs" />
+    <Compile Include="ServiciosCuenta\AdministracionUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\Transformador.cs" />
+    <Compile Include="ServiciosViaje\Transformador.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
@@ -55,7 +50,7 @@
       <Name>DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{13754c67-06b8-42bb-ab21-1383d757579d}</Project>
+      <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>

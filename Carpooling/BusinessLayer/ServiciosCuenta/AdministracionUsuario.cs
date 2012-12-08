@@ -5,7 +5,7 @@ using System.Text;
 using DataLayer;
 using Entities;
 
-namespace BusinessLayer
+namespace BusinessLayer.ServiciosCuenta
 {
     public static class AdministracionUsuario
     {
