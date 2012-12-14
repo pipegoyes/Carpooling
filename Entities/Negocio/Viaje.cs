@@ -15,5 +15,6 @@ namespace Entities.Negocio
         public DateTime FechaPartida { get; set; }
         public bool EsConductor { get; set; }
         public string HoraPartida { get; set; }
+        public List<Trayecto> ListTrayectos { get; set; } 
     }
 }
