@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using DataLayer.ModeloEntityFramework.P;
 using Entities.Negocio;
-namespace DataLayer.AdministradorBD
+
+namespace DataLayer.DAOs
 {
     public class GeneradorInserts
     {
