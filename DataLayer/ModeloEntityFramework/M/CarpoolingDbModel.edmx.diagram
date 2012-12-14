@@ -4,8 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="940f02734dcd4e288877b19efff9f143" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="CARPOOLINGModel.USUARIO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="416dc7511ef24790b7b64063cd3e413b" Name="Diagram1">
+        <EntityTypeShape EntityType="CARPOOLINGModel.CIUDAD" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLINGModel.DEPARTAMENTO" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLINGModel.OCUPACION" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLINGModel.PAIS" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLINGModel.USUARIO" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="CARPOOLINGModel.FK_CIUDAD_DEPARTAMENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLINGModel.FK_USUARIO_CIUDAD" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLINGModel.FK_DEPARTAMENTO_PAIS" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLINGModel.FK_USUARIO_OCUPACION" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
