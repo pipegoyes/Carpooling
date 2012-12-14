@@ -13,10 +13,10 @@ namespace DataLayer.ModeloEntityFramework.M
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CARPOOLINGEntitiesM : DbContext
+    public partial class Entities : DbContext
     {
-        public CARPOOLINGEntitiesM()
-            : base("name=CARPOOLINGEntitiesM")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -25,6 +25,10 @@ namespace DataLayer.ModeloEntityFramework.M
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<CIUDAD> CIUDAD { get; set; }
+        public DbSet<DEPARTAMENTO> DEPARTAMENTO { get; set; }
+        public DbSet<OCUPACION> OCUPACION { get; set; }
+        public DbSet<PAIS> PAIS { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
     }
 }

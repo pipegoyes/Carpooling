@@ -20,14 +20,17 @@ namespace DataLayer.ModeloEntityFramework.M
         public string CONTRASENIA { get; set; }
         public Nullable<System.DateTime> FECHA_NACIMIENTO { get; set; }
         public string EMAIL { get; set; }
-        public string CIUDAD_RESIDENCIA { get; set; }
+        public Nullable<int> CIUDAD_RESIDENCIA { get; set; }
         public byte SEXO { get; set; }
-        public string OCUPACION { get; set; }
+        public int OCUPACION { get; set; }
         public string TELEFONO_FIJO { get; set; }
         public string TELEFONO_MOVIL { get; set; }
         public bool FUMADOR { get; set; }
         public bool VEHICULO_PROPIO { get; set; }
         public byte[] FOTO { get; set; }
         public string MAS_INFO { get; set; }
+    
+        public virtual CIUDAD CIUDAD { get; set; }
+        public virtual OCUPACION OCUPACION1 { get; set; }
     }
 }

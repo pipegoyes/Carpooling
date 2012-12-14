@@ -6,8 +6,58 @@
     <edmx:StorageModels>
       <Schema Namespace="CARPOOLINGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CARPOOLINGModelStoreContainer">
+          <EntitySet Name="CIUDAD" EntityType="CARPOOLINGModel.Store.CIUDAD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="CARPOOLINGModel.Store.DEPARTAMENTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OCUPACION" EntityType="CARPOOLINGModel.Store.OCUPACION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PAIS" EntityType="CARPOOLINGModel.Store.PAIS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USUARIO" EntityType="CARPOOLINGModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CIUDAD_DEPARTAMENTO" Association="CARPOOLINGModel.Store.FK_CIUDAD_DEPARTAMENTO">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTAMENTO_PAIS" Association="CARPOOLINGModel.Store.FK_DEPARTAMENTO_PAIS">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CIUDAD" Association="CARPOOLINGModel.Store.FK_USUARIO_CIUDAD">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_OCUPACION" Association="CARPOOLINGModel.Store.FK_USUARIO_OCUPACION">
+            <End Role="OCUPACION" EntitySet="OCUPACION" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="ID_CIUDAD" />
+          </Key>
+          <Property Name="ID_CIUDAD" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_CIUDAD" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_PAIS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OCUPACION">
+          <Key>
+            <PropertyRef Name="ID_OCUPACION" />
+          </Key>
+          <Property Name="ID_OCUPACION" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_OCUPACION" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="ID_PAIS" />
+          </Key>
+          <Property Name="ID_PAIS" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_PAIS" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="ID_USUARIO" />
@@ -18,9 +68,9 @@
           <Property Name="CONTRASENIA" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="FECHA_NACIMIENTO" Type="date" />
           <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="CIUDAD_RESIDENCIA" Type="varchar" MaxLength="50" />
+          <Property Name="CIUDAD_RESIDENCIA" Type="int" />
           <Property Name="SEXO" Type="tinyint" Nullable="false" />
-          <Property Name="OCUPACION" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OCUPACION" Type="int" Nullable="false" />
           <Property Name="TELEFONO_FIJO" Type="varchar" MaxLength="20" />
           <Property Name="TELEFONO_MOVIL" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="FUMADOR" Type="bit" Nullable="false" />
@@ -28,14 +78,118 @@
           <Property Name="FOTO" Type="image" />
           <Property Name="MAS_INFO" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_CIUDAD_DEPARTAMENTO">
+          <End Role="DEPARTAMENTO" Type="CARPOOLINGModel.Store.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="CIUDAD" Type="CARPOOLINGModel.Store.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTAMENTO_PAIS">
+          <End Role="PAIS" Type="CARPOOLINGModel.Store.PAIS" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="CARPOOLINGModel.Store.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="ID_PAIS" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_PAIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CIUDAD">
+          <End Role="CIUDAD" Type="CARPOOLINGModel.Store.CIUDAD" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="CARPOOLINGModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID_CIUDAD" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="CIUDAD_RESIDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_OCUPACION">
+          <End Role="OCUPACION" Type="CARPOOLINGModel.Store.OCUPACION" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLINGModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OCUPACION">
+              <PropertyRef Name="ID_OCUPACION" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="OCUPACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CARPOOLINGModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="CARPOOLINGEntitiesM" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CIUDAD" EntityType="CARPOOLINGModel.CIUDAD" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="CARPOOLINGModel.DEPARTAMENTO" />
+          <EntitySet Name="OCUPACION" EntityType="CARPOOLINGModel.OCUPACION" />
+          <EntitySet Name="PAIS" EntityType="CARPOOLINGModel.PAIS" />
           <EntitySet Name="USUARIO" EntityType="CARPOOLINGModel.USUARIO" />
+          <AssociationSet Name="FK_CIUDAD_DEPARTAMENTO" Association="CARPOOLINGModel.FK_CIUDAD_DEPARTAMENTO">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CIUDAD" Association="CARPOOLINGModel.FK_USUARIO_CIUDAD">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTAMENTO_PAIS" Association="CARPOOLINGModel.FK_DEPARTAMENTO_PAIS">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_OCUPACION" Association="CARPOOLINGModel.FK_USUARIO_OCUPACION">
+            <End Role="OCUPACION" EntitySet="OCUPACION" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="ID_CIUDAD" />
+          </Key>
+          <Property Name="ID_CIUDAD" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_CIUDAD" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLINGModel.FK_CIUDAD_DEPARTAMENTO" FromRole="CIUDAD" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLINGModel.FK_USUARIO_CIUDAD" FromRole="CIUDAD" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLINGModel.FK_CIUDAD_DEPARTAMENTO" FromRole="DEPARTAMENTO" ToRole="CIUDAD" />
+          <NavigationProperty Name="PAIS" Relationship="CARPOOLINGModel.FK_DEPARTAMENTO_PAIS" FromRole="DEPARTAMENTO" ToRole="PAIS" />
+        </EntityType>
+        <EntityType Name="OCUPACION">
+          <Key>
+            <PropertyRef Name="ID_OCUPACION" />
+          </Key>
+          <Property Name="ID_OCUPACION" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_OCUPACION" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLINGModel.FK_USUARIO_OCUPACION" FromRole="OCUPACION" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="ID_PAIS" />
+          </Key>
+          <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_PAIS" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLINGModel.FK_DEPARTAMENTO_PAIS" FromRole="PAIS" ToRole="DEPARTAMENTO" />
+        </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="ID_USUARIO" />
@@ -46,22 +200,106 @@
           <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="0" />
           <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="CIUDAD_RESIDENCIA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CIUDAD_RESIDENCIA" Type="Int32" />
           <Property Name="SEXO" Type="Byte" Nullable="false" />
-          <Property Name="OCUPACION" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OCUPACION" Type="Int32" Nullable="false" />
           <Property Name="TELEFONO_FIJO" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="TELEFONO_MOVIL" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
           <Property Name="FUMADOR" Type="Boolean" Nullable="false" />
           <Property Name="VEHICULO_PROPIO" Type="Boolean" Nullable="false" />
           <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MAS_INFO" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLINGModel.FK_USUARIO_CIUDAD" FromRole="USUARIO" ToRole="CIUDAD" />
+          <NavigationProperty Name="OCUPACION1" Relationship="CARPOOLINGModel.FK_USUARIO_OCUPACION" FromRole="USUARIO" ToRole="OCUPACION" />
         </EntityType>
+        <Association Name="FK_CIUDAD_DEPARTAMENTO">
+          <End Role="DEPARTAMENTO" Type="CARPOOLINGModel.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="CIUDAD" Type="CARPOOLINGModel.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CIUDAD">
+          <End Role="CIUDAD" Type="CARPOOLINGModel.CIUDAD" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="CARPOOLINGModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID_CIUDAD" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="CIUDAD_RESIDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTAMENTO_PAIS">
+          <End Role="PAIS" Type="CARPOOLINGModel.PAIS" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="CARPOOLINGModel.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="ID_PAIS" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_PAIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_OCUPACION">
+          <End Role="OCUPACION" Type="CARPOOLINGModel.OCUPACION" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLINGModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OCUPACION">
+              <PropertyRef Name="ID_OCUPACION" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="OCUPACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CARPOOLINGModelStoreContainer" CdmEntityContainer="CARPOOLINGEntitiesM">
+        <EntityContainerMapping StorageEntityContainer="CARPOOLINGModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CIUDAD">
+            <EntityTypeMapping TypeName="CARPOOLINGModel.CIUDAD">
+              <MappingFragment StoreEntitySet="CIUDAD">
+                <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+                <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE_CIUDAD" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="CARPOOLINGModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="NOMBRE_DEPARTAMENTO" ColumnName="NOMBRE_DEPARTAMENTO" />
+                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OCUPACION">
+            <EntityTypeMapping TypeName="CARPOOLINGModel.OCUPACION">
+              <MappingFragment StoreEntitySet="OCUPACION">
+                <ScalarProperty Name="ID_OCUPACION" ColumnName="ID_OCUPACION" />
+                <ScalarProperty Name="NOMBRE_OCUPACION" ColumnName="NOMBRE_OCUPACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAIS">
+            <EntityTypeMapping TypeName="CARPOOLINGModel.PAIS">
+              <MappingFragment StoreEntitySet="PAIS">
+                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+                <ScalarProperty Name="NOMBRE_PAIS" ColumnName="NOMBRE_PAIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="CARPOOLINGModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
@@ -98,7 +336,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
