@@ -19,7 +19,7 @@ namespace Carpooling.Front.Viajes
         [WebMethod]
         public static string PublicarViajeAsynch(Viaje request)
         {
-            Transformador.CrearViajeEntity(request);
+            CreadorViajes.CrearViajeEntity(request);
 
             return "Origen del viaje - " + request.Tarifa; ;
         }
