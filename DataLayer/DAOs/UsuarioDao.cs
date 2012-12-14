@@ -2,7 +2,7 @@
 {
     public static class UsuarioDao
     {
-        ////Metodo para insertar un registro a la tabla usuario
+        //Metodo para insertar un registro a la tabla usuario
         //public static void InsertarUsuario(USUARIO p_Usuario)
         //{
         //    try
