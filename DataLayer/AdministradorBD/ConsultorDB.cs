@@ -8,24 +8,25 @@ namespace DataLayer.AdministradorBD
 {
     public class ConsultorDB
     {
-        public static long ObtenerIdCoordenada(CORDENADA coordenadaBuscar)
+        public static CORDENADA ObtenerIdCoordenada(decimal latitud, decimal longitud, string direccion)
         {
             try
             {
-                decimal latitud = Math.Round(Convert.ToDecimal(coordenadaBuscar.LATITUD), 6);
-                decimal longitud = Math.Round(Convert.ToDecimal(coordenadaBuscar.LONGITUD), 6);
+                //decimal latitud = Math.Round(Convert.ToDecimal(coordenadaBuscar.LATITUD), 6);
+                //decimal longitud = Math.Round(Convert.ToDecimal(coordenadaBuscar.LONGITUD), 6);
 
                 CARPOOLINGEntities context = new CARPOOLINGEntities();
                 var registrosCoordenadas = from c in context.CORDENADA
                                            where c.LATITUD == latitud
                                            where c.LONGITUD == longitud
-                                           where c.DIRECCION == coordenadaBuscar.DIRECCION
+                                           where c.DIRECCION == direccion
                                            select c;
                 if(registrosCoordenadas.Any())
-                    return registrosCoordenadas.First().ID_CORDENADA;
-                throw new Exception("Coordenada NO encontrada en la base de datos: Latitud: "+coordenadaBuscar.LATITUD
-                    + " Longitud: "+coordenadaBuscar.LONGITUD +
-                    " Direccion: "+coordenadaBuscar.DIRECCION);
+                    return registrosCoordenadas.First();
+                return null;
+                //throw new Exception("Coordenada NO encontrada en la base de datos: Latitud: "+latitud
+                //    + " Longitud: "+latitud +
+                //    " Direccion: "+direccion);
             }
             catch (Exception ex)
             {

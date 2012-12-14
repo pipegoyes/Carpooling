@@ -93,6 +93,7 @@
     <Compile Include="AdministradorBD\GeneradorInserts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministradorBD\UsuarioDL.cs" />
+    <Compile Include="Tranformador\Transformador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -132,9 +133,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tranformador\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
