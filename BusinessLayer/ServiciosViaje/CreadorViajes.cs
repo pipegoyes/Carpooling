@@ -14,15 +14,16 @@ namespace BusinessLayer.ServiciosViaje
         {
             try
             {
-                List<Parada> listParadas = new List<Parada>();
-                listParadas.Add(viajeActual.Origin);
+                var listParadas = new List<Parada> {viajeActual.Origin};
                 listParadas.AddRange(viajeActual.Waypoints);
                 listParadas.Add(viajeActual.Destination);
 
                 viajeActual.ListTrayectos = CrearListadoTrayectos(listParadas, viajeActual.Cupos);
                 
                 //TODO valiadaciones antes de guardar
-                GeneradorInserts.GuardarViaje(viajeActual);
+                ViajeDao.ObtenerInstancia().GuardarViaje(viajeActual);
+
+                //.GuardarViaje(viajeActual);
             }
             catch (Exception ex)
             {

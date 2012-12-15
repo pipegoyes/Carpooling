@@ -3,20 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataLayer.ModeloEntityFramework.P;
+using DataLayer.Transformador;
 using Entities.Negocio;
 
 namespace DataLayer.DAOs
 {
-    public class ViajeDao
+    public class ViajeDao :BaseDao
     {
-        public static void GuardarViaje(Viaje viaje)
+        private ViajeDao()
+        {
+        }
+
+        private static ViajeDao _instancia = null;
+
+        public static ViajeDao ObtenerInstancia()
+        {
+            return _instancia ?? (_instancia = new ViajeDao());
+        }
+
+        public void GuardarViaje(Viaje viaje)
         {
             try
             {
-                VIAJE viajeInsertar = Transformador.Transformador.TransformarViaje(viaje);
-                CARPOOLINGEntities context = new CARPOOLINGEntities();
-                context.VIAJE.Add(viajeInsertar);
-                context.SaveChanges();
+                VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
+                EstablecerConexion();
+                Conexion.VIAJE.Add(viajeInsertar);
+                Conexion.SaveChanges();
             }
             catch (Exception exception)
             {
