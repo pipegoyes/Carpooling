@@ -281,7 +281,7 @@ function geocode(ciudad) {
     },
     function geocodeResult(results, status) {
         if (status == 'OK' && results.length > 0) {
-            alert(results[0].geometry.location);
+//            alert(results[0].geometry.location);
             listCoordenadas.push({ "latitud": results[0].geometry.location.lat(),
                                     "longitud": results[0].geometry.location.lng(),
                                     "direccion": ciudad

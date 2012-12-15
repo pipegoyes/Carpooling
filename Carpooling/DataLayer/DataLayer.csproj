@@ -108,9 +108,6 @@
     <Compile Include="DAOs\UsuarioDao.cs" />
     <Compile Include="Transformador\ToBusinessEntity.cs" />
     <Compile Include="Transformador\ToDataEntity.cs" />
-    <Compile Include="Transformador\Transformador.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

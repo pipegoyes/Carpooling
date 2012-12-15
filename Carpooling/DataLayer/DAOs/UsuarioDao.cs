@@ -23,10 +23,10 @@ namespace DataLayer.DAOs
         //Metodo para insertar un registro a la tabla usuario
         public void Insertar(Usuario pUsuario)
         {
-            EstablecerConexion();
-            var usuario = ToDataEntity.ObtenerInstancia().ToUsuario(pUsuario);
-            Conexion.USUARIO.Add(usuario);
-            Conexion.SaveChanges();
+            //EstablecerConexion();
+            //var usuario = ToDataEntity.ObtenerInstancia().ToUsuario(pUsuario);
+            //Conexion.USUARIO.Add(usuario);
+            //Conexion.SaveChanges();
         }
     }
 }
