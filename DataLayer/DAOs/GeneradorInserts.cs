@@ -51,7 +51,7 @@ namespace DataLayer.DAOs
         {
             try
             {
-                VIAJE viajeInsertar = Tranformador.Transformador.TransformarViaje(viaje);
+                VIAJE viajeInsertar = Transformador.Transformador.TransformarViaje(viaje);
                 CARPOOLINGEntities context = new CARPOOLINGEntities();
                 context.VIAJE.Add(viajeInsertar);
                 context.SaveChanges();

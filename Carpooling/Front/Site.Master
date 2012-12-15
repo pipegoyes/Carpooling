@@ -15,9 +15,17 @@
     <%--<link href="Styles/themes/Supercharged/jquery-ui-1.9.0.custom.css" rel="stylesheet" />--%>
     <%--<link href="Styles/themes/start/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" />--%>
     <%--<link href="Styles/themes/cupertino/jquery-ui-1.9.1.custom.css" rel="stylesheet" />--%>
+    
+    <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>    
 
     <script type="text/javascript" src="/Scripts/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
+    
+    <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+
 
 
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />

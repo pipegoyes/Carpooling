@@ -21,7 +21,7 @@ namespace DataLayer.ModeloEntityFramework.M
         public Nullable<System.DateTime> FECHA_NACIMIENTO { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> CIUDAD_RESIDENCIA { get; set; }
-        public byte SEXO { get; set; }
+        public string SEXO { get; set; }
         public int OCUPACION { get; set; }
         public string TELEFONO_FIJO { get; set; }
         public string TELEFONO_MOVIL { get; set; }

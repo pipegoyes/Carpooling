@@ -13,10 +13,10 @@ namespace DataLayer.ModeloEntityFramework.M
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class CARPOOLINGEntitiesM : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public CARPOOLINGEntitiesM()
+            : base("name=CARPOOLINGEntitiesM")
         {
         }
     

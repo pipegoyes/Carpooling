@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Web.UI;
+using BusinessLayer.ServiciosCuenta;
+using Entities.Negocio;
 
 namespace Carpooling.Front.Cuentas
 {
@@ -41,31 +44,31 @@ namespace Carpooling.Front.Cuentas
             System.Threading.Thread.Sleep(3000);
             try
             {
-                //var nuevoUsuario = new USUARIO();
-                //nuevoUsuario.ID_USUARIO = txtNombreUsuario.Text;
-                //nuevoUsuario.NOMBRES = txtNombres.Text;
-                //nuevoUsuario.APELLIDOS = txtApellidos.Text;
-                //nuevoUsuario.CONTRASENIA = txtContrasena.Text;
-                //nuevoUsuario.FECHA_NACIMIENTO = txtFechaNacimiento_CalendarExtender.SelectedDate;
-                //nuevoUsuario.CIUDAD_RESIDENCIA = txtCiudad.Text;
-                //nuevoUsuario.EMAIL = txtCorreoElectronico.Text;
-                //nuevoUsuario.SEXO = Byte.Parse(rdbSexo.SelectedValue);
-                //nuevoUsuario.OCUPACION = txtOcupacion.Text;
-                //nuevoUsuario.TELEFONO_FIJO = txtTelefonoFijo.Text;
-                //nuevoUsuario.TELEFONO_MOVIL = txtTelefonoMovil.Text;
-                //nuevoUsuario.FUMADOR = chkFumador.Checked;
-                //nuevoUsuario.VEHICULO_PROPIO = chkVehiculoPropio.Checked;
-                //nuevoUsuario.FOTO = ObtenerArrayImagenPerfil();
-                //nuevoUsuario.MAS_INFO = txtMasInformacion.Text;
-
-                //AdministracionUsuario.CrearUsuario(nuevoUsuario);
+                var usuario = new Usuario
+                                       {
+                                           IdUsuario = txtNombreUsuario.Text,
+                                           Nombres = txtNombres.Text,
+                                           Apellidos = txtApellidos.Text,
+                                           Contrasenia = txtContrasena.Text,
+                                           FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text),
+                                           CiudadResidencia = Int32.Parse(ddlCiudad.SelectedValue),
+                                           Email = txtCorreoElectronico.Text,
+                                           Sexo = rbtHombre.Checked ? "H" : "F",
+                                           Ocupacion = Int32.Parse(ddlOcupacion.SelectedValue),
+                                           TelefonoFijo = txtTelefonoFijo.Text,
+                                           TelefonoMovil = txtTelefonoMovil.Text,
+                                           Fumador = chkFumador.Checked,
+                                           VehiculoPropio = chkVehiculoPropio.Checked,
+                                           Foto = ObtenerArrayImagenPerfil(),
+                                           MasInformacion = txtMasInformacion.Text
+                                       };
+                AdministracionCuenta.CrearCuenta(usuario);
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
-
 
         protected byte[] ObtenerArrayImagenPerfil()
         {
@@ -74,7 +77,7 @@ namespace Carpooling.Front.Cuentas
             {
                 if (!String.IsNullOrEmpty(m_imagenUsuarioPath))
                 {
-                    var fileInfo = new FileInfo(Server.MapPath(AppRelativeTemplateSourceDirectory + m_imagenUsuarioPath));
+                    var fileInfo = new FileInfo(Server.MapPath("/" + m_imagenUsuarioPath));
                     arrayImagen = new byte[fileInfo.Length];
                     var fileStream = fileInfo.OpenRead();
                     fileStream.Read(arrayImagen, 0, arrayImagen.Length);
@@ -87,36 +90,6 @@ namespace Carpooling.Front.Cuentas
                 throw;
             }
             return arrayImagen;
-        }
-
-        protected void AsyncFileUpload1_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
-        {
-            try
-            {
-                //var streamImagen = AsyncFileUpload1.FileContent;
-
-                //if (streamImagen == null) return;
-
-                //// write the image using a guid name instead to avoid conflicts ... 
-                //var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
-                //var destFolder = Server.MapPath(AppRelativeTemplateSourceDirectory + "/" + m_folderProfileImages + "/");
-                //var imageUpload = Image.FromStream(streamImagen);
-
-                //// all images end up as jpg  
-                //imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
-
-                ////arma la ruta relativa de la imagen
-                //m_imagenUsuarioPath = "/" + m_folderProfileImages + "/" + uniqueName;
-
-                ////registra los scripts en el cliente para cambiar el valor de los controles              
-                //ScriptManager.RegisterClientScriptBlock(AsyncFileUpload1, AsyncFileUpload1.GetType(), "hfdImagePath",
-                //    "top.document.getElementById('hfdImagePath').value='" + m_imagenUsuarioPath + "'; " +
-                //    "top.document.getElementById('imgFotoModal').src='" + m_imagenUsuarioPath + "';" ,true);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
 
         protected void View3_Activate(object sender, EventArgs e)
@@ -132,12 +105,6 @@ namespace Carpooling.Front.Cuentas
         {
             ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "cssWij",
                 "AplicarCCS();", true);
-        }
-
-        protected void View3_PreRender(object sender, EventArgs e)
-        {
-            //ScriptManager.RegisterClientScriptBlock(View3, View3.GetType(), "Uploader",
-            //    "CrearUploader();", true);
         }
     }
 }

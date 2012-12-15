@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicacion\ListaDesplegable.cs" />
     <Compile Include="Negocio\Coordenada.cs" />
     <Compile Include="Negocio\Parada.cs" />
     <Compile Include="Negocio\Trayecto.cs" />
@@ -47,7 +46,9 @@
     <Compile Include="Negocio\Viaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Aplicacion\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
