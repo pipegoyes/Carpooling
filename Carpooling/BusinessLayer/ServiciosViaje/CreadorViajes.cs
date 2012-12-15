@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataLayer.AdministradorBD;
+using DataLayer.DAOs;
 using DataLayer.ModeloEntityFramework.P;
 using Entities.Negocio;
 

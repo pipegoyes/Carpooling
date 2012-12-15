@@ -3,13 +3,13 @@
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>
+<%--    <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>--%>
     <link href="/Styles/fineuploader.css" rel="stylesheet" />
 
-    <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js" type="text/javascript"></script>
+<%--    <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js" type="text/javascript"></script>
     <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js" type="text/javascript"></script>
-    <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+    <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>--%>
     <script src="/Scripts/jquery.fineuploader/jquery.fineuploader-3.0.js"></script>
 
     <%--<script src="Scripts/jquery.fineuploader/fileuploader.js"></script>--%>
@@ -146,10 +146,6 @@
             },
             open: function (e) {
                 CrearUploader();
-                $("#imgFoto").attr("src", $("#imagenFotoModal").attr("src"));
-            },
-            focus: function (e) {
-                $("#imgFoto").attr("src", $("#imagenFotoModal").attr("src"));
             },
             create: function (e) {
                 $("#imgFoto").attr("src", $("#imagenFotoModal").attr("src"));
@@ -174,6 +170,7 @@
         var imageUserPath = $("#hfdImagePath").attr("value");
         if (imageUserPath != "") {
             $("#imgFoto").attr("src", imageUserPath);
+            pathImagen = imageUserPath;
         }
         $('#dialogoCambiarFoto').wijdialog('close');
     }
@@ -375,7 +372,7 @@
                         </div>
                 
                 </asp:View>
-                <asp:View ID="View3" runat="server" OnActivate="View3_Activate" OnPreRender="View3_PreRender">
+                <asp:View ID="View3" runat="server" OnActivate="View3_Activate">
 
                     <div id="titutlo3" class="ui-widget-header ui-corner-all tituloBox">
                         <img src="/Styles/images/orderedList1.png" alt="" class="float-left"/>

@@ -69,7 +69,7 @@
           <Property Name="FECHA_NACIMIENTO" Type="date" />
           <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="CIUDAD_RESIDENCIA" Type="int" />
-          <Property Name="SEXO" Type="tinyint" Nullable="false" />
+          <Property Name="SEXO" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="OCUPACION" Type="int" Nullable="false" />
           <Property Name="TELEFONO_FIJO" Type="varchar" MaxLength="20" />
           <Property Name="TELEFONO_MOVIL" Type="varchar" Nullable="false" MaxLength="25" />
@@ -131,7 +131,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CARPOOLINGModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CARPOOLINGEntitiesM" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CIUDAD" EntityType="CARPOOLINGModel.CIUDAD" />
           <EntitySet Name="DEPARTAMENTO" EntityType="CARPOOLINGModel.DEPARTAMENTO" />
           <EntitySet Name="OCUPACION" EntityType="CARPOOLINGModel.OCUPACION" />
@@ -201,7 +201,7 @@
           <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="0" />
           <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="CIUDAD_RESIDENCIA" Type="Int32" />
-          <Property Name="SEXO" Type="Byte" Nullable="false" />
+          <Property Name="SEXO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
           <Property Name="OCUPACION" Type="Int32" Nullable="false" />
           <Property Name="TELEFONO_FIJO" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="TELEFONO_MOVIL" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
@@ -265,7 +265,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CARPOOLINGModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="CARPOOLINGModelStoreContainer" CdmEntityContainer="CARPOOLINGEntitiesM">
           <EntitySetMapping Name="CIUDAD">
             <EntityTypeMapping TypeName="CARPOOLINGModel.CIUDAD">
               <MappingFragment StoreEntitySet="CIUDAD">
