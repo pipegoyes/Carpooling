@@ -43,7 +43,6 @@
     <Compile Include="ServiciosCuenta\AdministracionCuenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciosViaje\CreadorViajes.cs" />
-    <Compile Include="ServiciosViaje\Transformador.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
