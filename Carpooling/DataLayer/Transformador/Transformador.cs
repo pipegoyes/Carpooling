@@ -43,7 +43,7 @@ namespace DataLayer.Transformador
                     trayectoDao.INDEX_ORIGEN = trayectoActual.IndexOrigen;
                     trayectoDao.INDEX_DESTINO = trayectoActual.IndexDestino;
 
-                    CORDENADA coordenadaOrigen = ConsultorDB.ObtenerIdCoordenada(
+                    CORDENADA coordenadaOrigen = CoordenadaDao.ObtenerCoordenada(
                         trayectoActual.CoordenadaOrigen.Latitud, trayectoActual.CoordenadaOrigen.Longitud,
                         trayectoActual.CoordenadaOrigen.Direccion);
 
@@ -56,7 +56,7 @@ namespace DataLayer.Transformador
                     }
 
                     CORDENADA coordenadaDestino =
-                        ConsultorDB.ObtenerIdCoordenada(trayectoActual.CoordenadaDestino.Latitud,
+                        CoordenadaDao.ObtenerCoordenada(trayectoActual.CoordenadaDestino.Latitud,
                                                         trayectoActual.CoordenadaDestino.Longitud,
                                                         trayectoActual.CoordenadaDestino.Direccion);
                     if(coordenadaDestino== null)
