@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CARPOOLModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CARPOOLModelStoreContainer">
+          <EntitySet Name="CALIFICACION" EntityType="CARPOOLModel.Store.CALIFICACION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CIUDAD" EntityType="CARPOOLModel.Store.CIUDAD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="CARPOOLModel.Store.DEPARTAMENTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OCUPACION" EntityType="CARPOOLModel.Store.OCUPACION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PAIS" EntityType="CARPOOLModel.Store.PAIS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PARADA" EntityType="CARPOOLModel.Store.PARADA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PREGUNTA" EntityType="CARPOOLModel.Store.PREGUNTA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SOLICITUD" EntityType="CARPOOLModel.Store.SOLICITUD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRAYECTO" EntityType="CARPOOLModel.Store.TRAYECTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USUARIO" EntityType="CARPOOLModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VIAJE" EntityType="CARPOOLModel.Store.VIAJE" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Calificacion_Evaluado" Association="CARPOOLModel.Store.FK_Calificacion_Evaluado">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Evaluador" Association="CARPOOLModel.Store.FK_Calificacion_Evaluador">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Viaje" Association="CARPOOLModel.Store.FK_Calificacion_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ciudad_Departamento" Association="CARPOOLModel.Store.FK_Ciudad_Departamento">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamento_Pais" Association="CARPOOLModel.Store.FK_Departamento_Pais">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parada_Trayecto" Association="CARPOOLModel.Store.FK_Parada_Trayecto">
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+            <End Role="PARADA" EntitySet="PARADA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Usuario" Association="CARPOOLModel.Store.FK_Pregunta_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Viaje" Association="CARPOOLModel.Store.FK_Pregunta_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Trayecto" Association="CARPOOLModel.Store.FK_Solicitud_Trayecto">
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Usuario" Association="CARPOOLModel.Store.FK_Solicitud_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trayecto_Viaje" Association="CARPOOLModel.Store.FK_Trayecto_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ciudad" Association="CARPOOLModel.Store.FK_Usuario_Ciudad">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ocupacion" Association="CARPOOLModel.Store.FK_Usuario_Ocupacion">
+            <End Role="OCUPACION" EntitySet="OCUPACION" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Viaje_Usuario" Association="CARPOOLModel.Store.FK_Viaje_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VIAJE" EntitySet="VIAJE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CALIFICACION">
+          <Key>
+            <PropertyRef Name="IdCalificacion" />
+          </Key>
+          <Property Name="IdCalificacion" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Puntaje" Type="decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="IdViaje" Type="bigint" Nullable="false" />
+          <Property Name="IdEvaluador" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdEvaluado" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FechaRealizacion" Type="datetime" />
+          <Property Name="Comentario" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="int" Nullable="false" />
+          <Property Name="NombreCiudad" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="IdDepartamento" Type="int" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OCUPACION">
+          <Key>
+            <PropertyRef Name="IdOcupacion" />
+          </Key>
+          <Property Name="IdOcupacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreOcupacion" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="NombrePais" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PARADA">
+          <Key>
+            <PropertyRef Name="IdParada" />
+          </Key>
+          <Property Name="IdParada" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdTrayecto" Type="bigint" Nullable="false" />
+          <Property Name="Latitud" Type="decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="Lontitud" Type="decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="Direccion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NumeroParada" Type="int" Nullable="false" />
+          <Property Name="TipoParada" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PREGUNTA">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdViaje" Type="bigint" Nullable="false" />
+          <Property Name="IdCreadorPregunta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="TextoPregunta" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="TextoRespuesta" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IdSolicitud" />
+          </Key>
+          <Property Name="IdSolicitud" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdTrayecto" Type="bigint" Nullable="false" />
+          <Property Name="IdPasajero" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CuposSolicitados" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="250" />
+          <Property Name="Estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRAYECTO">
+          <Key>
+            <PropertyRef Name="IdTrayecto" />
+          </Key>
+          <Property Name="IdTrayecto" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdViaje" Type="bigint" Nullable="false" />
+          <Property Name="Cupos" Type="int" Nullable="false" />
+          <Property Name="TrayectoSimple" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Contrasenia" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="FechaUltimoIngreso" Type="datetime" Nullable="false" />
+          <Property Name="Genero" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdCiudadResidencia" Type="int" Nullable="false" />
+          <Property Name="IdOcupacion" Type="int" Nullable="false" />
+          <Property Name="TelefonoMovil" Type="varchar" MaxLength="15" />
+          <Property Name="TelefonoFijo" Type="varchar" MaxLength="15" />
+          <Property Name="VehiculoPropio" Type="bit" Nullable="false" />
+          <Property Name="Fumador" Type="bit" Nullable="false" />
+          <Property Name="Foto" Type="image" />
+          <Property Name="InformacionAdicional" Type="varchar" MaxLength="800" />
+          <Property Name="Reputacion" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="VIAJE">
+          <Key>
+            <PropertyRef Name="IdViaje" />
+          </Key>
+          <Property Name="IdViaje" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaHoraPartida" Type="datetime" Nullable="false" />
+          <Property Name="IdConductor" Type="varchar" MaxLength="20" />
+          <Property Name="AporteEconomico" Type="decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="InformacionAdicional" Type="varchar" MaxLength="800" />
+          <Property Name="Estado" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Calificacion_Evaluado">
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdEvaluado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Evaluador">
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdEvaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.Store.VIAJE" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ciudad_Departamento">
+          <End Role="DEPARTAMENTO" Type="CARPOOLModel.Store.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="CIUDAD" Type="CARPOOLModel.Store.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamento_Pais">
+          <End Role="PAIS" Type="CARPOOLModel.Store.PAIS" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="CARPOOLModel.Store.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="IdPais" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parada_Trayecto">
+          <End Role="TRAYECTO" Type="CARPOOLModel.Store.TRAYECTO" Multiplicity="1" />
+          <End Role="PARADA" Type="CARPOOLModel.Store.PARADA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAYECTO">
+              <PropertyRef Name="IdTrayecto" />
+            </Principal>
+            <Dependent Role="PARADA">
+              <PropertyRef Name="IdTrayecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="PREGUNTA" Type="CARPOOLModel.Store.PREGUNTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PREGUNTA">
+              <PropertyRef Name="IdCreadorPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.Store.VIAJE" Multiplicity="1" />
+          <End Role="PREGUNTA" Type="CARPOOLModel.Store.PREGUNTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="PREGUNTA">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Trayecto">
+          <End Role="TRAYECTO" Type="CARPOOLModel.Store.TRAYECTO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="CARPOOLModel.Store.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAYECTO">
+              <PropertyRef Name="IdTrayecto" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IdTrayecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="CARPOOLModel.Store.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IdPasajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trayecto_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.Store.VIAJE" Multiplicity="1" />
+          <End Role="TRAYECTO" Type="CARPOOLModel.Store.TRAYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="TRAYECTO">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ciudad">
+          <End Role="CIUDAD" Type="CARPOOLModel.Store.CIUDAD" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdCiudadResidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ocupacion">
+          <End Role="OCUPACION" Type="CARPOOLModel.Store.OCUPACION" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OCUPACION">
+              <PropertyRef Name="IdOcupacion" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdOcupacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Viaje_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="0..1" />
+          <End Role="VIAJE" Type="CARPOOLModel.Store.VIAJE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="VIAJE">
+              <PropertyRef Name="IdConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CARPOOLModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CARPOOLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CALIFICACION" EntityType="CARPOOLModel.CALIFICACION" />
+          <EntitySet Name="CIUDAD" EntityType="CARPOOLModel.CIUDAD" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="CARPOOLModel.DEPARTAMENTO" />
+          <EntitySet Name="OCUPACION" EntityType="CARPOOLModel.OCUPACION" />
+          <EntitySet Name="PAIS" EntityType="CARPOOLModel.PAIS" />
+          <EntitySet Name="PARADA" EntityType="CARPOOLModel.PARADA" />
+          <EntitySet Name="PREGUNTA" EntityType="CARPOOLModel.PREGUNTA" />
+          <EntitySet Name="SOLICITUD" EntityType="CARPOOLModel.SOLICITUD" />
+          <EntitySet Name="TRAYECTO" EntityType="CARPOOLModel.TRAYECTO" />
+          <EntitySet Name="USUARIO" EntityType="CARPOOLModel.USUARIO" />
+          <EntitySet Name="VIAJE" EntityType="CARPOOLModel.VIAJE" />
+          <AssociationSet Name="FK_Calificacion_Evaluado" Association="CARPOOLModel.FK_Calificacion_Evaluado">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Evaluador" Association="CARPOOLModel.FK_Calificacion_Evaluador">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Viaje" Association="CARPOOLModel.FK_Calificacion_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ciudad_Departamento" Association="CARPOOLModel.FK_Ciudad_Departamento">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ciudad" Association="CARPOOLModel.FK_Usuario_Ciudad">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departamento_Pais" Association="CARPOOLModel.FK_Departamento_Pais">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ocupacion" Association="CARPOOLModel.FK_Usuario_Ocupacion">
+            <End Role="OCUPACION" EntitySet="OCUPACION" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parada_Trayecto" Association="CARPOOLModel.FK_Parada_Trayecto">
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+            <End Role="PARADA" EntitySet="PARADA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Usuario" Association="CARPOOLModel.FK_Pregunta_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Viaje" Association="CARPOOLModel.FK_Pregunta_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Trayecto" Association="CARPOOLModel.FK_Solicitud_Trayecto">
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Usuario" Association="CARPOOLModel.FK_Solicitud_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trayecto_Viaje" Association="CARPOOLModel.FK_Trayecto_Viaje">
+            <End Role="VIAJE" EntitySet="VIAJE" />
+            <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Viaje_Usuario" Association="CARPOOLModel.FK_Viaje_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VIAJE" EntitySet="VIAJE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CALIFICACION">
+          <Key>
+            <PropertyRef Name="IdCalificacion" />
+          </Key>
+          <Property Name="IdCalificacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Puntaje" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="IdViaje" Type="Int64" Nullable="false" />
+          <Property Name="IdEvaluador" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdEvaluado" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRealizacion" Type="DateTime" Precision="3" />
+          <Property Name="Comentario" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="CALIFICACION" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="CALIFICACION" ToRole="USUARIO" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="CALIFICACION" ToRole="VIAJE" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" />
+          <Property Name="NombreCiudad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="IdDepartamento" Type="Int32" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLModel.FK_Ciudad_Departamento" FromRole="CIUDAD" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="CIUDAD" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Ciudad_Departamento" FromRole="DEPARTAMENTO" ToRole="CIUDAD" />
+          <NavigationProperty Name="PAIS" Relationship="CARPOOLModel.FK_Departamento_Pais" FromRole="DEPARTAMENTO" ToRole="PAIS" />
+        </EntityType>
+        <EntityType Name="OCUPACION">
+          <Key>
+            <PropertyRef Name="IdOcupacion" />
+          </Key>
+          <Property Name="IdOcupacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreOcupacion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="OCUPACION" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <Property Name="NombrePais" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLModel.FK_Departamento_Pais" FromRole="PAIS" ToRole="DEPARTAMENTO" />
+        </EntityType>
+        <EntityType Name="PARADA">
+          <Key>
+            <PropertyRef Name="IdParada" />
+          </Key>
+          <Property Name="IdParada" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTrayecto" Type="Int64" Nullable="false" />
+          <Property Name="Latitud" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="Lontitud" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NumeroParada" Type="Int32" Nullable="false" />
+          <Property Name="TipoParada" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Parada_Trayecto" FromRole="PARADA" ToRole="TRAYECTO" />
+        </EntityType>
+        <EntityType Name="PREGUNTA">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdViaje" Type="Int64" Nullable="false" />
+          <Property Name="IdCreadorPregunta" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TextoPregunta" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TextoRespuesta" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="PREGUNTA" ToRole="USUARIO" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Pregunta_Viaje" FromRole="PREGUNTA" ToRole="VIAJE" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IdSolicitud" />
+          </Key>
+          <Property Name="IdSolicitud" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTrayecto" Type="Int64" Nullable="false" />
+          <Property Name="IdPasajero" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CuposSolicitados" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Solicitud_Trayecto" FromRole="SOLICITUD" ToRole="TRAYECTO" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Solicitud_Usuario" FromRole="SOLICITUD" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TRAYECTO">
+          <Key>
+            <PropertyRef Name="IdTrayecto" />
+          </Key>
+          <Property Name="IdTrayecto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdViaje" Type="Int64" Nullable="false" />
+          <Property Name="Cupos" Type="Int32" Nullable="false" />
+          <Property Name="TrayectoSimple" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PARADA" Relationship="CARPOOLModel.FK_Parada_Trayecto" FromRole="TRAYECTO" ToRole="PARADA" />
+          <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Trayecto" FromRole="TRAYECTO" ToRole="SOLICITUD" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="TRAYECTO" ToRole="VIAJE" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Contrasenia" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaUltimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Genero" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="IdCiudadResidencia" Type="Int32" Nullable="false" />
+          <Property Name="IdOcupacion" Type="Int32" Nullable="false" />
+          <Property Name="TelefonoMovil" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoFijo" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="VehiculoPropio" Type="Boolean" Nullable="false" />
+          <Property Name="Fumador" Type="Boolean" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="InformacionAdicional" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="Reputacion" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="CALIFICACION_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <NavigationProperty Name="CALIFICACION_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="USUARIO" ToRole="CIUDAD" />
+          <NavigationProperty Name="OCUPACION" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="USUARIO" ToRole="OCUPACION" />
+          <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="USUARIO" ToRole="PREGUNTA" />
+          <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Usuario" FromRole="USUARIO" ToRole="SOLICITUD" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Viaje_Usuario" FromRole="USUARIO" ToRole="VIAJE" />
+        </EntityType>
+        <EntityType Name="VIAJE">
+          <Key>
+            <PropertyRef Name="IdViaje" />
+          </Key>
+          <Property Name="IdViaje" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaHoraPartida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdConductor" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="AporteEconomico" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="InformacionAdicional" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CALIFICACION" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="VIAJE" ToRole="CALIFICACION" />
+          <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Viaje" FromRole="VIAJE" ToRole="PREGUNTA" />
+          <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="VIAJE" ToRole="TRAYECTO" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Viaje_Usuario" FromRole="VIAJE" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_Calificacion_Evaluado">
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdEvaluado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Evaluador">
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdEvaluador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="1" />
+          <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ciudad_Departamento">
+          <End Role="DEPARTAMENTO" Type="CARPOOLModel.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="CIUDAD" Type="CARPOOLModel.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ciudad">
+          <End Role="CIUDAD" Type="CARPOOLModel.CIUDAD" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdCiudadResidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departamento_Pais">
+          <End Role="PAIS" Type="CARPOOLModel.PAIS" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="CARPOOLModel.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="IdPais" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ocupacion">
+          <End Role="OCUPACION" Type="CARPOOLModel.OCUPACION" Multiplicity="1" />
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OCUPACION">
+              <PropertyRef Name="IdOcupacion" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdOcupacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parada_Trayecto">
+          <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="1" />
+          <End Role="PARADA" Type="CARPOOLModel.PARADA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAYECTO">
+              <PropertyRef Name="IdTrayecto" />
+            </Principal>
+            <Dependent Role="PARADA">
+              <PropertyRef Name="IdTrayecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
+          <End Role="PREGUNTA" Type="CARPOOLModel.PREGUNTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="PREGUNTA">
+              <PropertyRef Name="IdCreadorPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="1" />
+          <End Role="PREGUNTA" Type="CARPOOLModel.PREGUNTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="PREGUNTA">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Trayecto">
+          <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="CARPOOLModel.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAYECTO">
+              <PropertyRef Name="IdTrayecto" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IdTrayecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="CARPOOLModel.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IdPasajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trayecto_Viaje">
+          <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="1" />
+          <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VIAJE">
+              <PropertyRef Name="IdViaje" />
+            </Principal>
+            <Dependent Role="TRAYECTO">
+              <PropertyRef Name="IdViaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Viaje_Usuario">
+          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="0..1" />
+          <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="VIAJE">
+              <PropertyRef Name="IdConductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CARPOOLModelStoreContainer" CdmEntityContainer="CARPOOLEntities">
+          <EntitySetMapping Name="CALIFICACION">
+            <EntityTypeMapping TypeName="CARPOOLModel.CALIFICACION">
+              <MappingFragment StoreEntitySet="CALIFICACION">
+                <ScalarProperty Name="IdCalificacion" ColumnName="IdCalificacion" />
+                <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
+                <ScalarProperty Name="IdEvaluador" ColumnName="IdEvaluador" />
+                <ScalarProperty Name="IdEvaluado" ColumnName="IdEvaluado" />
+                <ScalarProperty Name="FechaRealizacion" ColumnName="FechaRealizacion" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIUDAD">
+            <EntityTypeMapping TypeName="CARPOOLModel.CIUDAD">
+              <MappingFragment StoreEntitySet="CIUDAD">
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="CARPOOLModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OCUPACION">
+            <EntityTypeMapping TypeName="CARPOOLModel.OCUPACION">
+              <MappingFragment StoreEntitySet="OCUPACION">
+                <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
+                <ScalarProperty Name="NombreOcupacion" ColumnName="NombreOcupacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAIS">
+            <EntityTypeMapping TypeName="CARPOOLModel.PAIS">
+              <MappingFragment StoreEntitySet="PAIS">
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="NombrePais" ColumnName="NombrePais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARADA">
+            <EntityTypeMapping TypeName="CARPOOLModel.PARADA">
+              <MappingFragment StoreEntitySet="PARADA">
+                <ScalarProperty Name="IdParada" ColumnName="IdParada" />
+                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Lontitud" ColumnName="Lontitud" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NumeroParada" ColumnName="NumeroParada" />
+                <ScalarProperty Name="TipoParada" ColumnName="TipoParada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PREGUNTA">
+            <EntityTypeMapping TypeName="CARPOOLModel.PREGUNTA">
+              <MappingFragment StoreEntitySet="PREGUNTA">
+                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
+                <ScalarProperty Name="IdCreadorPregunta" ColumnName="IdCreadorPregunta" />
+                <ScalarProperty Name="TextoPregunta" ColumnName="TextoPregunta" />
+                <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOLICITUD">
+            <EntityTypeMapping TypeName="CARPOOLModel.SOLICITUD">
+              <MappingFragment StoreEntitySet="SOLICITUD">
+                <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
+                <ScalarProperty Name="IdPasajero" ColumnName="IdPasajero" />
+                <ScalarProperty Name="CuposSolicitados" ColumnName="CuposSolicitados" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAYECTO">
+            <EntityTypeMapping TypeName="CARPOOLModel.TRAYECTO">
+              <MappingFragment StoreEntitySet="TRAYECTO">
+                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
+                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
+                <ScalarProperty Name="Cupos" ColumnName="Cupos" />
+                <ScalarProperty Name="TrayectoSimple" ColumnName="TrayectoSimple" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="CARPOOLModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FechaUltimoIngreso" ColumnName="FechaUltimoIngreso" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="IdCiudadResidencia" ColumnName="IdCiudadResidencia" />
+                <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
+                <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+                <ScalarProperty Name="TelefonoFijo" ColumnName="TelefonoFijo" />
+                <ScalarProperty Name="VehiculoPropio" ColumnName="VehiculoPropio" />
+                <ScalarProperty Name="Fumador" ColumnName="Fumador" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="InformacionAdicional" ColumnName="InformacionAdicional" />
+                <ScalarProperty Name="Reputacion" ColumnName="Reputacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIAJE">
+            <EntityTypeMapping TypeName="CARPOOLModel.VIAJE">
+              <MappingFragment StoreEntitySet="VIAJE">
+                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaHoraPartida" ColumnName="FechaHoraPartida" />
+                <ScalarProperty Name="IdConductor" ColumnName="IdConductor" />
+                <ScalarProperty Name="AporteEconomico" ColumnName="AporteEconomico" />
+                <ScalarProperty Name="InformacionAdicional" ColumnName="InformacionAdicional" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

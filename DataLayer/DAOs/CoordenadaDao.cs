@@ -2,7 +2,7 @@
 using System.Linq;
 using DataLayer.Transformador;
 using Entities.Negocio;
-using DataLayer.ModeloEntityFramework.P;
+using DataLayer.ModeloEntityFramework;
 namespace DataLayer.DAOs
 {
     public class CoordenadaDao : BaseDao
@@ -21,10 +21,10 @@ namespace DataLayer.DAOs
             try
             {
                 EstablecerConexion();
-                var registrosCoordenadas = from c in this.Conexion.CORDENADA
-                                           where c.LATITUD == latitud
-                                           where c.LONGITUD == longitud
-                                           where c.DIRECCION == direccion
+                var registrosCoordenadas = from c in this.Conexion.PARADA
+                                           where c.Latitud == latitud
+                                           where c.Lontitud == longitud
+                                           where c.Direccion == direccion
                                            select c;
 
                 if (registrosCoordenadas.Any())

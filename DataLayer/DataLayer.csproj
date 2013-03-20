@@ -49,7 +49,32 @@
   <ItemGroup>
     <Compile Include="DAOs\BaseDao.cs" />
     <Compile Include="DAOs\CoordenadaDao.cs" />
+    <Compile Include="DAOs\ListaDesplegableDao.cs" />
     <Compile Include="DAOs\ViajeDao.cs" />
+    <Compile Include="ModeloEntityFramework\CALIFICACION.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CIUDAD.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\DEPARTAMENTO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +105,18 @@
     <Compile Include="ModeloEntityFramework\M\USUARIO.cs">
       <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModeloEntityFramework\OCUPACION.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PAIS.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PARADA.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PREGUNTA.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.Context.cs">
       <DependentUpon>CarpoolingDbModel.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -104,6 +141,18 @@
     <Compile Include="ModeloEntityFramework\P\VIAJE.cs">
       <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModeloEntityFramework\SOLICITUD.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\TRAYECTO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\USUARIO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\VIAJE.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAOs\UsuarioDao.cs" />
     <Compile Include="Transformador\ToBusinessEntity.cs" />
@@ -121,6 +170,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarpoolingDbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="ModeloEntityFramework\CARPOOLModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CARPOOLModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloEntityFramework\CARPOOLModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+      <LastGenOutput>CARPOOLModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModeloEntityFramework\CARPOOLModel.edmx.diagram">
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+    </None>
+    <None Include="ModeloEntityFramework\CARPOOLModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+      <LastGenOutput>CARPOOLModel.cs</LastGenOutput>
+    </None>
     <None Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
@@ -158,6 +224,9 @@
       <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Creacion BD.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

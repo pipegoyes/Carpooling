@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6e84b44245b4a138434478b9226d908" Name="Diagram1">
+        <EntityTypeShape EntityType="CARPOOLModel.CALIFICACION" Width="1.875" PointX="11.625" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.CIUDAD" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.DEPARTAMENTO" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.OCUPACION" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.PAIS" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.PARADA" Width="1.5" PointX="14.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.PREGUNTA" Width="1.5" PointX="15" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.SOLICITUD" Width="1.5" PointX="14.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.TRAYECTO" Width="1.5" PointX="12" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.USUARIO" Width="2.25" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CARPOOLModel.VIAJE" Width="1.5" PointX="9.75" PointY="16.625" IsExpanded="true" />
+        <AssociationConnector Association="CARPOOLModel.FK_Calificacion_Evaluado" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Calificacion_Evaluador" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Calificacion_Viaje" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Ciudad_Departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Usuario_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Departamento_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Usuario_Ocupacion" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Parada_Trayecto" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Pregunta_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Pregunta_Viaje" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Solicitud_Trayecto" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Solicitud_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Trayecto_Viaje" ManuallyRouted="false" />
+        <AssociationConnector Association="CARPOOLModel.FK_Viaje_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
