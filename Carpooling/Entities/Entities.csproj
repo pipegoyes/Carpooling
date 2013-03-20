@@ -42,6 +42,7 @@
     <Compile Include="Aplicacion\ListaDesplegable.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Aplicacion\ListaDesplegable2.cs" />
     <Compile Include="Negocio\Coordenada.cs" />
     <Compile Include="Negocio\Parada.cs" />
     <Compile Include="Negocio\Trayecto.cs" />
