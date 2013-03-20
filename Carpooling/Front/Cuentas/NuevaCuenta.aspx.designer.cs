@@ -400,6 +400,15 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.DropDownList ddlPais;
         
         /// <summary>
+        /// cddlPais control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown cddlPais;
+        
+        /// <summary>
         /// ddlDepartamento control.
         /// </summary>
         /// <remarks>
@@ -409,6 +418,15 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento;
         
         /// <summary>
+        /// cddlDepartamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown cddlDepartamento;
+        
+        /// <summary>
         /// ddlCiudad control.
         /// </summary>
         /// <remarks>
@@ -416,6 +434,15 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
+        
+        /// <summary>
+        /// cddlCiudad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown cddlCiudad;
         
         /// <summary>
         /// txtTelefonoFijo control.

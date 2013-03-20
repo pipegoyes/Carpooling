@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using AjaxControlToolkit;
 using BusinessLayer.ServiciosCuenta;
+using BusinessLayer.ServiciosGUI;
 using Entities.Negocio;
+using Entities.Aplicacion;
+
 
 namespace Carpooling.Front.Cuentas
 {
@@ -103,8 +111,59 @@ namespace Carpooling.Front.Cuentas
 
         protected void UpdatePanel1_PreRender(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    CargarDdlPaises();
+            //}
             ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "cssWij",
                 "AplicarCCS();", true);
+        }
+
+
+        //public void CargarDdlPaises()
+        //{
+        //    ddlPais.DataSource = FuenteDatosControl.Instancia.ObtenerPaises();
+        //    ddlPais.DataTextField = "Dato";
+        //    ddlPais.DataValueField = "Valor";
+        //    ddlPais.DataBind();
+        //    ddlPais.Items.Insert(0, new ListItem(" -- Seleccione un departamento -- ", "0")); 
+        //}
+
+        //[System.Web.Services.WebMethod]
+        //public static List<ListaDesplegable> ObtenerDepartamentos(string pPais)
+        //{
+        //    return FuenteDatosControl.Instancia.ObtenerDepartamentos(Int32.Parse(pPais));
+        //}
+
+        //[System.Web.Services.WebMethod]
+        //public List<ListaDesplegable> ObtenerCiudades(string pDepartamento)
+        //{
+        //    return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(pDepartamento));
+        //}
+
+
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static CascadingDropDownNameValue[] ObtenerPaisesDdl(string knownCategoryValues, string category)
+        {
+            return FuenteDatosControl.Instancia.ObtenerPaises().Select(item => new CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static CascadingDropDownNameValue[] ObtenerDepartamentosDdl(string knownCategoryValues, string category)
+        {
+            var keys = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            return FuenteDatosControl.Instancia.ObtenerDepartamentos(Int32.Parse(keys["pais"])).Select(item => new CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static CascadingDropDownNameValue[] ObtenerCiudadesDdl(string knownCategoryValues, string category)
+        {
+            var keys = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(keys["departamento"])).Select(item => new CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="NuevaCuenta.aspx.cs" Inherits="Carpooling.Front.Cuentas.NuevaCuenta" %>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" enableEventValidation="false" CodeBehind="NuevaCuenta.aspx.cs" Inherits="Carpooling.Front.Cuentas.NuevaCuenta" %>
+<%--<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>--%>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/NuevaCuenta.css" rel="stylesheet" type="text/css" />
@@ -40,9 +40,18 @@
     }--%>
 
 <script type="text/javascript">
+    $(function() {
+        //Desactiva DDL
+        //$('#<%:ddlPais.ClientID%>').change(ObtenerDepartamentos);
+        //$('#<%:ddlDepartamento.ClientID%>').append($('<option/>').attr('value', '0').text(' -- Seleccione un departamento -- '));
+        //$('#<%:ddlCiudad.ClientID%>').append($('<option/>').attr('value', '0').text(' -- Seleccione una ciudad -- '));
+        //$('#<%:ddlDepartamento.ClientID%>').attr('disabled', true);
+        //$('#<%:ddlCiudad.ClientID%>').attr('disabled', true);
+    });
+
     $(document).ready(function() {
         //Aplica los estilos del tema al terminar de cargar la pagina
-        AplicarCCS();
+        AplicarCCS();       
     });
     
     function CrearUploader() {
@@ -67,10 +76,10 @@
             disableCancelForFormUploads: true,
             disableDefaultDropzone: true,
             template: '<div class="qq-uploader">' +
-                        '<pre class="qq-upload-drop-area" style="display= none;"><span>{dragZoneText}</span></pre>' +
-                        '<div class="qq-upload-button ui-button" style="width: auto;">{uploadButtonText}</div>' +
-                        '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
-                      '</div>',
+                '<pre class="qq-upload-drop-area" style="display= none;"><span>{dragZoneText}</span></pre>' +
+                '<div class="qq-upload-button ui-button" style="width: auto;">{uploadButtonText}</div>' +
+                '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
+                '</div>',
             classes: {
                 success: 'alert alert-success',
                 fail: 'alert alert-error'
@@ -91,14 +100,14 @@
         $('#btnSeleccionarImagen').addClass('ui-button ui-widget ui-state-default ui-button-text-only ui-corner-all');
         
         $(":input[type='file']").hover(
-          function () {
-              $('#btnSeleccionarImagen').removeClass('ui-state-default qq-upload-button-hover ui-state-active qq-upload-button-focus');
-              $('#btnSeleccionarImagen').addClass('ui-state-hover');
-          },
-          function () {
-              $('#btnSeleccionarImagen').removeClass('ui-state-hover  qq-upload-button-hover ui-state-active qq-upload-button-focus');
-              $('#btnSeleccionarImagen').addClass('ui-state-default');
-          }
+            function () {
+                $('#btnSeleccionarImagen').removeClass('ui-state-default qq-upload-button-hover ui-state-active qq-upload-button-focus');
+                $('#btnSeleccionarImagen').addClass('ui-state-hover');
+            },
+            function () {
+                $('#btnSeleccionarImagen').removeClass('ui-state-hover  qq-upload-button-hover ui-state-active qq-upload-button-focus');
+                $('#btnSeleccionarImagen').addClass('ui-state-default');
+            }
         );
         
         $(":input[type='file']").mouseup(function () {
@@ -122,9 +131,9 @@
         $('#<%:btnFinalizar.ClientID%>').button(); 
 
         $('#<%:ddlOcupacion.ClientID%>').wijdropdown(); 
-        $('#<%:ddlPais.ClientID%>').wijdropdown(); 
-        $('#<%:ddlDepartamento.ClientID%>').wijdropdown(); 
-        $('#<%:ddlCiudad.ClientID%>').wijdropdown(); 
+        //$('#<%:ddlPais.ClientID%>').wijdropdown(); 
+        //$('#<%:ddlDepartamento.ClientID%>').wijdropdown(); 
+        //$('#<%:ddlCiudad.ClientID%>').wijdropdown(); 
 
         $('#<%:txtFechaNacimiento.ClientID%>').wijinputdate({ dateFormat: 'D', culture: 'es', showTrigger: true }); 
                
@@ -151,6 +160,64 @@
                 $("#imgFoto").attr("src", $("#imagenFotoModal").attr("src"));
             }
         }); 
+    }
+    
+    //funciones para cargar datos a los listas desplegables
+    function ObtenerDepartamentos() {
+        var json = {};
+        json.pPais = $('#<%:ddlPais.ClientID%>').val();
+        
+        $.ajax({
+            type: "POST",
+            url: "NuevaCuenta.aspx/ObtenerDepartamentos",
+            data: JSON.stringify(json),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            beforeSend: function () {
+                $('#<%:ddlDepartamento.ClientID%>').empty();
+                $('#<%:ddlDepartamento.ClientID%>').append($('<option/>').attr('value', '0').text('Cargando departamentos...'));
+            },
+            success: function (results) {
+                $('#<%:ddlDepartamento.ClientID%>').empty();
+                if (results.d != null) {                    
+                    var departamentos = results.d;
+                    $('#<%:ddlDepartamento.ClientID%>').attr('disabled', false).change(ObtenerCiudades);
+                    $('#<%:ddlDepartamento.ClientID%>').append($('<option/>').attr('value', '0').text(' -- Seleccione un departamento -- '));
+                    $('#<%:ddlCiudad.ClientID%>').attr('disabled', true);
+                    for (var i = 0; i < departamentos.length; i++)      
+                        $('#<%:ddlDepartamento.ClientID%>').append($('<option/>').attr('value', departamentos[i].Valor).text(departamentos[i].Dato));                    
+                } else {
+                    $('#<%:ddlDepartamento.ClientID%>').append($('<option/>').attr('value', '0').text(' -- Seleccione un departamento -- '));
+                    $('#<%:ddlDepartamento.ClientID%>').attr('disabled', true);
+                }
+            },
+            error: function () {
+                alert("La busqueda no se pudo realzar");
+                return false;
+            },
+        });
+    }
+    
+    function ObtenerCiudades() {
+        $.ajax({
+            type: "POST",
+            url: "ObtenerCiudades",
+            data: "{departamento: '" + $('#<%:ddlDepartamento.ClientID%>').val() + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response.d != null) {
+                    var ciudades = response.d;
+                    $('#<%:ddlCiudad.ClientID%>').attr('disabled', false).removeOption(/./).addOption('', ' -- Seleccione una ciudad -- ');
+                    for (var i = 0; i < ciudades.length; i++) {
+                        var val = ciudades[i].Valor;
+                        var text = ciudades[i].Dato;
+                        $('#<%:ddlCiudad.ClientID%>').addOption(val, text, false);
+                    }
+                }
+            }
+        });
     }
 
 
@@ -216,7 +283,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
        
     <input id="hfdImagePath" type="hidden" name="hfdImagePath" value="/Styles/images/imgFotoPerfilHombre.jpg"/>      
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>        
+    <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxToolkit:ToolkitScriptManager>        
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" OnPreRender="UpdatePanel1_PreRender">
         <ContentTemplate>
@@ -238,11 +305,11 @@
                                 <label>Nombre de usuario:</label>
                                 <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtNombreUsuario_Validation1" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El nombre de usuario es requerido" Display="None"></asp:RequiredFieldValidator>
-                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC1" runat="server" TargetControlID="txtNombreUsuario_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtNombreUsuario_VC1" runat="server" TargetControlID="txtNombreUsuario_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtNombreUsuario_Validation2" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El nombre de usuario debe tener entre 8 a 50 caracteres" ValidationExpression="^\S{7,49}$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC2" runat="server" TargetControlID="txtNombreUsuario_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtNombreUsuario_VC2" runat="server" TargetControlID="txtNombreUsuario_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtNombreUsuario_Validation3" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="El formato del nombre de usuario proporcionando no es valido" ValidationExpression="^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtNombreUsuario_VC3" runat="server" TargetControlID="txtNombreUsuario_Validation3" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>                                
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtNombreUsuario_VC3" runat="server" TargetControlID="txtNombreUsuario_Validation3" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>                                
                             </div>
                         </div>
                         
@@ -251,19 +318,19 @@
                                 <label>Correo electronico:</label>
                                 <asp:TextBox ID="txtCorreoElectronico" runat="server"></asp:TextBox>                                    
                                 <asp:RequiredFieldValidator ID="txtCorreoElectronico_Validation1" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="El correo electronico es requerido" Display="None"></asp:RequiredFieldValidator>
-                                <asp:ValidatorCalloutExtender ID="txtCorreoElectronico_VC1" runat="server" TargetControlID="txtCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtCorreoElectronico_VC1" runat="server" TargetControlID="txtCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtCorreoElectronico_Validation2" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="El formato del correo electronico proporcionado no es valido" ValidationExpression="^[a-z][\w\.]+@([\w\-]+\.)+[a-z]{2,7}$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtCorreoElectronico_VC2" runat="server" TargetControlID="txtCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtCorreoElectronico_VC2" runat="server" TargetControlID="txtCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>                                
                             </div>                            
                             <div class="float-left columna-x2 columna-x2-right">
                                 <label>Confirme el correo electronico:</label>                                       
                                 <asp:TextBox ID="txtReCorreoElectronico" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtReCorreoElectronico_Validation1" runat="server" ControlToValidate="txtReCorreoElectronico" ErrorMessage="La confirmación del correo electronico es requerida" Display="None"></asp:RequiredFieldValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC1" runat="server" TargetControlID="txtReCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC1" runat="server" TargetControlID="txtReCorreoElectronico_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtReCorreoElectronico_Validation2" runat="server" ControlToValidate="txtReCorreoElectronico" ErrorMessage="El formato del correo electronico proporcionado no es valido" ValidationExpression="^[a-z][\w\.]+@([\w\-]+\.)+[a-z]{2,7}$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC2" runat="server" TargetControlID="txtReCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC2" runat="server" TargetControlID="txtReCorreoElectronico_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:CompareValidator ID="txtReCorreoElectronico_Validation3" runat="server" ControlToValidate="txtReCorreoElectronico" ControlToCompare="txtCorreoElectronico"  ErrorMessage="La confirmación del correo electronico no coincide" Display="None"></asp:CompareValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC3" runat="server" TargetControlID="txtReCorreoElectronico_Validation3" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReCorreoElectronico_VC3" runat="server" TargetControlID="txtReCorreoElectronico_Validation3" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
                             </div>                           
                         </div>    
                         
@@ -272,19 +339,19 @@
                                 <label>Contraseña:</label>
                                 <asp:TextBox ID="txtContrasena" runat="server" type="password"></asp:TextBox>                                    
                                 <asp:RequiredFieldValidator ID="txtContrasena_Validation1" runat="server" ControlToValidate="txtContrasena" ErrorMessage="La constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
-                                <asp:ValidatorCalloutExtender ID="txtContrasena_VC1" runat="server" TargetControlID="txtContrasena_Validation1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC1" runat="server" TargetControlID="txtContrasena_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtContrasena_Validation2" runat="server" ControlToValidate="txtContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtContrasena_VC2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>                                
                             </div>                            
                             <div class="float-left columna-x2 columna-x2-right">
                                 <label>Confirme la contraseña:</label>
                                 <asp:TextBox ID="txtReContrasena" runat="server" type="password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtReContrasena_Validator1" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="La confirmación de la constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC1" runat="server" TargetControlID="txtReContrasena_Validator1" HighlightCssClass="errorValidacion"></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReContrasena_VC1" runat="server" TargetControlID="txtReContrasena_Validator1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtReContrasena_Validator2" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC2" runat="server" TargetControlID="txtReContrasena_Validator2" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReContrasena_VC2" runat="server" TargetControlID="txtReContrasena_Validator2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:CompareValidator ID="txtReContrasena_Validator3" runat="server" ControlToValidate="txtReContrasena" ControlToCompare="txtContrasena"  ErrorMessage="La confirmación de la contraseña no coincide" Display="None"></asp:CompareValidator>
-                                <asp:ValidatorCalloutExtender ID="txtReContrasena_VC3" runat="server" TargetControlID="txtReContrasena_Validator3" HighlightCssClass="errorValidacion" ></asp:ValidatorCalloutExtender>                                
+                                <ajaxToolkit:ValidatorCalloutExtender ID="txtReContrasena_VC3" runat="server" TargetControlID="txtReContrasena_Validator3" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>                                
                             </div>                          
                         </div>    
           
@@ -336,21 +403,24 @@
                         <div class="clear-fix-margin-top">
                             <div class="float-left columna-x3 columna-x3-left">
                                 <label>País:</label>
-                                <asp:DropDownList ID="ddlPais" runat="server">
-                                    <asp:ListItem Value="57">Colombia</asp:ListItem>
-                                </asp:DropDownList>   
+                                <asp:DropDownList ID="ddlPais" runat="server"/>                                
+                                <ajaxToolkit:CascadingDropDown ID="cddlPais" runat="server" TargetControlID="ddlPais"
+                                                            Category="Pais" PromptText="Seleccione un país" LoadingText="[Cargando paises...]" 
+                                                            ServiceMethod="ObtenerPaisesDdl" />  
                             </div>
                             <div class="float-left columna-x3 columna-x3-middle">
                                 <label>Departamento:</label>
-                                <asp:DropDownList ID="ddlDepartamento" runat="server">
-                                    <asp:ListItem Value="1">Cundinamarca</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlDepartamento" runat="server"/>
+                                <ajaxToolkit:CascadingDropDown ID="cddlDepartamento" runat="server" TargetControlID="ddlDepartamento" ParentControlID="ddlPais"
+                                                            Category="Departamento" PromptText="Seleccione un departamento" LoadingText="[Cargando departamento...]" 
+                                                            ServiceMethod="ObtenerDepartamentosDdl" />
                             </div>
                             <div class="float-left columna-x3 columna-x3-right">
                                 <label>Ciudad:</label>
-                                <asp:DropDownList ID="ddlCiudad" runat="server">
-                                    <asp:ListItem Value="1">Bogotá</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlCiudad" runat="server"/>
+                                <ajaxToolkit:CascadingDropDown ID="cddlCiudad" runat="server" TargetControlID="ddlCiudad" ParentControlID="ddlDepartamento"
+                                                            Category="Ciudad" PromptText="Seleccione una ciudad" LoadingText="[Cargando ciudades...]" 
+                                                            ServiceMethod="ObtenerCiudadesDdl" />
                             </div>
                         </div>
                         
