@@ -1,6 +1,6 @@
 ﻿using System;
 using Entities.Negocio;
-using DataLayer.ModeloEntityFramework.M;
+using DataLayer.ModeloEntityFramework;
 using DataLayer.Transformador;
 
 namespace DataLayer.DAOs
@@ -15,18 +15,18 @@ namespace DataLayer.DAOs
         }
 
         //Obtiene y mantiene una unica instancia de la clase
-        public static UsuarioDao ObtenerInstancia()
+        public static UsuarioDao Instancia
         {
-            return _instancia ?? (_instancia = new UsuarioDao());
+            get { return _instancia ?? (_instancia = new UsuarioDao()); }
         }
 
         //Metodo para insertar un registro a la tabla usuario
         public void Insertar(Usuario pUsuario)
         {
-            //EstablecerConexion();
-            //var usuario = ToDataEntity.ObtenerInstancia().ToUsuario(pUsuario);
-            //Conexion.USUARIO.Add(usuario);
-            //Conexion.SaveChanges();
+            EstablecerConexion();
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            Conexion.USUARIO.Add(usuario);
+            Conexion.SaveChanges();
         }
     }
 }
