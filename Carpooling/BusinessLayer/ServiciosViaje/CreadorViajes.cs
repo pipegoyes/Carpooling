@@ -22,8 +22,6 @@ namespace BusinessLayer.ServiciosViaje
                 
                 //TODO valiadaciones antes de guardar
                 ViajeDao.ObtenerInstancia().GuardarViaje(viajeActual);
-
-                //.GuardarViaje(viajeActual);
             }
             catch (Exception ex)
             {

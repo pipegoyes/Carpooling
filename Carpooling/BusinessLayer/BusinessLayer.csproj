@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ServiciosCuenta\AdministracionCuenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiciosGUI\FuenteDatosControl.cs" />
     <Compile Include="ServiciosViaje\CreadorViajes.cs" />
   </ItemGroup>
   <ItemGroup>
