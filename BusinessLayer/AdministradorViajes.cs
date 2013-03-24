@@ -7,7 +7,7 @@ using Entities.Negocio;
 
 namespace BusinessLayer.ServiciosViaje
 {
-    public class CreadorViajes
+    public class AdministradorViajes
     {
         public static void CrearViajeEntity(Viaje viajeActual)
         {

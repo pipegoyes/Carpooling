@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServiciosCuenta\AdministracionCuenta.cs" />
+    <Compile Include="AdministradorCorreosElectronicos.cs" />
+    <Compile Include="AdministradorCuentas.cs" />
+    <Compile Include="AdministradorCalificaciones.cs" />
+    <Compile Include="AdministradorPreguntas.cs" />
+    <Compile Include="AdministradorSolicitudes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciosGUI\FuenteDatosControl.cs" />
-    <Compile Include="ServiciosViaje\CreadorViajes.cs" />
+    <Compile Include="AdministradorViajes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
