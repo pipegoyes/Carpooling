@@ -45,9 +45,11 @@
     <Compile Include="Aplicacion\ListaDesplegable2.cs" />
     <Compile Include="Aplicacion\ViajeJSON.cs" />
     <Compile Include="Negocio\Calificacion.cs" />
+    <Compile Include="Negocio\Ocupacion.cs" />
     <Compile Include="Negocio\Parada.cs" />
     <Compile Include="Negocio\Pregunta.cs" />
     <Compile Include="Negocio\Trayecto.cs" />
+    <Compile Include="Negocio\UbicacionGeografica.cs" />
     <Compile Include="Negocio\Usuario.cs" />
     <Compile Include="Negocio\Viaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
