@@ -21,7 +21,7 @@ namespace Carpooling.Front.Viajes
         {
             CreadorViajes.CrearViajeEntity(request);
 
-            return "Origen del viaje - " + request.Tarifa; ;
+            return "Origen del viaje - " + request.AporteEconomico; ;
         }
 
     }

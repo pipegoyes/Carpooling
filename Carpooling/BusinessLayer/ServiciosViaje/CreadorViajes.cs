@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataLayer.DAOs;
-using DataLayer.ModeloEntityFramework.P;
 using Entities.Negocio;
 
 namespace BusinessLayer.ServiciosViaje
@@ -59,8 +58,8 @@ namespace BusinessLayer.ServiciosViaje
                         coordenadaDestino.Longitud = Math.Round(Convert.ToDecimal(listParadas[j].Longitud), 6);
                         coordenadaDestino.Direccion = listParadas[j].Direccion;
 
-                        trayectoActual.CoordenadaOrigen = coordenadaOrigen;
-                        trayectoActual.CoordenadaDestino = coordenadaDestino;
+                        trayectoActual.ParadaOrigen = coordenadaOrigen;
+                        trayectoActual.ParadaDestino = coordenadaDestino;
 
                         trayectoActual.CuposDisponibles = cuposDisponibles;
                         listTrayectos.Add(trayectoActual);

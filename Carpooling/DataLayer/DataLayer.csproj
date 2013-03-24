@@ -75,36 +75,6 @@
     <Compile Include="ModeloEntityFramework\DEPARTAMENTO.cs">
       <DependentUpon>CARPOOLModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpoolingDbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\CarpoolingDbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\CIUDAD.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\DEPARTAMENTO.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\OCUPACION.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\PAIS.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\M\USUARIO.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModeloEntityFramework\OCUPACION.cs">
       <DependentUpon>CARPOOLModel.tt</DependentUpon>
     </Compile>
@@ -116,30 +86,6 @@
     </Compile>
     <Compile Include="ModeloEntityFramework\PREGUNTA.cs">
       <DependentUpon>CARPOOLModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.Context.cs">
-      <DependentUpon>CarpoolingDbModel.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\CarpoolingDbModel.Designer.cs">
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\CORDENADA.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\TRAYECTO.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloEntityFramework\P\VIAJE.cs">
-      <DependentUpon>CarpoolingDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ModeloEntityFramework\SOLICITUD.cs">
       <DependentUpon>CARPOOLModel.tt</DependentUpon>
@@ -162,14 +108,6 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="ModeloEntityFramework\P\CarpoolingDbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarpoolingDbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="ModeloEntityFramework\M\CarpoolingDbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarpoolingDbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="ModeloEntityFramework\CARPOOLModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CARPOOLModel.Designer.cs</LastGenOutput>
@@ -186,32 +124,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CARPOOLModel.edmx</DependentUpon>
       <LastGenOutput>CARPOOLModel.cs</LastGenOutput>
-    </None>
-    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarpoolingDbModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.edmx.diagram">
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-    </None>
-    <None Include="ModeloEntityFramework\M\CarpoolingDbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarpoolingDbModel.cs</LastGenOutput>
-    </None>
-    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarpoolingDbModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.edmx.diagram">
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-    </None>
-    <None Include="ModeloEntityFramework\P\CarpoolingDbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpoolingDbModel.edmx</DependentUpon>
-      <LastGenOutput>CarpoolingDbModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

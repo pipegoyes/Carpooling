@@ -1,4 +1,4 @@
-﻿        <%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="CrearViajePaso1.aspx.cs" Inherits="Carpooling.Front.Viajes.CrearViajePaso1" %>
+﻿        <%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="PublicarViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.CrearViajePaso1" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
@@ -91,11 +91,11 @@
                 <div class="divClear"></div>
             </div>
             <div id="divTarifa">
-                <div class="labelInformacionBasica leftPosition">Tarifa contributiva*</div>
+                <div class="labelInformacionBasica leftPosition">AporteEconomico contributiva*</div>
                 <div class="txbInformacionBasica leftPosition">
                     <asp:TextBox ID="txbTarifa" runat="server" value="10000"></asp:TextBox>   
                 </div>
-                <asp:RequiredFieldValidator ID="validadorTarifa" ControlToValidate="txbTarifa" Display="None" ErrorMessage="<b>Valor requerido</b><br>La Tarifa es un dato requerido</br>" runat="server"/> 
+                <asp:RequiredFieldValidator ID="validadorTarifa" ControlToValidate="txbTarifa" Display="None" ErrorMessage="<b>Valor requerido</b><br>La AporteEconomico es un dato requerido</br>" runat="server"/> 
                     <ajaxToolkit:ValidatorCalloutExtender 
                     runat="Server"
                     ID="ajaxValidatorTarifa"

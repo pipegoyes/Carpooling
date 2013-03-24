@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataLayer.ModeloEntityFramework;
-//using DataLayer.ModeloEntityFramework.P;
 using DataLayer.Transformador;
 using Entities.Negocio;
 
@@ -26,6 +25,11 @@ namespace DataLayer.DAOs
         {
             try
             {
+                //VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
+
+                //EstablecerConexion();
+                //Conexion.VIAJE.Add(viajeInsertar);
+                //Conexion.SaveChanges();
                 //TODO DESCCOMENTAR DESPUES DE CONVERTIR AL NUEVO MODELO DE DATOS
                 //VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
                 //EstablecerConexion();
@@ -37,6 +41,9 @@ namespace DataLayer.DAOs
 
                 throw exception;
             }
+
         }
+
+
     }
 }

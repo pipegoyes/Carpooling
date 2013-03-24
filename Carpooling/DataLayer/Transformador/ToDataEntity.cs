@@ -65,7 +65,7 @@ namespace DataLayer.Transformador
         //        viajeDao.FECHA_CREACION = DateTime.Now;
 
 
-        //        viajeActual.FechaPartida = viajeActual.FechaPartida;
+        //        viajeActual.FechaHoraPartida = viajeActual.FechaHoraPartida;
 
         //        List<Parada> listParadas = new List<Parada>();
         //        listParadas.Add(viajeActual.Origin);
@@ -73,7 +73,7 @@ namespace DataLayer.Transformador
         //        listParadas.Add(viajeActual.Destination);
 
         //        List<TRAYECTO> listTrayectos = new List<TRAYECTO>();
-        //        foreach (Trayecto trayectoActual in viajeActual.ListTrayectos)
+        //        foreach (Trayecto trayectoActual in viajeActual.TrayectosViaje)
         //        {
         //            var trayectoDao = new TRAYECTO
         //                                  {
@@ -83,31 +83,31 @@ namespace DataLayer.Transformador
         //                                  };
 
         //            //CORDENADA coordenadaOrigen = CoordenadaDao.ObtenerCoordenada(
-        //            //    trayectoActual.CoordenadaOrigen.Latitud, trayectoActual.CoordenadaOrigen.Longitud,
-        //            //    trayectoActual.CoordenadaOrigen.Direccion);
+        //            //    trayectoActual.ParadaOrigen.Latitud, trayectoActual.ParadaOrigen.Longitud,
+        //            //    trayectoActual.ParadaOrigen.Direccion);
 
         //            //if (coordenadaOrigen == null)
         //            //{
         //            var coordenadaOrigen = new CORDENADA
         //                                       {
-        //                                           LATITUD = trayectoActual.CoordenadaOrigen.Latitud,
-        //                                           LONGITUD = trayectoActual.CoordenadaOrigen.Longitud,
-        //                                           DIRECCION = trayectoActual.CoordenadaOrigen.Direccion
+        //                                           LATITUD = trayectoActual.ParadaOrigen.Latitud,
+        //                                           LONGITUD = trayectoActual.ParadaOrigen.Longitud,
+        //                                           DIRECCION = trayectoActual.ParadaOrigen.Direccion
         //                                       };
         //            //}
 
         //            //CORDENADA coordenadaDestino =
-        //            //    CoordenadaDao.ObtenerCoordenada(trayectoActual.CoordenadaDestino.Latitud,
-        //            //                                    trayectoActual.CoordenadaDestino.Longitud,
-        //            //                                    trayectoActual.CoordenadaDestino.Direccion);
+        //            //    CoordenadaDao.ObtenerCoordenada(trayectoActual.ParadaDestino.Latitud,
+        //            //                                    trayectoActual.ParadaDestino.Longitud,
+        //            //                                    trayectoActual.ParadaDestino.Direccion);
                     
         //            //if (coordenadaDestino == null)
         //            //{
         //            var coordenadaDestino = new CORDENADA
         //                                        {
-        //                                            LATITUD = trayectoActual.CoordenadaDestino.Latitud,
-        //                                            LONGITUD = trayectoActual.CoordenadaDestino.Longitud,
-        //                                            DIRECCION = trayectoActual.CoordenadaDestino.Direccion
+        //                                            LATITUD = trayectoActual.ParadaDestino.Latitud,
+        //                                            LONGITUD = trayectoActual.ParadaDestino.Longitud,
+        //                                            DIRECCION = trayectoActual.ParadaDestino.Direccion
         //                                        };
         //            //}
 
