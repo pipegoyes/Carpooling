@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using DataLayer.ModeloEntityFramework;
-//using DataLayer.ModeloEntityFramework.P;
 
 namespace DataLayer.DAOs
 {
@@ -20,6 +19,11 @@ namespace DataLayer.DAOs
         {
             _conexion = new CARPOOLEntities();
             return _conexion;
+        }
+
+        public void ConfirmarCambios()
+        {
+            this.Conexion.SaveChanges();
         }
     }
 }

@@ -93,8 +93,7 @@
     <Content Include="Scripts\jqueryUI\globalize.js" />
     <Content Include="Front\Cuentas\NuevaCuenta.aspx" />
     <Content Include="Front\Viajes\BuscarViaje.aspx" />
-    <Content Include="Front\Viajes\CrearViajePaso1.aspx" />
-    <Content Include="Front\Viajes\CrearViajePaso2.aspx" />
+    <Content Include="Front\Viajes\PublicarViaje.aspx" />
     <Content Include="Front\Inicio.aspx" />
     <Content Include="Front\InicioSesion.aspx" />
     <Content Include="Front\Viajes\PublicacionViajeExitosa.aspx" />
@@ -367,19 +366,12 @@
     <Compile Include="Front\Viajes\BuscarViaje.aspx.designer.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Front\Viajes\CrearViajePaso1.aspx.cs">
-      <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
+    <Compile Include="Front\Viajes\PublicarViaje.aspx.cs">
+      <DependentUpon>PublicarViaje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Front\Viajes\CrearViajePaso1.aspx.designer.cs">
-      <DependentUpon>CrearViajePaso1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Front\Viajes\CrearViajePaso2.aspx.cs">
-      <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Front\Viajes\CrearViajePaso2.aspx.designer.cs">
-      <DependentUpon>CrearViajePaso2.aspx</DependentUpon>
+    <Compile Include="Front\Viajes\PublicarViaje.aspx.designer.cs">
+      <DependentUpon>PublicarViaje.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

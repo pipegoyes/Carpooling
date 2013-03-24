@@ -7,9 +7,12 @@ namespace Entities.Negocio
 {
     public class Parada
     {
+        public int IdParada { get; set; }
         public decimal Latitud { get; set; }
         public decimal Longitud { get; set; }
         public string Direccion { get; set; }
+        public int NumeroParada { get; set; }
+        public string TipoParada { get; set; }
 
     }
 }

@@ -56,7 +56,7 @@
             <div class="divClear"></div>
         </div>
         <div>
-            <div class="leftPosition labelDatosViaje">Tarifa contributiva</div>
+            <div class="leftPosition labelDatosViaje">AporteEconomico contributiva</div>
             <div class="leftPosition">
                 <asp:Label ID="Label1" Text="$65.000 Col" runat="server"></asp:Label>
             </div>
