@@ -24,21 +24,27 @@ namespace BusinessLayer.ServiciosGUI
         }
 
         //Obtiene el listado de paises
-        public List<ListaDesplegable2> ObtenerPaises()
+        public List<ListaDesplegable> ObtenerPaises()
         {
             return ListaDesplegableDao.Instancia.ObtenerPaises();
         }
 
         //Obtiene el listado de departamentos de un pais determinado
-        public List<ListaDesplegable2> ObtenerDepartamentos(int pIdPais)
+        public List<ListaDesplegable> ObtenerDepartamentos(int pIdPais)
         {
             return ListaDesplegableDao.Instancia.ObtenerDepartamentos(pIdPais);
         }
 
         //Obtiene el listado de ciudades de un departamento determinado
-        public List<ListaDesplegable2> ObtenerCiudades(int pIdDepartamento)
+        public List<ListaDesplegable> ObtenerCiudades(int pIdDepartamento)
         {
             return ListaDesplegableDao.Instancia.ObtenerCiudades(pIdDepartamento);
+        }
+
+        //Obtiene el listado de ocupaciones
+        public List<ListaDesplegable> ObtenerOcupaciones()
+        {
+            return ListaDesplegableDao.Instancia.ObtenerOcupaciones();
         }
     }
 }

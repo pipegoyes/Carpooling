@@ -24,25 +24,23 @@ namespace DataLayer.DAOs
         }
 
         //Obtiene el listado de paises
-        public List<ListaDesplegable2> ObtenerPaises()
+        public List<ListaDesplegable> ObtenerPaises()
         {
             EstablecerConexion();
-            var lista = from paises in Conexion.PAIS select paises;
+            var lista = Conexion.PAIS;
             return lista.Any() ? ToBusinessEntity.Instancia.PaisToListaDesplegable(lista.ToList()) : null;
         }
 
         //Obtiene el listado de departamentos
-        public List<ListaDesplegable2> ObtenerDepartamentos(int pIdPais)
+        public List<ListaDesplegable> ObtenerDepartamentos(int pIdPais)
         {
             EstablecerConexion();
-            var lista = from departamentos in Conexion.DEPARTAMENTO 
-                        where departamentos.ID_PAIS == pIdPais 
-                        select departamentos;
+            var lista = Conexion.DEPARTAMENTO.Where(p => p.ID_PAIS == pIdPais);
             return lista.Any() ? ToBusinessEntity.Instancia.DepartamentoToListaDesplegable(lista.ToList()) : null;
         }
 
         //Obtiene el listado de departamentos
-        public List<ListaDesplegable2> ObtenerCiudades(int pIdDepartamento)
+        public List<ListaDesplegable> ObtenerCiudades(int pIdDepartamento)
         {
             EstablecerConexion();
             var lista = from ciudades in Conexion.CIUDAD
@@ -51,5 +49,12 @@ namespace DataLayer.DAOs
             return lista.Any() ? ToBusinessEntity.Instancia.CiudadToListaDesplegable(lista.ToList()) : null;
         }
 
+        //Obtiene el listado de ocupaciones
+        public List<ListaDesplegable> ObtenerOcupaciones()
+        {
+            EstablecerConexion();
+            var lista = Conexion.OCUPACION;
+            return lista.Any() ? ToBusinessEntity.Instancia.OcupacionToListaDesplegable(lista.ToList()) : null;
+        }
     }
 }
