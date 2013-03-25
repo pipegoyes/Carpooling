@@ -108,218 +108,218 @@ DROP TABLE VIAJE
 
 --  Create Tables 
 CREATE TABLE CALIFICACION ( 
-	IdCalificacion bigint identity(1,1)  NOT NULL,
-	Puntaje decimal(3,2) NOT NULL,
-	IdViaje bigint NOT NULL,
-	IdEvaluador varchar(20) NOT NULL,
-	IdEvaluado varchar(20) NOT NULL,
-	FechaRealizacion datetime NULL,
-	Comentario varchar(250) NULL
+	ID_CALIFICACION bigint identity(1,1)  NOT NULL,
+	PUNTAJE decimal(3,2) NOT NULL,
+	ID_VIAJE bigint NOT NULL,
+	ID_EVALUADOR varchar(20) NOT NULL,
+	ID_EVALUADO varchar(20) NOT NULL,
+	FECHA_REALIZACION datetime NULL,
+	COMENTARIO varchar(250) NULL
 )
 ;
 
 CREATE TABLE CIUDAD ( 
-	IdCiudad int NOT NULL,
-	NombreCiudad varchar(30) NOT NULL,
-	IdDepartamento int NULL
+	ID_CIUDAD int NOT NULL,
+	NOMBRE_CIUDAD varchar(30) NOT NULL,
+	ID_DEPARTAMENTO int NULL
 )
 ;
 
 CREATE TABLE DEPARTAMENTO ( 
-	IdDepartamento int NOT NULL,
-	NombreDepartamento varchar(30) NOT NULL,
-	IdPais int NOT NULL
+	ID_DEPARTAMENTO int NOT NULL,
+	NOMBRE_DEPARTAMENTO varchar(30) NOT NULL,
+	ID_PAIS int NOT NULL
 )
 ;
 
 CREATE TABLE OCUPACION ( 
-	IdOcupacion int identity(1,1)  NOT NULL,
-	NombreOcupacion varchar(50) NOT NULL
+	ID_OCUPACION int identity(1,1)  NOT NULL,
+	NOMBRE_OCUPACION varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE PAIS ( 
-	IdPais int NOT NULL,
-	NombrePais varchar(30) NOT NULL
+	ID_PAIS int NOT NULL,
+	NOMBRE_PAIS varchar(30) NOT NULL
 )
 ;
 
 CREATE TABLE PARADA ( 
-	IdParada bigint identity(1,1)  NOT NULL,
-	IdTrayecto bigint NOT NULL,
-	Latitud decimal(10,6) NOT NULL,
-	Lontitud decimal(10,6) NOT NULL,
-	Direccion varchar(100) NOT NULL,
-	NumeroParada int NOT NULL,
-	TipoParada char(1) NOT NULL    --  Tipo parada: Origen o Destino 
+	ID_PARADA bigint identity(1,1)  NOT NULL,
+	ID_TRAYECTO bigint NOT NULL,
+	LATITUD decimal(10,6) NOT NULL,
+	LONGITUD decimal(10,6) NOT NULL,
+	DIRECCION varchar(100) NOT NULL,
+	NUMERO_PARADA int NOT NULL,
+	TIPO_PARADA char(1) NOT NULL    --  Tipo parada: Origen o Destino 
 )
 ;
 
 CREATE TABLE PREGUNTA ( 
-	IdPregunta bigint identity(1,1)  NOT NULL,
-	IdViaje bigint NOT NULL,
-	IdCreadorPregunta varchar(20) NOT NULL,
-	TextoPregunta varchar(500) NOT NULL,
-	TextoRespuesta varchar(500) NULL
+	ID_PREGUNTA bigint identity(1,1)  NOT NULL,
+	ID_VIAJE bigint NOT NULL,
+	ID_CREADOR_PREGUNTA varchar(20) NOT NULL,
+	TEXTO_PREGUNTA varchar(500) NOT NULL,
+	TEXTO_RESPUESTA varchar(500) NULL
 )
 ;
 
 CREATE TABLE SOLICITUD ( 
-	IdSolicitud bigint identity(1,1)  NOT NULL,
-	IdTrayecto bigint NOT NULL,
-	IdPasajero varchar(20) NOT NULL,
-	CuposSolicitados int NOT NULL,
-	Comentario varchar(250) NULL,
-	Estado int NOT NULL,    --  Estados: Pendiente por responder Aprobada  
+	ID_SOLICITUD bigint identity(1,1)  NOT NULL,
+	ID_TRAYECTO bigint NOT NULL,
+	ID_PASAJERO varchar(20) NOT NULL,
+	CUPOS_SOLICITADOS int NOT NULL,
+	COMENTARIO varchar(250) NULL,
+	ESTADO int NOT NULL,    --  Estados: Pendiente por responder Aprobada  
 )
 ;
 
 CREATE TABLE TRAYECTO ( 
-	IdTrayecto bigint identity(1,1)  NOT NULL,
-	IdViaje bigint NOT NULL,
-	Cupos int NOT NULL,
-	TrayectoSimple bit NOT NULL
+	ID_TRAYECTO bigint identity(1,1)  NOT NULL,
+	ID_VIAJE bigint NOT NULL,
+	CUPOS int NOT NULL,
+	TRAYECTO_SIMPLE bit NOT NULL
 )
 ;
 
 CREATE TABLE USUARIO ( 
-	IdUsuario varchar(20) NOT NULL,
-	Contrasenia varchar(50) NOT NULL,
-	Nombre varchar(30) NOT NULL,
-	Apellido varchar(30) NOT NULL,
-	Email varchar(50) NOT NULL,
-	FechaNacimiento date NOT NULL,
-	FechaUltimoIngreso datetime NOT NULL,
-	Genero char(1) NOT NULL,
-	IdCiudadResidencia int NOT NULL,
-	IdOcupacion int NOT NULL,
-	TelefonoMovil varchar(15) NULL,
-	TelefonoFijo varchar(15) NULL,
-	VehiculoPropio bit NOT NULL,
-	Fumador bit NOT NULL,
-	Foto image NULL,
-	InformacionAdicional varchar(800) NULL,
-	Reputacion decimal(4,2) NULL
+	ID_USUARIO varchar(20) NOT NULL,
+	CONTRASENIA varchar(50) NOT NULL,
+	NOMBRE varchar(30) NOT NULL,
+	APELLIDO varchar(30) NOT NULL,
+	EMAIL varchar(50) NOT NULL,
+	FECHA_NACIMIENTO date NOT NULL,
+	FECHA_ULTIMO_INGRESO datetime NOT NULL,
+	GENERO char(1) NOT NULL,
+	ID_CIUDAD_RESIDENCIA int NOT NULL,
+	ID_OCUPACION int NOT NULL,
+	TELEFONO_MOVIL varchar(15) NULL,
+	TELEFONO_FIJO varchar(15) NULL,
+	VEHICULO_PROPIO bit NOT NULL,
+	FUMADOR bit NOT NULL,
+	FOTO image NULL,
+	INFORMACION_ADICIONAL varchar(800) NULL,
+	REPUTACION decimal(4,2) NULL
 )
 ;
 
 CREATE TABLE VIAJE ( 
-	IdViaje bigint identity(1,1)  NOT NULL,
-	FechaCreacion datetime NOT NULL,
-	FechaHoraPartida datetime NOT NULL,
-	IdConductor varchar(20) NULL,
-	AporteEconomico decimal(8,2) NOT NULL,
-	InformacionAdicional varchar(800) NULL,
-	Estado int NOT NULL,    --  Los estados posibles: Publicado, Cancelado Realizado... Documentarlos 
+	ID_VIAJE bigint identity(1,1)  NOT NULL,
+	FECHA_CREACION datetime NOT NULL,
+	FECHA_HORA_PARTIDA datetime NOT NULL,
+	ID_CONDUCTOR varchar(20) NULL,
+	APORTE_ECONOMICO decimal(8,2) NOT NULL,
+	INFORMACION_ADICIONAL varchar(800) NULL,
+	ESTADO int NOT NULL,    --  Los estados posibles: Publicado, Cancelado Realizado... Documentarlos 
 )
 ;
 
 
 --  Create Primary Key Constraints 
 ALTER TABLE CALIFICACION ADD CONSTRAINT PK_Calificacion 
-	PRIMARY KEY CLUSTERED (IdCalificacion)
+	PRIMARY KEY CLUSTERED (ID_CALIFICACION)
 ;
 
 ALTER TABLE CIUDAD ADD CONSTRAINT PK_Ciudad 
-	PRIMARY KEY CLUSTERED (IdCiudad)
+	PRIMARY KEY CLUSTERED (ID_CIUDAD)
 ;
 
 ALTER TABLE DEPARTAMENTO ADD CONSTRAINT PK_Departamento 
-	PRIMARY KEY CLUSTERED (IdDepartamento)
+	PRIMARY KEY CLUSTERED (ID_DEPARTAMENTO)
 ;
 
 ALTER TABLE OCUPACION ADD CONSTRAINT PK_Ocupacion 
-	PRIMARY KEY CLUSTERED (IdOcupacion)
+	PRIMARY KEY CLUSTERED (ID_OCUPACION)
 ;
 
 ALTER TABLE PAIS ADD CONSTRAINT PK_Pais 
-	PRIMARY KEY CLUSTERED (IdPais)
+	PRIMARY KEY CLUSTERED (ID_PAIS)
 ;
 
 ALTER TABLE PARADA ADD CONSTRAINT PK_Parada 
-	PRIMARY KEY CLUSTERED (IdParada)
+	PRIMARY KEY CLUSTERED (ID_PARADA)
 ;
 
 ALTER TABLE PREGUNTA ADD CONSTRAINT PK_Pregunta 
-	PRIMARY KEY CLUSTERED (IdPregunta)
+	PRIMARY KEY CLUSTERED (ID_PREGUNTA)
 ;
 
 ALTER TABLE SOLICITUD ADD CONSTRAINT PK_Solicitud 
-	PRIMARY KEY CLUSTERED (IdSolicitud)
+	PRIMARY KEY CLUSTERED (ID_SOLICITUD)
 ;
 
 ALTER TABLE TRAYECTO ADD CONSTRAINT PK_Trayecto 
-	PRIMARY KEY CLUSTERED (IdTrayecto)
+	PRIMARY KEY CLUSTERED (ID_TRAYECTO)
 ;
 
 ALTER TABLE USUARIO ADD CONSTRAINT PK_Usuario 
-	PRIMARY KEY CLUSTERED (IdUsuario)
+	PRIMARY KEY CLUSTERED (ID_USUARIO)
 ;
 
 ALTER TABLE VIAJE ADD CONSTRAINT PK_Viaje 
-	PRIMARY KEY CLUSTERED (IdViaje)
+	PRIMARY KEY CLUSTERED (ID_VIAJE)
 ;
 
 
 --  Create Indexes 
 ALTER TABLE USUARIO
-	ADD CONSTRAINT UQ_Usuario_Email UNIQUE (Email)
+	ADD CONSTRAINT UQ_Usuario_Email UNIQUE (EMAIL)
 ;
 
 
 --  Create Foreign Key Constraints 
 ALTER TABLE CALIFICACION ADD CONSTRAINT FK_Calificacion_Evaluado 
-	FOREIGN KEY (IdEvaluado) REFERENCES USUARIO (IdUsuario)
+	FOREIGN KEY (ID_EVALUADO) REFERENCES USUARIO (ID_USUARIO)
 ;
 
 ALTER TABLE CALIFICACION ADD CONSTRAINT FK_Calificacion_Evaluador 
-	FOREIGN KEY (IdEvaluador) REFERENCES USUARIO (IdUsuario)
+	FOREIGN KEY (ID_EVALUADOR) REFERENCES USUARIO (ID_USUARIO)
 ;
 
 ALTER TABLE CALIFICACION ADD CONSTRAINT FK_Calificacion_Viaje 
-	FOREIGN KEY (IdViaje) REFERENCES VIAJE (IdViaje)
+	FOREIGN KEY (ID_VIAJE) REFERENCES VIAJE (ID_VIAJE)
 ;
 
 ALTER TABLE CIUDAD ADD CONSTRAINT FK_Ciudad_Departamento 
-	FOREIGN KEY (IdDepartamento) REFERENCES DEPARTAMENTO (IdDepartamento)
+	FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO (ID_DEPARTAMENTO)
 ;
 
 ALTER TABLE DEPARTAMENTO ADD CONSTRAINT FK_Departamento_Pais 
-	FOREIGN KEY (IdPais) REFERENCES PAIS (IdPais)
+	FOREIGN KEY (ID_PAIS) REFERENCES PAIS (ID_PAIS)
 ;
 
 ALTER TABLE PARADA ADD CONSTRAINT FK_Parada_Trayecto 
-	FOREIGN KEY (IdTrayecto) REFERENCES TRAYECTO (IdTrayecto)
+	FOREIGN KEY (ID_TRAYECTO) REFERENCES TRAYECTO (ID_TRAYECTO)
 ;
 
 ALTER TABLE PREGUNTA ADD CONSTRAINT FK_Pregunta_Usuario 
-	FOREIGN KEY (IdCreadorPregunta) REFERENCES USUARIO (IdUsuario)
+	FOREIGN KEY (ID_CREADOR_PREGUNTA) REFERENCES USUARIO (ID_USUARIO)
 ;
 
 ALTER TABLE PREGUNTA ADD CONSTRAINT FK_Pregunta_Viaje 
-	FOREIGN KEY (IdViaje) REFERENCES VIAJE (IdViaje)
+	FOREIGN KEY (ID_VIAJE) REFERENCES VIAJE (ID_VIAJE)
 ;
 
 ALTER TABLE SOLICITUD ADD CONSTRAINT FK_Solicitud_Trayecto 
-	FOREIGN KEY (IdTrayecto) REFERENCES TRAYECTO (IdTrayecto)
+	FOREIGN KEY (ID_TRAYECTO) REFERENCES TRAYECTO (ID_TRAYECTO)
 ;
 
 ALTER TABLE SOLICITUD ADD CONSTRAINT FK_Solicitud_Usuario 
-	FOREIGN KEY (IdPasajero) REFERENCES USUARIO (IdUsuario)
+	FOREIGN KEY (ID_PASAJERO) REFERENCES USUARIO (ID_USUARIO)
 ;
 
 ALTER TABLE TRAYECTO ADD CONSTRAINT FK_Trayecto_Viaje 
-	FOREIGN KEY (IdViaje) REFERENCES VIAJE (IdViaje)
+	FOREIGN KEY (ID_VIAJE) REFERENCES VIAJE (ID_VIAJE)
 ;
 
 ALTER TABLE USUARIO ADD CONSTRAINT FK_Usuario_Ciudad 
-	FOREIGN KEY (IdCiudadResidencia) REFERENCES CIUDAD (IdCiudad)
+	FOREIGN KEY (ID_CIUDAD_RESIDENCIA) REFERENCES CIUDAD (ID_CIUDAD)
 ;
 
 ALTER TABLE USUARIO ADD CONSTRAINT FK_Usuario_Ocupacion 
-	FOREIGN KEY (IdOcupacion) REFERENCES OCUPACION (IdOcupacion)
+	FOREIGN KEY (ID_OCUPACION) REFERENCES OCUPACION (ID_OCUPACION)
 ;
 
 ALTER TABLE VIAJE ADD CONSTRAINT FK_Viaje_Usuario 
-	FOREIGN KEY (IdConductor) REFERENCES USUARIO (IdUsuario)
+	FOREIGN KEY (ID_CONDUCTOR) REFERENCES USUARIO (ID_USUARIO)
 ;
