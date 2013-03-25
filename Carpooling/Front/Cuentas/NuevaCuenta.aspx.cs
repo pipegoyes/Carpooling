@@ -89,7 +89,7 @@ namespace Carpooling.Front.Cuentas
                     
                 };
 
-                AdministracionCuenta.CrearCuenta(usuario);
+                AdministradorCuentas.CrearCuenta(usuario);
 
                 
             }
