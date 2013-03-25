@@ -73,6 +73,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Styles\images\orderedList0.png" />
     <Content Include="Styles\images\orderedList1.png" />
     <Content Include="Styles\images\orderedList2.png" />
@@ -358,6 +359,13 @@
     </Compile>
     <Compile Include="Front\Cuentas\NuevaCuenta.aspx.designer.cs">
       <DependentUpon>NuevaCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\RegistroUsuario.aspx.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\RegistroUsuario.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
