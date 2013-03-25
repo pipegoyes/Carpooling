@@ -14,13 +14,13 @@ namespace DataLayer.ModeloEntityFramework
     
     public partial class PARADA
     {
-        public long IdParada { get; set; }
-        public long IdTrayecto { get; set; }
-        public decimal Latitud { get; set; }
-        public decimal Lontitud { get; set; }
-        public string Direccion { get; set; }
-        public int NumeroParada { get; set; }
-        public string TipoParada { get; set; }
+        public long ID_PARADA { get; set; }
+        public long ID_TRAYECTO { get; set; }
+        public decimal LATITUD { get; set; }
+        public decimal LONGITUD { get; set; }
+        public string DIRECCION { get; set; }
+        public int NUMERO_PARADA { get; set; }
+        public string TIPO_PARADA { get; set; }
     
         public virtual TRAYECTO TRAYECTO { get; set; }
     }

@@ -14,11 +14,11 @@ namespace DataLayer.ModeloEntityFramework
     
     public partial class PREGUNTA
     {
-        public long IdPregunta { get; set; }
-        public long IdViaje { get; set; }
-        public string IdCreadorPregunta { get; set; }
-        public string TextoPregunta { get; set; }
-        public string TextoRespuesta { get; set; }
+        public long ID_PREGUNTA { get; set; }
+        public long ID_VIAJE { get; set; }
+        public string ID_CREADOR_PREGUNTA { get; set; }
+        public string TEXTO_PREGUNTA { get; set; }
+        public string TEXTO_RESPUESTA { get; set; }
     
         public virtual USUARIO USUARIO { get; set; }
         public virtual VIAJE VIAJE { get; set; }

@@ -19,8 +19,8 @@ namespace DataLayer.ModeloEntityFramework
             this.USUARIO = new HashSet<USUARIO>();
         }
     
-        public int IdOcupacion { get; set; }
-        public string NombreOcupacion { get; set; }
+        public int ID_OCUPACION { get; set; }
+        public string NOMBRE_OCUPACION { get; set; }
     
         public virtual ICollection<USUARIO> USUARIO { get; set; }
     }

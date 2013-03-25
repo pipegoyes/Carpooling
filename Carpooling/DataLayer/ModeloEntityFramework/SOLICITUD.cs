@@ -14,12 +14,12 @@ namespace DataLayer.ModeloEntityFramework
     
     public partial class SOLICITUD
     {
-        public long IdSolicitud { get; set; }
-        public long IdTrayecto { get; set; }
-        public string IdPasajero { get; set; }
-        public int CuposSolicitados { get; set; }
-        public string Comentario { get; set; }
-        public int Estado { get; set; }
+        public long ID_SOLICITUD { get; set; }
+        public long ID_TRAYECTO { get; set; }
+        public string ID_PASAJERO { get; set; }
+        public int CUPOS_SOLICITADOS { get; set; }
+        public string COMENTARIO { get; set; }
+        public int ESTADO { get; set; }
     
         public virtual TRAYECTO TRAYECTO { get; set; }
         public virtual USUARIO USUARIO { get; set; }

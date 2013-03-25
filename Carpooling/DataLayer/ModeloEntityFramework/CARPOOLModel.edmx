@@ -76,131 +76,131 @@
         </EntityContainer>
         <EntityType Name="CALIFICACION">
           <Key>
-            <PropertyRef Name="IdCalificacion" />
+            <PropertyRef Name="ID_CALIFICACION" />
           </Key>
-          <Property Name="IdCalificacion" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Puntaje" Type="decimal" Nullable="false" Precision="3" Scale="2" />
-          <Property Name="IdViaje" Type="bigint" Nullable="false" />
-          <Property Name="IdEvaluador" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="IdEvaluado" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="FechaRealizacion" Type="datetime" />
-          <Property Name="Comentario" Type="varchar" MaxLength="250" />
+          <Property Name="ID_CALIFICACION" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PUNTAJE" Type="decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="ID_VIAJE" Type="bigint" Nullable="false" />
+          <Property Name="ID_EVALUADOR" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ID_EVALUADO" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FECHA_REALIZACION" Type="datetime" />
+          <Property Name="COMENTARIO" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="CIUDAD">
           <Key>
-            <PropertyRef Name="IdCiudad" />
+            <PropertyRef Name="ID_CIUDAD" />
           </Key>
-          <Property Name="IdCiudad" Type="int" Nullable="false" />
-          <Property Name="NombreCiudad" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="IdDepartamento" Type="int" />
+          <Property Name="ID_CIUDAD" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_CIUDAD" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" />
         </EntityType>
         <EntityType Name="DEPARTAMENTO">
           <Key>
-            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="ID_DEPARTAMENTO" />
           </Key>
-          <Property Name="IdDepartamento" Type="int" Nullable="false" />
-          <Property Name="NombreDepartamento" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ID_PAIS" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OCUPACION">
           <Key>
-            <PropertyRef Name="IdOcupacion" />
+            <PropertyRef Name="ID_OCUPACION" />
           </Key>
-          <Property Name="IdOcupacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NombreOcupacion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_OCUPACION" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_OCUPACION" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="PAIS">
           <Key>
-            <PropertyRef Name="IdPais" />
+            <PropertyRef Name="ID_PAIS" />
           </Key>
-          <Property Name="IdPais" Type="int" Nullable="false" />
-          <Property Name="NombrePais" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ID_PAIS" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_PAIS" Type="varchar" Nullable="false" MaxLength="30" />
         </EntityType>
         <EntityType Name="PARADA">
           <Key>
-            <PropertyRef Name="IdParada" />
+            <PropertyRef Name="ID_PARADA" />
           </Key>
-          <Property Name="IdParada" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IdTrayecto" Type="bigint" Nullable="false" />
-          <Property Name="Latitud" Type="decimal" Nullable="false" Precision="10" Scale="6" />
-          <Property Name="Lontitud" Type="decimal" Nullable="false" Precision="10" Scale="6" />
-          <Property Name="Direccion" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="NumeroParada" Type="int" Nullable="false" />
-          <Property Name="TipoParada" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ID_PARADA" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TRAYECTO" Type="bigint" Nullable="false" />
+          <Property Name="LATITUD" Type="decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="LONGITUD" Type="decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="DIRECCION" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NUMERO_PARADA" Type="int" Nullable="false" />
+          <Property Name="TIPO_PARADA" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <EntityType Name="PREGUNTA">
           <Key>
-            <PropertyRef Name="IdPregunta" />
+            <PropertyRef Name="ID_PREGUNTA" />
           </Key>
-          <Property Name="IdPregunta" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IdViaje" Type="bigint" Nullable="false" />
-          <Property Name="IdCreadorPregunta" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="TextoPregunta" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="TextoRespuesta" Type="varchar" MaxLength="500" />
+          <Property Name="ID_PREGUNTA" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VIAJE" Type="bigint" Nullable="false" />
+          <Property Name="ID_CREADOR_PREGUNTA" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="TEXTO_PREGUNTA" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="TEXTO_RESPUESTA" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
-            <PropertyRef Name="IdSolicitud" />
+            <PropertyRef Name="ID_SOLICITUD" />
           </Key>
-          <Property Name="IdSolicitud" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IdTrayecto" Type="bigint" Nullable="false" />
-          <Property Name="IdPasajero" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="CuposSolicitados" Type="int" Nullable="false" />
-          <Property Name="Comentario" Type="varchar" MaxLength="250" />
-          <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TRAYECTO" Type="bigint" Nullable="false" />
+          <Property Name="ID_PASAJERO" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CUPOS_SOLICITADOS" Type="int" Nullable="false" />
+          <Property Name="COMENTARIO" Type="varchar" MaxLength="250" />
+          <Property Name="ESTADO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TRAYECTO">
           <Key>
-            <PropertyRef Name="IdTrayecto" />
+            <PropertyRef Name="ID_TRAYECTO" />
           </Key>
-          <Property Name="IdTrayecto" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IdViaje" Type="bigint" Nullable="false" />
-          <Property Name="Cupos" Type="int" Nullable="false" />
-          <Property Name="TrayectoSimple" Type="bit" Nullable="false" />
+          <Property Name="ID_TRAYECTO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VIAJE" Type="bigint" Nullable="false" />
+          <Property Name="CUPOS" Type="int" Nullable="false" />
+          <Property Name="TRAYECTO_SIMPLE" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="ID_USUARIO" />
           </Key>
-          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="Contrasenia" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="Apellido" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
-          <Property Name="FechaUltimoIngreso" Type="datetime" Nullable="false" />
-          <Property Name="Genero" Type="char" Nullable="false" MaxLength="1" />
-          <Property Name="IdCiudadResidencia" Type="int" Nullable="false" />
-          <Property Name="IdOcupacion" Type="int" Nullable="false" />
-          <Property Name="TelefonoMovil" Type="varchar" MaxLength="15" />
-          <Property Name="TelefonoFijo" Type="varchar" MaxLength="15" />
-          <Property Name="VehiculoPropio" Type="bit" Nullable="false" />
-          <Property Name="Fumador" Type="bit" Nullable="false" />
-          <Property Name="Foto" Type="image" />
-          <Property Name="InformacionAdicional" Type="varchar" MaxLength="800" />
-          <Property Name="Reputacion" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="ID_USUARIO" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CONTRASENIA" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="APELLIDO" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FECHA_NACIMIENTO" Type="date" Nullable="false" />
+          <Property Name="FECHA_ULTIMO_INGRESO" Type="datetime" Nullable="false" />
+          <Property Name="GENERO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ID_CIUDAD_RESIDENCIA" Type="int" Nullable="false" />
+          <Property Name="ID_OCUPACION" Type="int" Nullable="false" />
+          <Property Name="TELEFONO_MOVIL" Type="varchar" MaxLength="15" />
+          <Property Name="TELEFONO_FIJO" Type="varchar" MaxLength="15" />
+          <Property Name="VEHICULO_PROPIO" Type="bit" Nullable="false" />
+          <Property Name="FUMADOR" Type="bit" Nullable="false" />
+          <Property Name="FOTO" Type="image" />
+          <Property Name="INFORMACION_ADICIONAL" Type="varchar" MaxLength="800" />
+          <Property Name="REPUTACION" Type="decimal" Precision="4" Scale="2" />
         </EntityType>
         <EntityType Name="VIAJE">
           <Key>
-            <PropertyRef Name="IdViaje" />
+            <PropertyRef Name="ID_VIAJE" />
           </Key>
-          <Property Name="IdViaje" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
-          <Property Name="FechaHoraPartida" Type="datetime" Nullable="false" />
-          <Property Name="IdConductor" Type="varchar" MaxLength="20" />
-          <Property Name="AporteEconomico" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="InformacionAdicional" Type="varchar" MaxLength="800" />
-          <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="ID_VIAJE" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+          <Property Name="FECHA_HORA_PARTIDA" Type="datetime" Nullable="false" />
+          <Property Name="ID_CONDUCTOR" Type="varchar" MaxLength="20" />
+          <Property Name="APORTE_ECONOMICO" Type="decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="INFORMACION_ADICIONAL" Type="varchar" MaxLength="800" />
+          <Property Name="ESTADO" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Calificacion_Evaluado">
           <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="1" />
           <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdEvaluado" />
+              <PropertyRef Name="ID_EVALUADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -209,10 +209,10 @@
           <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdEvaluador" />
+              <PropertyRef Name="ID_EVALUADOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -221,10 +221,10 @@
           <End Role="CALIFICACION" Type="CARPOOLModel.Store.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -233,10 +233,10 @@
           <End Role="CIUDAD" Type="CARPOOLModel.Store.CIUDAD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DEPARTAMENTO">
-              <PropertyRef Name="IdDepartamento" />
+              <PropertyRef Name="ID_DEPARTAMENTO" />
             </Principal>
             <Dependent Role="CIUDAD">
-              <PropertyRef Name="IdDepartamento" />
+              <PropertyRef Name="ID_DEPARTAMENTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -245,10 +245,10 @@
           <End Role="DEPARTAMENTO" Type="CARPOOLModel.Store.DEPARTAMENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PAIS">
-              <PropertyRef Name="IdPais" />
+              <PropertyRef Name="ID_PAIS" />
             </Principal>
             <Dependent Role="DEPARTAMENTO">
-              <PropertyRef Name="IdPais" />
+              <PropertyRef Name="ID_PAIS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -257,10 +257,10 @@
           <End Role="PARADA" Type="CARPOOLModel.Store.PARADA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRAYECTO">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Principal>
             <Dependent Role="PARADA">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -269,10 +269,10 @@
           <End Role="PREGUNTA" Type="CARPOOLModel.Store.PREGUNTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="PREGUNTA">
-              <PropertyRef Name="IdCreadorPregunta" />
+              <PropertyRef Name="ID_CREADOR_PREGUNTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -281,10 +281,10 @@
           <End Role="PREGUNTA" Type="CARPOOLModel.Store.PREGUNTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="PREGUNTA">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -293,10 +293,10 @@
           <End Role="SOLICITUD" Type="CARPOOLModel.Store.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRAYECTO">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Principal>
             <Dependent Role="SOLICITUD">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -305,10 +305,10 @@
           <End Role="SOLICITUD" Type="CARPOOLModel.Store.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="SOLICITUD">
-              <PropertyRef Name="IdPasajero" />
+              <PropertyRef Name="ID_PASAJERO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -317,10 +317,10 @@
           <End Role="TRAYECTO" Type="CARPOOLModel.Store.TRAYECTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="TRAYECTO">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -329,10 +329,10 @@
           <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CIUDAD">
-              <PropertyRef Name="IdCiudad" />
+              <PropertyRef Name="ID_CIUDAD" />
             </Principal>
             <Dependent Role="USUARIO">
-              <PropertyRef Name="IdCiudadResidencia" />
+              <PropertyRef Name="ID_CIUDAD_RESIDENCIA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -341,10 +341,10 @@
           <End Role="USUARIO" Type="CARPOOLModel.Store.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OCUPACION">
-              <PropertyRef Name="IdOcupacion" />
+              <PropertyRef Name="ID_OCUPACION" />
             </Principal>
             <Dependent Role="USUARIO">
-              <PropertyRef Name="IdOcupacion" />
+              <PropertyRef Name="ID_OCUPACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -353,10 +353,10 @@
           <End Role="VIAJE" Type="CARPOOLModel.Store.VIAJE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="VIAJE">
-              <PropertyRef Name="IdConductor" />
+              <PropertyRef Name="ID_CONDUCTOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -436,128 +436,128 @@
         </EntityContainer>
         <EntityType Name="CALIFICACION">
           <Key>
-            <PropertyRef Name="IdCalificacion" />
+            <PropertyRef Name="ID_CALIFICACION" />
           </Key>
-          <Property Name="IdCalificacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Puntaje" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
-          <Property Name="IdViaje" Type="Int64" Nullable="false" />
-          <Property Name="IdEvaluador" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdEvaluado" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="FechaRealizacion" Type="DateTime" Precision="3" />
-          <Property Name="Comentario" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ID_CALIFICACION" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PUNTAJE" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="ID_VIAJE" Type="Int64" Nullable="false" />
+          <Property Name="ID_EVALUADOR" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ID_EVALUADO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FECHA_REALIZACION" Type="DateTime" Precision="3" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="USUARIO_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="CALIFICACION" ToRole="USUARIO" />
           <NavigationProperty Name="USUARIO_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="CALIFICACION" ToRole="USUARIO" />
           <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="CALIFICACION" ToRole="VIAJE" />
         </EntityType>
         <EntityType Name="CIUDAD">
           <Key>
-            <PropertyRef Name="IdCiudad" />
+            <PropertyRef Name="ID_CIUDAD" />
           </Key>
-          <Property Name="IdCiudad" Type="Int32" Nullable="false" />
-          <Property Name="NombreCiudad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="IdDepartamento" Type="Int32" />
+          <Property Name="ID_CIUDAD" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_CIUDAD" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" />
           <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLModel.FK_Ciudad_Departamento" FromRole="CIUDAD" ToRole="DEPARTAMENTO" />
           <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="CIUDAD" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="DEPARTAMENTO">
           <Key>
-            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="ID_DEPARTAMENTO" />
           </Key>
-          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
-          <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Ciudad_Departamento" FromRole="DEPARTAMENTO" ToRole="CIUDAD" />
           <NavigationProperty Name="PAIS" Relationship="CARPOOLModel.FK_Departamento_Pais" FromRole="DEPARTAMENTO" ToRole="PAIS" />
         </EntityType>
         <EntityType Name="OCUPACION">
           <Key>
-            <PropertyRef Name="IdOcupacion" />
+            <PropertyRef Name="ID_OCUPACION" />
           </Key>
-          <Property Name="IdOcupacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreOcupacion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ID_OCUPACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_OCUPACION" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="OCUPACION" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="PAIS">
           <Key>
-            <PropertyRef Name="IdPais" />
+            <PropertyRef Name="ID_PAIS" />
           </Key>
-          <Property Name="IdPais" Type="Int32" Nullable="false" />
-          <Property Name="NombrePais" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_PAIS" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="DEPARTAMENTO" Relationship="CARPOOLModel.FK_Departamento_Pais" FromRole="PAIS" ToRole="DEPARTAMENTO" />
         </EntityType>
         <EntityType Name="PARADA">
           <Key>
-            <PropertyRef Name="IdParada" />
+            <PropertyRef Name="ID_PARADA" />
           </Key>
-          <Property Name="IdParada" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTrayecto" Type="Int64" Nullable="false" />
-          <Property Name="Latitud" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
-          <Property Name="Lontitud" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
-          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="NumeroParada" Type="Int32" Nullable="false" />
-          <Property Name="TipoParada" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ID_PARADA" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TRAYECTO" Type="Int64" Nullable="false" />
+          <Property Name="LATITUD" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="LONGITUD" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NUMERO_PARADA" Type="Int32" Nullable="false" />
+          <Property Name="TIPO_PARADA" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
           <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Parada_Trayecto" FromRole="PARADA" ToRole="TRAYECTO" />
         </EntityType>
         <EntityType Name="PREGUNTA">
           <Key>
-            <PropertyRef Name="IdPregunta" />
+            <PropertyRef Name="ID_PREGUNTA" />
           </Key>
-          <Property Name="IdPregunta" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdViaje" Type="Int64" Nullable="false" />
-          <Property Name="IdCreadorPregunta" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="TextoPregunta" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="TextoRespuesta" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PREGUNTA" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VIAJE" Type="Int64" Nullable="false" />
+          <Property Name="ID_CREADOR_PREGUNTA" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TEXTO_PREGUNTA" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TEXTO_RESPUESTA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="PREGUNTA" ToRole="USUARIO" />
           <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Pregunta_Viaje" FromRole="PREGUNTA" ToRole="VIAJE" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
-            <PropertyRef Name="IdSolicitud" />
+            <PropertyRef Name="ID_SOLICITUD" />
           </Key>
-          <Property Name="IdSolicitud" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTrayecto" Type="Int64" Nullable="false" />
-          <Property Name="IdPasajero" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="CuposSolicitados" Type="Int32" Nullable="false" />
-          <Property Name="Comentario" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TRAYECTO" Type="Int64" Nullable="false" />
+          <Property Name="ID_PASAJERO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CUPOS_SOLICITADOS" Type="Int32" Nullable="false" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ESTADO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Solicitud_Trayecto" FromRole="SOLICITUD" ToRole="TRAYECTO" />
           <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Solicitud_Usuario" FromRole="SOLICITUD" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="TRAYECTO">
           <Key>
-            <PropertyRef Name="IdTrayecto" />
+            <PropertyRef Name="ID_TRAYECTO" />
           </Key>
-          <Property Name="IdTrayecto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdViaje" Type="Int64" Nullable="false" />
-          <Property Name="Cupos" Type="Int32" Nullable="false" />
-          <Property Name="TrayectoSimple" Type="Boolean" Nullable="false" />
+          <Property Name="ID_TRAYECTO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VIAJE" Type="Int64" Nullable="false" />
+          <Property Name="CUPOS" Type="Int32" Nullable="false" />
+          <Property Name="TRAYECTO_SIMPLE" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PARADA" Relationship="CARPOOLModel.FK_Parada_Trayecto" FromRole="TRAYECTO" ToRole="PARADA" />
           <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Trayecto" FromRole="TRAYECTO" ToRole="SOLICITUD" />
           <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="TRAYECTO" ToRole="VIAJE" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="ID_USUARIO" />
           </Key>
-          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Contrasenia" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FechaUltimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Genero" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="IdCiudadResidencia" Type="Int32" Nullable="false" />
-          <Property Name="IdOcupacion" Type="Int32" Nullable="false" />
-          <Property Name="TelefonoMovil" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="TelefonoFijo" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="VehiculoPropio" Type="Boolean" Nullable="false" />
-          <Property Name="Fumador" Type="Boolean" Nullable="false" />
-          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="InformacionAdicional" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
-          <Property Name="Reputacion" Type="Decimal" Precision="4" Scale="2" />
-          <NavigationProperty Name="CALIFICACION_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="USUARIO" ToRole="CALIFICACION" />
-          <NavigationProperty Name="CALIFICACION_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <Property Name="ID_USUARIO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHA_ULTIMO_INGRESO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GENERO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ID_CIUDAD_RESIDENCIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_OCUPACION" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONO_MOVIL" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="TELEFONO_FIJO" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="VEHICULO_PROPIO" Type="Boolean" Nullable="false" />
+          <Property Name="FUMADOR" Type="Boolean" Nullable="false" />
+          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="INFORMACION_ADICIONAL" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="REPUTACION" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="CALIFICACIONES_OBTENIDAS" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <NavigationProperty Name="CALIFICACIONES_REALIZADAS" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="USUARIO" ToRole="CALIFICACION" />
           <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="USUARIO" ToRole="CIUDAD" />
           <NavigationProperty Name="OCUPACION" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="USUARIO" ToRole="OCUPACION" />
           <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="USUARIO" ToRole="PREGUNTA" />
@@ -566,15 +566,15 @@
         </EntityType>
         <EntityType Name="VIAJE">
           <Key>
-            <PropertyRef Name="IdViaje" />
+            <PropertyRef Name="ID_VIAJE" />
           </Key>
-          <Property Name="IdViaje" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FechaHoraPartida" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdConductor" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="AporteEconomico" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="InformacionAdicional" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
-          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="ID_VIAJE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHA_HORA_PARTIDA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_CONDUCTOR" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="APORTE_ECONOMICO" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="INFORMACION_ADICIONAL" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="ESTADO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CALIFICACION" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="VIAJE" ToRole="CALIFICACION" />
           <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Viaje" FromRole="VIAJE" ToRole="PREGUNTA" />
           <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="VIAJE" ToRole="TRAYECTO" />
@@ -585,10 +585,10 @@
           <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdEvaluado" />
+              <PropertyRef Name="ID_EVALUADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -597,10 +597,10 @@
           <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdEvaluador" />
+              <PropertyRef Name="ID_EVALUADOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -609,10 +609,10 @@
           <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="CALIFICACION">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -621,10 +621,10 @@
           <End Role="CIUDAD" Type="CARPOOLModel.CIUDAD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DEPARTAMENTO">
-              <PropertyRef Name="IdDepartamento" />
+              <PropertyRef Name="ID_DEPARTAMENTO" />
             </Principal>
             <Dependent Role="CIUDAD">
-              <PropertyRef Name="IdDepartamento" />
+              <PropertyRef Name="ID_DEPARTAMENTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -633,10 +633,10 @@
           <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CIUDAD">
-              <PropertyRef Name="IdCiudad" />
+              <PropertyRef Name="ID_CIUDAD" />
             </Principal>
             <Dependent Role="USUARIO">
-              <PropertyRef Name="IdCiudadResidencia" />
+              <PropertyRef Name="ID_CIUDAD_RESIDENCIA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -645,10 +645,10 @@
           <End Role="DEPARTAMENTO" Type="CARPOOLModel.DEPARTAMENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PAIS">
-              <PropertyRef Name="IdPais" />
+              <PropertyRef Name="ID_PAIS" />
             </Principal>
             <Dependent Role="DEPARTAMENTO">
-              <PropertyRef Name="IdPais" />
+              <PropertyRef Name="ID_PAIS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -657,10 +657,10 @@
           <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OCUPACION">
-              <PropertyRef Name="IdOcupacion" />
+              <PropertyRef Name="ID_OCUPACION" />
             </Principal>
             <Dependent Role="USUARIO">
-              <PropertyRef Name="IdOcupacion" />
+              <PropertyRef Name="ID_OCUPACION" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -669,10 +669,10 @@
           <End Role="PARADA" Type="CARPOOLModel.PARADA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRAYECTO">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Principal>
             <Dependent Role="PARADA">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -681,10 +681,10 @@
           <End Role="PREGUNTA" Type="CARPOOLModel.PREGUNTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="PREGUNTA">
-              <PropertyRef Name="IdCreadorPregunta" />
+              <PropertyRef Name="ID_CREADOR_PREGUNTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -693,10 +693,10 @@
           <End Role="PREGUNTA" Type="CARPOOLModel.PREGUNTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="PREGUNTA">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -705,10 +705,10 @@
           <End Role="SOLICITUD" Type="CARPOOLModel.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRAYECTO">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Principal>
             <Dependent Role="SOLICITUD">
-              <PropertyRef Name="IdTrayecto" />
+              <PropertyRef Name="ID_TRAYECTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -717,10 +717,10 @@
           <End Role="SOLICITUD" Type="CARPOOLModel.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="SOLICITUD">
-              <PropertyRef Name="IdPasajero" />
+              <PropertyRef Name="ID_PASAJERO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -729,10 +729,10 @@
           <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VIAJE">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Principal>
             <Dependent Role="TRAYECTO">
-              <PropertyRef Name="IdViaje" />
+              <PropertyRef Name="ID_VIAJE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -741,10 +741,10 @@
           <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="VIAJE">
-              <PropertyRef Name="IdConductor" />
+              <PropertyRef Name="ID_CONDUCTOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -757,129 +757,129 @@
           <EntitySetMapping Name="CALIFICACION">
             <EntityTypeMapping TypeName="CARPOOLModel.CALIFICACION">
               <MappingFragment StoreEntitySet="CALIFICACION">
-                <ScalarProperty Name="IdCalificacion" ColumnName="IdCalificacion" />
-                <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
-                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
-                <ScalarProperty Name="IdEvaluador" ColumnName="IdEvaluador" />
-                <ScalarProperty Name="IdEvaluado" ColumnName="IdEvaluado" />
-                <ScalarProperty Name="FechaRealizacion" ColumnName="FechaRealizacion" />
-                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="ID_CALIFICACION" ColumnName="ID_CALIFICACION" />
+                <ScalarProperty Name="PUNTAJE" ColumnName="PUNTAJE" />
+                <ScalarProperty Name="ID_VIAJE" ColumnName="ID_VIAJE" />
+                <ScalarProperty Name="ID_EVALUADOR" ColumnName="ID_EVALUADOR" />
+                <ScalarProperty Name="ID_EVALUADO" ColumnName="ID_EVALUADO" />
+                <ScalarProperty Name="FECHA_REALIZACION" ColumnName="FECHA_REALIZACION" />
+                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CIUDAD">
             <EntityTypeMapping TypeName="CARPOOLModel.CIUDAD">
               <MappingFragment StoreEntitySet="CIUDAD">
-                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
-                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+                <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE_CIUDAD" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DEPARTAMENTO">
             <EntityTypeMapping TypeName="CARPOOLModel.DEPARTAMENTO">
               <MappingFragment StoreEntitySet="DEPARTAMENTO">
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
-                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="NOMBRE_DEPARTAMENTO" ColumnName="NOMBRE_DEPARTAMENTO" />
+                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OCUPACION">
             <EntityTypeMapping TypeName="CARPOOLModel.OCUPACION">
               <MappingFragment StoreEntitySet="OCUPACION">
-                <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
-                <ScalarProperty Name="NombreOcupacion" ColumnName="NombreOcupacion" />
+                <ScalarProperty Name="ID_OCUPACION" ColumnName="ID_OCUPACION" />
+                <ScalarProperty Name="NOMBRE_OCUPACION" ColumnName="NOMBRE_OCUPACION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PAIS">
             <EntityTypeMapping TypeName="CARPOOLModel.PAIS">
               <MappingFragment StoreEntitySet="PAIS">
-                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
-                <ScalarProperty Name="NombrePais" ColumnName="NombrePais" />
+                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+                <ScalarProperty Name="NOMBRE_PAIS" ColumnName="NOMBRE_PAIS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PARADA">
             <EntityTypeMapping TypeName="CARPOOLModel.PARADA">
               <MappingFragment StoreEntitySet="PARADA">
-                <ScalarProperty Name="IdParada" ColumnName="IdParada" />
-                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
-                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
-                <ScalarProperty Name="Lontitud" ColumnName="Lontitud" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="NumeroParada" ColumnName="NumeroParada" />
-                <ScalarProperty Name="TipoParada" ColumnName="TipoParada" />
+                <ScalarProperty Name="ID_PARADA" ColumnName="ID_PARADA" />
+                <ScalarProperty Name="ID_TRAYECTO" ColumnName="ID_TRAYECTO" />
+                <ScalarProperty Name="LATITUD" ColumnName="LATITUD" />
+                <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="NUMERO_PARADA" ColumnName="NUMERO_PARADA" />
+                <ScalarProperty Name="TIPO_PARADA" ColumnName="TIPO_PARADA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PREGUNTA">
             <EntityTypeMapping TypeName="CARPOOLModel.PREGUNTA">
               <MappingFragment StoreEntitySet="PREGUNTA">
-                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
-                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
-                <ScalarProperty Name="IdCreadorPregunta" ColumnName="IdCreadorPregunta" />
-                <ScalarProperty Name="TextoPregunta" ColumnName="TextoPregunta" />
-                <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+                <ScalarProperty Name="ID_PREGUNTA" ColumnName="ID_PREGUNTA" />
+                <ScalarProperty Name="ID_VIAJE" ColumnName="ID_VIAJE" />
+                <ScalarProperty Name="ID_CREADOR_PREGUNTA" ColumnName="ID_CREADOR_PREGUNTA" />
+                <ScalarProperty Name="TEXTO_PREGUNTA" ColumnName="TEXTO_PREGUNTA" />
+                <ScalarProperty Name="TEXTO_RESPUESTA" ColumnName="TEXTO_RESPUESTA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SOLICITUD">
             <EntityTypeMapping TypeName="CARPOOLModel.SOLICITUD">
               <MappingFragment StoreEntitySet="SOLICITUD">
-                <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
-                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
-                <ScalarProperty Name="IdPasajero" ColumnName="IdPasajero" />
-                <ScalarProperty Name="CuposSolicitados" ColumnName="CuposSolicitados" />
-                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+                <ScalarProperty Name="ID_TRAYECTO" ColumnName="ID_TRAYECTO" />
+                <ScalarProperty Name="ID_PASAJERO" ColumnName="ID_PASAJERO" />
+                <ScalarProperty Name="CUPOS_SOLICITADOS" ColumnName="CUPOS_SOLICITADOS" />
+                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRAYECTO">
             <EntityTypeMapping TypeName="CARPOOLModel.TRAYECTO">
               <MappingFragment StoreEntitySet="TRAYECTO">
-                <ScalarProperty Name="IdTrayecto" ColumnName="IdTrayecto" />
-                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
-                <ScalarProperty Name="Cupos" ColumnName="Cupos" />
-                <ScalarProperty Name="TrayectoSimple" ColumnName="TrayectoSimple" />
+                <ScalarProperty Name="ID_TRAYECTO" ColumnName="ID_TRAYECTO" />
+                <ScalarProperty Name="ID_VIAJE" ColumnName="ID_VIAJE" />
+                <ScalarProperty Name="CUPOS" ColumnName="CUPOS" />
+                <ScalarProperty Name="TRAYECTO_SIMPLE" ColumnName="TRAYECTO_SIMPLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="CARPOOLModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="FechaUltimoIngreso" ColumnName="FechaUltimoIngreso" />
-                <ScalarProperty Name="Genero" ColumnName="Genero" />
-                <ScalarProperty Name="IdCiudadResidencia" ColumnName="IdCiudadResidencia" />
-                <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
-                <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
-                <ScalarProperty Name="TelefonoFijo" ColumnName="TelefonoFijo" />
-                <ScalarProperty Name="VehiculoPropio" ColumnName="VehiculoPropio" />
-                <ScalarProperty Name="Fumador" ColumnName="Fumador" />
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-                <ScalarProperty Name="InformacionAdicional" ColumnName="InformacionAdicional" />
-                <ScalarProperty Name="Reputacion" ColumnName="Reputacion" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="FECHA_ULTIMO_INGRESO" ColumnName="FECHA_ULTIMO_INGRESO" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="ID_CIUDAD_RESIDENCIA" ColumnName="ID_CIUDAD_RESIDENCIA" />
+                <ScalarProperty Name="ID_OCUPACION" ColumnName="ID_OCUPACION" />
+                <ScalarProperty Name="TELEFONO_MOVIL" ColumnName="TELEFONO_MOVIL" />
+                <ScalarProperty Name="TELEFONO_FIJO" ColumnName="TELEFONO_FIJO" />
+                <ScalarProperty Name="VEHICULO_PROPIO" ColumnName="VEHICULO_PROPIO" />
+                <ScalarProperty Name="FUMADOR" ColumnName="FUMADOR" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="INFORMACION_ADICIONAL" ColumnName="INFORMACION_ADICIONAL" />
+                <ScalarProperty Name="REPUTACION" ColumnName="REPUTACION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VIAJE">
             <EntityTypeMapping TypeName="CARPOOLModel.VIAJE">
               <MappingFragment StoreEntitySet="VIAJE">
-                <ScalarProperty Name="IdViaje" ColumnName="IdViaje" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="FechaHoraPartida" ColumnName="FechaHoraPartida" />
-                <ScalarProperty Name="IdConductor" ColumnName="IdConductor" />
-                <ScalarProperty Name="AporteEconomico" ColumnName="AporteEconomico" />
-                <ScalarProperty Name="InformacionAdicional" ColumnName="InformacionAdicional" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ID_VIAJE" ColumnName="ID_VIAJE" />
+                <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+                <ScalarProperty Name="FECHA_HORA_PARTIDA" ColumnName="FECHA_HORA_PARTIDA" />
+                <ScalarProperty Name="ID_CONDUCTOR" ColumnName="ID_CONDUCTOR" />
+                <ScalarProperty Name="APORTE_ECONOMICO" ColumnName="APORTE_ECONOMICO" />
+                <ScalarProperty Name="INFORMACION_ADICIONAL" ColumnName="INFORMACION_ADICIONAL" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
