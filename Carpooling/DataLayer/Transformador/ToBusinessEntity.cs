@@ -27,8 +27,8 @@ namespace DataLayer.Transformador
         {
             var item = new ListaDesplegable2
                            {
-                               Valor = pPais.IdPais.ToString(),
-                               Dato = pPais.NombrePais
+                               Valor = pPais.ID_PAIS.ToString(),
+                               Dato = pPais.NOMBRE_PAIS
                            };
             return item;
         }
@@ -43,8 +43,8 @@ namespace DataLayer.Transformador
         {
             var item = new ListaDesplegable2
             {
-                Valor = pDepartamento.IdDepartamento.ToString(),
-                Dato = pDepartamento.NombreDepartamento
+                Valor = pDepartamento.ID_DEPARTAMENTO.ToString(),
+                Dato = pDepartamento.NOMBRE_DEPARTAMENTO
             };
             return item;
         }
@@ -59,8 +59,8 @@ namespace DataLayer.Transformador
         {
             var item = new ListaDesplegable2
             {
-                Valor = pCiudad.IdCiudad.ToString(),
-                Dato = pCiudad.NombreCiudad
+                Valor = pCiudad.ID_CIUDAD.ToString(),
+                Dato = pCiudad.NOMBRE_CIUDAD
             };
             return item;
         }
@@ -75,8 +75,8 @@ namespace DataLayer.Transformador
         {
             var item = new ListaDesplegable2
             {
-                Valor = pOcupacion.IdOcupacion.ToString(),
-                Dato = pOcupacion.NombreOcupacion
+                Valor = pOcupacion.ID_OCUPACION.ToString(),
+                Dato = pOcupacion.NOMBRE_OCUPACION
             };
             return item;
         }
@@ -85,33 +85,6 @@ namespace DataLayer.Transformador
         {
             var lista = pListaOcupacion.Select(OcupacionToListaDesplegable).ToList();
             return lista;
-        }
-    
-
-
-        public static ToBusinessEntity ObtenerInstancia()
-        {
-            return _instancia ?? (_instancia = new ToBusinessEntity());
-        }
-
-        public Coordenada ToCoordenada(PARADA coordenadaDb)
-        {
-            try
-            {
-                var coordenadaEntity = new Coordenada
-                                           {
-                                               Longitud =
-                                                   (coordenadaDb.Lontitud != null) ? (decimal) coordenadaDb.Lontitud : 0,
-                                               Latitud =
-                                                   (coordenadaDb.Latitud != null) ? (decimal) coordenadaDb.Latitud : 0,
-                                               Direccion = coordenadaDb.Direccion
-                                           };
-                return coordenadaEntity;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
         }
     }
 }
