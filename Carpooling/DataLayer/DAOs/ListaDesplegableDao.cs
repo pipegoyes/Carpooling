@@ -36,7 +36,7 @@ namespace DataLayer.DAOs
         {
             EstablecerConexion();
             var lista = from departamentos in Conexion.DEPARTAMENTO 
-                        where departamentos.IdPais == pIdPais 
+                        where departamentos.ID_PAIS == pIdPais 
                         select departamentos;
             return lista.Any() ? ToBusinessEntity.Instancia.DepartamentoToListaDesplegable(lista.ToList()) : null;
         }
@@ -46,7 +46,7 @@ namespace DataLayer.DAOs
         {
             EstablecerConexion();
             var lista = from ciudades in Conexion.CIUDAD
-                        where ciudades.IdDepartamento == pIdDepartamento
+                        where ciudades.ID_DEPARTAMENTO == pIdDepartamento
                         select ciudades;
             return lista.Any() ? ToBusinessEntity.Instancia.CiudadToListaDesplegable(lista.ToList()) : null;
         }
