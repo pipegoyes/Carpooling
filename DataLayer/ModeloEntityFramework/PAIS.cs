@@ -19,8 +19,8 @@ namespace DataLayer.ModeloEntityFramework
             this.DEPARTAMENTO = new HashSet<DEPARTAMENTO>();
         }
     
-        public int IdPais { get; set; }
-        public string NombrePais { get; set; }
+        public int ID_PAIS { get; set; }
+        public string NOMBRE_PAIS { get; set; }
     
         public virtual ICollection<DEPARTAMENTO> DEPARTAMENTO { get; set; }
     }

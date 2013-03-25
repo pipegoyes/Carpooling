@@ -21,13 +21,13 @@ namespace DataLayer.ModeloEntityFramework
             this.TRAYECTO = new HashSet<TRAYECTO>();
         }
     
-        public long IdViaje { get; set; }
-        public System.DateTime FechaCreacion { get; set; }
-        public System.DateTime FechaHoraPartida { get; set; }
-        public string IdConductor { get; set; }
-        public decimal AporteEconomico { get; set; }
-        public string InformacionAdicional { get; set; }
-        public int Estado { get; set; }
+        public long ID_VIAJE { get; set; }
+        public System.DateTime FECHA_CREACION { get; set; }
+        public System.DateTime FECHA_HORA_PARTIDA { get; set; }
+        public string ID_CONDUCTOR { get; set; }
+        public decimal APORTE_ECONOMICO { get; set; }
+        public string INFORMACION_ADICIONAL { get; set; }
+        public int ESTADO { get; set; }
     
         public virtual ICollection<CALIFICACION> CALIFICACION { get; set; }
         public virtual ICollection<PREGUNTA> PREGUNTA { get; set; }

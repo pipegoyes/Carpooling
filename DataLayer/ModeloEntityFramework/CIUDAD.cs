@@ -19,9 +19,9 @@ namespace DataLayer.ModeloEntityFramework
             this.USUARIO = new HashSet<USUARIO>();
         }
     
-        public int IdCiudad { get; set; }
-        public string NombreCiudad { get; set; }
-        public Nullable<int> IdDepartamento { get; set; }
+        public int ID_CIUDAD { get; set; }
+        public string NOMBRE_CIUDAD { get; set; }
+        public Nullable<int> ID_DEPARTAMENTO { get; set; }
     
         public virtual DEPARTAMENTO DEPARTAMENTO { get; set; }
         public virtual ICollection<USUARIO> USUARIO { get; set; }

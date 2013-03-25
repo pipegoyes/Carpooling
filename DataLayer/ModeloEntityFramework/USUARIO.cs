@@ -16,33 +16,33 @@ namespace DataLayer.ModeloEntityFramework
     {
         public USUARIO()
         {
-            this.CALIFICACION_EVALUADO = new HashSet<CALIFICACION>();
-            this.CALIFICACION_EVALUADOR = new HashSet<CALIFICACION>();
+            this.CALIFICACIONES_OBTENIDAS = new HashSet<CALIFICACION>();
+            this.CALIFICACIONES_REALIZADAS = new HashSet<CALIFICACION>();
             this.PREGUNTA = new HashSet<PREGUNTA>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.VIAJE = new HashSet<VIAJE>();
         }
     
-        public string IdUsuario { get; set; }
-        public string Contrasenia { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Email { get; set; }
-        public System.DateTime FechaNacimiento { get; set; }
-        public System.DateTime FechaUltimoIngreso { get; set; }
-        public string Genero { get; set; }
-        public int IdCiudadResidencia { get; set; }
-        public int IdOcupacion { get; set; }
-        public string TelefonoMovil { get; set; }
-        public string TelefonoFijo { get; set; }
-        public bool VehiculoPropio { get; set; }
-        public bool Fumador { get; set; }
-        public byte[] Foto { get; set; }
-        public string InformacionAdicional { get; set; }
-        public Nullable<decimal> Reputacion { get; set; }
+        public string ID_USUARIO { get; set; }
+        public string CONTRASENIA { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
+        public string EMAIL { get; set; }
+        public System.DateTime FECHA_NACIMIENTO { get; set; }
+        public System.DateTime FECHA_ULTIMO_INGRESO { get; set; }
+        public string GENERO { get; set; }
+        public int ID_CIUDAD_RESIDENCIA { get; set; }
+        public int ID_OCUPACION { get; set; }
+        public string TELEFONO_MOVIL { get; set; }
+        public string TELEFONO_FIJO { get; set; }
+        public bool VEHICULO_PROPIO { get; set; }
+        public bool FUMADOR { get; set; }
+        public byte[] FOTO { get; set; }
+        public string INFORMACION_ADICIONAL { get; set; }
+        public Nullable<decimal> REPUTACION { get; set; }
     
-        public virtual ICollection<CALIFICACION> CALIFICACION_EVALUADO { get; set; }
-        public virtual ICollection<CALIFICACION> CALIFICACION_EVALUADOR { get; set; }
+        public virtual ICollection<CALIFICACION> CALIFICACIONES_OBTENIDAS { get; set; }
+        public virtual ICollection<CALIFICACION> CALIFICACIONES_REALIZADAS { get; set; }
         public virtual CIUDAD CIUDAD { get; set; }
         public virtual OCUPACION OCUPACION { get; set; }
         public virtual ICollection<PREGUNTA> PREGUNTA { get; set; }

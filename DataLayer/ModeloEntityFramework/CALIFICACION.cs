@@ -14,13 +14,13 @@ namespace DataLayer.ModeloEntityFramework
     
     public partial class CALIFICACION
     {
-        public long IdCalificacion { get; set; }
-        public decimal Puntaje { get; set; }
-        public long IdViaje { get; set; }
-        public string IdEvaluador { get; set; }
-        public string IdEvaluado { get; set; }
-        public Nullable<System.DateTime> FechaRealizacion { get; set; }
-        public string Comentario { get; set; }
+        public long ID_CALIFICACION { get; set; }
+        public decimal PUNTAJE { get; set; }
+        public long ID_VIAJE { get; set; }
+        public string ID_EVALUADOR { get; set; }
+        public string ID_EVALUADO { get; set; }
+        public Nullable<System.DateTime> FECHA_REALIZACION { get; set; }
+        public string COMENTARIO { get; set; }
     
         public virtual USUARIO USUARIO_EVALUADO { get; set; }
         public virtual USUARIO USUARIO_EVALUADOR { get; set; }

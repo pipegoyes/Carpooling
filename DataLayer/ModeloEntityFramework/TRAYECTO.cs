@@ -20,10 +20,10 @@ namespace DataLayer.ModeloEntityFramework
             this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
-        public long IdTrayecto { get; set; }
-        public long IdViaje { get; set; }
-        public int Cupos { get; set; }
-        public bool TrayectoSimple { get; set; }
+        public long ID_TRAYECTO { get; set; }
+        public long ID_VIAJE { get; set; }
+        public int CUPOS { get; set; }
+        public bool TRAYECTO_SIMPLE { get; set; }
     
         public virtual ICollection<PARADA> PARADA { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
