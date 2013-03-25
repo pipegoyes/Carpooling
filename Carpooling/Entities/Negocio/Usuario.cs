@@ -22,7 +22,7 @@ namespace Entities.Negocio
         public string TelefonoMovil { get; set; }
         public bool VehiculoPropio { get; set; }      
         public string Contrasenia { get; set; }
-        public decimal Reputacion { get; set; }              
+        public decimal? Reputacion { get; set; }              
         public UbicacionGeografica ResidenciaUbicacion { get; set; }
     }
 }
