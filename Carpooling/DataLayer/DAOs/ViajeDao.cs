@@ -25,7 +25,7 @@ namespace DataLayer.DAOs
         {
             try
             {
-                //VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
+                VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
 
                 //EstablecerConexion();
                 //Conexion.VIAJE.Add(viajeInsertar);

@@ -10,7 +10,7 @@
 namespace Carpooling.Front.Viajes {
     
     
-    public partial class CrearViajePaso1 {
+    public partial class PublicarViaje {
         
         /// <summary>
         /// lblCiudadOrigen control.

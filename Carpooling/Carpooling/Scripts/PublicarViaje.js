@@ -31,20 +31,20 @@ function publicarViaje() {
     
     //Objeto que representa el viaje
     var jsonViaje = {};
-    jsonViaje.origin = listCoordenadas[0];
-    jsonViaje.destination = listCoordenadas[1];
+    
     var listParadas = [];
     if(listCoordenadas.length >2) {
         for (var i = 2; i < listCoordenadas.length; i++) {
             listParadas.push(listCoordenadas[i]);
         }
     }
-
+    
+    jsonViaje.origin = listCoordenadas[0];
+    jsonViaje.destination = listCoordenadas[1];
     jsonViaje.wayPoints = listParadas;
     jsonViaje.tarifa = $("[id*=txbTarifa]").val();
     jsonViaje.cupos = $("[id*=txbCupos]").val();
     jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
-    jsonViaje.esConductor = $("[id*=btnRolConductor]").is(':checked') ? true : false;
     jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
     $.ajax({

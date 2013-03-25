@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web.Services;
-using BusinessLayer.ServiciosViaje;
-using Entities.Negocio;
+using BusinessLayer;
+using Entities.Aplicacion;
 
 namespace Carpooling.Front.Viajes
 {
-    public partial class CrearViajePaso1 : System.Web.UI.Page
+    public partial class PublicarViaje : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,11 +17,11 @@ namespace Carpooling.Front.Viajes
         }
 
         [WebMethod]
-        public static string PublicarViajeAsynch(Viaje request)
+        public static string PublicarViajeAsynch(ViajeJSON viajeJson)
         {
-            CreadorViajes.CrearViajeEntity(request);
-
-            return "Origen del viaje - " + request.AporteEconomico; ;
+            AdministradorViajes.PublicarViaje(viajeJson, null);
+            return"pendiente";
+            //return "Origen del viaje - " + viajeJson.AporteEconomico; ;
         }
 
     }
