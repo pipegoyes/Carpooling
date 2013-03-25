@@ -39,10 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicacion\ListaDesplegable.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Aplicacion\ListaDesplegable2.cs" />
+    <Compile Include="Aplicacion\ListaDesplegable.cs" />
     <Compile Include="Aplicacion\ViajeJSON.cs" />
     <Compile Include="Negocio\Calificacion.cs" />
     <Compile Include="Negocio\Ocupacion.cs" />

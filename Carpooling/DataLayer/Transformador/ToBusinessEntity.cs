@@ -23,9 +23,9 @@ namespace DataLayer.Transformador
         }
 
         
-        public ListaDesplegable2 PaisToListaDesplegable(PAIS pPais)
+        public ListaDesplegable PaisToListaDesplegable(PAIS pPais)
         {
-            var item = new ListaDesplegable2
+            var item = new ListaDesplegable
                            {
                                Valor = pPais.ID_PAIS.ToString(),
                                Dato = pPais.NOMBRE_PAIS
@@ -33,15 +33,15 @@ namespace DataLayer.Transformador
             return item;
         }
 
-        public List<ListaDesplegable2> PaisToListaDesplegable(List<PAIS> pListaPais)
+        public List<ListaDesplegable> PaisToListaDesplegable(List<PAIS> pListaPais)
         {
             var lista = pListaPais.Select(PaisToListaDesplegable).ToList();
             return lista;
         }
 
-        public ListaDesplegable2 DepartamentoToListaDesplegable(DEPARTAMENTO pDepartamento)
+        public ListaDesplegable DepartamentoToListaDesplegable(DEPARTAMENTO pDepartamento)
         {
-            var item = new ListaDesplegable2
+            var item = new ListaDesplegable
             {
                 Valor = pDepartamento.ID_DEPARTAMENTO.ToString(),
                 Dato = pDepartamento.NOMBRE_DEPARTAMENTO
@@ -49,15 +49,15 @@ namespace DataLayer.Transformador
             return item;
         }
 
-        public List<ListaDesplegable2> DepartamentoToListaDesplegable(List<DEPARTAMENTO> pListaDepartamento)
+        public List<ListaDesplegable> DepartamentoToListaDesplegable(List<DEPARTAMENTO> pListaDepartamento)
         {
             var lista = pListaDepartamento.Select(DepartamentoToListaDesplegable).ToList();
             return lista;
         }
 
-        public ListaDesplegable2 CiudadToListaDesplegable(CIUDAD pCiudad)
+        public ListaDesplegable CiudadToListaDesplegable(CIUDAD pCiudad)
         {
-            var item = new ListaDesplegable2
+            var item = new ListaDesplegable
             {
                 Valor = pCiudad.ID_CIUDAD.ToString(),
                 Dato = pCiudad.NOMBRE_CIUDAD
@@ -65,15 +65,15 @@ namespace DataLayer.Transformador
             return item;
         }
 
-        public List<ListaDesplegable2> CiudadToListaDesplegable(List<CIUDAD> pListaCiudad)
+        public List<ListaDesplegable> CiudadToListaDesplegable(List<CIUDAD> pListaCiudad)
         {
             var lista = pListaCiudad.Select(CiudadToListaDesplegable).ToList();
             return lista;
         }
 
-        public ListaDesplegable2 OcupacionToListaDesplegable(OCUPACION pOcupacion)
+        public ListaDesplegable OcupacionToListaDesplegable(OCUPACION pOcupacion)
         {
-            var item = new ListaDesplegable2
+            var item = new ListaDesplegable
             {
                 Valor = pOcupacion.ID_OCUPACION.ToString(),
                 Dato = pOcupacion.NOMBRE_OCUPACION
@@ -81,7 +81,7 @@ namespace DataLayer.Transformador
             return item;
         }
 
-        public List<ListaDesplegable2> OcupacionToListaDesplegable(List<OCUPACION> pListaOcupacion)
+        public List<ListaDesplegable> OcupacionToListaDesplegable(List<OCUPACION> pListaOcupacion)
         {
             var lista = pListaOcupacion.Select(OcupacionToListaDesplegable).ToList();
             return lista;
