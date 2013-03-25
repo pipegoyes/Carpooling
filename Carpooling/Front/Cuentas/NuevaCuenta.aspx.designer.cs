@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Carpooling.Front.Cuentas {
-    
-    
-    public partial class NuevaCuenta {
+
+
+    public partial class NuevaCuenta
+    {
         
         /// <summary>
         /// ToolkitScriptManager1 control.

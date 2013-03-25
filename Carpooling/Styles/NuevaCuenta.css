@@ -2,6 +2,7 @@
     display: none;
 }
 
+
 .tituloBox {
     /*background-color: #7ac0da;
     background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
@@ -39,10 +40,7 @@
 .contenidoBox {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 30px 50px 30px 50px;
 }
 
 .columna-x2 {
@@ -90,7 +88,7 @@
 #MainContent_txtTelefonoMovil,
 #MainContent_ddlOcupacion,
 #MainContent_txtMasInformacion {
-    width: 400px;
+    width: 250px;
 }
 
 #MainContent_ddlPais,
@@ -156,7 +154,7 @@
     padding: 8px 9px 8px 9px !important;
     text-transform: uppercase;
     text-align: center;
-    vert-align: middle;
+    vertical-align:middle;
 }
 
 .ajax__validatorcallout div {
@@ -313,7 +311,7 @@
 .imagenFoto {
     border: 2px solid gray;
     height: 150px;
-    horiz-align: center;
+    align-content:center;
     margin: 0;
     padding: 0;
     vertical-align: middle;

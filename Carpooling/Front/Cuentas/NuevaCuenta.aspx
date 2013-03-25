@@ -468,10 +468,7 @@
                             <div class="float-left columna-x2 columna-x2-right">
                                 <div class="clear-fix">
                                     <label>Ocupación:</label>
-                                    <asp:DropDownList ID="ddlOcupacion" runat="server">
-                                        <asp:ListItem Value="1">Ingeniero</asp:ListItem>
-                                        <asp:ListItem Value="2">Estudiante</asp:ListItem>
-                                        <asp:ListItem Value="3">Médico</asp:ListItem>
+                                    <asp:DropDownList ID="ddlOcupacion" runat="server" >
                                     </asp:DropDownList>   
                                 </div>
                                 <div class="clear-fix-margin-top">

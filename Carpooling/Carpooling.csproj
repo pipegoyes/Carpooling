@@ -353,19 +353,19 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.cs">
-      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.designer.cs">
-      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.cs">
+      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.designer.cs">
+      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
