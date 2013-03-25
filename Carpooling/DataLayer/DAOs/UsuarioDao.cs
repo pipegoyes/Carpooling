@@ -26,7 +26,7 @@ namespace DataLayer.DAOs
             EstablecerConexion();
             var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
             Conexion.USUARIO.Add(usuario);
-            Conexion.SaveChanges();
+            ConfirmarCambios();
         }
     }
 }
