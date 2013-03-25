@@ -5,27 +5,27 @@ using System.Text;
 using Entities.Negocio;
 using DataLayer.DAOs;
 
-namespace BusinessLayer.ServiciosCuenta
+namespace BusinessLayer
 {
-    public class AdministracionCuenta
+    public class AdministradorCuentas
     {
-        private static AdministracionCuenta _instancia = null;
+        private static AdministradorCuentas _instancia = null;
                 
         //Contructor
-        private AdministracionCuenta()
+        private AdministradorCuentas()
         {
         }
 
         //Obtiene y mantiene una unica instancia de la clase
-        public static AdministracionCuenta Instancia
+        public static AdministradorCuentas Instancia
         {
-            get { return _instancia ?? (_instancia = new AdministracionCuenta()); } 
+            get { return _instancia ?? (_instancia = new AdministradorCuentas()); } 
         }
 
         //Obtiene y mantiene una unica instancia de la clase
-        public static AdministracionCuenta ObtenerInstancia()
+        public static AdministradorCuentas ObtenerInstancia()
         {
-            return _instancia ?? (_instancia = new AdministracionCuenta());
+            return _instancia ?? (_instancia = new AdministradorCuentas());
         }
 
         //Valida e inserta un nuevo usuario
@@ -33,6 +33,8 @@ namespace BusinessLayer.ServiciosCuenta
         {
             //Verifica que el usuario no exista
             //TODO:
+
+
 
             //Envia el usuario para su insercion en la base de datos
             UsuarioDao.Instancia.Insertar(pUsuario);
