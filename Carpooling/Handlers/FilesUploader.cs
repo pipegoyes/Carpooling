@@ -27,6 +27,8 @@ namespace Carpooling.Handlers
         {
             HttpRequest request = context.Request;
 
+            //var hfdImagePathValue = request.Form["hfdImagePath"]; todo: borrar la imagen de la carpeta
+
             if (IsIE9(request))
             {
                 ////byte[] buffer = new byte[request.ContentLength];
@@ -58,6 +60,7 @@ namespace Carpooling.Handlers
                 // all images end up as jpg
                 var imageUpload = Image.FromStream(streamImagen);
                 imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
+                
 
                 //arma la ruta relativa de la imagen para enviarla al cliente en la respuesta
                 var imagenUsuarioPath = "/" + cacheImagenFolder + "/" + uniqueName;
