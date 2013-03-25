@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit;
-using BusinessLayer.ServiciosCuenta;
+using BusinessLayer;
 using BusinessLayer.ServiciosGUI;
 using Entities.Negocio;
 using Entities.Aplicacion;
@@ -49,28 +49,49 @@ namespace Carpooling.Front.Cuentas
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(3000);
+            //System.Threading.Thread.Sleep(3000);
+
             try
             {
                 var usuario = new Usuario
-                                       {
-                                           IdUsuario = txtNombreUsuario.Text,
-                                           Nombres = txtNombres.Text,
-                                           Apellidos = txtApellidos.Text,
-                                           Contrasenia = txtContrasena.Text,
-                                           FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text),
-                                           CiudadResidencia = Int32.Parse(ddlCiudad.SelectedValue),
-                                           Email = txtCorreoElectronico.Text,
-                                           Sexo = rbtHombre.Checked ? "H" : "F",
-                                           Ocupacion = Int32.Parse(ddlOcupacion.SelectedValue),
-                                           TelefonoFijo = txtTelefonoFijo.Text,
-                                           TelefonoMovil = txtTelefonoMovil.Text,
-                                           Fumador = chkFumador.Checked,
-                                           VehiculoPropio = chkVehiculoPropio.Checked,
-                                           Foto = ObtenerArrayImagenPerfil(),
-                                           MasInformacion = txtMasInformacion.Text
-                                       };
+                {
+                    IdUsuario = txtNombreUsuario.Text,
+                    Nombre = txtNombres.Text,
+                    Apellido = txtApellidos.Text,
+                    Contrasenia = txtContrasena.Text,
+                    FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text),
+                    FechaUltimoIngreso = DateTime.Now,
+                    ResidenciaUbicacion = 
+                        new UbicacionGeografica 
+                        { 
+                            IdCiudad = Convert.ToInt32(ddlCiudad.SelectedValue),
+                            NombreCiudad = ddlCiudad.Text,
+                            IdDepartamento = Convert.ToInt32(ddlDepartamento.SelectedValue),
+                            NombreDepartamento = ddlDepartamento.Text,
+                            IdPais = Convert.ToInt32(ddlPais.SelectedValue),
+                            NombrePais = ddlPais.Text
+                        },
+                    Email = txtCorreoElectronico.Text,
+                    Genero = rbtHombre.Checked ? "H" : "F",
+                    Ocupacion = 
+                        new Ocupacion 
+                        {
+                            IdOcupacion = Convert.ToInt32(ddlOcupacion.SelectedValue),
+                            NombreOcupacion = ddlOcupacion.Text
+                        },
+                    TelefonoFijo = txtTelefonoFijo.Text,
+                    TelefonoMovil = txtTelefonoMovil.Text,
+                    Fumador = chkFumador.Checked,
+                    VehiculoPropio = chkVehiculoPropio.Checked,
+                    Foto = ObtenerArrayImagenPerfil(),
+                    InformacionAdicional = txtMasInformacion.Text,
+                    Reputacion = null
+                    
+                };
+
                 AdministracionCuenta.CrearCuenta(usuario);
+
+                
             }
             catch (Exception ex)
             {
@@ -94,7 +115,6 @@ namespace Carpooling.Front.Cuentas
             }
             catch (Exception)
             {
-
                 throw;
             }
             return arrayImagen;
