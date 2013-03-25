@@ -20,29 +20,32 @@ namespace DataLayer.Transformador
             get { return _instancia ?? (_instancia = new ToDataEntity()); }
         }
 
-        //public DataLayer.ModeloEntityFramework.USUARIO ToUsuario(Usuario pUsuario)
-        //{
-        //    var usuario = new DataLayer.ModeloEntityFramework.USUARIO
-        //                      {
-        //                          IdUsuario = pUsuario.IdUsuario,
-        //                          Nombre = pUsuario.Nombres,
-        //                          Apellido = pUsuario.Apellidos,
-        //                          Contrasenia = pUsuario.Contrasenia, //falta este campo en la bd
-        //                          FechaNacimiento = pUsuario.FechaNacimiento,
-        //                          Email = pUsuario.Email,
-        //                          IdCiudadResidencia = pUsuario.CiudadResidencia,
-        //                          Genero = pUsuario.Sexo,
-        //                          IdOcupacion = pUsuario.Ocupacion,
-        //                          TelefonoFijo = pUsuario.TelefonoFijo,
-        //                          TelefonoMovil = pUsuario.TelefonoMovil,
-        //                          Fumador = pUsuario.Fumador,
-        //                          VehiculoPropio = pUsuario.VehiculoPropio,
-        //                          Foto = pUsuario.Foto,
-        //                          InformacionAdicional = pUsuario.MasInformacion//falta este campo en la bd
-        //                      };
+        public USUARIO ToUsuario(Usuario pUsuario)
+        {
+            var usuario = new USUARIO
+                              {                                  
+                                  ID_USUARIO = pUsuario.IdUsuario,
+                                  NOMBRE = pUsuario.Nombre,
+                                  APELLIDO = pUsuario.Apellido,
+                                  CONTRASENIA = pUsuario.Contrasenia, 
+                                  FECHA_NACIMIENTO = pUsuario.FechaNacimiento,
+                                  FECHA_ULTIMO_INGRESO = pUsuario.FechaUltimoIngreso,
+                                  EMAIL = pUsuario.Email,
+                                  ID_CIUDAD_RESIDENCIA = pUsuario.ResidenciaUbicacion.IdCiudad,
+                                  GENERO = pUsuario.Genero,
+                                  ID_OCUPACION = pUsuario.Ocupacion.IdOcupacion,
+                                  TELEFONO_FIJO = pUsuario.TelefonoFijo,
+                                  TELEFONO_MOVIL = pUsuario.TelefonoMovil,
+                                  FUMADOR = pUsuario.Fumador,
+                                  VEHICULO_PROPIO = pUsuario.VehiculoPropio,
+                                  FOTO = pUsuario.Foto,
+                                  INFORMACION_ADICIONAL = pUsuario.InformacionAdicional,
+                                  REPUTACION = pUsuario.Reputacion
+                              };
 
-        //    return usuario;
-        //}
+            return usuario;
+        }
+
 
         public static VIAJE ToViaje(Viaje viajeActual)
         {
