@@ -1,9 +1,9 @@
-﻿        <%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="PublicarViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.CrearViajePaso1" %>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+﻿        <%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="PublicarViaje.aspx.cs" 
+        Inherits="Carpooling.Front.Viajes.PublicarViaje" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/Styles/CrearViajePaso1.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <script type="text/javascript" src="/Scripts/CrearViajePaso1.js"></script>
+    <script type="text/javascript" src="/Scripts/PublicarViaje.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript" src="/Scripts/CreacionComponentes.js"></script>

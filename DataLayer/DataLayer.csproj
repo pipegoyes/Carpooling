@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOs\BaseDao.cs" />
-    <Compile Include="DAOs\CoordenadaDao.cs" />
     <Compile Include="DAOs\ListaDesplegableDao.cs" />
     <Compile Include="DAOs\ViajeDao.cs" />
     <Compile Include="ModeloEntityFramework\CALIFICACION.cs">
