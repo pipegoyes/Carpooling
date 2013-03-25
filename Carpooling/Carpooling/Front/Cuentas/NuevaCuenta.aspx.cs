@@ -21,6 +21,12 @@ namespace Carpooling.Front.Cuentas
   
         protected void Page_Load(object sender, EventArgs e)
         {                       
+            //Carga inicial de la pagina
+            if(!this.IsPostBack)
+            {
+                CargarControlesInicio();
+            }
+
             //recupera la ruta del la imagen
             var hfdImagePathValue = Request.Form["hfdImagePath"];
             if (!String.IsNullOrEmpty(hfdImagePathValue))
@@ -184,6 +190,16 @@ namespace Carpooling.Front.Cuentas
         {
             var keys = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
             return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(keys["departamento"])).Select(item => new CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        protected void CargarControlesInicio()
+        {
+            //Carga el DDL de ocupaciones
+            ddlOcupacion.DataSource = FuenteDatosControl.Instancia.ObtenerOcupaciones();
+            ddlOcupacion.DataValueField = "Valor";
+            ddlOcupacion.DataTextField = "Dato";
+            ddlOcupacion.DataBind();
+            ddlOcupacion.Items.Insert(0, new ListItem {Value="-1", Text="--- Seleccione una ---", Selected=true});
         }
     }
 }
