@@ -112,7 +112,6 @@
     <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
     <Content Include="Styles\images\uploading.gif" />
     <Content Include="Styles\images\warning.gif" />
-    <Content Include="Scripts\AutocompletarCiudad.js" />
     <Content Include="Scripts\CreacionComponentes.js" />
     <Content Include="Scripts\PublicarViaje.js" />
     <Content Include="Scripts\Inicio.js" />
@@ -124,7 +123,7 @@
     <Content Include="Styles\jquery.wijmo-complete.2.2.1.css" />
     <Content Include="Styles\jquery.wijmo-open.2.2.1.css" />
     <Content Include="Styles\NuevaCuenta.css" />
-    <Content Include="Styles\CrearViajePaso1.css" />
+    <Content Include="Styles\PublicarViaje.css" />
     <Content Include="Styles\CrearViajePaso2.css" />
     <Content Include="Styles\General.css" />
     <Content Include="Styles\Inicio.css" />

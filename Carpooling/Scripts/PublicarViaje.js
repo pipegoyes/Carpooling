@@ -1,7 +1,18 @@
-﻿$(document).ready(function () {
+﻿var directionsDisplay;
+var map;
+var directionsService = new google.maps.DirectionsService();
+var directionRequest;
+var geocoder;
+
+$(document).ready(function () {
+
     //Cargar el mapa cuando se hayan cargado todos los componentes de la pagina
-    initialize();
-    
+    InicializarComponentesGM();
+
+    //Creacion de componentes que utilizan Jquery (Fecha, hora, tarifa...)
+    CrearComponentes();
+
+    //Valida si hay ciudades para continuar
     $("[id*=btnSiguientePaso]").click(function () {
         if ($("[id*=txbCiudadOrigen]").val() == '') {
             alert("Debe ingresar una ciudad de origen!");
@@ -15,6 +26,7 @@
         }
     });
 
+    //Ir atras en los pasos de creacion
     $("[id*=btnAtras]").click(function () {
         $("[id*=divPaso1]").slideToggle(1000, null);
         $("[id*=divPaso2]").fadeOut("slow", null);
@@ -22,6 +34,56 @@
     });
 
 });
+
+//#region Componentes JQuery
+function CrearComponentes() {
+    
+    //------Tarifa
+    $("[id*=txbTarifa]").spinner({
+        min: 1000,
+        max: 100000,
+        step: 1000,
+        start: 1000,
+        numberFormat: "C"
+    });
+
+    //-----------Rol
+    $("#roles").buttonset();
+
+    //-----------FechaPArtida
+    $("[id*=txbFechaPartida]").datepicker({
+        showOn: "button",
+        buttonImage: "/Styles/images/Calendar_scheduleHS.png",
+        buttonImageOnly: true
+    });
+
+    //------Hora
+    $("[id*=txbHora]").wijinputdate(
+        {
+            showSpinner: true,
+            dateFormat: "hh:mm tt"
+        }
+    );
+
+
+    //------Cupos
+    $("[id*=txbCupos]").spinner({
+        spin: function (event, ui) {
+            if (ui.value > 10) {
+                $(this).spinner("value", 1);
+                return false;
+            } else if (ui.value < 1) {
+                $(this).spinner("value", 10);
+                return false;
+            }
+        }
+    });
+}
+//#endregion
+
+//#region GoogleMaps
+//Todas las funciones que tienen relacion con el API de google Maps
+
 
 function publicarViaje() {
     
@@ -93,20 +155,11 @@ function llenarInfoPaso2() {
         }
 
     });
-
-
-
     $("<div />", { id: "divCiudadDestinoLbl"})
         .append($("<span />", { "class": "label" }).text = "Ciudad destino: ")
         .append($("<span />", { id: "lblCiudadDestino" }).text = $("[id*=txbCiudadDestino]").val())
         .appendTo("#divInfoPaso2");
 }
-
-var directionsDisplay;
-var map;
-var directionsService = new google.maps.DirectionsService();
-var directionRequest;
-var geocoder;
 
 function CrearParada() {
     var divContenedor = $("[id*=contenedorParadas]").first();
@@ -135,7 +188,7 @@ function autocompletar(paradaNombre) {
 }
 
 
-function initialize() {
+function InicializarComponentesGM() {
 
     directionsDisplay = new window.google.maps.DirectionsRenderer();
     geocoder = new google.maps.Geocoder();
@@ -289,3 +342,5 @@ function geocode(ciudad) {
         }
     });
 }
+
+//#endregion
