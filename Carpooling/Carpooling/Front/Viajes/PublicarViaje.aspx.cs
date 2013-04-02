@@ -2,6 +2,7 @@
 using System.Web.Services;
 using BusinessLayer;
 using Entities.Aplicacion;
+using Entities.Negocio;
 
 namespace Carpooling.Front.Viajes
 {
@@ -19,8 +20,19 @@ namespace Carpooling.Front.Viajes
         [WebMethod]
         public static string PublicarViajeAsynch(ViajeJSON viajeJson)
         {
-            AdministradorViajes.PublicarViaje(viajeJson, null);
-            return"pendiente";
+            try
+            {
+                var usuarioConectado = new Usuario()
+                                           {
+                                               IdUsuario = "manuellinares007"
+                                           };
+                AdministradorViajes.PublicarViaje(viajeJson, usuarioConectado);
+                return "pendiente";
+            }
+            catch (Exception exception)
+            {
+                return "Error del sistema - " + exception.Message;
+            }
             //return "Origen del viaje - " + viajeJson.AporteEconomico; ;
         }
 

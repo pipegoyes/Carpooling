@@ -23,25 +23,10 @@ namespace DataLayer.DAOs
 
         public void GuardarViaje(Viaje viaje)
         {
-            try
-            {
-                VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
-
-                //EstablecerConexion();
-                //Conexion.VIAJE.Add(viajeInsertar);
-                //Conexion.SaveChanges();
-                //TODO DESCCOMENTAR DESPUES DE CONVERTIR AL NUEVO MODELO DE DATOS
-                //VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
-                //EstablecerConexion();
-                //Conexion.VIAJE.Add(viajeInsertar);
-                //Conexion.SaveChanges();
-            }
-            catch (Exception exception)
-            {
-
-                throw exception;
-            }
-
+            VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
+            EstablecerConexion();
+            Conexion.VIAJE.Add(viajeInsertar);
+            Conexion.SaveChanges();
         }
 
 

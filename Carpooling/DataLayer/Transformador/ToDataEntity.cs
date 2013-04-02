@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using DataLayer.ModeloEntityFramework;
@@ -59,7 +60,7 @@ namespace DataLayer.Transformador
                                    ESTADO= (int) viajeActual.Estado
                                };
 
-            var listTrayectos = new List<TRAYECTO>();
+            viajeDao.TRAYECTO = new Collection<TRAYECTO>();
             foreach (Trayecto trayectoActual in viajeActual.TrayectosViaje)
             {
                 var trayectoDao = new TRAYECTO
@@ -71,25 +72,26 @@ namespace DataLayer.Transformador
                                            {
                                                LATITUD = trayectoActual.ParadaOrigen.Latitud,
                                                LONGITUD = trayectoActual.ParadaOrigen.Longitud,
-                                               DIRECCION= trayectoActual.ParadaOrigen.Direccion
+                                               DIRECCION= trayectoActual.ParadaOrigen.Direccion,
+                                               TIPO_PARADA = trayectoActual.ParadaOrigen.TipoParada,
+                                               NUMERO_PARADA = trayectoActual.ParadaOrigen.NumeroParada
                                            };
 
                 var coordenadaDestino = new PARADA()
                                             {
                                                 LATITUD= trayectoActual.ParadaDestino.Latitud,
                                                 LONGITUD= trayectoActual.ParadaDestino.Longitud,
-                                                DIRECCION = trayectoActual.ParadaDestino.Direccion
+                                                DIRECCION = trayectoActual.ParadaDestino.Direccion,
+                                                TIPO_PARADA = trayectoActual.ParadaDestino.TipoParada,
+                                                NUMERO_PARADA = trayectoActual.ParadaDestino.NumeroParada
                                             };
 
                 trayectoDao.PARADA.Add(coordenadaOrigen);
                 trayectoDao.PARADA.Add(coordenadaDestino);
                 trayectoDao.CUPOS = trayectoActual.CuposDisponibles;
-                listTrayectos.Add(trayectoDao);
+                viajeDao.TRAYECTO.Add(trayectoDao);
             }
 
-
-            foreach (var trayectoDao in listTrayectos)
-                viajeDao.TRAYECTO.Add(trayectoDao);
 
             return viajeDao;
         }
