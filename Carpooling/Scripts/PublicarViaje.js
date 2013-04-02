@@ -21,10 +21,6 @@
 
     });
 
-    var jsonEnvio = {};
-    jsonEnvio.origin = "BOgota";
-    jsonEnvio.destination = "Cali";
-
 });
 
 function publicarViaje() {
@@ -42,15 +38,17 @@ function publicarViaje() {
     jsonViaje.origin = listCoordenadas[0];
     jsonViaje.destination = listCoordenadas[1];
     jsonViaje.wayPoints = listParadas;
-    jsonViaje.tarifa = $("[id*=txbTarifa]").val();
+    var value = $("[id*=txbTarifa]").spinner("value");
+    //jsonViaje.tarifa = $("[id*=txbTarifa]").val();
+    jsonViaje.tarifa = value;
     jsonViaje.cupos = $("[id*=txbCupos]").val();
     jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
     jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
     $.ajax({
         type: "POST",
-        url: "CrearViajePaso1.aspx/PublicarViajeAsynch",
-        data: JSON.stringify({ request: jsonViaje }),
+        url: "PublicarViaje.aspx/PublicarViajeAsynch",
+        data: JSON.stringify({ viajeJson: jsonViaje }),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         beforeSend: function () {

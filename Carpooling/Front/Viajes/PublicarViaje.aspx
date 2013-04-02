@@ -8,7 +8,18 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script type="text/javascript" src="/Scripts/CreacionComponentes.js"></script>
     
-    <script type="text/javascript" src="/Scripts/jqueryUI/globalize.js"></script>
+    <%--<script type="text/javascript" src="/Scripts/jqueryUI/globalize.js"></script>--%>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#<%:txbHora.ClientID%>').wijinputdate(
+                {
+                    showSpinner: true,
+                    dateFormat: "hh:mm tt"
+                }
+            );
+        });
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -20,11 +31,11 @@
                 <div>
                     <div class="leftPosition centerDivs elementoPaso1">
                         <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-                        <div><asp:TextBox ID="txbCiudadOrigen" runat="server"></asp:TextBox></div>
+                        <div><asp:TextBox ID="txbCiudadOrigen" runat="server" CausesValidation="False"></asp:TextBox></div>
                     </div>
                     <div class="leftPosition centerDivs elementoPaso1">
                         <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-                        <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
+                        <div><asp:TextBox ID="txbCiudadDestino" runat="server" CausesValidation="False" ></asp:TextBox></div>
                     </div>
                     <div class="divClear"></div>
                 </div>
@@ -112,7 +123,7 @@
             <div id="divHora">
                 <div class="labelInformacionBasica leftPosition ">Hora de partida*</div>
                 <div class="txbInformacionBasica leftPosition ">
-                     <asp:TextBox runat="server" ID="txbHora" value="08:30 PM"></asp:TextBox>
+                     <asp:TextBox runat="server" ID="txbHora" Width="100px"></asp:TextBox>
                 </div>
                 <div class="divClear"></div>
             </div>
@@ -136,7 +147,7 @@
             </div>
 
             <div id="btnAtras" class="boton leftPosition">Atras</div>
-            <asp:Button ID="btnPublicar"  CssClass="rightPosition" OnClientClick="publicarViaje();" Text="Publicar" runat="server"/>
+            <asp:Button ID="btnPublicar"  CssClass="rightPosition" CausesValidation="False" OnClientClick="publicarViaje();" Text="Publicar" runat="server"/>
             <div class="divClear"></div>
             <%--<div id="btnPublicar" class="boton rightPosition" onclick="publicarViaje()" >Publicar</div>--%>
         </div>      

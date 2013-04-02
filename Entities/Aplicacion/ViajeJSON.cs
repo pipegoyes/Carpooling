@@ -15,7 +15,7 @@ namespace Entities.Aplicacion
         public Parada Destination { get; set; }
         public List<Parada> Waypoints { get; set; }
         public int Cupos { get; set; }
-        public string Tarifa { get; set; }
+        public int Tarifa { get; set; }
         public string FechaPartida { get; set; }
         public string HoraPartida { get; set; }
 

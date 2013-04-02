@@ -7,14 +7,7 @@
     <title><%: Page.Title %> - My ASP.NET Application</title>
     <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
-    <%--<link href="~/Styles/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>--%>
-    <%--<link href="Styles/themes/redmond/jquery-ui-1.9.1.custom.css" rel="stylesheet" type="text/css"/>--%>
-    <%--<link href="Styles/themes/south-street/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" />--%>
     <link href="/Styles/themes/aristo/jquery-wijmo.css" rel="stylesheet" />
-    <%--<link href="Styles/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css" rel="stylesheet" />--%>
-    <%--<link href="Styles/themes/Supercharged/jquery-ui-1.9.0.custom.css" rel="stylesheet" />--%>
-    <%--<link href="Styles/themes/start/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" />--%>
-    <%--<link href="Styles/themes/cupertino/jquery-ui-1.9.1.custom.css" rel="stylesheet" />--%>
     
     <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>    
@@ -31,7 +24,7 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
-    <form id="form_page" runat="server">
+    <form id="form_page" runat="server" >
     <header>
         <div class="content-wrapper">
             <div class="float-left">
