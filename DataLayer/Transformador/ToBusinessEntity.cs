@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataLayer.ModeloEntityFramework;
-//using DataLayer.ModeloEntityFramework.P;
 using Entities.Aplicacion;
 using Entities.Negocio;
 

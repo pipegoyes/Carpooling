@@ -48,7 +48,7 @@ namespace DataLayer.Transformador
         }
 
 
-        public static VIAJE ToViaje(Viaje viajeActual)
+        public VIAJE ToViaje(Viaje viajeActual)
         {
             var viajeDao = new VIAJE
                                {
