@@ -10,20 +10,20 @@ namespace DataLayer.DAOs
 {
     public class ViajeDao :BaseDao
     {
+        private static ViajeDao _instancia = null;
+
         private ViajeDao()
         {
         }
 
-        private static ViajeDao _instancia = null;
-
-        public static ViajeDao ObtenerInstancia()
+        public static ViajeDao Instancia
         {
-            return _instancia ?? (_instancia = new ViajeDao());
+            get { return _instancia ?? (_instancia = new ViajeDao()); }
         }
 
         public void GuardarViaje(Viaje viaje)
         {
-            VIAJE viajeInsertar = ToDataEntity.ToViaje(viaje);
+            VIAJE viajeInsertar = ToDataEntity.Instancia.ToViaje(viaje);
             EstablecerConexion();
             Conexion.VIAJE.Add(viajeInsertar);
             Conexion.SaveChanges();
