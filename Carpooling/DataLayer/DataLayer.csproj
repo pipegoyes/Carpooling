@@ -125,6 +125,7 @@
       <LastGenOutput>CARPOOLModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Scripts\backup_db.bak" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

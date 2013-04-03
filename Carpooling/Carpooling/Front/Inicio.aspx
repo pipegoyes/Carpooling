@@ -3,7 +3,7 @@
     
     
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
-    <script type="text/javascript" src="./Scripts/jquery-1.4.1.js"></script>
+    <script type="text/javascript" src="./Scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="./Scripts/Inicio.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 </asp:Content>

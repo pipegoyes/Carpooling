@@ -1,29 +1,67 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #fff;
     margin: 0;
     padding: 0;
 }
 
 body {
     background-color: #fff;
-    border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
-    /*font-size: medium;*/
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
 }
 
+body #body{
+    padding-top:120px;
+}
+
+
+header, footer, hgroup, nav, section {
+    display: block;
+}
+
+/*incluye manuel*/
+header {
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    overflow: visible;
+    z-index: 4000;
+    min-height: 80px;
+    background-color: #7ac0da;
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+}
+
+    header .content-wrapper {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+/*incluye manuel*/
+
+
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #fff;
+    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    font-size: 2.3em;
+    margin: 0;
+}
+
+
 a {
     color: #333;
     outline: none;
-    /*padding-left: 3px;
-    padding-right: 3px;*/
     text-decoration: underline;
 }
 
-    a:link, a:visited,
+    a:link, a:visited, 
     a:active, a:hover {
         color: #333;
     }
@@ -32,10 +70,8 @@ a {
         background-color: #c7d1d6;
     }
 
-header, footer, hgroup,
-nav, section {
-    display: block;
-}
+
+
 
 mark {
     background-color: #a6dbed;
@@ -52,7 +88,7 @@ mark {
 }
 
 
- .clear-fix:after, .clear-fix-margin:after, .clear-fix-margin-top:after, .clear-fix-margin-bottom:after {
+.clear-fix:after, .clear-fix-margin:after, .clear-fix-margin-top:after, .clear-fix-margin-bottom:after {
     content: ".";
     clear: both;
     display: block;
@@ -61,7 +97,7 @@ mark {
 }
 
 .clear-fix-margin, .clear-fix-margin-top {
-    padding-top: 20px;  
+    padding-top: 20px;
 }
 
 .clear-fix-margin, .clear-fix-margin-bottom {
@@ -129,9 +165,7 @@ h5, h6 {
     background: url("../Resources/heroAccent.png") no-repeat;
 }
 
-header .content-wrapper {
-    padding-top: 20px;
-}
+
 
 footer {
     clear: both;
@@ -141,38 +175,46 @@ footer {
 }
 
 
-/* site title
-----------------------------------------------------------*/
-.site-title {
-    color: #c8c8c8;
-    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
-    font-size: 2.3em;
-    margin: 0;
-}
-
-    .site-title a, .site-title a:hover, .site-title a:active {
-        background: none;
-        color: #c8c8c8;
-        outline: none;
-        text-decoration: none;
-    }
 
 
 /* login
 ----------------------------------------------------------*/
+#login-div {
+    border-bottom: solid 1px white;
+    background-color: #a6dbed;
+}   
+
 #login {
     display: block;
     font-size: .85em;
-    margin: 0 0 10px;
     text-align: right;
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 5px 0 5px 0;
 }
 
-    #login a {
-        background-color: #d3dce0;
-        margin-left: 10px;
-        margin-right: 3px;
-        padding: 2px 3px;
+    #login ul{
+        margin:auto;
+        padding: 0;
+    }
+
+    #login li{
+        display: inline;
+        list-style: none;
+    }
+
+    #login a{
+        margin: 0 10px;
+        padding: 0 3px;
         text-decoration: none;
+        font-weight: bold;
+    }
+
+    #login a:hover{
+        text-decoration:none;
+        color: white;
+        text-shadow: 0 0 5px black;
+        background: none;
     }
 
         #login a.username {
@@ -181,16 +223,6 @@ footer {
             text-decoration: underline;
         }
 
-    #login ul {
-        margin: 0;
-    }
-
-    #login li {
-        display: inline;
-        list-style: none;
-    }
-
-
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
@@ -198,23 +230,26 @@ ul#menu {
     font-weight: 600;
     margin: 0 0 5px;
     padding: 0;
+    padding-top: 10px;
     text-align: right;
 }
 
     ul#menu li {
         display: inline;
         list-style: none;
-        padding-left: 15px;
+        padding-left: 25px;
     }
 
         ul#menu li a {
             background: none;
-            color: #999;
+            color: white;
+            text-shadow: 0 0 6px black;
             text-decoration: none;
         }
 
             ul#menu li a:hover {
-                color: #333;
+                color: black;
+                text-shadow: 0 0 6px white;
                 text-decoration: none;
             }
 
@@ -223,7 +258,8 @@ ul#menu {
 ----------------------------------------------------------*/
 /* featured */
 .featured {
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color:transparent;
 }
 
     .featured .content-wrapper {
@@ -587,172 +623,6 @@ tr.pager td {
 }
 
 
-/********************
-*   Mobile Styles   *
-********************/
-@media only screen and (max-width: 850px) {
-
-    /* header
-    ----------------------------------------------------------*/
-    header .float-left,
-    header .float-right {
-        float: none;
-    }
-
-    /* logo */
-    header .site-title {
-        margin: 10px;
-        text-align: center;
-    }
-
-    /* login */
-    #login {
-        font-size: .85em;
-        margin: 0 0 12px;
-        text-align: center;
-    }
-
-        #login ul {
-            margin: 5px 0;
-            padding: 0;
-        }
-
-        #login li {
-            display: inline;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #login a {
-            background: none;
-            color: #999;
-            font-weight: 600;
-            margin: 2px;
-            padding: 0;
-        }
-
-            #login a:hover {
-                color: #333;
-            }
-
-    /* menu */
-    nav {
-        margin-bottom: 5px;
-    }
-
-    ul#menu {
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-
-        ul#menu li {
-            margin: 0;
-            padding: 0;
-        }
-
-
-    /* main layout
-    ----------------------------------------------------------*/
-    .main-content,
-    .featured + .main-content {
-        background-position: 10px 0;
-    }
-
-    .content-wrapper {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .featured .content-wrapper {
-        padding: 10px;
-    }
-
-    /* page content */
-    article, aside {
-        float: none;
-        width: 100%;
-    }
-
-    /* ordered list */
-    ol.round {
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-        ol.round li {
-            padding-left: 10px;
-            margin: 25px 0;
-        }
-
-            ol.round li.zero,
-            ol.round li.one,
-            ol.round li.two,
-            ol.round li.three,
-            ol.round li.four,
-            ol.round li.five,
-            ol.round li.six,
-            ol.round li.seven,
-            ol.round li.eight,
-            ol.round li.nine {
-                background: none;
-            }
-
-    /* features */
-    section.feature {
-        float: none;
-        padding: 10px;
-        width: auto;
-    }
-
-        section.feature img {
-            color: #999;
-            content: attr(alt);
-            font-size: 1.5em;
-            font-weight: 600;
-        }
-
-    /* forms */
-    input {
-        width: 90%;
-    }
 
 
 
-    /* login page */
-    #loginForm {
-        border-right: none;
-        float: none;
-        width: auto;
-    }
-
-        #loginForm .validation-error {
-            display: block;
-            margin-left: 15px;
-        }
-
-    #socialLoginForm {
-        margin-left: 0;
-        float: none;
-        width: auto;
-    }
-
-    /* footer
-    ----------------------------------------------------------*/
-    footer .float-left,
-    footer .float-right {
-        float: none;
-    }
-
-    footer {
-        text-align: center;
-        height: auto;
-        padding: 10px 0;
-    }
-
-        footer p {
-            margin: 0;
-        }
-}
-/* END: Mobile Styles */

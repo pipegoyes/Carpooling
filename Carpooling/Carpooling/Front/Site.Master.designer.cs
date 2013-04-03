@@ -22,58 +22,49 @@ namespace Carpooling.Front {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// form_page control.
+        /// ScriptsContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form_page;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsContent;
         
         /// <summary>
-        /// A1 control.
+        /// loginStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.WebControls.LoginView loginStatus;
         
         /// <summary>
-        /// LoginView1 control.
+        /// navHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor navHome;
         
         /// <summary>
-        /// A3 control.
+        /// navAbout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A3;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor navAbout;
         
         /// <summary>
-        /// A4 control.
+        /// navContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A4;
-        
-        /// <summary>
-        /// A5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A5;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor navContact;
         
         /// <summary>
         /// FeaturedContent control.

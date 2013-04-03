@@ -24,7 +24,7 @@ namespace Carpooling.Front.Cuentas
             //Carga inicial de la pagina
             if(!this.IsPostBack)
             {
-                CargarControlesInicio();
+                CargarDdlOcupacion();
             }
 
             //recupera la ruta del la imagen
@@ -58,7 +58,7 @@ namespace Carpooling.Front.Cuentas
                             NombrePais = ddlPais.Text
                         },
                     Email = txtCorreoElectronico.Text,
-                    Genero = rbtHombre.Checked ? "H" : "F",
+                    Genero = rblstGenero.SelectedValue, //rbtHombre.Checked ? "H" : "F",
                     Ocupacion = 
                         new Ocupacion 
                         {
@@ -108,37 +108,8 @@ namespace Carpooling.Front.Cuentas
 
         protected void UpdatePanel1_PreRender(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    CargarDdlPaises();
-            //}
-            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "cssWij",
-                "AplicarCCS();", true);
+            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "cssWij" + Guid.NewGuid().ToString(), "AplicarCCS();", true);
         }
-
-
-        //public void CargarDdlPaises()
-        //{
-        //    ddlPais.DataSource = FuenteDatosControl.Instancia.ObtenerPaises();
-        //    ddlPais.DataTextField = "Dato";
-        //    ddlPais.DataValueField = "Valor";
-        //    ddlPais.DataBind();
-        //    ddlPais.Items.Insert(0, new ListItem(" -- Seleccione un departamento -- ", "0")); 
-        //}
-
-        //[System.Web.Services.WebMethod]
-        //public static List<ListaDesplegable> ObtenerDepartamentos(string pPais)
-        //{
-        //    return FuenteDatosControl.Instancia.ObtenerDepartamentos(Int32.Parse(pPais));
-        //}
-
-        //[System.Web.Services.WebMethod]
-        //public List<ListaDesplegable> ObtenerCiudades(string pDepartamento)
-        //{
-        //    return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(pDepartamento));
-        //}
-
-
 
         [System.Web.Services.WebMethod]
         [System.Web.Script.Services.ScriptMethod]
@@ -163,7 +134,7 @@ namespace Carpooling.Front.Cuentas
             return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(keys["departamento"])).Select(item => new CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
         }
 
-        protected void CargarControlesInicio()
+        protected void CargarDdlOcupacion()
         {
             //Carga el DDL de ocupaciones
             ddlOcupacion.DataSource = FuenteDatosControl.Instancia.ObtenerOcupaciones();
@@ -171,6 +142,21 @@ namespace Carpooling.Front.Cuentas
             ddlOcupacion.DataTextField = "Dato";
             ddlOcupacion.DataBind();
             ddlOcupacion.Items.Insert(0, new ListItem {Value="-1", Text="--- Seleccione una ---", Selected=true});
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static List<int> ObtenerDiasDdl(string pMes, string pAnio)
+        {
+            return FuenteDatosControl.Instancia.ObtenerDiasMes(Int32.Parse(pMes), Int32.Parse(pAnio));
+        }
+
+        protected void CargarDdlDias(int pMes, int pAnio)
+        {
+            ddlDiaNacimiento.DataSource = FuenteDatosControl.Instancia.ObtenerDiasMes(pMes, pAnio) ;
+            ddlDiaNacimiento.DataBind();
+            ddlDiaNacimiento.Items.Insert(0, new ListItem { Value = "-1", Text = "Día", Selected = true });
+            ddlDiaNacimiento.Enabled = true;
         }
     }
 }

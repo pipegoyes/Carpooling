@@ -1,42 +1,44 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Carpooling.Front.SiteMaster" %>
 
 <!DOCTYPE html>
-<html lang="es">
-<head runat="server">
-    <meta charset="utf-8" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
-    <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/General.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/themes/aristo/jquery-wijmo.css" rel="stylesheet" />
-    
-    <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet" type="text/css"/>    
+<html lang="es" class="no-js"> 
+    <head runat="server">
+        <meta charset="utf-8" />
+        <title><%: Page.Title %> - My ASP.NET Application</title>
 
-    <script type="text/javascript" src="/Scripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
-    
-    <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js" type="text/javascript"></script>
-    <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js" type="text/javascript"></script>
-    <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+        <link href="../Styles/normalize.css" rel="stylesheet">
+        <link href="/Styles/Site.css" rel="stylesheet">
+        <link href="/Styles/General.css" rel="stylesheet">
+        <%--<link href="~/Styles/themes/base/jquery-ui.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/redmond/jquery-ui-1.9.1.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/south-street/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>
+        <link href="/Styles/themes/aristo/jquery-wijmo.css" rel="stylesheet">
+        <%--<link href="Styles/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/Supercharged/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/start/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/cupertino/jquery-ui-1.9.1.custom.css" rel="stylesheet">--%>    
+        <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet">
+        <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet">       
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
 
-
-
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
-</head>
-<body>
-    <form id="form_page" runat="server" >
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title"><a id="A1" runat="server" href="~/">your logo here</a></p>
-            </div>
-            <div class="float-right">
+        <script src="../Scripts/modernizr.js"></script>
+        <script src="../Scripts/prefixfree.min.js"></script>
+        <script src="/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"></script>
+        <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
+    </head>
+    <body>
+        <header>
+            <div id="login-div">
                 <section id="login">
-                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                    <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <ul>
-                                <li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>
-                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                            <ul id="barGuestUser">
+                                <li><a id="registerLink" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Registrarse</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Entrar</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -49,30 +51,33 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </section>
+            </div>
+            <div class="content-wrapper">
+                <figure id="logoSite" class="float-left">
+                    <p class="site-title" >CarpoolingCo</p>
+                </figure>
                 <nav>
                     <ul id="menu">
-                        <li><a id="A3" runat="server" href="~/">Home</a></li>
-                        <li><a id="A4" runat="server" href="~/About.aspx">About</a></li>
-                        <li><a id="A5" runat="server" href="~/Contact.aspx">Contact</a></li>
+                        <li><a id="navHome" runat="server" href="~/">Inicio</a></li>
+                        <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
+                        <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
                     </ul>
                 </nav>
-            </div>
-        </div>        
-    </header>
+            </div>        
+        </header>
         
-    <div id="body">
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-        <section class="main-content content-wrapper clear-fix" >
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </div>
+        <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <section class="main-content content-wrapper clear-fix" >
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
         </div>
-    </footer>
-    </form>
-</body>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                </div>
+            </div>
+        </footer>
+    </body>    
 </html>

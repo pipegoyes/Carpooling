@@ -337,7 +337,7 @@
                         <div class="clear-fix-margin-top">
                             <div class="float-left columna-x2 columna-x2-left">
                                 <label>Contraseña:</label>
-                                <asp:TextBox ID="txtContrasena" runat="server" type="password"></asp:TextBox>                                    
+                                <asp:TextBox ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>                                    
                                 <asp:RequiredFieldValidator ID="txtContrasena_Validation1" runat="server" ControlToValidate="txtContrasena" ErrorMessage="La constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
                                 <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC1" runat="server" TargetControlID="txtContrasena_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtContrasena_Validation2" runat="server" ControlToValidate="txtContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
@@ -345,7 +345,7 @@
                             </div>                            
                             <div class="float-left columna-x2 columna-x2-right">
                                 <label>Confirme la contraseña:</label>
-                                <asp:TextBox ID="txtReContrasena" runat="server" type="password"></asp:TextBox>
+                                <asp:TextBox ID="txtReContrasena" runat="server" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtReContrasena_Validator1" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="La confirmación de la constraseña es requerida" Display="None"></asp:RequiredFieldValidator>
                                 <ajaxToolkit:ValidatorCalloutExtender ID="txtReContrasena_VC1" runat="server" TargetControlID="txtReContrasena_Validator1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                                 <asp:RegularExpressionValidator ID="txtReContrasena_Validator2" runat="server" ControlToValidate="txtReContrasena" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None"></asp:RegularExpressionValidator>
