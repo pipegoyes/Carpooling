@@ -29,7 +29,7 @@ namespace BusinessLayer
                                  };
 
             //TODO valiadaciones antes de guardar
-            ViajeDao.ObtenerInstancia().GuardarViaje(viajeNuevo);
+            ViajeDao.Instancia.GuardarViaje(viajeNuevo);
         }
 
         public static List<Trayecto> CrearListadoTrayectos(List<Parada> listParadas, int cuposDisponibles)
