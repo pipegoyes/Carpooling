@@ -13,6 +13,15 @@ namespace Carpooling.Front.Cuentas {
     public partial class RegistroUsuario {
         
         /// <summary>
+        /// Form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        
+        /// <summary>
         /// ToolkitScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txtNombres;
         
         /// <summary>
+        /// txtNombres_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNombres_Validator1;
+        
+        /// <summary>
+        /// txtNombres_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombres_VC1;
+        
+        /// <summary>
         /// txtApellidos control.
         /// </summary>
         /// <remarks>
@@ -290,6 +317,69 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellidos;
+        
+        /// <summary>
+        /// txtApellidos_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtApellidos_Validator1;
+        
+        /// <summary>
+        /// txtApellidos_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtApellidos_VC1;
+        
+        /// <summary>
+        /// ddlAnioNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnioNacimiento;
+        
+        /// <summary>
+        /// ddlMesNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMesNacimiento;
+        
+        /// <summary>
+        /// ddlDiaNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDiaNacimiento;
+        
+        /// <summary>
+        /// ddlFechaNacimiento_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator ddlFechaNacimiento_Validator1;
+        
+        /// <summary>
+        /// ddlFechaNacimiento_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlFechaNacimiento_VC1;
         
         /// <summary>
         /// txtFechaNacimiento control.
@@ -301,22 +391,31 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
         
         /// <summary>
-        /// rbtHombre control.
+        /// rblstGenero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtHombre;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblstGenero;
         
         /// <summary>
-        /// rbtMujer control.
+        /// rblstGenero_Validator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtMujer;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rblstGenero_Validator1;
+        
+        /// <summary>
+        /// rblstGenero_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender rblstGenero_VC1;
         
         /// <summary>
         /// ddlPais control.
@@ -337,6 +436,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::AjaxControlToolkit.CascadingDropDown cddlPais;
         
         /// <summary>
+        /// ddlPais_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlPais_Validator1;
+        
+        /// <summary>
+        /// ddlPais_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlPais_VC1;
+        
+        /// <summary>
         /// ddlDepartamento control.
         /// </summary>
         /// <remarks>
@@ -353,6 +470,24 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CascadingDropDown cddlDepartamento;
+        
+        /// <summary>
+        /// ddlDepartamento_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlDepartamento_Validator1;
+        
+        /// <summary>
+        /// ddlDepartamento_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlDepartamento_VC1;
         
         /// <summary>
         /// ddlCiudad control.
@@ -373,6 +508,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::AjaxControlToolkit.CascadingDropDown cddlCiudad;
         
         /// <summary>
+        /// ddlCiudad_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlCiudad_Validator1;
+        
+        /// <summary>
+        /// ddlCiudad_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlCiudad_VC1;
+        
+        /// <summary>
         /// txtTelefonoFijo control.
         /// </summary>
         /// <remarks>
@@ -389,24 +542,6 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoMovil;
-        
-        /// <summary>
-        /// btnAtras1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras1;
-        
-        /// <summary>
-        /// btnSiguiente1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSiguiente1;
         
         /// <summary>
         /// lnkCambiarFoto control.
@@ -454,15 +589,6 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txtMasInformacion;
         
         /// <summary>
-        /// btnAtras2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras2;
-        
-        /// <summary>
         /// btnFinalizar control.
         /// </summary>
         /// <remarks>
@@ -470,5 +596,14 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFinalizar;
+        
+        /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
     }
 }
