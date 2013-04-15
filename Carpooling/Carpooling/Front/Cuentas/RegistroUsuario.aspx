@@ -24,10 +24,7 @@
     </section>
 </asp:Content>
 
-<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
-<form id="Form1" runat="server">   
-    
-    
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">      
     <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxToolkit:ToolkitScriptManager>        
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" OnPreRender="UpdatePanel1_PreRender">
@@ -138,8 +135,9 @@
                         </div>                          
                         
                         <div class="clear-fix-margin-top">
-                            <div class="float-left columna-x2 columna-x2-left">
-                                <label>Fecha de nacimiento:</label>
+                            <label>Fecha de nacimiento:</label>
+                            <div ClientID="fechaNacimiento" class="float-left columna-x2 columna-x2-left">
+                                
                                 <asp:DropDownList ID="ddlAnioNacimiento" ClientID="ddlAnioNacimiento" runat="server">
                                     <asp:ListItem Value="-1" Text="Año" Selected="True"></asp:ListItem>
                                     <asp:ListItem Value="2013" Text="2013"></asp:ListItem>
@@ -245,12 +243,23 @@
                                 <asp:DropDownList ID="ddlDiaNacimiento" ClientID="ddlDiaNacimiento" runat="server" Enabled="false">
                                     <asp:ListItem Value="-1" Text="Día" Selected ="True"></asp:ListItem>
                                 </asp:DropDownList>
+<%--                                <select id="ddlDiaNacimiento" name="ddlDiaNacimiento" ClientID="ddlDiaNacimiento" disabled>
+                                    <option value="-1" selected>Día</option>
+                                </select>--%>
+                                <%--<asp:HiddenField id="hfDiaNacimiento" ClientID="hfDiaNacimiento" value="-1" runat="server"/>--%>
+                                <input type="hidden"  id="hfDiaNacimiento" ClientId="hfDiaNacimiento" name="hfDiaNacimiento" value="-1"/>
+
+<%--                                <asp:DropDownList ID="hfDiaNacimiento" ClientID="hfDiaNacimiento" runat="server" Visible="true" Width="0" CssClass="trasparente">
+                                    <asp:ListItem Value="-1" Text="invalido"></asp:ListItem>
+                                    <asp:ListItem Value="1" Text="valido"></asp:ListItem>
+                                </asp:DropDownList>--%>
+
                                 
-                                <asp:CustomValidator ID="ddlFechaNacimiento_Validator1" runat="server" ClientValidationFunction="ValidarFechaNacimiento" ControlToValidate="ddlDiaNacimiento" ErrorMessage="La fecha de nacimiento es requerida" Display="None" ValidationGroup="ValidacionPaso2"></asp:CustomValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ddlFechaNacimiento_VC1" runat="server" TargetControlID="ddlFechaNacimiento_Validator1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
+                                <asp:CustomValidator ID="ddlFechaNacimiento_Validator1" ClientID="ddlFechaNacimiento_Validator1" runat="server" ClientValidationFunction="ValidarFechaNacimiento" ControlToValidate="ddlDiaNacimiento" ErrorMessage="La fecha de nacimiento es requerida" Display="None" ValidationGroup="ValidacionPaso2"></asp:CustomValidator>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="ddlFechaNacimiento_VC1" runat="server" TargetControlID="ddlFechaNacimiento_Validator1"></ajaxToolkit:ValidatorCalloutExtender>
 
 
-                                <asp:TextBox ID="txtFechaNacimiento" ClientID="txtFechaNacimiento" runat="server"></asp:TextBox>
+                                <%--<asp:TextBox ID="txtFechaNacimiento" ClientID="txtFechaNacimiento" runat="server"></asp:TextBox>--%>
                             </div>
                             <div class="float-left columna-x2 columna-x2-right">
                                 <label>Genero:</label>         
@@ -393,8 +402,6 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
             </div> 	
-
-</form>
 </asp:Content>
 
 

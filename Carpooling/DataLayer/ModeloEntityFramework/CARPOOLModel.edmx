@@ -540,7 +540,7 @@
             <PropertyRef Name="ID_USUARIO" />
           </Key>
           <Property Name="ID_USUARIO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />

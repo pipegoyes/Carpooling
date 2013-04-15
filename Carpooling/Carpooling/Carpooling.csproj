@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
+    <Content Include="Scripts\front-js\SiteMaster.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
@@ -97,7 +98,6 @@
     <Content Include="Scripts\jquery.wijmo\jquery.wijmo-complete.all.2.2.1.min.js" />
     <Content Include="Scripts\jquery.wijmo\jquery.wijmo-open.all.2.2.1.min.js" />
     <Content Include="Scripts\jqueryUI\globalize.js" />
-    <Content Include="Front\Cuentas\NuevaCuenta.aspx" />
     <Content Include="Front\Viajes\BuscarViaje.aspx" />
     <Content Include="Front\Viajes\PublicarViaje.aspx" />
     <Content Include="Front\Inicio.aspx" />
@@ -364,13 +364,6 @@
     </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.cs">
-      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Front\Cuentas\NuevaCuenta.aspx.designer.cs">
-      <DependentUpon>NuevaCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>

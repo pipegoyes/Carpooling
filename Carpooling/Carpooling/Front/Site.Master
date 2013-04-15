@@ -28,17 +28,34 @@
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+        <script src="/Scripts/front-js/SiteMaster.js"></script>
         <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
     </head>
     <body>
+        <form id="Form1" runat="server">
         <header>
             <div id="login-div">
                 <section id="login">
                     <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul id="barGuestUser">
-                                <li><a id="registerLink" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Registrarse</a></li>
-                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Entrar</a></li>
+                                <li><a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a></li>
+                                <li>
+                                    <a id="lnkIniciaSesion" href="#" onclick="lnkIniciaSesion_OnClientClick(); return false;">Inicia sesión</a>
+                                    <div id="divLoginFormFloat">
+                                        <fieldset>
+                                            <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
+                                            <input id="txbNombreUsuario" type="text" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <label for="txbContrasenia"><strong>Contraseña</strong></label>
+                                            <input id="txbContrasenia" type="password" />
+                                        </fieldset>
+                                        <%--<input id="btnIniciarSesion" type="button" value="Iniciar sesión" class="button-gradient blue-dark"/>--%>
+                                        <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"/>
+                                        <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>
+                                    </div>
+                                </li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -63,9 +80,8 @@
                         <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
                     </ul>
                 </nav>
-            </div>        
-        </header>
-        
+            </div>               
+        </header>        
         <div id="body">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="main-content content-wrapper clear-fix" >
@@ -79,5 +95,6 @@
                 </div>
             </div>
         </footer>
+        </form>
     </body>    
 </html>
