@@ -36,6 +36,7 @@ namespace Carpooling.Front.Cuentas
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             //System.Threading.Thread.Sleep(3000);
+            //var a = ddl.InnerText;
 
             try
             {
@@ -44,8 +45,8 @@ namespace Carpooling.Front.Cuentas
                     IdUsuario = txtNombreUsuario.Text,
                     Nombre = txtNombres.Text,
                     Apellido = txtApellidos.Text,
-                    Contrasenia = txtContrasena.Text,
-                    FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text),
+                    Contrasenia = AdministradorCuentas.Instancia.EncriptarContrasenia(txtContrasena.Text.Trim()),
+                    FechaNacimiento = new DateTime(Convert.ToInt32(ddlAnioNacimiento.SelectedValue), Convert.ToInt32(ddlMesNacimiento.SelectedValue), Convert.ToInt32(Request.Form["hfDiaNacimiento"])), //DateTime.Parse(txtFechaNacimiento.Text),
                     FechaUltimoIngreso = DateTime.Now,
                     ResidenciaUbicacion = 
                         new UbicacionGeografica 
@@ -58,7 +59,7 @@ namespace Carpooling.Front.Cuentas
                             NombrePais = ddlPais.Text
                         },
                     Email = txtCorreoElectronico.Text,
-                    Genero = rblstGenero.SelectedValue, //rbtHombre.Checked ? "H" : "F",
+                    Genero = rblstGenero.SelectedValue, 
                     Ocupacion = 
                         new Ocupacion 
                         {
@@ -69,41 +70,18 @@ namespace Carpooling.Front.Cuentas
                     TelefonoMovil = txtTelefonoMovil.Text,
                     Fumador = chkFumador.Checked,
                     VehiculoPropio = chkVehiculoPropio.Checked,
-                    Foto = ObtenerArrayImagenPerfil(),
+                    Foto = AdministradorCuentas.Instancia.ObtenerBinaryImagen(Server.MapPath("/" + m_imagenUsuarioPath)),
                     InformacionAdicional = txtMasInformacion.Text,
                     Reputacion = null
                     
                 };
 
-                AdministradorCuentas.CrearCuenta(usuario);
-
-                
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        protected byte[] ObtenerArrayImagenPerfil()
-        {
-            byte[] arrayImagen = null;
-            try
-            {
-                if (!String.IsNullOrEmpty(m_imagenUsuarioPath))
-                {
-                    var fileInfo = new FileInfo(Server.MapPath("/" + m_imagenUsuarioPath));
-                    arrayImagen = new byte[fileInfo.Length];
-                    var fileStream = fileInfo.OpenRead();
-                    fileStream.Read(arrayImagen, 0, arrayImagen.Length);
-                    fileStream.Close();
-                }
+                AdministradorCuentas.Instancia.CrearCuenta(usuario);                
             }
             catch (Exception)
             {
                 throw;
             }
-            return arrayImagen;
         }
 
         protected void UpdatePanel1_PreRender(object sender, EventArgs e)
@@ -151,12 +129,12 @@ namespace Carpooling.Front.Cuentas
             return FuenteDatosControl.Instancia.ObtenerDiasMes(Int32.Parse(pMes), Int32.Parse(pAnio));
         }
 
-        protected void CargarDdlDias(int pMes, int pAnio)
-        {
-            ddlDiaNacimiento.DataSource = FuenteDatosControl.Instancia.ObtenerDiasMes(pMes, pAnio) ;
-            ddlDiaNacimiento.DataBind();
-            ddlDiaNacimiento.Items.Insert(0, new ListItem { Value = "-1", Text = "Día", Selected = true });
-            ddlDiaNacimiento.Enabled = true;
-        }
+        //protected void CargarDdlDias(int pMes, int pAnio)
+        //{
+        //    ddlDiaNacimiento.DataSource = FuenteDatosControl.Instancia.ObtenerDiasMes(pMes, pAnio) ;
+        //    ddlDiaNacimiento.DataBind();
+        //    ddlDiaNacimiento.Items.Insert(0, new ListItem { Value = "-1", Text = "Día", Selected = true });
+        //    ddlDiaNacimiento.Enabled = true;
+        //}
     }
 }

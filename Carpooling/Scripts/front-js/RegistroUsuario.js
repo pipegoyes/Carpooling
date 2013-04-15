@@ -80,7 +80,7 @@ function CrearUploader() {
 
 function AplicarCCS() {
     //aplica estilos jquery ui los controles
-    $(":input[type='text'],:input[type='password'],textarea").wijtextbox();
+    //$(":input[type='text'],:input[type='password'],textarea").wijtextbox();
     $("#btnAceptarImagen").button();
     $('#btnQuitarImagen').button();
     $('#btnIrPaso2Adelante').button();
@@ -93,7 +93,7 @@ function AplicarCCS() {
     $("#caracteristicas_usuarios").buttonset();
 
     //Creacion de controles especiales
-    $("[ClientID='txtFechaNacimiento']").wijinputdate({ dateFormat: 'D', culture: 'es', showTrigger: true });
+    //$("[ClientID='txtFechaNacimiento']").wijinputdate({ dateFormat: 'D', culture: 'es', showTrigger: true });
 
     $("#dialogoCambiarFoto").wijdialog({
         autoOpen: false,
@@ -132,12 +132,8 @@ function ObtenerDiasMes() {
     var ddlAnioNacimiento = $("[ClientID='ddlAnioNacimiento']");
     var ddlMesNacimiento = $("[ClientID='ddlMesNacimiento']");
     var ddlDiaNacimiento = $("[ClientID='ddlDiaNacimiento']");
-
-    if (ddlAnioNacimiento.val() != '-1')
-        ddlAnioNacimiento.removeClass('errorValidacion');
-
-    if (ddlMesNacimiento.val() != '-1')
-        ddlMesNacimiento.removeClass('errorValidacion');
+    var hfDiaNacimiento = $("[ClientID='hfDiaNacimiento']");
+    var fechaNacimiento = $("[ClientID='fechaNacimiento']");
 
     var json = {};
     json.pMes = ddlMesNacimiento.val();
@@ -156,6 +152,7 @@ function ObtenerDiasMes() {
                     ddlDiaNacimiento.empty();
                     ddlDiaNacimiento.append($('<option/>').attr('value', -1).text('Día'));
                     ddlDiaNacimiento.val('-1').attr('selected', true);
+                    hfDiaNacimiento.val('-1');
                     ddlDiaNacimiento.attr('disabled', false);
 
                     var dias = response.d;
@@ -179,8 +176,17 @@ function ObtenerDiasMes() {
 
 function CambiarDia() {
     var ddlDia = $("[ClientID='ddlDiaNacimiento']");
-    if (ddlDia.val() != "-1")
-        ddlDia.removeClass('errorValidacion');
+    var fechaNacimiento = $("[ClientID='fechaNacimiento']");
+    var hfDiaNacimiento = $("[ClientID='hfDiaNacimiento']");
+    hfDiaNacimiento.val(ddlDia.val());
+
+    if (ddlDia.val() != "-1") {
+        fechaNacimiento.removeClass('errorValidacion');        
+    }
+    else {
+        fechaNacimiento.addClass('errorValidacion');
+    }
+        
 }
 
 //#endregion FUNCIONES AJAX CONTROLES
@@ -246,17 +252,20 @@ function ValidarFechaNacimiento(sender, args) {
     var ddlAnio = $("[ClientID='ddlAnioNacimiento']");
     var ddlMes = $("[ClientID='ddlMesNacimiento']");
     var ddlDia = $("[ClientID='ddlDiaNacimiento']");
+    var fechaNacimiento = $("[ClientID='fechaNacimiento']");
 
     if (ddlMes.val() == "-1" || ddlDia.val() == "-1" || ddlAnio.val() == "-1") {
+    //if (ddlDia.val() == "-1") {
         args.IsValid = false;
-        ddlAnio.addClass('errorValidacion');
-        ddlMes.addClass('errorValidacion');
+        fechaNacimiento.addClass('errorValidacion');
+        //ddlMes.addClass('errorValidacion');
+        //ddlDia.addClass('errorValidacion');
     }
     else {
         args.IsValid = true;
-        ddlAnio.removeClass('errorValidacion');
-        ddlMes.removeClass('errorValidacion');
-        ddlDia.removeClass('errorValidacion');
+        //ddlAnio.removeClass('errorValidacion');
+        //ddlMes.removeClass('errorValidacion');
+        fechaNacimiento.removeClass('errorValidacion');
     }
 }
 
