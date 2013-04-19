@@ -83,5 +83,17 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// PreviousPage property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Carpooling.Front.Viajes.PublicarViaje PreviousPage {
+            get {
+                return ((Carpooling.Front.Viajes.PublicarViaje)(base.PreviousPage));
+            }
+        }
     }
 }

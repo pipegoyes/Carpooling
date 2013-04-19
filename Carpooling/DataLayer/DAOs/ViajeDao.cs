@@ -21,12 +21,13 @@ namespace DataLayer.DAOs
             get { return _instancia ?? (_instancia = new ViajeDao()); }
         }
 
-        public void GuardarViaje(Viaje viaje)
+        public long GuardarViaje(Viaje viaje)
         {
             VIAJE viajeInsertar = ToDataEntity.Instancia.ToViaje(viaje);
             EstablecerConexion();
             Conexion.VIAJE.Add(viajeInsertar);
             Conexion.SaveChanges();
+            return viajeInsertar.ID_VIAJE;
         }
 
 

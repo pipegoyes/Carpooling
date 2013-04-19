@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     // Handler for .ready() called.
     initialize();
+    alert("Estoy en la parte exitosa");
 });
 var geocoder;
 var map;

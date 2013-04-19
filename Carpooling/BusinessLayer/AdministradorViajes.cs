@@ -10,7 +10,7 @@ namespace BusinessLayer
 {
     public class AdministradorViajes
     {
-        public static void PublicarViaje(ViajeJSON viajeActual, Usuario conductor)
+        public static long PublicarViaje(ViajeJSON viajeActual, Usuario conductor)
         {
             var listParadas = new List<Parada> {viajeActual.Origin};
             listParadas.AddRange(viajeActual.Waypoints);
@@ -29,7 +29,7 @@ namespace BusinessLayer
                                  };
 
             //TODO valiadaciones antes de guardar
-            ViajeDao.Instancia.GuardarViaje(viajeNuevo);
+            return ViajeDao.Instancia.GuardarViaje(viajeNuevo);
         }
 
         public static List<Trayecto> CrearListadoTrayectos(List<Parada> listParadas, int cuposDisponibles)

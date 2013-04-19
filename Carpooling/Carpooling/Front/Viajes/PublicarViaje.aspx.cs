@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Services;
 using BusinessLayer;
 using Entities.Aplicacion;
@@ -8,6 +9,10 @@ namespace Carpooling.Front.Viajes
 {
     public partial class PublicarViaje : System.Web.UI.Page
     {
+        public ViajeJSON ViajeEnCreacion { get; set; }
+
+        public static Usuario UsuarioCreador { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //List<int> listHoras = Enumerable.Range(00, 24).ToList();
@@ -15,6 +20,7 @@ namespace Carpooling.Front.Viajes
             //this.comboBoxHour.DataSource = listHoras;
             //this.comboBoxMinutos.DataSource = listMinutos;
             //this.btnRolConductor.Checked
+            //Server.Transfer();
         }
 
         [WebMethod]
@@ -26,8 +32,8 @@ namespace Carpooling.Front.Viajes
                                            {
                                                IdUsuario = "manuellinares007"
                                            };
-                AdministradorViajes.PublicarViaje(viajeJson, usuarioConectado);
-                return "pendiente";
+                long idViaje = AdministradorViajes.PublicarViaje(viajeJson, usuarioConectado);
+                return idViaje.ToString();
             }
             catch (Exception exception)
             {
