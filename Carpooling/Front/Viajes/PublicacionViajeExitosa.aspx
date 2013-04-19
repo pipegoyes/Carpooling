@@ -1,9 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PublicacionViajeExitosa.aspx.cs" Inherits="Carpooling.Front.Viajes.PublicacionViajeExitosa" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="../Styles/PublicacionViajeExitosa.css" rel="stylesheet" type="text/css"/>
-    <script src="../Scripts/PublicacionViajeExitosa.js" type="text/javascript"></script>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/Front/Site.Master" AutoEventWireup="true" CodeBehind="PublicacionViajeExitosa.aspx.cs" Inherits="Carpooling.Front.Viajes.PublicacionViajeExitosa" %>
+<%@ PreviousPageType VirtualPath="/Front/Viajes/PublicarViaje.aspx" %>
+<asp:Content ID="CssContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <link href="/Styles/front-css/PublicacionViajeExitosa.css" rel="stylesheet" type="text/css"/>
+</asp:Content>
+
+<asp:Content runat="server" ID="scriptContent" ContentPlaceHolderID="ScriptsContent">
+    <script src="/Scripts/front-js/PublicacionViajeExitosa.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="titulo">Publicacion exitosa</div>
     <div id="contenedorRutaViaje" class="leftPosition">

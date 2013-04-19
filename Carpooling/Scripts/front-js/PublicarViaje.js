@@ -3,7 +3,7 @@ var map;
 var directionsService = new google.maps.DirectionsService();
 var directionRequest;
 var geocoder;
-
+var rutaValida= false;
 $(document).ready(function () {
 
     //Cargar el mapa cuando se hayan cargado todos los componentes de la pagina
@@ -13,17 +13,22 @@ $(document).ready(function () {
     CrearComponentes();
 
     //Valida si hay ciudades para continuar
-    $("[id*=btnSiguientePaso]").click(function () {
+    $("[id*=btnSiguientePaso]").click(function() {
         if ($("[id*=txbCiudadOrigen]").val() == '') {
             alert("Debe ingresar una ciudad de origen!");
         } else if ($("[id*=txbCiudadDestino]").val() == '') {
             alert("Debe ingresar una ciudad de destino!");
         } else {
-            $("[id*=divInfoPaso2]").empty();
-            llenarInfoPaso2();
-            $("[id*=divPaso1]").slideToggle(1000, null);
-            $("[id*=divPaso2]").fadeIn("slow", null);
+            if(rutaValida) {
+                $("[id*=divInfoPaso2]").empty();
+                llenarInfoPaso2();
+                $("[id*=divPaso1]").slideToggle(1000, null);
+                $("[id*=divPaso2]").fadeIn("slow", null);
+            }else {
+                alert("Verifique la escritura de las ciudades para continuar con el siguiente paso.");
+            }
         }
+
     });
 
     //Ir atras en los pasos de creacion
@@ -37,25 +42,26 @@ $(document).ready(function () {
 
 //#region Componentes JQuery
 function CrearComponentes() {
-    
-    //------Tarifa
-    $("[id*=txbTarifa]").spinner({
-        min: 1000,
-        max: 100000,
-        step: 1000,
-        start: 1000,
-        numberFormat: "C"
-    });
 
-    //-----------Rol
-    $("#roles").buttonset();
+    //----Botones
+    $('#btnSiguientePaso').button();
+    $('#btnAtras').button();
+    $("[ClientID='btnPublicar']").button();
+
+    //------Tarifa
+    $("[id*=txbTarifa]").wijinputnumber({
+        showSpinner:true,
+        type: 'currency',
+        decimalPlaces: 0,
+        value:10000,
+        minValue:10000,
+        maxValue:1000000,
+        increment: 500,
+        showGroup: true
+    });
 
     //-----------FechaPArtida
-    $("[id*=txbFechaPartida]").datepicker({
-        showOn: "button",
-        buttonImage: "/Styles/images/Calendar_scheduleHS.png",
-        buttonImageOnly: true
-    });
+    $("[id*=txbFechaPartida]").datepicker();
 
     //------Hora
     $("[id*=txbHora]").wijinputdate(
@@ -64,19 +70,15 @@ function CrearComponentes() {
             dateFormat: "hh:mm tt"
         }
     );
-
-
+    
     //------Cupos
-    $("[id*=txbCupos]").spinner({
-        spin: function (event, ui) {
-            if (ui.value > 10) {
-                $(this).spinner("value", 1);
-                return false;
-            } else if (ui.value < 1) {
-                $(this).spinner("value", 10);
-                return false;
-            }
-        }
+    $("[id*=txbCupos]").wijinputnumber({
+        minValue: 1,
+        maxValue: 40,
+        increment: 1,
+        value: 1,
+        showSpinner: true,
+        decimalPlaces:0
     });
 }
 //#endregion
@@ -86,59 +88,59 @@ function CrearComponentes() {
 
 
 function publicarViaje() {
-    
-    //Objeto que representa el viaje
-    var jsonViaje = {};
-    
-    var listParadas = [];
-    if(listCoordenadas.length >2) {
-        for (var i = 2; i < listCoordenadas.length; i++) {
-            listParadas.push(listCoordenadas[i]);
+    var clientValidate = window.Page_ClientValidate('grupoPaso2'); 
+    if(clientValidate) {
+        var jsonViaje = {};
+
+        var listParadas = [];
+        if (listCoordenadas.length > 2) {
+            for (var i = 2; i < listCoordenadas.length; i++) {
+                listParadas.push(listCoordenadas[i]);
+            }
         }
-    }
-    
-    jsonViaje.origin = listCoordenadas[0];
-    jsonViaje.destination = listCoordenadas[1];
-    jsonViaje.wayPoints = listParadas;
-    var value = $("[id*=txbTarifa]").spinner("value");
-    //jsonViaje.tarifa = $("[id*=txbTarifa]").val();
-    jsonViaje.tarifa = value;
-    jsonViaje.cupos = $("[id*=txbCupos]").val();
-    jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
-    jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
-    $.ajax({
-        type: "POST",
-        url: "PublicarViaje.aspx/PublicarViajeAsynch",
-        data: JSON.stringify({ viajeJson: jsonViaje }),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        beforeSend: function () {
-            //            createDikv("divContMensaje", nombreDiv, null, "divCargando");
-        },
-        complete: function () {
-            alert("Publicacion Exitosa");
-        },
-        error: function () {
+        jsonViaje.origin = listCoordenadas[0];
+        jsonViaje.destination = listCoordenadas[1];
+        jsonViaje.wayPoints = listParadas;
+        var value = $("[id*=txbTarifa]").wijinputnumber("getPostValue");
+        jsonViaje.tarifa = value;
+        jsonViaje.cupos = $("[id*=txbCupos]").val();
+        jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
+        jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
-            return false;
-        },
-        async: false,
-        success: function (result) {
-            //---Mensjae exitoso
-            alert("Su viaje ha sido creado exitosamente");
-            $("#dialog-message").dialog({
-                modal: true,
-                buttons: {
-                    Ok: function () {
-                        $(this).dialog("close");
+        //TEmporal
+//        window.ViajeEnCreacion = jsonViaje;
+
+        $.ajax({
+            type: "POST",
+            url: "PublicarViaje.aspx/PublicarViajeAsynch",
+            data: JSON.stringify({ viajeJson: jsonViaje }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            beforeSend: function () {
+            },
+            complete: function () {
+
+            },
+            error: function () {
+                return false;
+            },
+            async: false,
+            success: function (result) {
+                //---Mensjae exitoso
+                $("#dialog-message").dialog({
+                    modal: true,
+                    buttons: {
+                        Ok: function () {
+                            $(this).dialog("close");
+                            window.location = "/Front/Viajes/PublicacionViajeExitosa.aspx?idViaje="+result.d;
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-    });
-
+        });
+    }
 }
 
 function llenarInfoPaso2() {
@@ -174,19 +176,18 @@ function CrearParada() {
     autocompletar(paradaNombre);
 }
 
-function autocompletar(paradaNombre) {
-    var input = document.getElementById(paradaNombre);
-    var options = {
-        types: ['(cities)'],
-        componentRestrictions: { country: "co" }
-    };
+//function autocompletar(paradaNombre) {
+//    var input = document.getElementById(paradaNombre);
+//    var options = {
+//        types: ['(cities)'],
+//        componentRestrictions: { country: "co" }
+//    };
 
-    var autocomplete = new google.maps.places.Autocomplete(input,options);
-    google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        GenerarRuta();
-    });
-}
-
+//    var autocomplete = new google.maps.places.Autocomplete(input,options);
+//    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+//        GenerarRuta();
+//    });
+//}
 
 function InicializarComponentesGM() {
 
@@ -265,23 +266,6 @@ function InicializarComponentesGM() {
     directionsDisplay.setMap(map);
 }
 
-function BuscarCiudad() {
-
-    var ciudadAddress = document.getElementById("MainContent_txbCiudadOrigen").value;
-
-    geocoder.geocode({ 'address': ciudadAddress }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-            });
-        } else {
-            alert("Geocode was not successful for the following reason: " + status);
-        }
-    });
-}
-
 var listCiudades;
 var listCoordenadas;
 function GenerarRuta() {
@@ -319,7 +303,9 @@ function GenerarRuta() {
     directionsService.route(directionRequest, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
+            rutaValida = true;
         } else {
+            rutaValida = false;
             alert("Error creando la ruta de viaje");
         }
     });

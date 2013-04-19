@@ -117,11 +117,10 @@
     <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
     <Content Include="Styles\images\uploading.gif" />
     <Content Include="Styles\images\warning.gif" />
-    <Content Include="Scripts\CreacionComponentes.js" />
-    <Content Include="Scripts\PublicarViaje.js" />
+    <Content Include="Scripts\front-js\PublicarViaje.js" />
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Scripts\jqueryUI\jquery-ui-1.9.1.custom.min.js" />
-    <Content Include="Scripts\PublicacionViajeExitosa.js" />
+    <Content Include="Scripts\front-js\PublicacionViajeExitosa.js" />
     <Content Include="Styles\BuscarViaje.css" />
     <Content Include="Styles\images\loading.gif" />
     <Content Include="Styles\jquery.wijmo-complete.2.2.1.css" />
@@ -129,7 +128,7 @@
     <Content Include="Styles\mobile.css" />
     <Content Include="Styles\normalize.css" />
     <Content Include="Styles\front-css\RegistroUsuario.css" />
-    <Content Include="Styles\PublicarViaje.css" />
+    <Content Include="Styles\front-css\PublicarViaje.css" />
     <Content Include="Styles\CrearViajePaso2.css" />
     <Content Include="Styles\General.css" />
     <Content Include="Styles\Inicio.css" />
@@ -137,7 +136,7 @@
     <Content Include="Styles\Perfil.css" />
     <Content Include="Styles\Perfil2.css" />
     <Content Include="Styles\Perfil3.css" />
-    <Content Include="Styles\PublicacionViajeExitosa.css" />
+    <Content Include="Styles\front-css\PublicacionViajeExitosa.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Styles\themes\aristo\images\scrollbar-horizontal.png" />
