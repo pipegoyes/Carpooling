@@ -25,7 +25,6 @@
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">      
-    <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxToolkit:ToolkitScriptManager>        
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" OnPreRender="UpdatePanel1_PreRender">
         <ContentTemplate>           
