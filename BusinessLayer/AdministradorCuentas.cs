@@ -28,13 +28,29 @@ namespace BusinessLayer
         //Valida e inserta un nuevo usuario
         public void CrearCuenta(Usuario pUsuario)
         {
-            //Verifica que el usuario no exista
-            //TODO:
-
-
+            //TODO: Verifica que el usuario no exista
 
             //Envia el usuario para su insercion en la base de datos
             UsuarioDao.Instancia.Insertar(pUsuario);
+        }
+
+        public Usuario AutenticarUsuario(string pIdEmailUsuario, string pContrasenia)
+        {
+            Usuario usuario;
+            pIdEmailUsuario.Trim().ToLower();
+            if (pIdEmailUsuario.Contains("@"))
+                usuario = UsuarioDao.Instancia.ObtenerPorEmail(pIdEmailUsuario);
+            else
+                usuario = UsuarioDao.Instancia.ObtenerPorId(pIdEmailUsuario);
+
+            if(usuario != null)
+            {
+                string contraseniaDbDesencriptada = this.DesencriptarContrasenia(usuario.Contrasenia);
+                contraseniaDbDesencriptada.Trim().ToLower();
+                if (contraseniaDbDesencriptada.Equals(pContrasenia.Trim().ToLower()))
+                    return usuario;
+           }
+            return null;
         }
 
         //Obtiene un array binary que representa la imagen del path especificado

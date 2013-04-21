@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Carpooling.Front.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="True" CodeBehind="Site.master.cs" Inherits="Carpooling.Front.SiteMaster" %>
 
 <!DOCTYPE html>
 <html lang="es" class="no-js"> 
@@ -28,11 +28,60 @@
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
-        <script src="/Scripts/front-js/SiteMaster.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("[ClientID='btnIniciarSesion']").click(function () {
+                    btnIniciarSesion_OnClientClick();
+                });
+
+                $('#lnkIniciaSesion').click(function () {
+                    lnkIniciaSesion_OnClientClick();
+                });
+            });
+        </script>
+
         <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
     </head>
     <body>
         <form id="Form1" runat="server">
+        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server"></ajaxToolkit:ToolkitScriptManager>        
+
+        <script type="text/javascript">
+            var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+
+            pageRequestManager.add_endRequest(function () {
+                $("[ClientID='btnIniciarSesion']").click(function () {
+                    btnIniciarSesion_OnClientClick();
+                });
+
+                //$('#lnkIniciaSesion').click(function () {
+                //    lnkIniciaSesion_OnClientClick();
+                //});
+            });
+
+            //funcion para mostrar el formulario de login
+            function lnkIniciaSesion_OnClientClick() {
+                var lnkIniciaSesion = $('#lnkIniciaSesion');
+                var divLogin = $('#divLoginFormFloat');
+                var leftDivLogin = lnkIniciaSesion.offset().left - (divLogin.width() - lnkIniciaSesion.width());
+                //var topDivLogin = lnkIniciaSesion.offset().top + lnkIniciaSesion.height();
+                var topDivLogin = 30 + lnkIniciaSesion.height();
+                $('#divLoginFormFloat').css('left', leftDivLogin);
+                $('#divLoginFormFloat').css('top', topDivLogin);
+                $('#divLoginFormFloat').toggle('blind', 500);
+                return false;
+            }
+
+            //funcion para cambiar los valores de los hidden fields de nombre de usuario y contraseña
+            function btnIniciarSesion_OnClientClick() {
+                $('#hfdNombreUsuario').val($('#txbNombreUsuario').val());
+                $('#hfdContrasenia').val($('#txbContrasenia').val());
+            }
+        </script>
+        <%--<script src="/Scripts/front-js/SiteMaster.js"></script>--%>
+            
+                    
         <header>
             <div id="login-div">
                 <section id="login">
@@ -41,20 +90,30 @@
                             <ul id="barGuestUser">
                                 <li><a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a></li>
                                 <li>
-                                    <a id="lnkIniciaSesion" href="#" onclick="lnkIniciaSesion_OnClientClick(); return false;">Inicia sesión</a>
+                                    <a id="lnkIniciaSesion" href="#">Inicia sesión</a> <%--onclick="lnkIniciaSesion_OnClientClick(); return false;"--%>
+                                    <asp:UpdatePanel ID="uppLoginForm" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+
+                <input type="hidden" id="hfdNombreUsuario" name="hfdNombreUsuario" value=""/>
+                <input type="hidden" id="hfdContrasenia" name="hfdContrasenia" value="" />
+
                                     <div id="divLoginFormFloat">
                                         <fieldset>
                                             <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
+                                            <%--<asp:TextBox ID="txbNombreUsuario" runat="server" type="text"></asp:TextBox>--%>
                                             <input id="txbNombreUsuario" type="text" />
                                         </fieldset>
                                         <fieldset>
                                             <label for="txbContrasenia"><strong>Contraseña</strong></label>
+                                            <%--<asp:TextBox ID="txbContrasenia" runat="server" type="password"></asp:TextBox>--%>
                                             <input id="txbContrasenia" type="password" />
                                         </fieldset>
-                                        <%--<input id="btnIniciarSesion" type="button" value="Iniciar sesión" class="button-gradient blue-dark"/>--%>
-                                        <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"/>
+                                        <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
                                         <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>
                                     </div>
+
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </li>
                             </ul>
                         </AnonymousTemplate>
