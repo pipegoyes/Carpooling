@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\ItemTablaViaje.cs" />
     <Compile Include="Aplicacion\ListaDesplegable.cs" />
     <Compile Include="Aplicacion\ViajeJSON.cs" />
     <Compile Include="Negocio\Calificacion.cs" />

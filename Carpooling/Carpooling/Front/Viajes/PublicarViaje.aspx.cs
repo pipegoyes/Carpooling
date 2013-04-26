@@ -32,7 +32,7 @@ namespace Carpooling.Front.Viajes
                                            {
                                                IdUsuario = "manuellinares007"
                                            };
-                long idViaje = AdministradorViajes.PublicarViaje(viajeJson, usuarioConectado);
+                long idViaje = AdministradorViajes.Instancia.PublicarViaje(viajeJson, usuarioConectado);
                 return idViaje.ToString();
             }
             catch (Exception exception)

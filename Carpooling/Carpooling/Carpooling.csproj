@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="Front\Bienvenida.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
+    <Content Include="Scripts\front-js\BuscarViaje.js" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
     <Content Include="Scripts\front-js\SiteMaster.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -122,7 +123,7 @@
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Scripts\jqueryUI\jquery-ui-1.9.1.custom.min.js" />
     <Content Include="Scripts\front-js\PublicacionViajeExitosa.js" />
-    <Content Include="Styles\BuscarViaje.css" />
+    <Content Include="Styles\front-css\BuscarViaje.css" />
     <Content Include="Styles\images\loading.gif" />
     <Content Include="Styles\jquery.wijmo-complete.2.2.1.css" />
     <Content Include="Styles\jquery.wijmo-open.2.2.1.css" />

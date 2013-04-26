@@ -176,18 +176,18 @@ function CrearParada() {
     autocompletar(paradaNombre);
 }
 
-//function autocompletar(paradaNombre) {
-//    var input = document.getElementById(paradaNombre);
-//    var options = {
-//        types: ['(cities)'],
-//        componentRestrictions: { country: "co" }
-//    };
+function autocompletar(paradaNombre) {
+    var input = document.getElementById(paradaNombre);
+    var options = {
+        types: ['(cities)'],
+        componentRestrictions: { country: "co" }
+    };
 
-//    var autocomplete = new google.maps.places.Autocomplete(input,options);
-//    google.maps.event.addListener(autocomplete, 'place_changed', function () {
-//        GenerarRuta();
-//    });
-//}
+    var autocomplete = new google.maps.places.Autocomplete(input,options);
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        GenerarRuta();
+    });
+}
 
 function InicializarComponentesGM() {
 
