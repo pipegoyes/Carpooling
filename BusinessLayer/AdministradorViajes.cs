@@ -10,7 +10,25 @@ namespace BusinessLayer
 {
     public class AdministradorViajes
     {
-        public static long PublicarViaje(ViajeJSON viajeActual, Usuario conductor)
+        private static AdministradorViajes _instancia = null;
+
+        //Contructor
+        private AdministradorViajes()
+        {
+        }
+
+        //Obtiene y mantiene una unica instancia de la clase
+        public static AdministradorViajes Instancia
+        {
+            get { return _instancia ?? (_instancia = new AdministradorViajes()); } 
+        }
+
+        public List<ItemTablaViaje> BuscarViaje(string ciudadOrigen, string ciudadDestino, DateTime fechaRealizacion)
+        {
+            return ViajeDao.Instancia.ConsultarListaViaje(ciudadOrigen, ciudadDestino, fechaRealizacion);
+        }
+
+        public long PublicarViaje(ViajeJSON viajeActual, Usuario conductor)
         {
             var listParadas = new List<Parada> {viajeActual.Origin};
             listParadas.AddRange(viajeActual.Waypoints);

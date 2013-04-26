@@ -1,0 +1,17 @@
+.buscadorElemento{
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	float: left;
+	padding: 10px;
+}
+.divClear{
+	clear: both;
+}
+/*---Estilo tabla...*/
+.divCelda{
+	width: 25%;
+	text-align: center;
+	padding-right: 0px;
+	float: left;
+}

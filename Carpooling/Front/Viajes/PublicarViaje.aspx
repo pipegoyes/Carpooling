@@ -61,7 +61,7 @@
                         
 
     <div id="divPaso2">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
 
         <div class="titulo">Paso 2. Datos del viaje</div>
         <div class="text">Configura todos los datos de tu viaje</div>

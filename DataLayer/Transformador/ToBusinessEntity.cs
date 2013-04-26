@@ -17,12 +17,30 @@ namespace DataLayer.Transformador
         {            
         }
 
+        public List<ItemTablaViaje> ListaViajesToItemsTabla(List<VIAJE> pListaViajes)
+        {
+            
+            
+            return (from viajeDB in pListaViajes
+                    let nombrePParadaOrigen = viajeDB.TRAYECTO.ToList().Find(z => z.PARADA.First().NUMERO_PARADA == 1).PARADA.First().DIRECCION
+                    let numeroTrayectos = viajeDB.TRAYECTO.Count
+                    let numeroParadas = Convert.ToInt32((Math.Sqrt((8*numeroTrayectos + 1)) + 1)/2)
+                    let nombrePParadaDestino = viajeDB.TRAYECTO.ToList().Find(z => z.PARADA.Last().NUMERO_PARADA == numeroParadas).PARADA.Last().DIRECCION
+                    select new ItemTablaViaje()
+                               {
+                                   //TODO se podria mostrar el numero de cupos para ese trayecto
+                                   NombreConductor = viajeDB.USUARIO.NOMBRE + "-" + viajeDB.USUARIO.APELLIDO, 
+                                   ParadaDestino = nombrePParadaDestino, 
+                                   ParadaOrigen = nombrePParadaOrigen,
+                                   IdViaje = viajeDB.ID_VIAJE
+                               }).ToList();
+        }
+
         public static ToBusinessEntity Instancia
         {
             get { return _instancia ?? (_instancia = new ToBusinessEntity()); }
         }
 
-        
         public ListaDesplegable PaisToListaDesplegable(PAIS pPais)
         {
             var item = new ListaDesplegable

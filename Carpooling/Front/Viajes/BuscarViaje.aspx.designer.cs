@@ -22,13 +22,31 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label lblCiudadOrigen;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txbCiudadOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txbCiudadOrigen;
+        
+        /// <summary>
+        /// RFVCiudadOrigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVCiudadOrigen;
+        
+        /// <summary>
+        /// AVCCiudadOrigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender AVCCiudadOrigen;
         
         /// <summary>
         /// lblCiudadDestino control.
@@ -49,6 +67,24 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.TextBox txbCiudadDestino;
         
         /// <summary>
+        /// RFVCiudadDestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVCiudadDestino;
+        
+        /// <summary>
+        /// AVCCiudadDestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender AVCCiudadDestino;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -67,21 +103,21 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.TextBox calendarFechaViaje;
         
         /// <summary>
-        /// Image1 control.
+        /// btnBuscarViaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Button btnBuscarViaje;
         
         /// <summary>
-        /// Image2 control.
+        /// dataListItemsViajesEncontrados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.DataList dataListItemsViajesEncontrados;
     }
 }
