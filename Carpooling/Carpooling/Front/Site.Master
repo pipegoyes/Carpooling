@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <title>CarpoolingCo</title>
 
-        <link href="../Styles/normalize.css" rel="stylesheet"/>
+        <link href="/Styles/normalize.css" rel="stylesheet"/>
         <link href="/Styles/Site.css" rel="stylesheet"/>
         <link href="/Styles/General.css" rel="stylesheet"/>
         <%--<link href="~/Styles/themes/base/jquery-ui.css" rel="stylesheet">--%>
@@ -21,8 +21,8 @@
         <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet"/>       
         <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
 
-        <script src="../Scripts/modernizr.js"></script>
-        <script src="../Scripts/prefixfree.min.js"></script>
+        <script src="/Scripts/modernizr.js"></script>
+        <script src="/Scripts/prefixfree.min.js"></script>
         <script src="/Scripts/jquery-1.8.2.min.js"></script>
         <script src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
@@ -43,18 +43,20 @@
 
         <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
     </head>
-    <body>
+    <body onload="InicializarMaster()">
         <form id="Form1" runat="server">
         <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server"></ajaxToolkit:ToolkitScriptManager>        
 
         <script type="text/javascript">
-            var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+            function InicializarMaster() {
+                var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
 
-            pageRequestManager.add_endRequest(function () {
-                $("[ClientID='btnIniciarSesion']").click(function () {
-                    btnIniciarSesion_OnClientClick();
+                pageRequestManager.add_endRequest(function () {
+                    $("[ClientID='btnIniciarSesion']").click(function () {
+                        btnIniciarSesion_OnClientClick();
+                    });
                 });
-            });
+            }
 
             /***********************funciones JS**********************/
             //funcion para mostrar el formulario de login
@@ -83,8 +85,10 @@
                 <section id="login">
                     <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <ul id="barGuestUser">
-                                <li><a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a></li>
+                            <ul id="menuUsuarioInvitado">
+                                <li>
+                                    <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a>
+                                </li>
                                 <li>
                                     <a id="lnkIniciaSesion" href="#">Inicia sesión</a>
                                     <asp:UpdatePanel ID="uppLoginForm" runat="server" UpdateMode="Conditional">
@@ -109,7 +113,12 @@
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
-                            <ul id="barGuestUser">
+                            <ul id="menuIzquierdoUsuarioRegistrado">
+                                <li>
+                                    <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Regístrate</a>
+                                </li>
+                            </ul>
+                            <ul id="menuDerechoUsuarioRegistrado">
                                 <li><a id="lnkUsuarioPerfil" runat="server" href="~/Front/Cuentas/Perfil.aspx">
                                         <asp:LoginName ID="lblNombreUsuario" runat="server" />
                                     </a>
@@ -128,7 +137,7 @@
                 </figure>
                 <nav>
                     <ul id="menu">
-                        <li><a id="navHome" runat="server" href="~/">Inicio</a></li>
+                        <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
                         <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
                         <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
                     </ul>

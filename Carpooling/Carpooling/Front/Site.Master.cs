@@ -29,14 +29,16 @@ namespace Carpooling.Front
                 usuarioApp = AdministradorCuentas.Instancia.AutenticarUsuario(nombreEmailUsuario, contrasenia);
                 if (usuarioApp != null)
                 {
+                    Session["usuario"] = usuarioApp;
                     string nombreMostrarUsuario = usuarioApp.Nombre + " " + usuarioApp.Apellido;
                     nombreMostrarUsuario = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMostrarUsuario.Trim().ToLower());
                     FormsAuthentication.RedirectFromLoginPage(nombreMostrarUsuario, false);
                 }
                 else
                 {
-                    WebControl divLoginForm = (WebControl)this.FindControl("divLoginFormFloat");
-                    divLoginForm.Style.Add("display", "block");
+                    //TODO: actualizar un hiddenfield desde aca con el estado de logue no exitoso y luego por JS mostrar un mensaje dependiendo valor del hiddenfield
+                    //WebControl divLoginForm = (WebControl)this.FindControl("divLoginFormFloat");
+                    //divLoginForm.Style.Add("display", "block");
                 }
             }
             catch (Exception)

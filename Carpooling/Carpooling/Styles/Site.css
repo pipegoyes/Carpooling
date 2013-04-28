@@ -57,7 +57,8 @@ input[type="text"], input[type="password"] {
     text-align: right;
     margin: 0 auto;
     max-width: 1020px;
-    padding: 5px 0 5px 0;
+    padding: 10px 0 5px 0;
+    height: 20px;
 }
 
     #login ul{
@@ -111,18 +112,33 @@ ul#menu {
         ul#menu li a {
             background: none;
             color: white;
+            -moz-text-shadow: 0 0 6px black;
+            -ms-text-shadow: 0 0 6px black;
+            -webkit-text-shadow: 0 0 6px black;
+            -o-text-shadow: 0 0 6px black;
             text-shadow: 0 0 6px black;
             text-decoration: none;
         }
 
             ul#menu li a:hover {
                 color: black;
+                -moz-text-shadow: 0 0 6px white;
+                -ms-text-shadow: 0 0 6px white;
+                -webkit-text-shadow: 0 0 6px white;
+                -o-text-shadow: 0 0 6px white;
                 text-shadow: 0 0 6px white;
                 text-decoration: none;
             }
 
+#menuIzquierdoUsuarioRegistrado{
+    text-align: left !important; 
+    float:left !important;
+}
 
-
+#menuDerechoUsuarioRegistrado{
+    text-align: right !important; 
+    float:right !important;
+}
 
 
 
