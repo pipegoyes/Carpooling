@@ -74,7 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Front\Bienvenida.aspx" />
+    <Content Include="Front\Cuentas\MiPerfil.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
+    <Content Include="Front\Viajes\MisViajes.aspx" />
     <Content Include="Scripts\front-js\BuscarViaje.js" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
     <Content Include="Scripts\front-js\SiteMaster.js" />
@@ -366,6 +368,13 @@
     <Compile Include="Front\Bienvenida.aspx.designer.cs">
       <DependentUpon>Bienvenida.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Front\Cuentas\MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,6 +391,13 @@
     </Compile>
     <Compile Include="Front\Viajes\BuscarViaje.aspx.designer.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\MisViajes.aspx.cs">
+      <DependentUpon>MisViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\MisViajes.aspx.designer.cs">
+      <DependentUpon>MisViajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\PublicarViaje.aspx.cs">
       <DependentUpon>PublicarViaje.aspx</DependentUpon>

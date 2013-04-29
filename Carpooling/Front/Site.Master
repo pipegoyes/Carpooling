@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="es" class="no-js"> 
     <head runat="server">
-        <meta charset="utf-8" />
+        <meta charset="iso-8859-1" />
         <title>CarpoolingCo</title>
 
         <link href="/Styles/normalize.css" rel="stylesheet"/>
@@ -28,26 +28,11 @@
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"></script>
         <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
+        <script src="/Scripts/front-js/SiteMaster.js"></script>
+        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
         
         <script type="text/javascript">
-            $(document).ready(function () {
-                $("[ClientID='btnIniciarSesion']").click(function () {
-                    btnIniciarSesion_OnClientClick();
-                });
-
-                $('#lnkIniciaSesion').click(function () {
-                    lnkIniciaSesion_OnClientClick();
-                });
-            });
-        </script>
-
-        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
-    </head>
-    <body onload="InicializarMaster()">
-        <form id="Form1" runat="server">
-        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server"></ajaxToolkit:ToolkitScriptManager>        
-
-        <script type="text/javascript">
+            //resucribe los eventos los controles en los panel updates al cargar la pagina
             function InicializarMaster() {
                 var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
 
@@ -57,106 +42,102 @@
                     });
                 });
             }
-
-            /***********************funciones JS**********************/
-            //funcion para mostrar el formulario de login
-            function lnkIniciaSesion_OnClientClick() {
-                var lnkIniciaSesion = $('#lnkIniciaSesion');
-                var divLogin = $('#divLoginFormFloat');
-                var leftDivLogin = lnkIniciaSesion.offset().left - (divLogin.width() - lnkIniciaSesion.width());
-                //var topDivLogin = lnkIniciaSesion.offset().top + lnkIniciaSesion.height();
-                var topDivLogin = 30 + lnkIniciaSesion.height();
-                $('#divLoginFormFloat').css('left', leftDivLogin);
-                $('#divLoginFormFloat').css('top', topDivLogin);
-                $('#divLoginFormFloat').toggle('blind', 500);
-                return false;
-            }
-
-            //funcion para cambiar los valores de los hidden fields de nombre de usuario y contraseña
-            function btnIniciarSesion_OnClientClick() {
-                $('#hfdNombreUsuario').val($('#txbNombreUsuario').val());
-                $('#hfdContrasenia').val($('#txbContrasenia').val());
-            }
-
         </script>
-                                
-        <header>
-            <div id="login-div">
-                <section id="login">
-                    <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul id="menuUsuarioInvitado">
-                                <li>
-                                    <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a>
-                                </li>
-                                <li>
-                                    <a id="lnkIniciaSesion" href="#">Inicia sesión</a>
-                                    <asp:UpdatePanel ID="uppLoginForm" runat="server" UpdateMode="Conditional">
-                                        <ContentTemplate>
-                                            <input type="hidden" id="hfdNombreUsuario" name="hfdNombreUsuario" value=""/>
-                                            <input type="hidden" id="hfdContrasenia" name="hfdContrasenia" value="" />
-                                            <div id="divLoginFormFloat">
-                                                <fieldset>
-                                                    <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
-                                                    <input id="txbNombreUsuario" type="text" />
-                                                </fieldset>
-                                                <fieldset>
-                                                    <label for="txbContrasenia"><strong>Contraseña</strong></label>
-                                                    <input id="txbContrasenia" type="password" />
-                                                </fieldset>
-                                                <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
-                                                <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>
-                                            </div>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                </li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul id="menuIzquierdoUsuarioRegistrado">
-                                <li>
-                                    <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Regístrate</a>
-                                </li>
-                            </ul>
-                            <ul id="menuDerechoUsuarioRegistrado">
-                                <li><a id="lnkUsuarioPerfil" runat="server" href="~/Front/Cuentas/Perfil.aspx">
-                                        <asp:LoginName ID="lblNombreUsuario" runat="server" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <asp:LoginStatus ID="lblCerrarSesion" runat="server" LogoutAction="Redirect" LogoutText="Salir" LogoutPageUrl="~/Front/Bienvenida.aspx" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+    </head>
+
+    <body onload="InicializarMaster()">
+        <form id="Form1" runat="server">
+            <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server"></ajaxToolkit:ToolkitScriptManager>
+                       
+            <header>
+                <div id="login-div">
+                    <section id="login">
+                        <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul id="menuUsuarioInvitado">
+                                    <li>
+                                        <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkIniciaSesion" href="#">Inicia sesión</a>
+                                        <asp:UpdatePanel ID="uppLoginForm" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <input type="hidden" id="hfdNombreUsuario" name="hfdNombreUsuario" value=""/>
+                                                <input type="hidden" id="hfdContrasenia" name="hfdContrasenia" value="" />
+                                                <div id="divLoginFormFloat">
+                                                    <fieldset>
+                                                        <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
+                                                        <input id="txbNombreUsuario" type="text" />
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <label for="txbContrasenia"><strong>Contraseña</strong></label>
+                                                        <input id="txbContrasenia" type="password" />
+                                                    </fieldset>
+                                                    <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
+                                                    <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <ul id="menuIzquierdoUsuarioRegistrado">
+                                    <li>
+                                        <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Tu perfil</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkMisViajes" runat="server" href="~/Front/Viajes/MisViajes.aspx">Tus viajes</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkPublicarViaje" runat="server" href="~/Front/Viajes/PublicarViaje.aspx">Publica un viaje</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkBuscarViaje" runat="server" href="~/Front/Viajes/BuscarViaje.aspx">Encuentra un viaje</a>
+                                    </li>
+                                </ul>
+                                <ul id="menuDerechoUsuarioRegistrado">
+                                    <li>
+                                        <a id="lnkUsuarioPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">
+                                            <asp:LoginName ID="lblNombreUsuario" runat="server" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <asp:LoginStatus ID="lblCerrarSesion" runat="server" LogoutAction="Redirect" LogoutText="Salir" LogoutPageUrl="~/Front/Bienvenida.aspx" />
+                                    </li>
+                                </ul>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </section>
+                </div>
+                <div class="content-wrapper">
+                    <figure id="logoSite" class="float-left">
+                        <p class="site-title" >CarpoolingCo</p>
+                    </figure>
+                    <nav>
+                        <ul id="menu">
+                            <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
+                            <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
+                            <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>               
+            </header>        
+            <div id="body">
+                <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                <section class="main-content content-wrapper clear-fix" >
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
                 </section>
             </div>
-            <div class="content-wrapper">
-                <figure id="logoSite" class="float-left">
-                    <p class="site-title" >CarpoolingCo</p>
-                </figure>
-                <nav>
-                    <ul id="menu">
-                        <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
-                        <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
-                        <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>               
-        </header>        
-        <div id="body">
-            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-            <section class="main-content content-wrapper clear-fix" >
-                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; <%: DateTime.Now.Year %> - CarpoolingCo</p>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         </form>
     </body>    
 </html>
+
+
