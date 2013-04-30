@@ -67,7 +67,7 @@
     <div class="divRelleno"></div>
     <div>
         <asp:DataList runat="server" ID="dataListItemsViajesEncontrados" 
-            ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" >
+            ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="btnVerDetalle_Click" >
             <AlternatingItemStyle BackColor="White" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -89,7 +89,7 @@
             <ItemStyle BackColor="#E3EAEB" />
             <ItemTemplate>
                 <div class="divCelda">
-                    <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("IdViaje") %>'/>    
+                    <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("IdViaje") %>'/>    
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label6" runat="server" Text='<%# Eval("NombreConductor") %>'></asp:Label>    
@@ -100,9 +100,12 @@
                 <div class="divCelda">
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
+                <div class="divClear">
+                    <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument=<%#Eval("IdViaje") %> ></asp:LinkButton>
+                </div>
             </ItemTemplate>
             <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        </asp:DataList>
+         </asp:DataList>
     </div>
 <%--
     <div>

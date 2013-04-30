@@ -57,10 +57,10 @@ namespace DataLayer.Transformador
                                    //TODO esta fecha de creacion deberia ser con la horaPartidaStr y fecha del servidor
                                    FECHA_HORA_PARTIDA = viajeActual.FechaHoraPartida,
                                    ID_CONDUCTOR = viajeActual.Conductor.IdUsuario,
-                                   ESTADO= (int) viajeActual.Estado
+                                   ESTADO = (int) viajeActual.Estado,
+                                   TRAYECTO = new Collection<TRAYECTO>()
                                };
 
-            viajeDao.TRAYECTO = new Collection<TRAYECTO>();
             foreach (Trayecto trayectoActual in viajeActual.TrayectosViaje)
             {
                 var trayectoDao = new TRAYECTO

@@ -91,5 +91,9 @@ namespace BusinessLayer
             return listTrayectos;
         }
 
+        public Viaje VerDetalleViaje(long idViajeDetalle)
+        {
+            return ViajeDao.Instancia.ObtenerViaje(idViajeDetalle);
+        }
     }
 }
