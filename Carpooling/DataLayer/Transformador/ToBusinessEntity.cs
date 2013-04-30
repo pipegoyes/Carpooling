@@ -153,5 +153,87 @@ namespace DataLayer.Transformador
                 };
             return ocupacionBO;
         }
+
+        public Viaje ToViaje(VIAJE pViaje)
+        {
+            return  new Viaje()
+                              {
+                                  AporteEconomico = pViaje.APORTE_ECONOMICO,
+                                  Calificaciones = ToCalificaciones(pViaje.CALIFICACION.ToList()),
+                                  Conductor = ToUsuario(pViaje.USUARIO),
+                                  Estado = Viaje.GetViajeEstado(pViaje.ESTADO), 
+                                  FechaCreacion = pViaje.FECHA_CREACION,
+                                  FechaHoraPartida = pViaje.FECHA_HORA_PARTIDA,
+                                  IdViaje = pViaje.ID_VIAJE,
+                                  Preguntas = ToPreguntas(pViaje.PREGUNTA.ToList()),
+                                  TrayectosViaje = ToTrayectos(pViaje.TRAYECTO.ToList()),
+                              };
+
+        }
+
+        public List<Calificacion> ToCalificaciones(List<CALIFICACION> pCalificacions)
+        {
+            return pCalificacions.Select(pCalificacion => new Calificacion()
+                                                                                  {
+                                                                                      Evaluador = this.ToUsuario(pCalificacion.USUARIO_EVALUADOR), 
+                                                                                      FechaRealizacion = pCalificacion.FECHA_REALIZACION, 
+                                                                                      Puntaje = pCalificacion.PUNTAJE
+                                                                                  }).ToList();
+        } 
+
+        public List<Pregunta> ToPreguntas (List<PREGUNTA> pPreguntas )
+        {
+            return pPreguntas.Select(p => new Pregunta()
+                                              {
+                                                  CreadorPregunta = ToUsuario(p.USUARIO),
+                                                  TextoPregunta = p.TEXTO_PREGUNTA,
+                                                  IdPregunta = p.ID_PREGUNTA,
+                                                  TextoRespuesta = p.TEXTO_RESPUESTA
+                                              }).ToList();
+        }
+
+        public List<Trayecto> ToTrayectos(List<TRAYECTO> pTrayectos)
+        {
+            var listaTrayectos = new List<Trayecto>();
+            foreach (TRAYECTO trayecto in pTrayectos)
+            {
+                var trayectoBO = new Trayecto()
+                                     {
+                                         CuposDisponibles = trayecto.CUPOS,
+                                         TrayectoSimple = trayecto.TRAYECTO_SIMPLE,
+                                         IdTrayecto = trayecto.ID_TRAYECTO
+                                     };
+                trayectoBO.ParadaOrigen = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "I"));
+                trayectoBO.ParadaDestino = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "F"));
+                listaTrayectos.Add(trayectoBO);
+            }
+            
+            return listaTrayectos;
+        }
+
+        public Parada ToParada(PARADA pParada)
+        {
+            return new Parada()
+                       {
+                            Direccion = pParada.DIRECCION,
+                            Latitud = pParada.LATITUD,
+                            IdParada = pParada.ID_PARADA,
+                            Longitud = pParada.LONGITUD,
+                            NumeroParada = pParada.NUMERO_PARADA,
+                            TipoParada = pParada.TIPO_PARADA
+                       };
+        }
+
+        public List<Solicitud> ToSolicitud (List<SOLICITUD> pSolicitud)
+        {
+            return pSolicitud.Select(s => new Solicitud()
+                                              {
+                                                  Comentario = s.COMENTARIO,
+                                                  CreadorSolicitud = ToUsuario(s.USUARIO),
+                                                  CuposSolicitados = s.CUPOS_SOLICITADOS,
+                                                  Estado = Solicitud.GetSolicitudEstado(s.ESTADO),
+                                                  IdSolicitud = s.ID_SOLICITUD
+                                              }).ToList();
+        } 
     }
 }

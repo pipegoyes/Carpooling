@@ -7,7 +7,9 @@ namespace Entities.Negocio
 {
     public class Pregunta
     {
-
-        //TODO pendiente por los atributos
+        public long IdPregunta { get; set; }
+        public string TextoPregunta { get; set; }
+        public string TextoRespuesta { get; set; }
+        public Usuario CreadorPregunta { get; set; }
     }
 }

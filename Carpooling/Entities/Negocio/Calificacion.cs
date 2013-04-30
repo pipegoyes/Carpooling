@@ -7,6 +7,8 @@ namespace Entities.Negocio
 {
     public class Calificacion
     {
-        //TODO pendiente por los atributos
+        public DateTime? FechaRealizacion { get; set; }
+        public decimal Puntaje { get; set; }
+        public Usuario Evaluador { get; set; }
     }
 }
