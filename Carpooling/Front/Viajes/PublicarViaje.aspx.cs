@@ -15,12 +15,7 @@ namespace Carpooling.Front.Viajes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //List<int> listHoras = Enumerable.Range(00, 24).ToList();
-            //List<int> listMinutos = Enumerable.Range(00, 59).ToList();
-            //this.comboBoxHour.DataSource = listHoras;
-            //this.comboBoxMinutos.DataSource = listMinutos;
-            //this.btnRolConductor.Checked
-            //Server.Transfer();
+            UsuarioCreador = (Usuario) Session["usuario"];
         }
 
         [WebMethod]
@@ -28,18 +23,20 @@ namespace Carpooling.Front.Viajes
         {
             try
             {
-                var usuarioConectado = new Usuario()
-                                           {
-                                               IdUsuario = "manuellinares007"
-                                           };
-                long idViaje = AdministradorViajes.Instancia.PublicarViaje(viajeJson, usuarioConectado);
-                return idViaje.ToString();
+                if (UsuarioCreador != null)
+                {
+                    long idViaje = AdministradorViajes.Instancia.PublicarViaje(viajeJson, UsuarioCreador);
+                    return idViaje.ToString();
+                }
+                else
+                    //TODO Podria ser redireccionado a la pagina de registrarse
+                    return "Debe ingresar a su cuenta para publicar viajes";
             }
             catch (Exception exception)
             {
+                //TODO revisar como mostrar esto en pantalla
                 return "Error del sistema - " + exception.Message;
             }
-            //return "Origen del viaje - " + viajeJson.AporteEconomico; ;
         }
 
     }
