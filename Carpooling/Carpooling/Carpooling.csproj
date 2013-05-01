@@ -125,7 +125,7 @@
     <Content Include="Scripts\front-js\PublicarViaje.js" />
     <Content Include="Scripts\Inicio.js" />
     <Content Include="Scripts\jqueryUI\jquery-ui-1.9.1.custom.min.js" />
-    <Content Include="Scripts\front-js\PublicacionViajeExitosa.js" />
+    <Content Include="Scripts\front-js\DetalleViaje.js" />
     <Content Include="Styles\front-css\BuscarViaje.css" />
     <Content Include="Styles\images\loading.gif" />
     <Content Include="Styles\jquery.wijmo-complete.2.2.1.css" />
@@ -141,7 +141,7 @@
     <Content Include="Styles\Perfil.css" />
     <Content Include="Styles\Perfil2.css" />
     <Content Include="Styles\Perfil3.css" />
-    <Content Include="Styles\front-css\PublicacionViajeExitosa.css" />
+    <Content Include="Styles\front-css\DetalleViaje.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Styles\themes\aristo\images\scrollbar-horizontal.png" />

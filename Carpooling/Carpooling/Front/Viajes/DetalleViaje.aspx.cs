@@ -20,6 +20,26 @@ namespace Carpooling.Front.Viajes
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             IdViaje = Convert.ToInt64(idViajeStr);
             ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
+            PintarDetalleViaje();
+        }
+
+        public void PintarDetalleViaje()
+        {
+            //Informacion del viaje
+            txtCiudadDestino.Text = ViajeDetalle.GetCiudadDestino().Direccion;
+            txtCiudadOrigen.Text = ViajeDetalle.GetCiudadOrigen().Direccion;
+            txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy") + " (MM/dd/yyyy)";
+            txtHora.Text = ViajeDetalle.FechaHoraPartida.ToString("HH:mm ");
+            
+            //Informacion del conductor
+            txtNombreConductor.Text = ViajeDetalle.Conductor.Nombre;
+
+            //pendiente el trayecto seleccionado
+            //txtCupos
+
+            //Informacion de las Paradas
+            dataListParada.DataSource = ViajeDetalle.GetParadasSinOrigenDestino();
+            dataListParada.DataBind();
         }
     }
 }
