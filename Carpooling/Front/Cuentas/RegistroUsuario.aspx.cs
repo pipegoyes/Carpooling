@@ -70,7 +70,7 @@ namespace Carpooling.Front.Cuentas
                     TelefonoMovil = txtTelefonoMovil.Text,
                     Fumador = chkFumador.Checked,
                     VehiculoPropio = chkVehiculoPropio.Checked,
-                    Foto = AdministradorCuentas.Instancia.ObtenerBinaryImagen(Server.MapPath("/" + m_imagenUsuarioPath)),
+                    Foto = AdministradorCuentas.Instancia.ObtenerBinaryFromImagen(Server.MapPath("/" + m_imagenUsuarioPath)),
                     InformacionAdicional = txtMasInformacion.Text,
                     Reputacion = null
                     

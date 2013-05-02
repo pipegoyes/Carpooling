@@ -185,8 +185,7 @@ function CambiarDia() {
     }
     else {
         fechaNacimiento.addClass('errorValidacion');
-    }
-        
+    }      
 }
 
 //#endregion FUNCIONES AJAX CONTROLES
