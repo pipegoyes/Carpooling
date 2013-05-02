@@ -14,17 +14,16 @@ body {
 }
 
 /*incluye manuel*/
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+    width: 100% !important;
     line-height: 17px;
     border: 1px solid #C0C0C0;
-    border-radius: 1px;
     height: 30px;
     padding: 0 8px;
     -webkit-border-radius: 3px;
@@ -32,7 +31,6 @@ input[type="text"], input[type="password"] {
     -o-border-radius: 3px;
     -ms-border-radius: 3px;
     border-radius: 3px;
-    direction: ltr;
 }
 
     input[type="text"]:focus, input[type="password"]:focus {

@@ -4,6 +4,8 @@ using System.Text;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing.Imaging;
+using Image = System.Drawing.Image;
 using Entities.Negocio;
 using DataLayer.DAOs;
 
@@ -54,7 +56,7 @@ namespace BusinessLayer
         }
 
         //Obtiene un array binary que representa la imagen del path especificado
-        public byte[] ObtenerBinaryImagen(string pRutaImagen)
+        public byte[] ObtenerBinaryFromImagen(string pRutaImagen)
         {
             byte[] arrayImagen = null;
             if (!string.IsNullOrEmpty(pRutaImagen))
@@ -66,6 +68,22 @@ namespace BusinessLayer
                 fileStream.Close();
             }
             return arrayImagen;
+        }
+
+        //Obtiene la imagen representada en un array binary
+        public Image ObtenerImageFromBinary(byte[] pBinaryImage)
+        {
+            Stream stream = new MemoryStream(pBinaryImage);
+            Image image = Image.FromStream(stream);
+            return image;
+        }
+
+        //Guarda una imagen en un directorio espeficificado
+        public string GuardarImagenSever(Image pImage, string pPathSever, string pFileName)
+        {
+            string fileName = pFileName + ".jpg";
+            pImage.Save(pPathSever + fileName, ImageFormat.Jpeg);
+            return fileName;
         }
 
         //Encripta la contraseña

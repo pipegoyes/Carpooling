@@ -388,7 +388,7 @@
     </asp:UpdatePanel>     
 
                 <div id="dialogoCambiarFoto" title="Cambiar foto">
-                    <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" ChildrenAsTriggers="true" runat="server">
+                    <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" ChildrenAsTriggers="false" runat="server">
                         <ContentTemplate>
                 <div class="clear-fix-margin" style="text-align: center; vertical-align: middle;">
                     <img id="imagenFotoModal" class="imagenFoto" src="/Styles/images/imgFotoPerfilHombre.jpg" alt=""/>

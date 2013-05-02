@@ -74,11 +74,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Front\Bienvenida.aspx" />
+    <Content Include="Front\Cuentas\EditarPerfil.aspx" />
     <Content Include="Front\Cuentas\MiPerfil.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Front\Viajes\DetalleViaje.aspx" />
     <Content Include="Front\Viajes\MisViajes.aspx" />
     <Content Include="Scripts\front-js\BuscarViaje.js" />
+    <Content Include="Scripts\front-js\EditarPerfil.js" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
     <Content Include="Scripts\front-js\SiteMaster.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -86,6 +88,7 @@
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Styles\images\fumador.jpg" />
     <Content Include="Styles\images\orderedList0.png" />
     <Content Include="Styles\images\orderedList1.png" />
     <Content Include="Styles\images\orderedList2.png" />
@@ -121,6 +124,7 @@
     <Content Include="Styles\images\imgFotoPerfilHombre.jpg" />
     <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
     <Content Include="Styles\images\uploading.gif" />
+    <Content Include="Styles\images\vehiculo.png" />
     <Content Include="Styles\images\warning.gif" />
     <Content Include="Scripts\front-js\PublicarViaje.js" />
     <Content Include="Scripts\Inicio.js" />
@@ -360,6 +364,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebServices\SiteWebMethod.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Front\Bienvenida.aspx.cs">
@@ -368,6 +373,13 @@
     </Compile>
     <Compile Include="Front\Bienvenida.aspx.designer.cs">
       <DependentUpon>Bienvenida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\EditarPerfil.aspx.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\EditarPerfil.aspx.designer.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Cuentas\MiPerfil.aspx.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
@@ -466,6 +478,10 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\SiteWebMethod.asmx.cs">
+      <DependentUpon>SiteWebMethod.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

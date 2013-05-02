@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing.Imaging;
+using Image = System.Drawing.Image;
 using BusinessLayer;
 using Entities.Negocio;
 using System.Web.Security;
@@ -30,8 +33,18 @@ namespace Carpooling.Front
                 if (usuarioApp != null)
                 {
                     Session["usuario"] = usuarioApp;
+                    if (usuarioApp.Foto != null)
+                    {
+                        var cacheImagenFolder = ConfigurationManager.AppSettings["CacheImagenFolder"];
+                        cacheImagenFolder = Server.MapPath("/" + cacheImagenFolder + "/");
+                        var imagenCuenta = AdministradorCuentas.Instancia.ObtenerImageFromBinary(usuarioApp.Foto);
+                        var fileName = AdministradorCuentas.Instancia.GuardarImagenSever(imagenCuenta, cacheImagenFolder, usuarioApp.IdUsuario);
+                        Session["imagenUsuario"] = fileName;
+                    }
+
                     string nombreMostrarUsuario = usuarioApp.Nombre + " " + usuarioApp.Apellido;
-                    nombreMostrarUsuario = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMostrarUsuario.Trim().ToLower());
+                    nombreMostrarUsuario = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMostrarUsuario.Trim().ToLower()) + " (" + usuarioApp.IdUsuario + ")";
+
                     FormsAuthentication.RedirectFromLoginPage(nombreMostrarUsuario, false);
                 }
                 else
