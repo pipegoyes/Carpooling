@@ -20,6 +20,8 @@ namespace Carpooling.Front.Viajes
         protected void Page_Load(object sender, EventArgs e)
         {
             //TODO utilizando variables de sesion buscar el usuario conectado
+            if (this.IsCallback)
+                CiudadDestino = CiudadDestino;
         }
 
         protected void btnBuscarViaje_Click(object sender, EventArgs e)
