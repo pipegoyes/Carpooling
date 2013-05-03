@@ -4,6 +4,8 @@
     <link href="../../Styles/front-css/DetalleViaje.css" type="text/css" rel="stylesheet"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"> </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"> </script>
     <script src="../../Scripts/front-js/DetalleViaje.js" type="text/javascript" ></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -22,7 +24,7 @@
      <div id="contenedorRutaViaje" class="leftPosition">
         <div class="subtitulo">Ruta de viaje</div>
         <div class="leftPosition contenedorSecundarioRV">
-            <div class="leftPosition labelRutaViaje">Ciudad Origen:</div>
+           <%-- <div class="leftPosition labelRutaViaje">Ciudad Origen:</div>
             <div class="leftPosition textoRutaViaje">
                 <asp:Label ID="txtCiudadOrigen" Text="Sin ciudad" runat="server"></asp:Label>
             </div>
@@ -32,7 +34,7 @@
             <div class="leftPosition textoRutaViaje">
                 <asp:Label ID="txtCiudadDestino" Text="Sin Ciudad" runat="server"></asp:Label>
             </div>
-            <div class="divClear"></div>
+            <div class="divClear"></div>--%>
             <asp:DataList runat="server" ID="dataListParada" 
                 ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%">
                 <AlternatingItemStyle BackColor="White" />
@@ -50,31 +52,7 @@
                     </div>
                 </ItemTemplate>
             </asp:DataList>
-
-            <%--un data list con las paradas--%><%--
-            <div class="leftPosition labelRutaViaje">pasa por</div>
-            <div class="leftPosition textoRutaViaje">
-                <asp:Label ID="lblPasaPor1" Text="Chia" runat="server"></asp:Label>
-            </div>
-            <div class="divClear"></div>--%>
         </div>
-
-
-        <%--<div  class="leftPosition contenedorSecundarioRV">
-            <div class="rightPosition textoRutaViaje">
-                <asp:Label ID="lblDistancia" Text="372 km" runat="server"></asp:Label>
-            </div>
-            <div class="rightPosition labelRutaViaje">Distancia</div>
-            <div class="divClear"></div>
-            <div class="rightPosition textoRutaViaje">
-                <asp:Label ID="lblTiempoEstimado" Text="6 horas" runat="server"></asp:Label>
-            </div>
-            <div class="rightPosition labelRutaViaje" >Tiempo Estimado</div>
-            <div class="divClear"></div>
-
-        </div>
-        <div class="divClear"></div>--%>
-
     </div>
     
     <div id="contenedorDatosViaje" class="leftPosition">
@@ -94,14 +72,7 @@
         <div>
             <div class="leftPosition labelDatosViaje">Tarifa:</div>
             <div class="leftPosition">
-                <asp:Label ID="txtTarifa" Text="Tarifa No disponible" runat="server"></asp:Label>
-            </div>
-            <div class="divClear"></div>
-        </div>
-        <div>
-            <div class="leftPosition labelDatosViaje">Cupos</div>
-            <div class="leftPosition">
-                <asp:Label ID="txtCupos" Text="Pendiente" runat="server"></asp:Label>
+                <asp:Label ID="txtTarifa" Text="No disponible" runat="server"></asp:Label>
             </div>
             <div class="divClear"></div>
         </div>
@@ -113,6 +84,31 @@
         
     </div>
     <div class="divClear"></div>
-    <div id="contenedorMapa">Google Map</div>
+    <div>
+         <asp:DataList runat="server" ID="dataListTrayectos" 
+                ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%">
+                <AlternatingItemStyle BackColor="White" />
+                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                <HeaderTemplate>
+                    <div class="divCeldaTrayecto">Parada Origen</div>
+                    <div class="divCeldaTrayecto">Parada Destino</div>
+                    <div class="divCeldaTrayecto">Cupos</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="divCeldaTrayecto">
+                        <asp:Label ID="lblNumeroParada" runat="server" Text='<%# Eval("ParadaOrigen.Direccion") %>'></asp:Label>
+                    </div>
+                    <div class="divCeldaTrayecto">
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("ParadaDestino.Direccion") %>'></asp:Label>
+                    </div>
+                    <div class="divCeldaTrayecto">
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("CuposDisponibles") %>'></asp:Label>
+                    </div>
+                    <asp:HiddenField runat="server" Value='<%# Eval("IdTrayecto") %>'/>
+                </ItemTemplate>
+            </asp:DataList>
+    </div>
 
+    <div id="contenedorMapa">Google Map</div>
+    <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
 </asp:Content>

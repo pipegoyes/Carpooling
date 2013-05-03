@@ -13,24 +13,6 @@ namespace Carpooling.Front.Viajes {
     public partial class DetalleViaje {
         
         /// <summary>
-        /// txtCiudadOrigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtCiudadOrigen;
-        
-        /// <summary>
-        /// txtCiudadDestino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtCiudadDestino;
-        
-        /// <summary>
         /// dataListParada control.
         /// </summary>
         /// <remarks>
@@ -67,15 +49,6 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txtTarifa;
         
         /// <summary>
-        /// txtCupos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtCupos;
-        
-        /// <summary>
         /// txtNombreConductor control.
         /// </summary>
         /// <remarks>
@@ -83,6 +56,24 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtNombreConductor;
+        
+        /// <summary>
+        /// dataListTrayectos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListTrayectos;
+        
+        /// <summary>
+        /// contenedorHiddenFields control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder contenedorHiddenFields;
         
         /// <summary>
         /// PreviousPage property.

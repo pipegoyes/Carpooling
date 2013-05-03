@@ -47,10 +47,12 @@ namespace Entities.Negocio
             var listaParadas = new List<Parada>();
             foreach (Trayecto trayecto in TrayectosViaje)
             {
-                if(listaParadas.All(p => p != trayecto.ParadaDestino))
-                    listaParadas.Add(trayecto.ParadaDestino);
-                if (listaParadas.All(p => p != trayecto.ParadaOrigen))
+                if(listaParadas.All(p => p.Direccion != trayecto.ParadaOrigen.Direccion))
                     listaParadas.Add(trayecto.ParadaOrigen);
+
+                if (listaParadas.All(p => p.Direccion != trayecto.ParadaDestino.Direccion))
+                    listaParadas.Add(trayecto.ParadaDestino);
+
             }
             return listaParadas;
         } 
@@ -85,6 +87,13 @@ namespace Entities.Negocio
         public int GetNumeroParadas()
         {
             return Convert.ToInt32((Math.Sqrt((8*TrayectosViaje.Count + 1)) + 1)/2);
+        }
+
+        public Trayecto GetTrayecto(string pCiudadOrigen, string pCiudadDestino)
+        {
+            return
+                TrayectosViaje.Find(
+                    t => t.ParadaDestino.Direccion == pCiudadDestino && t.ParadaOrigen.Direccion == pCiudadOrigen);
         }
     }
 }
