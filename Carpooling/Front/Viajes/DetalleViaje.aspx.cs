@@ -60,11 +60,11 @@ namespace Carpooling.Front.Viajes
         {
             
             var hiddenCiudadOrigen = new HtmlInputHidden
-                                         {Name = "txtCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion};
+                                         {ID = "txtCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion};
             this.contenedorHiddenFields.Controls.Add(hiddenCiudadOrigen);
             
             var hiddenCiudadDestino = new HtmlInputHidden
-                                          {Name = "txtCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
+                                          {ID = "txtCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
             this.contenedorHiddenFields.Controls.Add(hiddenCiudadDestino);
             
             int count = 1;
