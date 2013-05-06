@@ -120,6 +120,7 @@ namespace Carpooling.Front.Viajes
         {
             if(popUpConfirmation.TransaccionExitosa)
             {
+                //TODO Definir hacia donde es el redireccionamiento
                 Response.Redirect("../Viajes/MisViajes.aspx");
             }
             else

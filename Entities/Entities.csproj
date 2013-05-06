@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion\ErrorAplicacion.cs" />
+    <Compile Include="Aplicacion\ItemTablaSolicitud.cs" />
     <Compile Include="Aplicacion\ItemTablaViaje.cs" />
     <Compile Include="Aplicacion\ListaDesplegable.cs" />
     <Compile Include="Aplicacion\ViajeJSON.cs" />

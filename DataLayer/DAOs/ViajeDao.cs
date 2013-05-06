@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Data.Objects;
 using System.Linq;
 using DataLayer.ModeloEntityFramework;
@@ -33,10 +33,11 @@ namespace DataLayer.DAOs
             return viajeInsertar.ID_VIAJE;
         }
 
-        public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino, DateTime? fechaRealizacion)
+        public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino,
+                                                        DateTime? fechaRealizacion)
         {
             EstablecerConexion();
-            
+
             var s = from v in Conexion.VIAJE
                     from p in Conexion.PARADA
                     from t in Conexion.TRAYECTO
@@ -70,9 +71,20 @@ namespace DataLayer.DAOs
             var viajeEncontrado = from v in Conexion.VIAJE
                                   where v.ID_VIAJE == idViaje
                                   select v;
-            if(viajeEncontrado.Any())
+            if (viajeEncontrado.Any())
                 return ToBusinessEntity.Instancia.ToViaje(viajeEncontrado.First());
             throw new Exception("El viaje con el id: " + idViaje + " no se encuentra en la base de datos");
         }
+
+        public List<Viaje> ConsultarMisViajes(Usuario pUsuario)
+        {
+            EstablecerConexion();
+            var regViajes = from v in Conexion.VIAJE
+                            where v.USUARIO.ID_USUARIO == pUsuario.IdUsuario
+                            select v;
+            return regViajes.Any() ? ToBusinessEntity.Instancia.ToViajes(regViajes.ToList()) : null;
+        }
+
     }
+    
 }

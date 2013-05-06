@@ -29,7 +29,6 @@ namespace DataLayer.Transformador
                     let fechaHoraViaje = viajeDB.FECHA_HORA_PARTIDA.ToString("MM/dd/yyyy HH:mm")
                     select new ItemTablaViaje()
                                {
-                                   //TODO se podria mostrar el numero de cupos para ese trayecto
                                    NombreConductor = viajeDB.USUARIO.NOMBRE + "-" + viajeDB.USUARIO.APELLIDO, 
                                    ParadaDestino = nombrePParadaDestino, 
                                    ParadaOrigen = nombrePParadaOrigen,
@@ -237,5 +236,10 @@ namespace DataLayer.Transformador
                                                   IdSolicitud = s.ID_SOLICITUD
                                               }).ToList();
         } 
+
+        public List<Viaje> ToViajes(List<VIAJE> pViajes)
+        {
+            return pViajes.Select(ToViaje).ToList();
+        }
     }
 }
