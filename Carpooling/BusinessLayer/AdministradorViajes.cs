@@ -105,5 +105,21 @@ namespace BusinessLayer
             }
             return false;
         }
+
+        public List<Viaje> BuscarMisViajesVigentes(Usuario pUsuario)
+        {
+            return ViajeDao.Instancia.ConsultarMisViajes(pUsuario);
+        }
+
+        public List<ItemTablaViaje> ToListItemTabla(List<Viaje> pviajesList)
+        {
+            return pviajesList.Select(v => new ItemTablaViaje()
+            {
+                FechaHora = v.FechaHoraPartida.ToString("MM/dd/yyyy"),
+                ParadaDestino = v.GetCiudadDestino().Direccion,
+                ParadaOrigen = v.GetCiudadOrigen().Direccion,
+                IdViaje = v.IdViaje
+            }).ToList();
+        }
     }
 }

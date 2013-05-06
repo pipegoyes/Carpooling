@@ -10,7 +10,6 @@ namespace Entities.Aplicacion
     public class ViajeJSON
 // ReSharper restore InconsistentNaming
     {
-        //TODO pendiente por los atributos
         public Parada Origin { get; set; }
         public Parada Destination { get; set; }
         public List<Parada> Waypoints { get; set; }
@@ -19,12 +18,5 @@ namespace Entities.Aplicacion
         public string FechaPartida { get; set; }
         public string HoraPartida { get; set; }
 
-        //jsonViaje.origin = listCoordenadas[0];
-        //jsonViaje.destination = listCoordenadas[1];
-        //jsonViaje.wayPoints = listParadas;
-        //jsonViaje.tarifa = $("[id*=txbTarifa]").val();
-        //jsonViaje.cupos = $("[id*=txbCupos]").val();
-        //jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
-        //jsonViaje.horaPartida = $("[id*=txbHora]").val();
     }
 }
