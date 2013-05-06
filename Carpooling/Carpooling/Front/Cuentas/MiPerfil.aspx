@@ -116,7 +116,7 @@
                 Imagen de la cuenta:
             </span>
             <figure>
-                <asp:Image ID="imgImagenCuenta" runat="server" Height="160" Width="160" ImageUrl="~/Styles/images/imgFotoPerfilHombre.jpg"/>
+                <asp:Image ID="imgImagenCuenta" runat="server" Height="160" Width="160"/>
             </figure>
         </fieldset>
         <fieldset>

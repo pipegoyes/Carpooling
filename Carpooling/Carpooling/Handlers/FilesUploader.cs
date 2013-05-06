@@ -26,6 +26,7 @@ namespace Carpooling.Handlers
         public void ProcessRequest(HttpContext context)
         {
             HttpRequest request = context.Request;
+            var idUsuario = context.Request["idUsuario"];
             //var hfdImagePathValue = request.Form["hfdImagePath"]; todo: borrar la imagen de la carpeta
 
             if (IsIE9(request))
@@ -52,13 +53,14 @@ namespace Carpooling.Handlers
                 var streamImagen = request.InputStream;
                 // write the image using a guid name instead to avoid conflicts
                 var cacheImagenFolder = ConfigurationManager.AppSettings["CacheImagenFolder"];               
-                var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
-                var destFolder = request.PhysicalApplicationPath + "/" + cacheImagenFolder + "/";
+                //var uniqueName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
+                var uniqueName = idUsuario.ToString() + "_new.jpg";
+                var destFolder = request.PhysicalApplicationPath + cacheImagenFolder + "/";
                 
                 // all images end up as jpg
                 var imageUpload = Image.FromStream(streamImagen);
                 imageUpload.Save(destFolder + uniqueName, ImageFormat.Jpeg);
-                context.Session["imagenCuenta"] = uniqueName;
+                //context.Session["imagenCuenta"] = uniqueName;
 
                 //arma la ruta relativa de la imagen para enviarla al cliente en la respuesta
                 var imagenUsuarioPath = "/" + cacheImagenFolder + "/" + uniqueName;

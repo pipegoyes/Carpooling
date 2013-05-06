@@ -13,6 +13,24 @@ namespace Carpooling.Front.Cuentas {
     public partial class EditarPerfil {
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// hfMensajes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfMensajes;
+        
+        /// <summary>
         /// lblNombresApellidos control.
         /// </summary>
         /// <remarks>
@@ -229,13 +247,13 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txbEmail;
         
         /// <summary>
-        /// txnContraseniaActual control.
+        /// txbContraseniaActual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txnContraseniaActual;
+        protected global::System.Web.UI.WebControls.TextBox txbContraseniaActual;
         
         /// <summary>
         /// txbNuevaContrasenia control.
@@ -256,6 +274,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txbReNuevaContrasenia;
         
         /// <summary>
+        /// hfdImagePathHombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathHombre;
+        
+        /// <summary>
+        /// hfdImagePathMujer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathMujer;
+        
+        /// <summary>
         /// imgImagenCuenta control.
         /// </summary>
         /// <remarks>
@@ -272,6 +308,15 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkCambiarFoto;
+        
+        /// <summary>
+        /// upnCambiarImagen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upnCambiarImagen;
         
         /// <summary>
         /// txbInfoAdicional control.

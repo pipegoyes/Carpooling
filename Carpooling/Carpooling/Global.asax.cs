@@ -4,11 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Entities.Aplicacion;
 
 namespace Carpooling
 {
     public class Global : System.Web.HttpApplication
     {
+        public ErrorAplicacion ErrorExcepcion
+        {
+            get 
+            {
+                return new ErrorAplicacion { TituloError = Session["TitutloError"].ToString(), DetalleError = Session["DetalleError"].ToString() };
+            }
+            set
+            {
+                Session["TitutloError"] = value.TituloError;
+                Session["DetalleError"] = value.DetalleError;
+            }
+        }
 
         void Application_Start(object sender, EventArgs e)
         {

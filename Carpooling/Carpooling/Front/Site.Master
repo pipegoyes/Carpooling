@@ -67,11 +67,11 @@
                                                 <div id="divLoginFormFloat">
                                                     <fieldset>
                                                         <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
-                                                        <input id="txbNombreUsuario" type="text" />
+                                                        <input id="txbNombreUsuario" type="text" value="manuellinares007" />
                                                     </fieldset>
                                                     <fieldset>
                                                         <label for="txbContrasenia"><strong>Contraseña</strong></label>
-                                                        <input id="txbContrasenia" type="password" />
+                                                        <input id="txbContrasenia" type="password" value="a123456789" />
                                                     </fieldset>
                                                     <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
                                                     <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>

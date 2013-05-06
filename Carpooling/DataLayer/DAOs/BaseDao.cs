@@ -21,9 +21,17 @@ namespace DataLayer.DAOs
             return _conexion;
         }
 
-        public void ConfirmarCambios()
+        public void TerminarConexion()
         {
-            this.Conexion.SaveChanges();
+            if (this._conexion != null)
+                this._conexion.Dispose();
+        }
+
+        public bool ConfirmarCambios()
+        {
+            if (this.Conexion.SaveChanges() > 0)
+                return true;
+            return false;
         }
     }
 }
