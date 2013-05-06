@@ -77,6 +77,8 @@
     <Content Include="Front\Cuentas\EditarPerfil.aspx" />
     <Content Include="Front\Cuentas\MiPerfil.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
+    <Content Include="Front\UserControls\PopUpConfrimarCupos.ascx" />
+    <Content Include="Front\UserControls\PopUpOk.ascx" />
     <Content Include="Front\Error.aspx" />
     <Content Include="Front\Viajes\DetalleViaje.aspx" />
     <Content Include="Front\Viajes\MisViajes.aspx" />
@@ -89,6 +91,7 @@
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Styles\images\close-icon.png" />
     <Content Include="Styles\images\fumador.jpg" />
     <Content Include="Styles\images\orderedList0.png" />
     <Content Include="Styles\images\orderedList1.png" />
@@ -355,6 +358,7 @@
     <Content Include="Styles\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Styles\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
     <Content Include="Styles\themes\Supercharged\jquery-ui-1.9.0.custom.css" />
+    <Content Include="Styles\usercontrosl-css\PopUp.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -405,6 +409,20 @@
     </Compile>
     <Compile Include="Front\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpConfrimarCupos.ascx.cs">
+      <DependentUpon>PopUpConfrimarCupos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpConfrimarCupos.ascx.designer.cs">
+      <DependentUpon>PopUpConfrimarCupos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpOk.ascx.cs">
+      <DependentUpon>PopUpOk.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpOk.ascx.designer.cs">
+      <DependentUpon>PopUpOk.ascx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
       <DependentUpon>BuscarViaje.aspx</DependentUpon>

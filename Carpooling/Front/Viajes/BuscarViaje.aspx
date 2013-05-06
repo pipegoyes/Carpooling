@@ -73,7 +73,7 @@
                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
             <HeaderTemplate>
                 <div class="divCelda">
-                    <asp:Label ID="Label2" runat="server" Text="# Viaje"></asp:Label>    
+                    <asp:Label ID="Label2" runat="server" Text="Fecha y hora"></asp:Label>    
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label3" runat="server" Text="Conductor"></asp:Label>    
@@ -89,7 +89,7 @@
             <ItemStyle BackColor="#E3EAEB" />
             <ItemTemplate>
                 <div class="divCelda">
-                    <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("IdViaje") %>'/>    
+                    <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label6" runat="server" Text='<%# Eval("NombreConductor") %>'></asp:Label>    
@@ -101,7 +101,7 @@
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div class="divClear">
-                    <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument=<%#Eval("IdViaje") %> ></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </ItemTemplate>
             <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />

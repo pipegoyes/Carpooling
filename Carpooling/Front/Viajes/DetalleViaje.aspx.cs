@@ -20,12 +20,14 @@ namespace Carpooling.Front.Viajes
 
         public string CiudadDestino { get; set; }
 
+        public Usuario UsuarioConectado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             if (idViajeStr != null)
             {
+                UsuarioConectado = (Usuario)Session["usuario"];
                 IdViaje = Convert.ToInt64(idViajeStr);
                 ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
                 PintarDetalleViaje();
@@ -36,8 +38,6 @@ namespace Carpooling.Front.Viajes
         public void PintarDetalleViaje()
         {
             //Informacion del viaje
-            //txtCiudadDestino.Text = ViajeDetalle.GetCiudadDestino().Direccion;
-            //txtCiudadOrigen.Text = ViajeDetalle.GetCiudadOrigen().Direccion;
             txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy") + " (mm/dd/yyyy)";
             txtHora.Text = String.Format("{0:HH:mm}", ViajeDetalle.FechaHoraPartida) + " (24h)";
             txtTarifa.Text = "$"+ViajeDetalle.AporteEconomico+" COP";
@@ -60,22 +60,73 @@ namespace Carpooling.Front.Viajes
         {
             
             var hiddenCiudadOrigen = new HtmlInputHidden
-                                         {ID = "txtCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion};
+                                         {ID = "txbCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion};
             this.contenedorHiddenFields.Controls.Add(hiddenCiudadOrigen);
             
             var hiddenCiudadDestino = new HtmlInputHidden
-                                          {ID = "txtCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
+                                          {ID = "txbCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
             this.contenedorHiddenFields.Controls.Add(hiddenCiudadDestino);
             
             int count = 1;
-            foreach (Parada parada in ViajeDetalle.GetParadasSinOrigenDestino())
+            foreach (var parada in ViajeDetalle.GetParadasSinOrigenDestino())
             {
-                var hiddenParada = new HtmlInputHidden {Name = "txbParada" + count, Value = parada.Direccion};
+                var hiddenParada = new HtmlInputHidden {ID = "txbParada" + count, Value = parada.Direccion};
                 this.contenedorHiddenFields.Controls.Add(hiddenParada);
                 count++;
             }
-            
-            
+        }
+
+        protected void btnVerParticipar_Click(object sneder, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower().Equals("participar"))
+            {
+                long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                Session["idTrayecto"] = idTrayecto;
+                popUpConfirmarCupos.MostrarVentana();
+            }
+        }
+
+        protected void BtnConfirmarCuposClick(object sender, EventArgs eventArgs)
+        {
+            var pasajero = (Usuario)Session["usuario"];
+            var idTrayecto = (long)Session["idTrayecto"];
+            var solicitudNueva = new Solicitud()
+            {
+                Comentario = popUpConfirmarCupos.Comentario,
+                CuposSolicitados = popUpConfirmarCupos.NumeroCupos,
+                Estado = Solicitud.SolicitudEstado.Pendiente,
+                CreadorSolicitud = pasajero,
+                IdTrayecto = idTrayecto
+            };
+
+            if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
+            {
+                popUpConfirmation.TituloPopUp = "Transaccion exitosa";
+                popUpConfirmation.TransaccionExitosa = true;
+                popUpConfirmation.MensajePrincipal =
+                    "Su solicitud fue realizado con exito. Recuerda que el propietario es el que finalmente decidi si eres aceptado dentro del viaje";
+            }
+            else
+            {
+                popUpConfirmation.TituloPopUp = "Transaccion invalida";
+                popUpConfirmation.TransaccionExitosa = false;
+                popUpConfirmation.MensajePrincipal =
+                    "No puedes enviar mas de una solicitud para un mismo trayecto.";
+            }
+            popUpConfirmation.MostrarPopUp();
+        }
+
+        protected void FinalTransaccionClick(object sender, EventArgs e)
+        {
+            if(popUpConfirmation.TransaccionExitosa)
+            {
+                Response.Redirect("../Viajes/MisViajes.aspx");
+            }
+            else
+            {
+                popUpConfirmarCupos.CerrarVentana();
+                popUpConfirmation.CerrarPopUp();
+            }
         }
     }
 }

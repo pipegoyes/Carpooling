@@ -26,12 +26,14 @@ namespace DataLayer.Transformador
                     let numeroTrayectos = viajeDB.TRAYECTO.Count
                     let numeroParadas = Convert.ToInt32((Math.Sqrt((8*numeroTrayectos + 1)) + 1)/2)
                     let nombrePParadaDestino = viajeDB.TRAYECTO.ToList().Find(z => z.PARADA.Last().NUMERO_PARADA == numeroParadas).PARADA.Last().DIRECCION
+                    let fechaHoraViaje = viajeDB.FECHA_HORA_PARTIDA.ToString("MM/dd/yyyy HH:mm")
                     select new ItemTablaViaje()
                                {
                                    //TODO se podria mostrar el numero de cupos para ese trayecto
                                    NombreConductor = viajeDB.USUARIO.NOMBRE + "-" + viajeDB.USUARIO.APELLIDO, 
                                    ParadaDestino = nombrePParadaDestino, 
                                    ParadaOrigen = nombrePParadaOrigen,
+                                   FechaHora = fechaHoraViaje,
                                    IdViaje = viajeDB.ID_VIAJE
                                }).ToList();
         }

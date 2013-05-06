@@ -96,5 +96,16 @@ namespace DataLayer.Transformador
             return viajeDao;
         }
 
+        public SOLICITUD ToSolicitud(Solicitud pSolicitud)
+        {
+            return new SOLICITUD()
+                       {
+                           ID_TRAYECTO = pSolicitud.IdTrayecto,
+                           COMENTARIO = pSolicitud.Comentario,
+                           CUPOS_SOLICITADOS = pSolicitud.CuposSolicitados,
+                           ESTADO = (int) pSolicitud.Estado,
+                           ID_PASAJERO = pSolicitud.CreadorSolicitud.IdUsuario
+                       };
+        }
     }
 }

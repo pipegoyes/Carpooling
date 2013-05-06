@@ -23,7 +23,7 @@ namespace BusinessLayer
             get { return _instancia ?? (_instancia = new AdministradorViajes()); } 
         }
 
-        public List<ItemTablaViaje> BuscarViaje(string ciudadOrigen, string ciudadDestino, DateTime fechaRealizacion)
+        public List<ItemTablaViaje> BuscarViaje(string ciudadOrigen, string ciudadDestino, DateTime? fechaRealizacion)
         {
             return ViajeDao.Instancia.ConsultarListaViaje(ciudadOrigen, ciudadDestino, fechaRealizacion);
         }
@@ -94,6 +94,16 @@ namespace BusinessLayer
         public Viaje VerDetalleViaje(long idViajeDetalle)
         {
             return ViajeDao.Instancia.ObtenerViaje(idViajeDetalle);
+        }
+
+        public bool RegistrarSolicitud(Solicitud pSolicitud)
+        {
+            if (!SolicitudDao.Instancia.ExisteSolicitud(pSolicitud.CreadorSolicitud, pSolicitud.IdTrayecto))
+            {
+                SolicitudDao.Instancia.InsertarSolicitud(pSolicitud);
+                return true;
+            }
+            return false;
         }
     }
 }

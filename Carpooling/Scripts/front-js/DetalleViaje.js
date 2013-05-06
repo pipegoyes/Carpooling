@@ -28,11 +28,11 @@ function initialize() {
 
 function GenerarRuta() {
     //listCoordenadas = [];
-    var ciudadOrigen = $("[id*=txbCiudadOrigen]").value;
+    var ciudadOrigen = $("[id*=txbCiudadOrigen]").val();
     //$("[id*=txbParada]")
-    geocode(ciudadOrigen);
-    var ciudadDestino = $("[id*=txbCiudadDestino]").value;
-    geocode(ciudadDestino);
+    //geocode(ciudadOrigen);
+    var ciudadDestino = $("[id*=txbCiudadDestino]").val();
+    //geocode(ciudadDestino);
 
     var directionsService = new google.maps.DirectionsService();
 
@@ -45,13 +45,13 @@ function GenerarRuta() {
                 location: $(this).val(),
                 stopover: true
             });
-            geocode($(this).val());
+            //geocode($(this).val());
             rideWaypointsString += $(this).val() + ',';
         }
     });
 
 
-    directionRequest = {
+    var directionRequest = {
         origin: ciudadOrigen,
         destination: ciudadDestino,
         waypoints: rideWaypoints,

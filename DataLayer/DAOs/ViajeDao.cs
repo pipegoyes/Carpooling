@@ -33,10 +33,9 @@ namespace DataLayer.DAOs
             return viajeInsertar.ID_VIAJE;
         }
 
-        public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino, DateTime fechaRealizacion)
+        public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino, DateTime? fechaRealizacion)
         {
             EstablecerConexion();
-            ObjectContext objectContext = ((IObjectContextAdapter) Conexion).ObjectContext;
             
             var s = from v in Conexion.VIAJE
                     from p in Conexion.PARADA
@@ -52,9 +51,14 @@ namespace DataLayer.DAOs
                 where p.ID_TRAYECTO == t.ID_TRAYECTO && v.ID_VIAJE == t.ID_VIAJE
                 select v;
 
-            s = from v in s
-                where v.FECHA_HORA_PARTIDA.Day == fechaRealizacion.Day
-                select v;
+
+            if (fechaRealizacion != null)
+            {
+                var fechaTemp = (DateTime) fechaRealizacion;
+                s = from v in s
+                    where v.FECHA_HORA_PARTIDA.Day == fechaTemp.Day
+                    select v;
+            }
 
             var listaTemp = s.Distinct().ToList();
             return ToBusinessEntity.Instancia.ListaViajesToItemsTabla(listaTemp);
