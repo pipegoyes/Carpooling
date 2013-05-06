@@ -7,102 +7,108 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Carpooling.Front.Viajes {
+namespace Carpooling.Front.UserControls {
     
     
-    public partial class DetalleViaje {
+    public partial class PopUpConfrimarCupos {
         
         /// <summary>
-        /// popUpConfirmarCupos control.
+        /// pnlMensajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Carpooling.Front.UserControls.PopUpConfrimarCupos popUpConfirmarCupos;
+        protected global::System.Web.UI.WebControls.Panel pnlMensajes;
         
         /// <summary>
-        /// popUpConfirmation control.
+        /// mpeMensajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmation;
+        protected global::AjaxControlToolkit.ModalPopupExtender mpeMensajes;
         
         /// <summary>
-        /// dataListParada control.
+        /// lblMensajesPop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListParada;
+        protected global::System.Web.UI.WebControls.Label lblMensajesPop;
         
         /// <summary>
-        /// txtFechaViaje control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtFechaViaje;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// txtHora control.
+        /// lblTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtHora;
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
         
         /// <summary>
-        /// txtTarifa control.
+        /// btnClosePopUp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTarifa;
+        protected global::System.Web.UI.WebControls.ImageButton btnClosePopUp2;
         
         /// <summary>
-        /// txtNombreConductor control.
+        /// lblTextoMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtNombreConductor;
+        protected global::System.Web.UI.WebControls.Label lblTextoMensaje;
         
         /// <summary>
-        /// dataListTrayectos control.
+        /// txbCuposSolicitados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListTrayectos;
+        protected global::System.Web.UI.WebControls.TextBox txbCuposSolicitados;
         
         /// <summary>
-        /// contenedorHiddenFields control.
+        /// txbComentario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder contenedorHiddenFields;
+        protected global::System.Web.UI.WebControls.TextBox txbComentario;
         
         /// <summary>
-        /// PreviousPage property.
+        /// btnOk control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new Carpooling.Front.Viajes.BuscarViaje PreviousPage {
-            get {
-                return ((Carpooling.Front.Viajes.BuscarViaje)(base.PreviousPage));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Button btnOk;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

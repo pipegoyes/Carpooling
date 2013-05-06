@@ -8,6 +8,7 @@ namespace Entities.Negocio
     public class Solicitud
     {
         public long IdSolicitud { get; set; }
+        public long IdTrayecto { get; set; }
         public string Comentario { get; set; }
         public int CuposSolicitados { get; set; }
         public SolicitudEstado Estado { get; set; }

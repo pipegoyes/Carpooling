@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="DetalleViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje" %>
 <%@ PreviousPageType VirtualPath="BuscarViaje.aspx" %>
+<%@ Register tagPrefix="uc" tagName="PopUpCupos" src="../UserControls/PopUpConfrimarCupos.ascx" %>
+<%@ Register tagPrefix="uc" tagName="PopUpConfirmation" src="../UserControls/PopUpOk.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Styles/front-css/DetalleViaje.css" type="text/css" rel="stylesheet"/>
 </asp:Content>
@@ -9,6 +11,11 @@
     <script src="../../Scripts/front-js/DetalleViaje.js" type="text/javascript" ></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
+    <uc:PopUpCupos ID="popUpConfirmarCupos" runat="server" 
+        MensajePopUp="Ingrese el numero de cupos a solicitar" 
+        TituloMensaje="Confirmar numero de cupos" 
+        OnOnClickAceptar="BtnConfirmarCuposClick"></uc:PopUpCupos> 
+    <uc:PopUpConfirmation ID="popUpConfirmation" runat="server" OnOnClickAceptar="FinalTransaccionClick" />
      <section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
@@ -24,17 +31,6 @@
      <div id="contenedorRutaViaje" class="leftPosition">
         <div class="subtitulo">Ruta de viaje</div>
         <div class="leftPosition contenedorSecundarioRV">
-           <%-- <div class="leftPosition labelRutaViaje">Ciudad Origen:</div>
-            <div class="leftPosition textoRutaViaje">
-                <asp:Label ID="txtCiudadOrigen" Text="Sin ciudad" runat="server"></asp:Label>
-            </div>
-            <div class="divClear"></div>
-            
-            <div class="leftPosition labelRutaViaje">Ciudad destino</div>
-            <div class="leftPosition textoRutaViaje">
-                <asp:Label ID="txtCiudadDestino" Text="Sin Ciudad" runat="server"></asp:Label>
-            </div>
-            <div class="divClear"></div>--%>
             <asp:DataList runat="server" ID="dataListParada" 
                 ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%">
                 <AlternatingItemStyle BackColor="White" />
@@ -85,7 +81,7 @@
     </div>
     <div class="divClear"></div>
     <div>
-         <asp:DataList runat="server" ID="dataListTrayectos" 
+         <asp:DataList runat="server" ID="dataListTrayectos" OnItemCommand="btnVerParticipar_Click"
                 ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%">
                 <AlternatingItemStyle BackColor="White" />
                 <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -104,7 +100,14 @@
                     <div class="divCeldaTrayecto">
                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("CuposDisponibles") %>'></asp:Label>
                     </div>
-                    <asp:HiddenField runat="server" Value='<%# Eval("IdTrayecto") %>'/>
+                    <div>
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+                                <asp:LinkButton ID="linkSolicitarCupos" ClientIDMode="Static" runat="server" Text="Participar" CommandArgument='<%# Eval("IdTrayecto") %>' CommandName="participar"></asp:LinkButton>        
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
     </div>

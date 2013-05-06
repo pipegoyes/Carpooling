@@ -14,7 +14,7 @@ namespace Carpooling.Front.Viajes
         public List<ItemTablaViaje> ViajesEncontrados { get; set; }
         public string CiudadOrigen { get; set; }
         public string CiudadDestino { get; set; }
-        public DateTime FechaViaje { get; set; }
+        public DateTime? FechaViaje { get; set; }
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,10 +26,11 @@ namespace Carpooling.Front.Viajes
 
         protected void btnBuscarViaje_Click(object sender, EventArgs e)
         {
-            //TODO la fecha aun no es tenida en cuenta
             CiudadOrigen = txbCiudadOrigen.Text;
             CiudadDestino = txbCiudadDestino.Text;
-            FechaViaje = DateTime.ParseExact(calendarFechaViaje.Text, "MM/dd/yyyy", null);
+            DateTime result;
+            if(DateTime.TryParseExact(calendarFechaViaje.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+                FechaViaje = result;
             ViajesEncontrados = AdministradorViajes.Instancia.BuscarViaje(CiudadOrigen, CiudadDestino, FechaViaje);
 
             this.dataListItemsViajesEncontrados.DataSource = ViajesEncontrados;

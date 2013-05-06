@@ -12,6 +12,6 @@ namespace Entities.Aplicacion
         public string ParadaOrigen { get; set; }
         public string ParadaDestino { get; set; }
         public string Cupos { get; set; }
-        public string Hora { get;set; }
+        public string FechaHora { get;set; }
     }
 }
