@@ -33,18 +33,23 @@ namespace Carpooling.Front
                 if (usuarioApp != null)
                 {
                     Session["usuario"] = usuarioApp;
+                    AdministradorCuentas.Instancia.ActualizarUltimoIngreso(usuarioApp);
+                    AdministradorCuentas.Instancia.EliminarImagenTemporal(Server.MapPath("/"), usuarioApp.IdUsuario);
+                    
+                    string fileName;
                     if (usuarioApp.Foto != null)
                     {
-                        var cacheImagenFolder = ConfigurationManager.AppSettings["CacheImagenFolder"];
-                        cacheImagenFolder = Server.MapPath("/" + cacheImagenFolder + "/");
                         var imagenCuenta = AdministradorCuentas.Instancia.ObtenerImageFromBinary(usuarioApp.Foto);
-                        var fileName = AdministradorCuentas.Instancia.GuardarImagenSever(imagenCuenta, cacheImagenFolder, usuarioApp.IdUsuario);
-                        Session["imagenUsuario"] = fileName;
+                        fileName = AdministradorCuentas.Instancia.GuardarImagenCuenta(imagenCuenta, Server.MapPath("/"), usuarioApp.IdUsuario);    
                     }
-
-                    string nombreMostrarUsuario = usuarioApp.Nombre + " " + usuarioApp.Apellido;
-                    nombreMostrarUsuario = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMostrarUsuario.Trim().ToLower()) + " (" + usuarioApp.IdUsuario + ")";
-
+                    else 
+                    {
+                        fileName = usuarioApp.Genero == "H" ? ConfigurationManager.AppSettings["ImagenCuentaHombre"] : ConfigurationManager.AppSettings["ImagenCuentaMujer"];
+                        fileName = Server.MapPath(fileName.Replace("~", ""));
+                    }
+                    Session["imagenUsuario"] = fileName;
+    
+                    string nombreMostrarUsuario = usuarioApp.ObtenerNombreApellidos() + " (" + usuarioApp.IdUsuario + ")";
                     FormsAuthentication.RedirectFromLoginPage(nombreMostrarUsuario, false);
                 }
                 else

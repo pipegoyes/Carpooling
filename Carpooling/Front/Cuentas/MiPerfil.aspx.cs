@@ -14,7 +14,6 @@ namespace Carpooling.Front.Cuentas
     public partial class MiPerfil : System.Web.UI.Page
     {
         Usuario usuarioApp;
-        string nombreMostrarUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,9 +25,8 @@ namespace Carpooling.Front.Cuentas
         }
 
         private void MostrarInfoUsuario()
-        {
-            nombreMostrarUsuario = usuarioApp.Nombre + " " + usuarioApp.Apellido;
-            lblNombresApellidos.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMostrarUsuario.Trim().ToLower());
+        {          
+            lblNombresApellidos.Text = usuarioApp.ObtenerNombreApellidos();
             lblNombres.Text = usuarioApp.Nombre.Trim();
             lblApellidos.Text = usuarioApp.Apellido.Trim();
             lblResidencia.Text = usuarioApp.ResidenciaUbicacion.NombreCiudad + " (" + usuarioApp.ResidenciaUbicacion.NombreDepartamento + ") - " + usuarioApp.ResidenciaUbicacion.NombrePais;
@@ -48,23 +46,14 @@ namespace Carpooling.Front.Cuentas
                 lblReputación.Text = usuarioApp.Reputacion.ToString();
                 ddlReputación.SelectedValue = Math.Round(usuarioApp.Reputacion.Value).ToString();
             }
-            lblFechaUltimoIngreso.Text = usuarioApp.FechaUltimoIngreso.ToString("dd/MM/yyyy");
-            if (usuarioApp.Foto != null)
-            {
-                string cacheImagenFolder = ConfigurationManager.AppSettings["CacheImagenFolder"];
-                string fileName = Session["imagenUsuario"].ToString();
-                imgImagenCuenta.ImageUrl = "~/" + cacheImagenFolder + "/" + fileName;
-            }
-            else 
-            {
-                imgImagenCuenta.ImageUrl = usuarioApp.Genero == "H" ? "~/Styles/images/imgFotoPerfilHombre.jpg" : "~/Styles/images/imgFotoPerfilMujer.jpg";
-            }
+            lblFechaUltimoIngreso.Text = usuarioApp.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
+            imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"),"~/");
             lblInfoAdicional.Text = usuarioApp.InformacionAdicional;
         }
 
         protected void btnEditarPerfil_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/Front/Cuentas/EditarPerfil.aspx");
+            Response.Redirect("~/Front/Cuentas/EditarPerfil.aspx",false);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.IO;
@@ -28,12 +29,28 @@ namespace BusinessLayer
 
 
         //Valida e inserta un nuevo usuario
-        public void CrearCuenta(Usuario pUsuario)
+        public bool CrearCuenta(Usuario pUsuario)
         {
             //TODO: Verifica que el usuario no exista
 
             //Envia el usuario para su insercion en la base de datos
-            UsuarioDao.Instancia.Insertar(pUsuario);
+            return UsuarioDao.Instancia.Insertar(pUsuario);
+        }
+
+        //Valida y modifica un usuario
+        public bool ModificarCuenta(Usuario pUsuario)
+        {
+            //TODO: Verifica que el usuario no exista
+
+            //Envia el usuario para su insercion en la base de datos
+            return UsuarioDao.Instancia.Actualizar(pUsuario);
+        }
+
+        //Actualizar la fecha de ultimo ingreso
+        public bool ActualizarUltimoIngreso(Usuario pUsuario)
+        {
+            pUsuario.FechaUltimoIngreso = DateTime.Now;
+            return UsuarioDao.Instancia.ActualizarUltimoIngreso(pUsuario);
         }
 
         public Usuario AutenticarUsuario(string pIdEmailUsuario, string pContrasenia)
@@ -79,11 +96,75 @@ namespace BusinessLayer
         }
 
         //Guarda una imagen en un directorio espeficificado
-        public string GuardarImagenSever(Image pImage, string pPathSever, string pFileName)
+        public string GuardarImagenCuenta(Image pImage, string pPathSever, string pIdUsuario)
         {
-            string fileName = pFileName + ".jpg";
-            pImage.Save(pPathSever + fileName, ImageFormat.Jpeg);
-            return fileName;
+            string fullPathImagen = pPathSever + ConfigurationManager.AppSettings["CacheImagenFolder"] + "/" + pIdUsuario + ".jpg";
+            pImage.Save(fullPathImagen, ImageFormat.Jpeg);
+            return fullPathImagen;
+        }
+
+        //Borrar imagen de cuenta temporal
+        public void EliminarImagenTemporal(string pPathSever, string pIdUsuario)
+        {
+            string fullPathImagen_new = pPathSever + ConfigurationManager.AppSettings["CacheImagenFolder"] + "/" + pIdUsuario + "_new.jpg";
+            if (File.Exists(fullPathImagen_new))
+                File.Delete(fullPathImagen_new);        
+        }
+
+        public byte[] ActualizarImagenCuenta(string pRutaSever, string pRutaImagenActual, string pRutaImagenNueva, out bool pImagenesIguales, out string pRutaImagenMostrar)
+        {
+            pImagenesIguales = false;
+            byte[] imagenNueva = AdministradorCuentas.Instancia.ObtenerBinaryFromImagen(pRutaImagenNueva);            
+            string rutaImagenHombre = pRutaSever + ConfigurationManager.AppSettings["ImagenCuentaHombre"].Replace("~/", "").Replace("/","\\");
+            string rutaImagenMujer = pRutaSever + ConfigurationManager.AppSettings["ImagenCuentaMujer"].Replace("~/", "").Replace("/", "\\");
+                      
+            byte[] imagenHombre = AdministradorCuentas.Instancia.ObtenerBinaryFromImagen(rutaImagenHombre);
+            if (imagenNueva.SequenceEqual(imagenHombre) || Path.GetFullPath(rutaImagenHombre).Equals(Path.GetFullPath(pRutaImagenNueva)))
+            {
+                if (File.Exists(pRutaImagenActual) && !Path.GetFullPath(rutaImagenHombre).Equals(Path.GetFullPath(pRutaImagenActual)) && !Path.GetFullPath(rutaImagenMujer).Equals(Path.GetFullPath(pRutaImagenActual)))
+                    File.Delete(pRutaImagenActual);
+                pRutaImagenMostrar = rutaImagenHombre;
+                return null;
+            }
+
+            byte[] imagenMujer = AdministradorCuentas.Instancia.ObtenerBinaryFromImagen(rutaImagenMujer);
+            if (imagenNueva.SequenceEqual(imagenMujer) || Path.GetFullPath(rutaImagenMujer).Equals(Path.GetFullPath(pRutaImagenNueva)))
+            {
+                if (File.Exists(pRutaImagenActual) && !Path.GetFullPath(rutaImagenHombre).Equals(Path.GetFullPath(pRutaImagenActual)) && !Path.GetFullPath(rutaImagenMujer).Equals(Path.GetFullPath(pRutaImagenActual)))
+                    File.Delete(pRutaImagenActual);
+                pRutaImagenMostrar = rutaImagenMujer;
+                return null;
+            }
+
+            byte[] imagenActual = AdministradorCuentas.Instancia.ObtenerBinaryFromImagen(pRutaImagenActual);
+            if (imagenNueva.SequenceEqual(imagenActual))
+            {
+                pImagenesIguales = true;
+                pRutaImagenMostrar = pRutaImagenActual;
+                if (File.Exists(pRutaImagenNueva) && !Path.GetFullPath(pRutaImagenActual).Equals(Path.GetFullPath(pRutaImagenNueva)))
+                    File.Delete(pRutaImagenNueva);
+                return null;
+            }
+            else
+            {
+                if (!Path.GetFullPath(rutaImagenHombre).Equals(Path.GetFullPath(pRutaImagenActual)) && !Path.GetFullPath(rutaImagenMujer).Equals(Path.GetFullPath(pRutaImagenActual)))
+                {
+                    File.Copy(pRutaImagenNueva, pRutaImagenActual, true);
+                }
+                else
+                {
+                    pRutaImagenActual = pRutaImagenNueva.Replace("_new", "");
+                    if (!File.Exists(pRutaImagenActual))
+                        File.Move(pRutaImagenNueva, pRutaImagenActual);
+                    else
+                    {
+                        File.Copy(pRutaImagenNueva, pRutaImagenActual,true);
+                        File.Delete(pRutaImagenNueva);
+                    }
+                }
+                pRutaImagenMostrar = pRutaImagenActual;
+                return imagenNueva;
+            }
         }
 
         //Encripta la contraseña

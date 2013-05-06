@@ -6,9 +6,7 @@
     $("[ClientID='rblGenero'] input").change(CambioGenero);
 
     InicializarImagenCuenta();
-
     CrearPopupCambioImagen();
-
 });
 
 
@@ -73,7 +71,6 @@ function CambiarDia() {
 }
 
 
-
 function CrearPopupCambioImagen() {
     $("#dialogoCambiarFoto").wijdialog({
         autoOpen: false,
@@ -91,10 +88,6 @@ function CrearPopupCambioImagen() {
         open: function (e) {
             CrearUploader();
         }
-        //,
-        //create: function (e) {
-        //    //$("[ClientID='imgImagenCuenta']").attr("src", $("#imagenFotoModal").attr("src"));
-        //}
     });
 }
 
@@ -140,7 +133,6 @@ function CrearUploader() {
         .on('complete', function (event, id, filename, responseJSON) {
             if (responseJSON.success) {
                 $("#imagenFotoModal").attr("src", responseJSON.userImage);
-                $('#hfdImagePath').attr("value", responseJSON.userImage);
             }
         });
 
@@ -149,7 +141,6 @@ function CrearUploader() {
     $('#btnSeleccionarImagen').width(90);
     $('#btnSeleccionarImagen').height(29);
     $('#btnSeleccionarImagen').removeClass('qq-upload-button qq-upload-button-hover qq-upload-button-focus');
-    //$('#btnSeleccionarImagen').addClass('ui-button ui-widget ui-state-default ui-button-text-only ui-corner-all');
     $('#btnSeleccionarImagen').addClass('button-gradient blue');
 
     $(":input[type='file']").hover(
@@ -172,10 +163,6 @@ function CrearUploader() {
 }
 
 
-//Manejo del cambio de imagen del usuario
-var pathImagen;
-
-//#endregion VARIABLES GLOBALES PARA EL CAMBIO DE IMAGEN
 function InicializarImagenCuenta(){
     $("#hfdImagePath").val($("[ClientID='imgImagenCuenta']").attr("src"));  
 }
@@ -190,46 +177,40 @@ function CambioGenero() {
     rutaImagenMujer = rutaImagenMujer.substring(rutaImagenMujer.lastIndexOf('/')+1, rutaImagenMujer.length);
 
     if (rutaImagen == rutaImagenHombre || rutaImagen == rutaImagenMujer) {        
-        BtnQuitarImagen_OnClick();
-        $("[ClientID='imgImagenCuenta']").attr("src", $("#hfdImagePath").val());
+        if ($("[ClientID='rblGenero'] input:checked").val() == 'H') {
+            $("[ClientID='imgImagenCuenta']").attr("src", $('#hfdImagePathHombre').val().replace('~', ''));
+        }
+        else {
+            $("[ClientID='imgImagenCuenta']").attr("src", $('#hfdImagePathMujer').val().replace('~', ''));
+        }
+        $("#hfdImagePath").val($("[ClientID='imgImagenCuenta']").attr("src"));
     }
 }
 
 function lnkCambiarFoto_OnClick() {
-    pathImagen = $("#hfdImagePath").attr("value");
     $("#imagenFotoModal").attr("src", $("[ClientID='imgImagenCuenta']").attr("src"));
     $('#dialogoCambiarFoto').wijdialog('open');
-    //$("[ClientID='imgImagenCuenta']").attr("src", $("#imagenFotoModal").attr("src"));
 }
 
 //funcion que se ejecuta al aceptar el cuadro modal de cargar imagen
 function onOk_ImageUserModalPopup() {
-    var imageUserPath = $("#hfdImagePath").attr("value");
-    if (imageUserPath != "") {
-        $("[ClientID='imgImagenCuenta']").attr("src", imageUserPath);
-        pathImagen = imageUserPath;
-    }
+    $("#hfdImagePath").val($("#imagenFotoModal").attr("src"));
+    $("[ClientID='imgImagenCuenta']").attr("src", $("#hfdImagePath").val())
     $('#dialogoCambiarFoto').wijdialog('close');
 }
 
 //funcion que se ejecuta al cancelar el cuadro modal de cargar imagen
 function onCancel_ImageUserModalPopup() {
-    $("#hfdImagePath").attr("value", pathImagen);
-    $("#imagenFotoModal").attr("src", $("[ClientID='imgImagenCuenta']").attr("src"));
     $('#dialogoCambiarFoto').wijdialog('close');
 }
 
 //funcion que se ejecuta con el click en el boton quitar imagen del popup modal de cambiar imagen
 function BtnQuitarImagen_OnClick() {
-    var rblGeneroSeleccion = $("[ClientID='rblGenero'] input:checked").val();
     var imagenFotoModal = $("#imagenFotoModal");
-    var hfdImagePath = $("#hfdImagePath");
-    if (rblGeneroSeleccion == 'H') {
+    if ($("[ClientID='rblGenero'] input:checked").val() == 'H') {
         imagenFotoModal.attr('src', $('#hfdImagePathHombre').val().replace('~',''));
-        hfdImagePath.val($('#hfdImagePathHombre').val().replace('~', ''));
     }
     else {
         imagenFotoModal.attr('src', $('#hfdImagePathMujer').val().replace('~', ''));
-        hfdImagePath.val($('#hfdImagePathMujer').val().replace('~', ''));
     }
 }

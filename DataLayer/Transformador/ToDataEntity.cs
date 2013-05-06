@@ -25,22 +25,22 @@ namespace DataLayer.Transformador
         {
             var usuario = new USUARIO
                               {                                  
-                                  ID_USUARIO = pUsuario.IdUsuario.Trim(),
-                                  NOMBRE = pUsuario.Nombre.Trim().ToUpper(),
-                                  APELLIDO = pUsuario.Apellido.Trim().ToUpper(),
-                                  CONTRASENIA = pUsuario.Contrasenia.Trim(), 
+                                  ID_USUARIO = pUsuario.IdUsuario,
+                                  NOMBRE = pUsuario.Nombre,
+                                  APELLIDO = pUsuario.Apellido,
+                                  CONTRASENIA = pUsuario.Contrasenia, 
                                   FECHA_NACIMIENTO = pUsuario.FechaNacimiento,
                                   FECHA_ULTIMO_INGRESO = pUsuario.FechaUltimoIngreso,
-                                  EMAIL = pUsuario.Email.Trim(),
+                                  EMAIL = pUsuario.Email,
                                   ID_CIUDAD_RESIDENCIA = pUsuario.ResidenciaUbicacion.IdCiudad,
                                   GENERO = pUsuario.Genero,
                                   ID_OCUPACION = pUsuario.Ocupacion.IdOcupacion,
-                                  TELEFONO_FIJO = pUsuario.TelefonoFijo.Trim(),
-                                  TELEFONO_MOVIL = pUsuario.TelefonoMovil.Trim(),
+                                  TELEFONO_FIJO = pUsuario.TelefonoFijo,
+                                  TELEFONO_MOVIL = pUsuario.TelefonoMovil,
                                   FUMADOR = pUsuario.Fumador,
                                   VEHICULO_PROPIO = pUsuario.VehiculoPropio,
                                   FOTO = pUsuario.Foto,
-                                  INFORMACION_ADICIONAL = pUsuario.InformacionAdicional.Trim(),
+                                  INFORMACION_ADICIONAL = pUsuario.InformacionAdicional,
                                   REPUTACION = pUsuario.Reputacion
                               };
 

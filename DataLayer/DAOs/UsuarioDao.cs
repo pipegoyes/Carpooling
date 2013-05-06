@@ -22,12 +22,47 @@ namespace DataLayer.DAOs
         }
 
         //Metodo para insertar un registro a la tabla usuario
-        public void Insertar(Usuario pUsuario)
+        public bool Insertar(Usuario pUsuario)
         {
             EstablecerConexion();
             var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
             Conexion.USUARIO.Add(usuario);
-            ConfirmarCambios();
+            return ConfirmarCambios();
+        }
+
+        //Metodo para modificar un registro a la tabla usuario
+        public bool Actualizar(Usuario pUsuario)
+        {
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            EstablecerConexion();
+            Conexion.USUARIO.Attach(usuario);
+            var entidad = Conexion.Entry(usuario);
+            entidad.Property(x => x.APELLIDO).IsModified = true;
+            entidad.Property(x => x.EMAIL).IsModified = true;
+            entidad.Property(x => x.FECHA_NACIMIENTO).IsModified = true;
+            entidad.Property(x => x.FOTO).IsModified = true;
+            entidad.Property(x => x.FUMADOR).IsModified = true;
+            entidad.Property(x => x.GENERO).IsModified = true;
+            entidad.Property(x => x.INFORMACION_ADICIONAL).IsModified = true;
+            entidad.Property(x => x.NOMBRE).IsModified = true;
+            entidad.Property(x => x.ID_OCUPACION).IsModified = true;
+            entidad.Property(x => x.TELEFONO_FIJO).IsModified = true;
+            entidad.Property(x => x.TELEFONO_MOVIL).IsModified = true;
+            entidad.Property(x => x.VEHICULO_PROPIO).IsModified = true;
+            entidad.Property(x => x.CONTRASENIA).IsModified = true;
+            entidad.Property(x => x.ID_CIUDAD_RESIDENCIA).IsModified = true;
+            return ConfirmarCambios();
+        }
+
+        //Metodo para actualizar la fecha de ultimo ingreso
+        public bool ActualizarUltimoIngreso(Usuario pUsuario)
+        {
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            EstablecerConexion();
+            Conexion.USUARIO.Attach(usuario);
+            var entidad = Conexion.Entry(usuario);
+            entidad.Property(x => x.FECHA_ULTIMO_INGRESO).IsModified = true;
+            return ConfirmarCambios();
         }
 
         public Usuario ObtenerPorId(string pIdUsuario)
@@ -52,14 +87,6 @@ namespace DataLayer.DAOs
             return null;
         }
 
-        //este metodo talvez se borre porque no lo uso      
-        private CIUDAD ObtenerCiudadPorId(int pIdCiudad)
-        { 
-            EstablecerConexion();
-            CIUDAD ciudadDB = (from c in Conexion.CIUDAD.Include("DEPARTAMENTO.PAIS")
-                               where c.ID_CIUDAD == pIdCiudad
-                               select c).FirstOrDefault();
-            return ciudadDB;
-        }
+
     }
 }
