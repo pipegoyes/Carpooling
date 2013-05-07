@@ -3,6 +3,7 @@
     <link href="../../Styles/front-css/MisViajes.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script src="../../Scripts/front-js/MisViajes.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
     <section class="featured">
@@ -57,6 +58,7 @@
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
     </asp:DataList>
     <asp:Panel ID="PanelSolicitudesDetalle" runat="server" Visible="False">
+        <div class="subtitulo">Listado de solicitudes</div>
         <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
                       ShowFooter="False" Width="100%">
             <AlternatingItemStyle BackColor="White" />
@@ -103,5 +105,6 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
+        <div id="divOcultarSolicitudes"> Ocultar solicitudes </div>
     </asp:Panel>
 </asp:Content>

@@ -67,23 +67,21 @@ namespace Carpooling.Front.Viajes
                                           {ID = "txbCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
             this.contenedorHiddenFields.Controls.Add(hiddenCiudadDestino);
             
-            int count = 1;
-            foreach (var parada in ViajeDetalle.GetParadasSinOrigenDestino())
+            int[] count = {1};
+            foreach (var hiddenParada in ViajeDetalle.GetParadasSinOrigenDestino().Select(parada => new HtmlInputHidden 
+            {ID = "txbParada" + count[0], Value = parada.Direccion}))
             {
-                var hiddenParada = new HtmlInputHidden {ID = "txbParada" + count, Value = parada.Direccion};
                 this.contenedorHiddenFields.Controls.Add(hiddenParada);
-                count++;
+                count[0]++;
             }
         }
 
         protected void btnVerParticipar_Click(object sneder, DataListCommandEventArgs e)
         {
-            if (e.CommandName.ToLower().Equals("participar"))
-            {
-                long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                Session["idTrayecto"] = idTrayecto;
-                popUpConfirmarCupos.MostrarVentana();
-            }
+            if (!e.CommandName.ToLower().Equals("participar")) return;
+            long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
+            Session["idTrayecto"] = idTrayecto;
+            popUpConfirmarCupos.MostrarVentana();
         }
 
         protected void BtnConfirmarCuposClick(object sender, EventArgs eventArgs)

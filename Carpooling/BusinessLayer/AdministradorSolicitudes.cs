@@ -31,7 +31,7 @@ namespace BusinessLayer
                             Comentario = solicitud.Comentario,
                             CuposDisponibles = trayecto.CuposDisponibles.ToString(),
                             CuposSolicitados = solicitud.CuposSolicitados.ToString(),
-                            NombreSolicitante = pViaje.Conductor.ObtenerNombreApellidos()
+                            NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos()
                         }));
                 }
             }

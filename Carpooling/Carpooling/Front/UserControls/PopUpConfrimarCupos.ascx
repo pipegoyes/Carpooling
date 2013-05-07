@@ -2,7 +2,7 @@
 
 <asp:Panel runat="server" ID="pnlMensajes" Style="display: none;">
     <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeMensajes" PopupControlID="pnlMensajes"
-                                    TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnClosePopUp2">
+                                    TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancel">
     </ajaxToolkit:ModalPopupExtender>
     <asp:Label runat="server" ID="lblMensajesPop"></asp:Label>
     <asp:UpdatePanel  ID="UpdatePanel1" runat="server">

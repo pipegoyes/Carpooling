@@ -84,6 +84,7 @@
     <Content Include="Front\Viajes\MisViajes.aspx" />
     <Content Include="Scripts\front-js\BuscarViaje.js" />
     <Content Include="Scripts\front-js\EditarPerfil.js" />
+    <Content Include="Scripts\front-js\MisViajes.js" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
     <Content Include="Scripts\front-js\SiteMaster.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
