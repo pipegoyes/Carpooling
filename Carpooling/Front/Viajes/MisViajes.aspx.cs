@@ -37,7 +37,8 @@ namespace Carpooling.Front.Viajes
         {
             if (e.CommandName.ToLower().Equals("versolicitudes"))
             {
-                long idViaje = int.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                var idViaje = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                Session["idViajeSelecionado"] = idViaje;
                 var listaMisViajes = (List<Viaje>) Session["MisViajesList"];
                 var viajeSeleccionado = listaMisViajes.Find(v => v.IdViaje == idViaje);
                 dataListSolicitudes.DataSource =
@@ -47,6 +48,25 @@ namespace Carpooling.Front.Viajes
             }
         }
 
-        
+        protected void BtnAceptarSolicitud(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower().Equals("aceptarsolicitud"))
+            {
+                //TODO podria no encontrar el viaje o la solicitud 
+                var idSolicitud = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                var idViajeSeleccionado = (long) Session["idViajeSelecionado"];
+                var listaMisViajes = (List<Viaje>) Session["MisViajesList"];
+                var viajeSeleccionado = listaMisViajes.Find(v => v.IdViaje == idViajeSeleccionado);
+                Solicitud solicitudSeleccionada = null;
+                foreach (var trayecto in viajeSeleccionado.TrayectosViaje)
+                {
+                    solicitudSeleccionada = trayecto.ListaSolicitudes.Find(t => t.IdSolicitud == idSolicitud);
+                    if (solicitudSeleccionada != null)
+                        break;
+                }
+                AdministradorSolicitudes.Instancia.AceparSolicitud(viajeSeleccionado,solicitudSeleccionada);
+
+            }
+        }
     }
 } 

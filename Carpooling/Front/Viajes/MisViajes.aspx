@@ -103,6 +103,9 @@
                 <div class="divCeldaSolicitudes">
                     <asp:Label ID="Label11" runat="server" Text='<%# Eval("Comentario") %>'></asp:Label>
                 </div>
+                <div>
+                    <asp:LinkButton runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%# Eval("IdSolicitud") %>'></asp:LinkButton>
+                </div>
             </ItemTemplate>
         </asp:DataList>
         <div id="divOcultarSolicitudes"> Ocultar solicitudes </div>
