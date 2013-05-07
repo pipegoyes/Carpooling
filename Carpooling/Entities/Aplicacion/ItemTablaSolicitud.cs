@@ -7,6 +7,7 @@ namespace Entities.Aplicacion
 {
     public class ItemTablaSolicitud
     {
+        public long IdSolicitud { get; set; }
         public string NombreSolicitante { get; set; }
         public string CiudadOrigen { get; set; }
         public string CiudadDestino { get; set; }

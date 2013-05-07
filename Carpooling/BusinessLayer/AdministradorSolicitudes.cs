@@ -37,5 +37,18 @@ namespace BusinessLayer
             }
             return listaResult;
         } 
+
+        public bool AceparSolicitud(Viaje pViaje, Solicitud pSolicitud)
+        {
+            return false;
+        }
+
+        //Busca la lista de trayectos que deben ser modificados en terminos de cupos, dado que se acepte una 
+        //solicitud para un trayecto simple
+        private List<Trayecto> DeterminarTrayectosAfectosTS(Viaje pViaje, Solicitud pSolicitud)
+        {
+            //TODO Aqui quedo el desarrollo 07/05 GOyes
+            return null;
+        }
     }
 }
