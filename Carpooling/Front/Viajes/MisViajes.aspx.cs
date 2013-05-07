@@ -25,6 +25,7 @@ namespace Carpooling.Front.Viajes
                 {
                     var listaMisViajes = AdministradorViajes.Instancia.BuscarMisViajesVigentes(UsuarioActivo);
                     Session["MisViajesList"] = listaMisViajes;
+                    if(!listaMisViajes.Any()) return;
                     var misViajesVigentes = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
                     dataListViajesVigentes.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
                     dataListViajesVigentes.DataBind();

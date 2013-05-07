@@ -115,7 +115,7 @@ namespace BusinessLayer
         {
             return pviajesList.Select(v => new ItemTablaViaje()
             {
-                FechaHora = v.FechaHoraPartida.ToString("MM/dd/yyyy"),
+                FechaHora = v.FechaHoraPartida.ToString("MM/dd/yyyy HH:mm"),
                 ParadaDestino = v.GetCiudadDestino().Direccion,
                 ParadaOrigen = v.GetCiudadOrigen().Direccion,
                 IdViaje = v.IdViaje

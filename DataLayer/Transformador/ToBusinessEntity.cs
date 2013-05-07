@@ -195,21 +195,15 @@ namespace DataLayer.Transformador
 
         public List<Trayecto> ToTrayectos(List<TRAYECTO> pTrayectos)
         {
-            var listaTrayectos = new List<Trayecto>();
-            foreach (TRAYECTO trayecto in pTrayectos)
-            {
-                var trayectoBO = new Trayecto()
-                                     {
-                                         CuposDisponibles = trayecto.CUPOS,
-                                         TrayectoSimple = trayecto.TRAYECTO_SIMPLE,
-                                         IdTrayecto = trayecto.ID_TRAYECTO
-                                     };
-                trayectoBO.ParadaOrigen = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "I"));
-                trayectoBO.ParadaDestino = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "F"));
-                listaTrayectos.Add(trayectoBO);
-            }
-            
-            return listaTrayectos;
+            return pTrayectos.Select(trayecto => new Trayecto
+                                                     {
+                                                         CuposDisponibles = trayecto.CUPOS, 
+                                                         TrayectoSimple = trayecto.TRAYECTO_SIMPLE, 
+                                                         IdTrayecto = trayecto.ID_TRAYECTO, 
+                                                         ListaSolicitudes = ToSolicitudes(trayecto.SOLICITUD.ToList()), 
+                                                         ParadaOrigen = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "I")), 
+                                                         ParadaDestino = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "F"))
+                                                     }).ToList();
         }
 
         public Parada ToParada(PARADA pParada)
@@ -225,7 +219,7 @@ namespace DataLayer.Transformador
                        };
         }
 
-        public List<Solicitud> ToSolicitud (List<SOLICITUD> pSolicitud)
+        public List<Solicitud> ToSolicitudes (List<SOLICITUD> pSolicitud)
         {
             return pSolicitud.Select(s => new Solicitud()
                                               {
