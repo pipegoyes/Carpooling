@@ -13,6 +13,7 @@ namespace Entities.Negocio
         public string Direccion { get; set; }
         public int NumeroParada { get; set; }
         public string TipoParada { get; set; }
+        public long IdTrayecto { get; set; }
 
     }
 }
