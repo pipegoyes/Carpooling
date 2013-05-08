@@ -60,7 +60,7 @@
     <asp:Panel ID="PanelSolicitudesDetalle" runat="server" Visible="False">
         <div class="subtitulo">Listado de solicitudes</div>
         <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                      ShowFooter="False" Width="100%">
+                      ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarSolicitud">
             <AlternatingItemStyle BackColor="White" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                          ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />

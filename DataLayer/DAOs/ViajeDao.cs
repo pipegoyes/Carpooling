@@ -29,7 +29,8 @@ namespace DataLayer.DAOs
             VIAJE viajeInsertar = ToDataEntity.Instancia.ToViaje(viaje);
             EstablecerConexion();
             Conexion.VIAJE.Add(viajeInsertar);
-            Conexion.SaveChanges();
+            //Conexion.SaveChanges();
+            ConfirmarCambios();
             return viajeInsertar.ID_VIAJE;
         }
 
@@ -85,6 +86,15 @@ namespace DataLayer.DAOs
             return regViajes.Any() ? ToBusinessEntity.Instancia.ToViajes(regViajes.ToList()) : null;
         }
 
+        //public bool ActualizarViaje(Viaje pViaje)
+        //{
+
+        //    var viajeDb = ToDataEntity.Instancia.ToViaje(pViaje);
+        //    EstablecerConexion();
+        //    Conexion.VIAJE.Attach(viajeDb);
+        //    return ConfirmarCambios();
+
+        //}
     }
     
 }

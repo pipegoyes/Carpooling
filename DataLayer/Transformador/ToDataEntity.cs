@@ -107,5 +107,30 @@ namespace DataLayer.Transformador
                            ID_PASAJERO = pSolicitud.CreadorSolicitud.IdUsuario
                        };
         }
+
+        public TRAYECTO ToTrayecto(Trayecto pTrayecto)
+        {
+            var listParadas = new List<Parada> {pTrayecto.ParadaOrigen, pTrayecto.ParadaDestino};
+            return new TRAYECTO()
+                {
+                    CUPOS = pTrayecto.CuposDisponibles,
+                    ID_TRAYECTO = pTrayecto.IdTrayecto,
+                    ID_VIAJE = pTrayecto.IdViaje,
+                    PARADA = ToDataEntity.Instancia.ToParadas(listParadas)
+                };
+        }
+
+        public List<PARADA> ToParadas(List<Parada> pParadas)
+        {
+            return pParadas.Select(p => new PARADA()
+                {
+                    ID_PARADA = p.IdParada,
+                    DIRECCION = p.Direccion,
+                    LATITUD = p.Latitud,
+                    LONGITUD = p.Longitud,
+                    NUMERO_PARADA = p.NumeroParada,
+                    TIPO_PARADA = p.TipoParada
+                }).ToList();
+        }
     }
 }

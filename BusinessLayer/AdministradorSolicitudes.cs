@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataLayer.DAOs;
 using Entities.Negocio;
 using Entities.Aplicacion;
 
@@ -28,31 +29,15 @@ namespace BusinessLayer
                 if (trayecto.ListaSolicitudes != null)
                 {
                     listaResult.AddRange(trayecto.ListaSolicitudes.Select(solicitud => new ItemTablaSolicitud()
-                                                                                           {
-                                                                                               CiudadDestino =
-                                                                                                   pViaje.
-                                                                                                   GetCiudadDestino().
-                                                                                                   Direccion,
-                                                                                               CiudadOrigen =
-                                                                                                   pViaje.
-                                                                                                   GetCiudadOrigen().
-                                                                                                   Direccion,
-                                                                                               Comentario =
-                                                                                                   solicitud.Comentario,
-                                                                                               CuposDisponibles =
-                                                                                                   trayecto.
-                                                                                                   CuposDisponibles.
-                                                                                                   ToString(),
-                                                                                               CuposSolicitados =
-                                                                                                   solicitud.
-                                                                                                   CuposSolicitados.
-                                                                                                   ToString(),
-                                                                                               NombreSolicitante =
-                                                                                                   solicitud.
-                                                                                                   CreadorSolicitud.
-                                                                                                   ObtenerNombreApellidos
-                                                                                                   ()
-                                                                                           }));
+                        {
+                            CiudadDestino = pViaje.GetCiudadDestino().Direccion,
+                            CiudadOrigen = pViaje.GetCiudadOrigen().Direccion,
+                            Comentario = solicitud.Comentario,
+                            CuposDisponibles = trayecto.CuposDisponibles.ToString(),
+                            CuposSolicitados = solicitud.CuposSolicitados.ToString(),
+                            IdSolicitud = solicitud.IdSolicitud,
+                            NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos()
+                        }));
                 }
             }
             return listaResult;
@@ -63,16 +48,21 @@ namespace BusinessLayer
             var trayectoSeleccionado = pViaje.TrayectosViaje.Find(t => t.IdTrayecto == pSolicitud.IdTrayecto);
             //var trayectosModificar;
 
-            var trayectosModificar = (trayectoSeleccionado.TrayectoSimple)? 
+            IEnumerable<Trayecto> trayectosModificar = (trayectoSeleccionado.TrayectoSimple)? 
                 DeterminarTrayectosAfectosTryS(pViaje, trayectoSeleccionado):
                 DeterminarTrayectosAfectosTryC(pViaje,trayectoSeleccionado);
-            trayectosModificar.ForEach(t => t.CuposDisponibles -= pSolicitud.CuposSolicitados);
-            var trayectosSinModificar = pViaje.TrayectosViaje.Except(trayectosModificar);
+            trayectosModificar.ToList().ForEach(t => t.CuposDisponibles -= pSolicitud.CuposSolicitados);
+            //IEnumerable<Trayecto> trayectosSinModificar = pViaje.TrayectosViaje.Except(trayectosModificar.ToList());
+            var trayectosSinModificar = pViaje.TrayectosViaje.Where(trayecto => trayectosModificar.ToList().All(t => t.IdTrayecto != trayecto.IdTrayecto)).ToList();
+
             pViaje.TrayectosViaje.Clear();
+            pViaje.TrayectosViaje.AddRange(trayectosSinModificar.ToList());
             pViaje.TrayectosViaje.AddRange(trayectosModificar);
-            pViaje.TrayectosViaje.AddRange(trayectosSinModificar);
-            //TODO aqui va el desarrollo 
-            return false;
+            TrayectoDao.Instancia.ActualizarCupos(pViaje.TrayectosViaje);
+            pSolicitud.Estado = Solicitud.SolicitudEstado.Aprobada;
+            //TODO Esta funcionalidad esta pendiente por cambios
+            return SolicitudDao.Instancia.ActualizarSolicitudIgualConexion(pSolicitud);
+            
         }
 
         //Busca la lista de trayectos que deben ser modificados en terminos de cupos, dado que se acepte una 
@@ -107,5 +97,18 @@ namespace BusinessLayer
             listResult.AddRange(trayectoAlgoritmoSimple);
             return listResult;
         }
+
+        //private IEnumerable<Trayecto> DescontarCupos(IEnumerable<Trayecto> pTrayectos, int numeroCuposSolicitados)
+        //{
+        //    var pTrayectosList = pTrayectos as IList<Trayecto> ?? pTrayectos.ToList();
+        //    if (pTrayectosList.Any())
+        //    {
+        //        foreach (var pTrayecto in pTrayectosList.
+        //          Where(pTrayecto => pTrayecto.CuposDisponibles >= numeroCuposSolicitados))
+        //            pTrayecto.CuposDisponibles -= numeroCuposSolicitados;
+        //        return pTrayectosList;
+        //    }
+        //    return null;
+        //}
     }
 }

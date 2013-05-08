@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DataLayer.ModeloEntityFramework;
+using DataLayer.Transformador;
+using Entities.Negocio;
 
 namespace DataLayer.DAOs
 {
@@ -14,22 +17,33 @@ namespace DataLayer.DAOs
             get { return _instancia ?? (_instancia = new TrayectoDao()); }
         }
 
-        public bool DescontarCupos(int numerdoCuposSolicitados, long idTrayecto)
+        //Establece la conexion y actualiza cada uno de los trayectos
+        public void ActualizarCupos(List<Trayecto> pTrayectos)
         {
             EstablecerConexion();
-            var regTrayectos = from t in Conexion.TRAYECTO
-                           where t.ID_TRAYECTO == idTrayecto
-                           select t;
-            if (regTrayectos.Any())
+            foreach (var trayectoDb in pTrayectos.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)))
             {
-                var trayecto = regTrayectos.First();
-                if (trayecto.CUPOS >= numerdoCuposSolicitados)
-                {
-                    trayecto.CUPOS -= numerdoCuposSolicitados;
-                    return true;
-                }
+                Conexion.TRAYECTO.Attach(trayectoDb);
+                //TODO si no actualiza ningun campo agregar sentencias de modificacion del usuarioDAO
             }
-            return false;
         }
+
+        //private bool DescontarCupos(int numerdoCuposSolicitados, long idTrayecto)
+        //{
+        //    //EstablecerConexion();
+        //    var regTrayectos = from t in Conexion.TRAYECTO
+        //                   where t.ID_TRAYECTO == idTrayecto
+        //                   select t;
+        //    if (regTrayectos.Any())
+        //    {
+        //        var trayecto = regTrayectos.First();
+        //        if (trayecto.CUPOS >= numerdoCuposSolicitados)
+        //        {
+        //            trayecto.CUPOS -= numerdoCuposSolicitados;
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
     }
 }

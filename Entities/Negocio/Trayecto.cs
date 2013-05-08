@@ -12,7 +12,9 @@ namespace Entities.Negocio
         public Parada ParadaDestino { get; set; }
         public int CuposDisponibles { get; set; }
         public bool TrayectoSimple { get; set; }
-        public List<Solicitud> ListaSolicitudes { get; set; } 
+        public List<Solicitud> ListaSolicitudes { get; set; }
+        //Se debe hacer el Set a esta propiedad
+        public long IdViaje { get; set; }
 
     }
 }
