@@ -1,4 +1,4 @@
-﻿.divCeldaMisViajesVigentes {
+.divCeldaMisViajesVigentes {
     width: 28%;
     float: left;
     text-align: center;
@@ -7,4 +7,11 @@
     width: 16%;
     float: left;
     text-align: center;
+}
+#divOcultarSolicitudes{
+	width: 100%;
+	color: green;
+	cursor: pointer;
+	border-bottom: thin solid green;
+	text-align: center;
 }
