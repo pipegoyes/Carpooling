@@ -36,5 +36,16 @@ namespace DataLayer.DAOs
                                        select s;
             return registrosSolicitudes.Any();
         }
+
+        //No abre una conexion a la base de datos, pero si guarda todos los cambios pendientes
+        public bool ActualizarSolicitudIgualConexion(Solicitud pSolicitud)
+        {
+            var solicitudDb = ToDataEntity.Instancia.ToSolicitud(pSolicitud);
+            Conexion.SOLICITUD.Attach(solicitudDb);
+            return ConfirmarCambios();
+            //TODO si no actualiza entonces hacer lo mismo del usuarioDAO
+        }
+
+        
     }
 }

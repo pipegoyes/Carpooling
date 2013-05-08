@@ -199,7 +199,8 @@ namespace DataLayer.Transformador
                                                      {
                                                          CuposDisponibles = trayecto.CUPOS, 
                                                          TrayectoSimple = trayecto.TRAYECTO_SIMPLE, 
-                                                         IdTrayecto = trayecto.ID_TRAYECTO, 
+                                                         IdTrayecto = trayecto.ID_TRAYECTO,
+                                                         IdViaje = trayecto.ID_VIAJE,
                                                          ListaSolicitudes = ToSolicitudes(trayecto.SOLICITUD.ToList()), 
                                                          ParadaOrigen = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "I")), 
                                                          ParadaDestino = ToParada(trayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "F"))
@@ -227,6 +228,7 @@ namespace DataLayer.Transformador
                                                   CreadorSolicitud = ToUsuario(s.USUARIO),
                                                   CuposSolicitados = s.CUPOS_SOLICITADOS,
                                                   Estado = Solicitud.GetSolicitudEstado(s.ESTADO),
+                                                  IdTrayecto = s.ID_TRAYECTO,
                                                   IdSolicitud = s.ID_SOLICITUD
                                               }).ToList();
         } 
