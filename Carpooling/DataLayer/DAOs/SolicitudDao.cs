@@ -41,7 +41,10 @@ namespace DataLayer.DAOs
         public bool ActualizarSolicitudIgualConexion(Solicitud pSolicitud)
         {
             var solicitudDb = ToDataEntity.Instancia.ToSolicitud(pSolicitud);
+            //TODO Aqui da null
             Conexion.SOLICITUD.Attach(solicitudDb);
+            var entidad = Conexion.Entry(solicitudDb);
+            entidad.Property(s => s.ESTADO).IsModified = true;
             return ConfirmarCambios();
             //TODO si no actualiza entonces hacer lo mismo del usuarioDAO
         }

@@ -47,14 +47,13 @@ namespace DataLayer.Transformador
             return usuario;
         }
 
-
         public VIAJE ToViaje(Viaje viajeActual)
         {
             var viajeDao = new VIAJE
                                {
+                                   //TODO esta fecha de creacion deberia ser con la horaPartidaStr y fecha del servidor
                                    FECHA_CREACION = DateTime.Now,
                                    APORTE_ECONOMICO = viajeActual.AporteEconomico,
-                                   //TODO esta fecha de creacion deberia ser con la horaPartidaStr y fecha del servidor
                                    FECHA_HORA_PARTIDA = viajeActual.FechaHoraPartida,
                                    ID_CONDUCTOR = viajeActual.Conductor.IdUsuario,
                                    ESTADO = (int) viajeActual.Estado,
@@ -104,7 +103,8 @@ namespace DataLayer.Transformador
                            COMENTARIO = pSolicitud.Comentario,
                            CUPOS_SOLICITADOS = pSolicitud.CuposSolicitados,
                            ESTADO = (int) pSolicitud.Estado,
-                           ID_PASAJERO = pSolicitud.CreadorSolicitud.IdUsuario
+                           ID_PASAJERO = pSolicitud.CreadorSolicitud.IdUsuario,
+                           ID_SOLICITUD = pSolicitud.IdSolicitud
                        };
         }
 
@@ -129,7 +129,8 @@ namespace DataLayer.Transformador
                     LATITUD = p.Latitud,
                     LONGITUD = p.Longitud,
                     NUMERO_PARADA = p.NumeroParada,
-                    TIPO_PARADA = p.TipoParada
+                    TIPO_PARADA = p.TipoParada,
+                    ID_TRAYECTO = p.IdTrayecto
                 }).ToList();
         }
     }

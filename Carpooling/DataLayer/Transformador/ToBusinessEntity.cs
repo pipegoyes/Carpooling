@@ -216,7 +216,8 @@ namespace DataLayer.Transformador
                             IdParada = pParada.ID_PARADA,
                             Longitud = pParada.LONGITUD,
                             NumeroParada = pParada.NUMERO_PARADA,
-                            TipoParada = pParada.TIPO_PARADA
+                            TipoParada = pParada.TIPO_PARADA,
+                            IdTrayecto = pParada.ID_TRAYECTO
                        };
         }
 

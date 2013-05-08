@@ -24,6 +24,8 @@ namespace DataLayer.DAOs
             foreach (var trayectoDb in pTrayectos.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)))
             {
                 Conexion.TRAYECTO.Attach(trayectoDb);
+                var entidad = Conexion.Entry(trayectoDb);
+                entidad.Property(t => t.CUPOS).IsModified = true;
                 //TODO si no actualiza ningun campo agregar sentencias de modificacion del usuarioDAO
             }
         }
