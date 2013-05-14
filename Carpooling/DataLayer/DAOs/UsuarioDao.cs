@@ -65,6 +65,17 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
+        //Metodo para actualizar la contraseña
+        public bool ActualizarContrasenia(Usuario pUsuario)
+        {
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            EstablecerConexion();
+            Conexion.USUARIO.Attach(usuario);
+            var entidad = Conexion.Entry(usuario);
+            entidad.Property(x => x.CONTRASENIA).IsModified = true;
+            return ConfirmarCambios();
+        }        
+
         public Usuario ObtenerPorId(string pIdUsuario)
         {
             EstablecerConexion();

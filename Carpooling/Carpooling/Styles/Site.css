@@ -26,11 +26,11 @@ input[type="text"], input[type="password"], textarea {
     border: 1px solid #C0C0C0;
     height: 30px;
     padding: 0 8px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
 }
 
     input[type="text"]:focus, input[type="password"]:focus {
@@ -47,7 +47,7 @@ input[type="text"], input[type="password"], textarea {
 #login-div {
     border-bottom: solid 1px white;
     background-color: #a6dbed;
-}   
+}
 
 #login {
     display: block;
@@ -59,30 +59,31 @@ input[type="text"], input[type="password"], textarea {
     height: 20px;
 }
 
-    #login ul{
-        margin:auto;
+    #login ul {
+        margin: auto;
         padding: 0;
     }
 
-    #login li{
+    #login li {
         display: inline;
         list-style: none;
         position: relative;
     }
 
-    #login a{
+    #login a {
         margin: 0 10px;
         padding: 0 3px;
         text-decoration: none;
         font-weight: bold;
     }
 
-    #login a:hover{
-        text-decoration:none;
-        color: white;
-        text-shadow: 0 0 5px black;
-        background: none;
-    }
+        #login a:hover {
+            text-decoration: none;
+            color: white;
+            -webkit-text-shadow: 0 0 5px black;
+            text-shadow: 0 0 5px black;
+            background: none;
+        }
 
         #login a.username {
             background: none;
@@ -128,14 +129,14 @@ ul#menu {
                 text-decoration: none;
             }
 
-#menuIzquierdoUsuarioRegistrado{
-    text-align: left !important; 
-    float:left !important;
+#menuIzquierdoUsuarioRegistrado {
+    text-align: left !important;
+    float: left !important;
 }
 
-#menuDerechoUsuarioRegistrado{
-    text-align: right !important; 
-    float:right !important;
+#menuDerechoUsuarioRegistrado {
+    text-align: right !important;
+    float: right !important;
 }
 
 
@@ -197,7 +198,7 @@ ul#menu {
             background: -ms-linear-gradient(top,rgb(38, 85, 180),rgb(43, 75, 198));
         }
 
-        .button-gradient.blue-dark:focus {            
+        .button-gradient.blue-dark:focus {
             background: rgb(38, 85, 180);
             background: -webkit-gradient(linear,left top,left bottom,from(rgb(38, 85, 180)),to(rgb(43, 75, 198)));
             background: -moz-linear-gradient(top,rgb(38, 85, 180),rgb(43, 75, 198));
@@ -228,7 +229,7 @@ ul#menu {
             background: -ms-linear-gradient(top,rgb(0, 135, 200),rgb(0, 108, 165));
         }
 
-        .button-gradient.blue:focus {            
+        .button-gradient.blue:focus {
             background: rgb(0, 135, 185);
             background: -webkit-gradient(linear,left top,left bottom,from(rgb(0, 135, 200)),to(rgb(0, 108, 165)));
             background: -moz-linear-gradient(top,rgb(0, 135, 200),rgb(0, 108, 165));
@@ -259,7 +260,7 @@ ul#menu {
             background: -ms-linear-gradient(top,rgb(143, 187, 68),rgb(92, 136, 37));
         }
 
-        .button-gradient.green:focus {            
+        .button-gradient.green:focus {
             background: rgb(143, 187, 68);
             background: -webkit-gradient(linear,left top,left bottom,from(rgb(143, 187, 68)),to(rgb(92, 136, 37)));
             background: -moz-linear-gradient(top,rgb(143, 187, 68),rgb(92, 136, 37));
@@ -284,9 +285,10 @@ login-div {
 */
 
 #divLoginFormFloat {
-    display:none;
+    display: none;
     /*background: none repeat scroll 0 0 #F1F1F1;*/
-    background: none repeat scroll 0 0 rgb(227, 246, 252);;    
+    background: none repeat scroll 0 0 rgb(227, 246, 252);
+    ;
     padding: 20px 10px 10px;
     width: 200px;
     /*border: 1px solid #E5E5E5;*/
@@ -302,30 +304,30 @@ login-div {
     z-index: 20;
 }
 
-#divLoginFormFloat input[type="button"], input[type="submit"] {
-    margin: auto;
-    display:block;
-}
+    #divLoginFormFloat input[type="button"], input[type="submit"] {
+        margin: auto;
+        display: block;
+    }
 
 
-#divLoginFormFloat a {
-    margin: 10px 0 auto;
-    display:block;
-    font-size: 11px;
-}
+    #divLoginFormFloat a {
+        margin: 10px 0 auto;
+        display: block;
+        font-size: 11px;
+    }
 
-#divLoginFormFloat fieldset {
-    border: 0 none;
-    margin: 0 0 15px;
-    padding: 0;
-    text-align: left;
-}
+    #divLoginFormFloat fieldset {
+        border: 0 none;
+        margin: 0 0 15px;
+        padding: 0;
+        text-align: left;
+    }
 
-#divLoginFormFloat fieldset strong {
-    display: block;
-    padding-bottom: 6px;
-    font-size: 13px;
-}
+        #divLoginFormFloat fieldset strong {
+            display: block;
+            padding-bottom: 6px;
+            font-size: 13px;
+        }
 
 /*estilos para el formulario de login*/
 
@@ -333,8 +335,8 @@ login-div {
 
 /*incluye manuel*/
 
-body #body{
-    padding-top:120px;
+body #body {
+    padding-top: 120px;
 }
 
 
@@ -385,7 +387,7 @@ a {
     text-decoration: underline;
 }
 
-    a:link, a:visited, 
+    a:link, a:visited,
     a:active, a:hover {
         color: #333;
     }
@@ -508,7 +510,7 @@ footer {
 /* featured */
 .featured {
     /*background-color: #fff;*/
-    background-color:transparent;
+    background-color: transparent;
 }
 
     .featured .content-wrapper {
@@ -679,7 +681,7 @@ fieldset {
 }
 
     fieldset legend {
-        display: none;
+        /*display: none;*/
     }
 
     fieldset ol {
@@ -899,7 +901,7 @@ tr.pager td {
     padding: 8px 9px 8px 9px !important;
     text-transform: uppercase;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 .ajax__validatorcallout div {
@@ -915,5 +917,114 @@ tr.pager td {
     background-color: transparent !important;
 }
 
+.modalBackground {
+    background-color: rgb(75, 105, 146);
+    filter: alpha(opacity=50);
+    opacity: 0.50;
+    z-index: 10030 !important;
+}
 
+.modalArea {
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    padding: 5px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    -ms-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
 
+.areaPopup {
+    width: 100%;
+    height: 100%;
+}
+
+.areaTitulo {
+    margin: 0,auto;
+    width: 100%;
+    height: auto;
+    float: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    background-color: rgb(122, 192, 218);
+    vertical-align: middle;
+    padding: 5px;
+    position: relative;
+    -webkit-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3) inset, 0px 1px 10px rgba(0, 0, 0, 0.3);
+    display:block;
+}
+
+    .areaTitulo span {
+        font-size: medium;
+        color: white;
+        font-weight: 500;
+        -moz-text-shadow: 0 0 5px rgb(0, 0, 0);
+        -webkit-text-shadow: 0 0 5px rgb(0, 0, 0);
+        -o-text-shadow: 0 0 5px rgb(0, 0, 0);
+        -ms-text-shadow: 0 0 5px rgb(0, 0, 0);
+        text-shadow: 0 0 5px rgb(0, 0, 0);
+    }
+
+    .areaTitulo #titutlo{
+        margin:0 auto;
+        text-align:center;
+        width:75%;
+    }
+
+    .areaTitulo #mover{
+        float: left;
+        text-align: left;
+        width:10%;
+    }
+
+    .areaTitulo #botones{
+        float: right;
+        text-align:right;
+        width:10%;
+    }
+
+.areaFormulario {
+    margin: 0,auto;
+    width: 100%;
+    height: auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    display:block;
+    float:none;
+}
+
+.botonModal {
+    height: 23px !important;
+    vertical-align: middle;
+    display: inline-block;
+    background: transparent;
+}
+
+.botonModal.cerrar {
+    cursor: pointer;
+}
+
+.botonModal.mover {
+    cursor: move;
+}

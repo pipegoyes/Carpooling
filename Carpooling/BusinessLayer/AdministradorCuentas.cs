@@ -27,7 +27,6 @@ namespace BusinessLayer
             get { return _instancia ?? (_instancia = new AdministradorCuentas()); } 
         }
 
-
         //Valida e inserta un nuevo usuario
         public bool CrearCuenta(Usuario pUsuario)
         {
@@ -53,6 +52,19 @@ namespace BusinessLayer
             return UsuarioDao.Instancia.ActualizarUltimoIngreso(pUsuario);
         }
 
+        //Metodo para actualizar la contraseña
+        public bool ActualizarContrasenia(Usuario pUsuario, string pContraseniaActual, string pContraseniaNueva, out string pMensajeRetorno)
+        {
+            pMensajeRetorno = string.Empty;
+            if (pContraseniaActual != DesencriptarContrasenia(pUsuario.Contrasenia))
+            {
+                pMensajeRetorno = "Contraseña actual incorrecta.";
+                return false;
+            }
+            pUsuario.Contrasenia = AdministradorCuentas.Instancia.EncriptarContrasenia(pContraseniaNueva);
+            return UsuarioDao.Instancia.ActualizarContrasenia(pUsuario);
+        }
+
         public Usuario AutenticarUsuario(string pIdEmailUsuario, string pContrasenia)
         {
             Usuario usuario;
@@ -70,6 +82,35 @@ namespace BusinessLayer
                     return usuario;
            }
             return null;
+        }
+
+        public bool RecuperarContrasenia(string pIdEmailUsuario)
+        {
+            Usuario usuario;
+            pIdEmailUsuario.Trim().ToLower();
+            if (pIdEmailUsuario.Contains("@"))
+                usuario = UsuarioDao.Instancia.ObtenerPorEmail(pIdEmailUsuario);
+            else
+                usuario = UsuarioDao.Instancia.ObtenerPorId(pIdEmailUsuario);
+
+            if (usuario != null)
+            {
+                string nuevaContrasenia = System.Web.Security.Membership.GeneratePassword(12, 3);
+                string nuevaContraseniaEncriptada = EncriptarContrasenia(nuevaContrasenia);
+                usuario.Contrasenia = nuevaContraseniaEncriptada;
+                if (UsuarioDao.Instancia.ActualizarContrasenia(usuario))
+                {
+                    //inicializa los parametros de envio del correo
+                    string cuentaEnvio = ConfigurationManager.AppSettings["CuentaEmailAdministrador"];
+                    List<string> destinatarios = new List<string> {usuario.Email};
+                    string asunto = "CarpoolingCo - Recuperación de cuenta";
+                    string mensaje = "Hemos generado un nueva contraseña que te permita el acceso. Por favor ingresa con esta contraseña y actulizada por seguridad.";
+                    mensaje += '\n' + "Tu contraseña de ingreso es: " + nuevaContrasenia;
+                    mensaje += '\n' + '\n' + "Gracias por hacer parte de CarpoolingCo.";
+                    AdministradorCorreosElectronicos.Instancia.EnviarCorreoPlano(cuentaEnvio, destinatarios, null, null, asunto, mensaje, false);
+                }
+            }
+            return false;            
         }
 
         //Obtiene un array binary que representa la imagen del path especificado
