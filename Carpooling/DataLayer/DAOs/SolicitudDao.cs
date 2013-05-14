@@ -37,18 +37,23 @@ namespace DataLayer.DAOs
             return registrosSolicitudes.Any();
         }
 
-        //No abre una conexion a la base de datos, pero si guarda todos los cambios pendientes
-        public bool ActualizarSolicitudIgualConexion(Solicitud pSolicitud)
+        //No abre una pConexion a la base de datos, se encarga de actualizar el estado de las solicitudes
+        public void ActualizarEstadoSolicitud(SOLICITUD pSolicitud, CARPOOLEntities pConexion)
         {
+            pConexion.SOLICITUD.Attach(pSolicitud);
+            var entidad = pConexion.Entry(pSolicitud);
+            entidad.Property(s => s.ESTADO).IsModified = true;
+        }
+
+        //Actualiza la solicitud utilizando el BO correspondiente
+        public bool ActualizarEstadoSolicitud(Solicitud pSolicitud)
+        {
+            EstablecerConexion();
             var solicitudDb = ToDataEntity.Instancia.ToSolicitud(pSolicitud);
-            //TODO Aqui da null
             Conexion.SOLICITUD.Attach(solicitudDb);
             var entidad = Conexion.Entry(solicitudDb);
             entidad.Property(s => s.ESTADO).IsModified = true;
             return ConfirmarCambios();
-            //TODO si no actualiza entonces hacer lo mismo del usuarioDAO
         }
-
-        
     }
 }

@@ -33,40 +33,15 @@ namespace Carpooling.Front.Viajes
             }
         }
 
-        protected void BtnVerSolicitudesClick(object sender, DataListCommandEventArgs e)
+        protected void BtnVerDetalleClick(object sender, DataListCommandEventArgs e)
         {
-            if (e.CommandName.ToLower().Equals("versolicitudes"))
+            if (e.CommandName.ToLower().Equals("verdetalle"))
             {
-                var idViaje = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
-                Session["idViajeSelecionado"] = idViaje;
-                var listaMisViajes = (List<Viaje>) Session["MisViajesList"];
-                var viajeSeleccionado = listaMisViajes.Find(v => v.IdViaje == idViaje);
-                dataListSolicitudes.DataSource =
-                    AdministradorSolicitudes.Instancia.CreateItemSolicitud(viajeSeleccionado);
-                dataListSolicitudes.DataBind();
-                PanelSolicitudesDetalle.Visible = true;
+                long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                if (id != 0)
+                    Response.Redirect("../Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + id);
             }
         }
 
-        protected void BtnAceptarSolicitud(object sender, DataListCommandEventArgs e)
-        {
-            if (e.CommandName.ToLower().Equals("aceptarsolicitud"))
-            {
-                //TODO podria no encontrar el viaje o la solicitud 
-                var idSolicitud = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
-                var idViajeSeleccionado = (long) Session["idViajeSelecionado"];
-                var listaMisViajes = (List<Viaje>) Session["MisViajesList"];
-                var viajeSeleccionado = listaMisViajes.Find(v => v.IdViaje == idViajeSeleccionado);
-                Solicitud solicitudSeleccionada = null;
-                foreach (var trayecto in viajeSeleccionado.TrayectosViaje)
-                {
-                    solicitudSeleccionada = trayecto.ListaSolicitudes.Find(t => t.IdSolicitud == idSolicitud);
-                    if (solicitudSeleccionada != null)
-                        break;
-                }
-                AdministradorSolicitudes.Instancia.AceparSolicitud(viajeSeleccionado,solicitudSeleccionada);
-
-            }
-        }
     }
 } 

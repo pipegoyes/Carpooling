@@ -81,6 +81,7 @@
     <Content Include="Front\UserControls\PopUpOk.ascx" />
     <Content Include="Front\Error.aspx" />
     <Content Include="Front\Viajes\DetalleViaje.aspx" />
+    <Content Include="Front\Viajes\DetalleViaje_MisViajes.aspx" />
     <Content Include="Front\Viajes\MisViajes.aspx" />
     <Content Include="Scripts\front-js\BuscarViaje.js" />
     <Content Include="Scripts\front-js\EditarPerfil.js" />
@@ -439,6 +440,13 @@
     </Compile>
     <Compile Include="Front\Viajes\DetalleViaje.aspx.designer.cs">
       <DependentUpon>DetalleViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje_MisViajes.aspx.cs">
+      <DependentUpon>DetalleViaje_MisViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje_MisViajes.aspx.designer.cs">
+      <DependentUpon>DetalleViaje_MisViajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\MisViajes.aspx.cs">
       <DependentUpon>MisViajes.aspx</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="MisViajes.aspx.cs" Inherits="Carpooling.Front.Viajes.MisViajes" %>
+<%--<%@ Register src="../UserControls/PopUpOk.ascx" tagName="PopUpConfirmation" tagPrefix="uc" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Styles/front-css/MisViajes.css" rel="stylesheet" />
 </asp:Content>
@@ -18,11 +19,11 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <%--<uc:PopUpConfirmation ID="popUpConfirmation" runat="server" />--%>
     <div class="titulo">Viajes vigentes</div>
     <div class="text">Son aquellos viajes que a la fecha no se han realizado. </div>
     <asp:DataList runat="server" ID="dataListViajesVigentes" 
-                  ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerSolicitudesClick" >
+                  ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerDetalleClick" >
         <AlternatingItemStyle BackColor="White" />
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                      ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -51,12 +52,12 @@
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div>
-                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Solicitudes" CommandName="VerSolicitudes" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-    </asp:DataList>
+    </asp:DataList><%--
     <asp:Panel ID="PanelSolicitudesDetalle" runat="server" Visible="False">
         <div class="subtitulo">Listado de solicitudes</div>
         <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
@@ -105,9 +106,10 @@
                 </div>
                 <div>
                     <asp:LinkButton runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%# Eval("IdSolicitud") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%# Eval("IdSolicitud") %>'></asp:LinkButton>
                 </div>
             </ItemTemplate>
         </asp:DataList>
         <div id="divOcultarSolicitudes"> Ocultar solicitudes </div>
-    </asp:Panel>
+    </asp:Panel>--%>
 </asp:Content>

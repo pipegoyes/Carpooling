@@ -20,23 +20,5 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dataListViajesVigentes;
-        
-        /// <summary>
-        /// PanelSolicitudesDetalle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelSolicitudesDetalle;
-        
-        /// <summary>
-        /// dataListSolicitudes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListSolicitudes;
     }
 }
