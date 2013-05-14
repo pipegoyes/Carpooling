@@ -104,7 +104,8 @@ namespace DataLayer.Transformador
                            CUPOS_SOLICITADOS = pSolicitud.CuposSolicitados,
                            ESTADO = (int) pSolicitud.Estado,
                            ID_PASAJERO = pSolicitud.CreadorSolicitud.IdUsuario,
-                           ID_SOLICITUD = pSolicitud.IdSolicitud
+                           ID_SOLICITUD = pSolicitud.IdSolicitud,
+                           TRAYECTO = (pSolicitud.Trayecto != null)? ToTrayecto(pSolicitud.Trayecto):null
                        };
         }
 
@@ -116,7 +117,8 @@ namespace DataLayer.Transformador
                     CUPOS = pTrayecto.CuposDisponibles,
                     ID_TRAYECTO = pTrayecto.IdTrayecto,
                     ID_VIAJE = pTrayecto.IdViaje,
-                    PARADA = ToDataEntity.Instancia.ToParadas(listParadas)
+                    SOLICITUD = pTrayecto.ListaSolicitudes.Select(ToSolicitud).ToList(),
+                    PARADA = ToParadas(listParadas)
                 };
         }
 

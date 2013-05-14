@@ -13,6 +13,7 @@ namespace Entities.Negocio
         public int CuposSolicitados { get; set; }
         public SolicitudEstado Estado { get; set; }
         public Usuario CreadorSolicitud { get; set; }
+        public Trayecto Trayecto { get; set; }
 
         public enum SolicitudEstado
         {

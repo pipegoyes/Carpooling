@@ -18,7 +18,7 @@ namespace DataLayer.DAOs
         }
 
         //Establece la conexion y actualiza cada uno de los trayectos
-        public void ActualizarCupos(List<Trayecto> pTrayectos)
+        public bool ActualizarCuposSolicitud(List<Trayecto> pTrayectos, Solicitud pSolicitud)
         {
             EstablecerConexion();
             foreach (var trayectoDb in pTrayectos.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)))
@@ -26,26 +26,12 @@ namespace DataLayer.DAOs
                 Conexion.TRAYECTO.Attach(trayectoDb);
                 var entidad = Conexion.Entry(trayectoDb);
                 entidad.Property(t => t.CUPOS).IsModified = true;
-                //TODO si no actualiza ningun campo agregar sentencias de modificacion del usuarioDAO
+                if (trayectoDb.SOLICITUD.Any(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud))
+                    SolicitudDao.Instancia.ActualizarEstadoSolicitud(trayectoDb.SOLICITUD.ToList().Find(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud),Conexion);
             }
+
+            return ConfirmarCambios();
         }
 
-        //private bool DescontarCupos(int numerdoCuposSolicitados, long idTrayecto)
-        //{
-        //    //EstablecerConexion();
-        //    var regTrayectos = from t in Conexion.TRAYECTO
-        //                   where t.ID_TRAYECTO == idTrayecto
-        //                   select t;
-        //    if (regTrayectos.Any())
-        //    {
-        //        var trayecto = regTrayectos.First();
-        //        if (trayecto.CUPOS >= numerdoCuposSolicitados)
-        //        {
-        //            trayecto.CUPOS -= numerdoCuposSolicitados;
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
     }
 }
