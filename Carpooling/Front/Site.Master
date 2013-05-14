@@ -75,7 +75,7 @@
                                                         <input id="txbContrasenia" type="password" value="admin1234" />
                                                     </fieldset>
                                                     <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
-                                                    <a href="Default.aspx">¿Olvidaste tu usuario o contraseña?</a>
+                                                    <a href="~/Front/Cuentas/RecuperarContrasenia.aspx">¿Olvidaste tu usuario o contraseña?</a>
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>

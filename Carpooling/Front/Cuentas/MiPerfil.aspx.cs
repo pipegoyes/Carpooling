@@ -47,13 +47,18 @@ namespace Carpooling.Front.Cuentas
                 ddlReputación.SelectedValue = Math.Round(usuarioApp.Reputacion.Value).ToString();
             }
             lblFechaUltimoIngreso.Text = usuarioApp.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
-            imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"),"~/");
+            imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
             lblInfoAdicional.Text = usuarioApp.InformacionAdicional;
         }
 
         protected void btnEditarPerfil_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Front/Cuentas/EditarPerfil.aspx",false);
+        }
+
+        protected void btnCambiarContrasenia_Click(object sender, EventArgs e)
+        {
+            ucCambioContrasenia.MostrarVentana();
         }
     }
 }

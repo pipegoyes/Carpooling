@@ -7,36 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Carpooling {
+namespace Carpooling.Front.Cuentas {
     
     
-    public partial class WebForm1 {
+    public partial class RecuperarContrasenia {
         
         /// <summary>
-        /// Form1 control.
+        /// txbIdEmailUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.TextBox txbIdEmailUsuario;
         
         /// <summary>
-        /// ddlMake control.
+        /// btnRecuperar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMake;
-        
-        /// <summary>
-        /// btnPublicar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPublicar;
+        protected global::System.Web.UI.WebControls.Button btnRecuperar;
     }
 }

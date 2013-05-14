@@ -45,16 +45,13 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\AjaxControlToolkit.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SanitizerProviders">
       <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -76,9 +73,11 @@
     <Content Include="Front\Bienvenida.aspx" />
     <Content Include="Front\Cuentas\EditarPerfil.aspx" />
     <Content Include="Front\Cuentas\MiPerfil.aspx" />
+    <Content Include="Front\Cuentas\RecuperarContrasenia.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Front\UserControls\PopUpConfrimarCupos.ascx" />
     <Content Include="Front\UserControls\PopUpOk.ascx" />
+    <Content Include="Front\Cuentas\wuc\CambioContrasenia.ascx" />
     <Content Include="Front\Error.aspx" />
     <Content Include="Front\Viajes\DetalleViaje.aspx" />
     <Content Include="Front\Viajes\DetalleViaje_MisViajes.aspx" />
@@ -371,7 +370,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm1.aspx" />
     <Content Include="WebServices\SiteWebMethod.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -396,12 +394,26 @@
     <Compile Include="Front\Cuentas\MiPerfil.aspx.designer.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Front\Cuentas\RecuperarContrasenia.aspx.cs">
+      <DependentUpon>RecuperarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\RecuperarContrasenia.aspx.designer.cs">
+      <DependentUpon>RecuperarContrasenia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Front\Cuentas\RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\CambioContrasenia.ascx.cs">
+      <DependentUpon>CambioContrasenia.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\CambioContrasenia.ascx.designer.cs">
+      <DependentUpon>CambioContrasenia.ascx</DependentUpon>
     </Compile>
     <Compile Include="Front\Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -507,13 +519,6 @@
     <Compile Include="Front\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebServices\SiteWebMethod.asmx.cs">
       <DependentUpon>SiteWebMethod.asmx</DependentUpon>

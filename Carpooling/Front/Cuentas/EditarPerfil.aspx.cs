@@ -94,7 +94,7 @@ namespace Carpooling.Front.Cuentas
                 chkVehiculo.Checked = usuarioApp.VehiculoPropio;
                 txbIdUsuario.Text = usuarioApp.IdUsuario;
                 txbEmail.Text = usuarioApp.Email;
-                imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/");
+                imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
                 txbInfoAdicional.Text = usuarioApp.InformacionAdicional;
             }
             catch (Exception ex)

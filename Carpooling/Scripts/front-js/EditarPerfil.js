@@ -128,11 +128,11 @@ function CrearUploader() {
         debug: true
     })
         .on('progress', function (event, id, filename, uploadedBytes, totalBytes) {
-            $("#imagenFotoModal").attr("src", "/Styles/images/ajax_loader.gif");
+            $("#imagenFotoModal").attr("src", "/Styles/images/ajax_loader.gif?" + new Date().getTime());
         })
         .on('complete', function (event, id, filename, responseJSON) {
             if (responseJSON.success) {
-                $("#imagenFotoModal").attr("src", responseJSON.userImage);
+                $("#imagenFotoModal").attr("src", responseJSON.userImage + "?" + new Date().getTime());
             }
         });
 
@@ -188,14 +188,14 @@ function CambioGenero() {
 }
 
 function lnkCambiarFoto_OnClick() {
-    $("#imagenFotoModal").attr("src", $("[ClientID='imgImagenCuenta']").attr("src"));
+    $("#imagenFotoModal").attr("src", $("[ClientID='imgImagenCuenta']").attr("src") + "?" + new Date().getTime());
     $('#dialogoCambiarFoto').wijdialog('open');
 }
 
 //funcion que se ejecuta al aceptar el cuadro modal de cargar imagen
 function onOk_ImageUserModalPopup() {
     $("#hfdImagePath").val($("#imagenFotoModal").attr("src"));
-    $("[ClientID='imgImagenCuenta']").attr("src", $("#hfdImagePath").val())
+    $("[ClientID='imgImagenCuenta']").attr("src", $("#hfdImagePath").val() + "?" + new Date().getTime())
     $('#dialogoCambiarFoto').wijdialog('close');
 }
 
@@ -208,9 +208,9 @@ function onCancel_ImageUserModalPopup() {
 function BtnQuitarImagen_OnClick() {
     var imagenFotoModal = $("#imagenFotoModal");
     if ($("[ClientID='rblGenero'] input:checked").val() == 'H') {
-        imagenFotoModal.attr('src', $('#hfdImagePathHombre').val().replace('~',''));
+        imagenFotoModal.attr('src', $('#hfdImagePathHombre').val().replace('~', '') + "?" + new Date().getTime());
     }
     else {
-        imagenFotoModal.attr('src', $('#hfdImagePathMujer').val().replace('~', ''));
+        imagenFotoModal.attr('src', $('#hfdImagePathMujer').val().replace('~', '') + "?" + new Date().getTime());
     }
 }

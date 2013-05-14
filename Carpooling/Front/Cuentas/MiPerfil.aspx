@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="MiPerfil.aspx.cs" Inherits="Carpooling.Front.Cuentas.MiPerfil" %>
+<%@ Register Src="~/Front/Cuentas/wuc/CambioContrasenia.ascx" TagName="CambioContrasenia" TagPrefix="uc" %>
+
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsContent" runat="server">
@@ -129,6 +131,14 @@
 
     <section id="botones">
         <asp:Button ID="btnEditarPerfil" ClientID="btnEditarPerfil" runat="server" Text="Editar perfil" style="float:left;" OnClick="btnEditarPerfil_Click"/>
-        <input id="btnCambiarContrasenia" type="button" value="Cambiar contraseña" style="float:left;"/>
+        <asp:UpdatePanel ID="upnMiPerfil" runat="server" >
+            <ContentTemplate>
+                <asp:Button ID="btnCambiarContrasenia" ClientID="btnCambiarContrasenia" runat="server" Text="Cambiar contraseña" style="float:left;" OnClick="btnCambiarContrasenia_Click"/>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
     </section>
+
+    <uc:CambioContrasenia ID="ucCambioContrasenia" runat="server"/>
 </asp:Content>
+
