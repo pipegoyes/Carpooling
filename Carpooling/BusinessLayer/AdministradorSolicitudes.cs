@@ -29,9 +29,9 @@ namespace BusinessLayer
             {
                 if (trayecto.ListaSolicitudes == null) continue;
                 var trayecto1 = trayecto;
-                var listaTrayectosPendientes = trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
+                //var listaTrayectosPendientes = trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
                     
-                listaResult.AddRange(listaTrayectosPendientes.Select((solicitud => new ItemTablaSolicitud()
+                listaResult.AddRange(trayecto.ListaSolicitudes.Select((solicitud => new ItemTablaSolicitud()
                                                                                         {
                                                                                             CiudadDestino = pViaje.GetCiudadDestino().Direccion,
                                                                                             CiudadOrigen = pViaje.GetCiudadOrigen().Direccion,
@@ -39,7 +39,11 @@ namespace BusinessLayer
                                                                                             CuposDisponibles = trayecto1.CuposDisponibles.ToString(),
                                                                                             CuposSolicitados = solicitud.CuposSolicitados.ToString(),
                                                                                             IdSolicitud = solicitud.IdSolicitud,
-                                                                                            NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos()
+                                                                                            NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos(),
+                                                                                            //TODO la reputacion podria mostrarse con unas estrellas
+                                                                                            Reputacion = (String.IsNullOrWhiteSpace(solicitud.CreadorSolicitud.Reputacion.ToString() ) )
+                                                                                            ? "Sin reputacion":solicitud.CreadorSolicitud.Reputacion.ToString(),
+                                                                                            Estado = solicitud.Estado
                                                                                         })));
             }
             return listaResult;
