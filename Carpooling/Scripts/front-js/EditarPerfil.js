@@ -172,7 +172,11 @@ function CambioGenero() {
     var rutaImagenHombre = $('#hfdImagePathHombre').val();
     var rutaImagenMujer = $('#hfdImagePathMujer').val();
 
-    rutaImagen = rutaImagen.substring(rutaImagen.lastIndexOf('/')+1, rutaImagen.length);
+    if(rutaImagen.lastIndexOf('?') != -1)
+        rutaImagen = rutaImagen.substring(rutaImagen.lastIndexOf('/') + 1, rutaImagen.lastIndexOf('?'));
+    else
+        rutaImagen = rutaImagen.substring(rutaImagen.lastIndexOf('/') + 1, rutaImagen.length);
+
     rutaImagenHombre = rutaImagenHombre.substring(rutaImagenHombre.lastIndexOf('/')+1, rutaImagenHombre.length); 
     rutaImagenMujer = rutaImagenMujer.substring(rutaImagenMujer.lastIndexOf('/')+1, rutaImagenMujer.length);
 

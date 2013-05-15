@@ -42,7 +42,7 @@ namespace Carpooling.Front.Cuentas
             {
                 var usuario = new Usuario
                 {
-                    IdUsuario = txtNombreUsuario.Text,
+                    IdUsuario = txtNombreUsuario.Text.ToLower(),
                     Nombre = txtNombres.Text,
                     Apellido = txtApellidos.Text,
                     Contrasenia = AdministradorCuentas.Instancia.EncriptarContrasenia(txtContrasena.Text.Trim()),

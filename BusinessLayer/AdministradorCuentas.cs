@@ -77,8 +77,8 @@ namespace BusinessLayer
             if(usuario != null)
             {
                 string contraseniaDbDesencriptada = this.DesencriptarContrasenia(usuario.Contrasenia);
-                contraseniaDbDesencriptada.Trim().ToLower();
-                if (contraseniaDbDesencriptada.Equals(pContrasenia.Trim().ToLower()))
+                contraseniaDbDesencriptada.Trim();
+                if (contraseniaDbDesencriptada.Equals(pContrasenia.Trim()))
                     return usuario;
            }
             return null;
@@ -99,16 +99,7 @@ namespace BusinessLayer
                 string nuevaContraseniaEncriptada = EncriptarContrasenia(nuevaContrasenia);
                 usuario.Contrasenia = nuevaContraseniaEncriptada;
                 if (UsuarioDao.Instancia.ActualizarContrasenia(usuario))
-                {
-                    //inicializa los parametros de envio del correo
-                    string cuentaEnvio = ConfigurationManager.AppSettings["CuentaEmailAdministrador"];
-                    List<string> destinatarios = new List<string> {usuario.Email};
-                    string asunto = "CarpoolingCo - Recuperación de cuenta";
-                    string mensaje = "Hemos generado un nueva contraseña que te permita el acceso. Por favor ingresa con esta contraseña y actulizada por seguridad.";
-                    mensaje += '\n' + "Tu contraseña de ingreso es: " + nuevaContrasenia;
-                    mensaje += '\n' + '\n' + "Gracias por hacer parte de CarpoolingCo.";
-                    AdministradorCorreosElectronicos.Instancia.EnviarCorreoPlano(cuentaEnvio, destinatarios, null, null, asunto, mensaje, false);
-                }
+                    AdministradorCorreosElectronicos.Instancia.CorreoRecuperacionContrasenia(usuario);
             }
             return false;            
         }

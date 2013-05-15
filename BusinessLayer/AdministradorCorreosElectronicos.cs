@@ -5,6 +5,7 @@ using System.Text;
 using System.Configuration;
 using System.Net;
 using System.Net.Mail;
+using Entities.Negocio;
 
 namespace BusinessLayer
 {
@@ -44,7 +45,7 @@ namespace BusinessLayer
         }
 
         //Envia un correo sin formato
-        public void EnviarCorreoPlano(string pCorreoRemitente, List<string> pCorreosDestinatario, List<string> pCorreosCopia, List<string> pCorreosCopiaOculpa, string pAsunto, string pMensaje, bool pEsHtml)
+        private void EnviarCorreoPlano(string pCorreoRemitente, List<string> pCorreosDestinatario, List<string> pCorreosCopia, List<string> pCorreosCopiaOculpa, string pAsunto, string pMensaje, bool pEsHtml)
         {
             Mensaje = new MailMessage();
             Mensaje.From = new MailAddress(CuentaEmailAdministrador);
@@ -75,9 +76,20 @@ namespace BusinessLayer
                 Credentials = new NetworkCredential(CuentaEmailAdministrador, ContraseniaEmailAdministrador),
                 EnableSsl = true
             };
-
             SMTPServicio.Send(Mensaje);            
         }
 
+        //Envia el correo de recuperacion de contraseña
+        public void CorreoRecuperacionContrasenia(Usuario pUsuario)
+        {
+            //inicializa los parametros de envio del correo
+            List<string> destinatarios = new List<string> { pUsuario.Email };
+            string nuevaContraseniaDesencriptada = AdministradorCuentas.Instancia.DesencriptarContrasenia(pUsuario.Contrasenia);
+            string asunto = "CarpoolingCo - Recuperación de cuenta";
+            string mensaje = "Hemos generado un nueva contraseña que te permita el acceso. Por favor ingresa con esta contraseña y actulizada por seguridad.";
+            mensaje += "<br/>Tu contraseña de ingreso es: " + nuevaContraseniaDesencriptada;
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador , destinatarios, null, null, asunto, mensaje, true);
+        }
     }
 }

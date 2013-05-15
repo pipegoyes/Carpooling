@@ -10,7 +10,7 @@
                 <h1>Recupera tu cuenta en CarpoolingCo</h1>
             </hgroup>
             <p>
-                <h2>Informanos el email con el que te registrarte o tu nombre de usuario y te enviaremos una nueva contraseña para que continues usuando los servicios de CarpoolingCo</h2>
+                <h2>Informanos el email con el que te registraste o tu nombre de usuario y te enviaremos una nueva contraseña para que continues usuando los servicios de CarpoolingCo</h2>
             </p>
         </div>
     </section>
