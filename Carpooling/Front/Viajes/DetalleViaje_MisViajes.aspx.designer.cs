@@ -94,6 +94,69 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.DataList dataListSolicitudes;
         
         /// <summary>
+        /// lblSinSolicitudes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinSolicitudes;
+        
+        /// <summary>
+        /// PanelParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelParticipantes;
+        
+        /// <summary>
+        /// dataListParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListParticipantes;
+        
+        /// <summary>
+        /// lblSinParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinParticipantes;
+        
+        /// <summary>
+        /// PanelPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelPreguntas;
+        
+        /// <summary>
+        /// dataListPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListPreguntas;
+        
+        /// <summary>
+        /// lblSinPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinPreguntas;
+        
+        /// <summary>
         /// contenedorHiddenFields control.
         /// </summary>
         /// <remarks>

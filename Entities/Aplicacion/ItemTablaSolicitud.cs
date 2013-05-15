@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Entities.Negocio;
 
 namespace Entities.Aplicacion
 {
@@ -14,5 +15,7 @@ namespace Entities.Aplicacion
         public string CuposSolicitados { get; set; }
         public string CuposDisponibles { get; set; }
         public string Comentario { get; set; }
+        public string Reputacion { get; set; }
+        public Solicitud.SolicitudEstado Estado { get; set; }
     }
 }

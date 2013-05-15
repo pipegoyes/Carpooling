@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using BusinessLayer;
+using Entities.Aplicacion;
 using Entities.Negocio;
 
 namespace Carpooling.Front.Viajes
@@ -25,14 +26,25 @@ namespace Carpooling.Front.Viajes
         protected void Page_Load(object sender, EventArgs e)
         {
             var idViajeStr = Request.QueryString["idViajeDetalle"];
-            if (idViajeStr == null) return;
-            UsuarioConectado = (Usuario)Session["usuario"];
-            IdViaje = Convert.ToInt64(idViajeStr);
-            ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
-            Session["ViajeSeleccionado"] = ViajeDetalle;
-            PintarDetalleViaje();
-            PintarSolicitudes();
-            CrearHiddenFields();
+            try
+            {
+
+                if (idViajeStr == null) throw new Exception("Por favor re-ingrese a la aplicacón, su tiempo de sesiòn ha expirado.");
+                UsuarioConectado = (Usuario)Session["usuario"];
+                IdViaje = Convert.ToInt64(idViajeStr);
+                ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
+                Session["ViajeSeleccionado"] = ViajeDetalle;
+                PintarDetalleViaje();
+                PintarSolicitudes();
+                PintarPreguntas();
+                CrearHiddenFields();
+            }
+            catch (Exception ex)
+            {
+                var error = new ErrorAplicacion { TituloError = ex.Message, DetalleError = ex.StackTrace };
+                ((Global)this.Context.ApplicationInstance).ErrorExcepcion = error;
+                Response.Redirect("~/Front/Error.aspx");
+            }
         }
 
         public void PintarDetalleViaje()
@@ -108,14 +120,53 @@ namespace Carpooling.Front.Viajes
             popUpConfirmation.CerrarPopUp();
         }
 
-        //Actualiza el listado de las solicitudes segun el viaje seleccionado
+        //Actualiza el listado de las solicitudes (Aprobadas y pendientes) segun el viaje seleccionado
         private void PintarSolicitudes()
         {
             if(ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
-            dataListSolicitudes.DataSource =
-                    AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
-            dataListSolicitudes.DataBind();
-            PanelSolicitudesDetalle.Visible = true;
+            var listaSolicitudesItem = AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
+            
+            if(listaSolicitudesItem.Count >0)
+            {
+                var solitudesPendientes =
+                    listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
+                if(solitudesPendientes.Any())
+                {
+                    dataListSolicitudes.DataSource = solitudesPendientes;
+                    dataListSolicitudes.DataBind();
+                    lblSinSolicitudes.Visible = false;   
+                }
+                var solicitudesAprobadas =
+                    listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
+                if(solicitudesAprobadas.Any())
+                {
+                    dataListParticipantes.DataSource = solicitudesAprobadas;
+                    dataListParticipantes.DataBind();
+                    lblSinParticipantes.Visible = false;
+                }
+                else
+                    lblSinParticipantes.Visible = true;
+                
+            }
+            else
+                lblSinSolicitudes.Visible = true;
+            
+
+            
+        }
+
+        private void PintarPreguntas()
+        {
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
+            if(ViajeDetalle.Preguntas.Count> 0)
+            {
+                dataListPreguntas.DataSource = AdministradorPreguntas.Instancia.CreateItemPregunta(ViajeDetalle);
+                dataListPreguntas.DataBind();
+                lblSinPreguntas.Visible = false;
+            }
+            else
+                lblSinPreguntas.Visible = true;
+            
         }
 
         //Dentro del listado de mis viajes localizado en las variables de sesion busca la solicitud
