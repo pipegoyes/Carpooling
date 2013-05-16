@@ -24,9 +24,10 @@ namespace BusinessLayer
          {
              return pViaje.Preguntas.Select(p => new ItemTablaPregunta()
              {
+                 IdPregunta = p.IdPregunta,
                  NombreCreador = p.CreadorPregunta.ObtenerNombreApellidos(),
                  TextoPregunta = p.TextoPregunta,
-                 TextoRespuesta = p.TextoRespuesta
+                 TextoRespuesta = (String.IsNullOrWhiteSpace(p.TextoRespuesta))?"Sin respuesta":p.TextoRespuesta
              }).ToList();
          } 
     }

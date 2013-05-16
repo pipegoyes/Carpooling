@@ -115,6 +115,17 @@ namespace Carpooling.Front.Viajes
             }
         }
 
+        protected void BtnResponderClick(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower().Equals("responder"))
+            {
+                var idPreguntaSeleccionada = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                var preguntaSeleccionada =  ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
+                lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
+                mpeResponder.Show();
+            }
+        }
+
         protected void BtnOkPopUpConfirmacion(object sender, DataListCommandEventArgs e)    
         {
             popUpConfirmation.CerrarPopUp();
