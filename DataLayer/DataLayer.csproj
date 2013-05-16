@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DAOs\BaseDao.cs" />
     <Compile Include="DAOs\ListaDesplegableDao.cs" />
+    <Compile Include="DAOs\PreguntaDao.cs" />
     <Compile Include="DAOs\SolicitudDao.cs" />
     <Compile Include="DAOs\TrayectoDao.cs" />
     <Compile Include="DAOs\ViajeDao.cs" />
