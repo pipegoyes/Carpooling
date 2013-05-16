@@ -224,7 +224,7 @@
     <asp:Panel ID="PanelPreguntas" runat="server" >
         <div class="subtitulo">Listado de preguntas</div>
         <asp:DataList ID="dataListPreguntas" runat="server" ForeColor="#333333" RepeatColumns="1"
-                      ShowFooter="False" Width="100%" >
+                      ShowFooter="False" Width="100%" OnItemCommand="BtnResponderClick">
             <AlternatingItemStyle BackColor="White" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                          ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -249,6 +249,7 @@
                 <div class="divCeldaSolicitudes">
                     <asp:Label ID="Label11" runat="server" Text='<%# Eval("TextoRespuesta") %>'></asp:Label>
                 </div>
+                <asp:LinkButton runat="server" Text="Responder" CommandName="responder" CommandArgument='<%# Eval("IdPregunta") %>'></asp:LinkButton>
             </ItemTemplate>
         </asp:DataList>
         <div>
@@ -260,5 +261,42 @@
 
     <div id="contenedorMapa">Google Map</div>
     <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
-
+    
+    <asp:Panel runat="server" ID="pnlResponder" Style="display: none;">
+    <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeResponder" PopupControlID="pnlResponder"
+                                    TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancel">
+    </ajaxToolkit:ModalPopupExtender>
+    <asp:Label runat="server" ID="lblMensajesPop"></asp:Label>
+    <asp:UpdatePanel  ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div id="popUpContainer" class="popUpContainer">
+                <div id="divEncabezado">
+                    
+                    <div id="tituloPopUp">
+                        <asp:Label runat="server" ID="lblTitulo" Text="Respuesta"></asp:Label>    
+                    </div>
+                    <asp:ImageButton ID="btnClosePopUp2"  ImageUrl="~/Styles/images/close-icon.png" ClientIDMode="Static" runat="server"/>
+                    <div class="divClear"></div>
+                </div>
+                <div id="mainContentPopUp">
+                    <div>
+                        <asp:Label runat="server" ID="lblPregunta"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Label ID="Label15" runat="server" Text="Respuesta"></asp:Label>
+                        <asp:TextBox ID="txbRespuesta" runat="server" ></asp:TextBox>
+                    </div>
+                    <div class="divBotonPopUp">
+                        <asp:Button runat="server" ID="btnOk" Text="Aceptar" />        
+                    </div>
+                    <div class="divBotonPopUp">
+                        <asp:Button runat="server" ID="btnCancel" Text="Cancelar" />    
+                    </div>
+                    <div class="divClear"></div>
+                
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Panel>
 </asp:Content>
