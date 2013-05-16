@@ -135,5 +135,16 @@ namespace DataLayer.Transformador
                     ID_TRAYECTO = p.IdTrayecto
                 }).ToList();
         }
+
+        public PREGUNTA ToPregunta(Pregunta pPregunta)
+        {
+            return new PREGUNTA()
+                       {
+                           ID_CREADOR_PREGUNTA = pPregunta.CreadorPregunta.IdUsuario,
+                           ID_VIAJE = pPregunta.IdViaje,
+                           TEXTO_PREGUNTA = pPregunta.TextoPregunta,
+                           TEXTO_RESPUESTA = pPregunta.TextoRespuesta
+                       };
+        }
     }
 }
