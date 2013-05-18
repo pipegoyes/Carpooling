@@ -46,6 +46,15 @@ namespace Carpooling.Front.Viajes
                 if (id != 0)
                     Response.Redirect("../Viajes/DetalleViaje.aspx?idViajeDetalle=" + id);
             }
+            else if (e.CommandName.ToLower().Equals("verperfil"))
+            {
+                ucPerfilPublico.MostrarVentana();
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ucPerfilPublico.MostrarVentana();
         }
 
     }

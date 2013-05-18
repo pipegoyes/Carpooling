@@ -4,6 +4,20 @@
     $("[ClientID='ddlAnioNacimiento']").change(ObtenerDiasMes);
     $("[ClientID='ddlDiaNacimiento']").change(CambiarDia);
     $("[ClientID='rblGenero'] input").change(CambioGenero);
+    //$("[ClientID='chkFumador']").change(function () {
+    //    if ($(this).attr('checked') || $(this).parent().attr('checked')) {
+    //        $(this).attr('checked', false);
+    //        $(this).parent().attr('checked', false);
+    //        $("[ClientID='imgFumador']").attr("src", $('#hfdPathImagenNoFumador').val().replace('~', ''));            
+    //    }
+    //    else {
+    //        $(this).attr('checked', true);
+    //        $(this).parent().attr('checked', true);
+    //        $("[ClientID='imgFumador']").attr("src", $('#hfdPathImagenFumador').val().replace('~', ''));
+    //    }
+    //});
+    $("[ClientID='chkFumador']").change(CambioFumador);
+    $("[ClientID='chkVehiculo']").change(CambioVehiculo);
 
     InicializarImagenCuenta();
     CrearPopupCambioImagen();
@@ -190,6 +204,32 @@ function CambioGenero() {
         $("#hfdImagePath").val($("[ClientID='imgImagenCuenta']").attr("src"));
     }
 }
+
+function CambioFumador() {
+    var hfdFumador = $('#hfdFumador');
+    if (hfdFumador.val() == "1") {
+        hfdFumador.val(0)
+        $("[ClientID='imgFumador']").attr("src", $('#hfdPathImagenNoFumador').val().replace('~', ''));
+    }
+    else {
+        hfdFumador.val(1)
+        $("[ClientID='imgFumador']").attr("src", $('#hfdPathImagenFumador').val().replace('~', ''));
+    }
+}
+
+function CambioVehiculo() {
+    var hfdVehiculo = $('#hfdVehiculo');
+    if (hfdVehiculo.val() == "1") {
+        hfdVehiculo.val(0)
+        $("[ClientID='imgVehiculo']").attr("src", $('#hfdPathImagenNoVehiculo').val().replace('~', ''));
+    }
+    else {
+        hfdVehiculo.val(1)
+        $("[ClientID='imgVehiculo']").attr("src", $('#hfdPathImagenVehiculo').val().replace('~', ''));
+    }
+
+}
+
 
 function lnkCambiarFoto_OnClick() {
     $("#imagenFotoModal").attr("src", $("[ClientID='imgImagenCuenta']").attr("src") + "?" + new Date().getTime());

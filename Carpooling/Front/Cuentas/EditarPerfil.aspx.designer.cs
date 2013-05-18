@@ -193,6 +193,42 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txbTelefonoFijo;
         
         /// <summary>
+        /// hfdPathImagenFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdPathImagenFumador;
+        
+        /// <summary>
+        /// hfdPathImagenVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdPathImagenVehiculo;
+        
+        /// <summary>
+        /// hfdPathImagenNoFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdPathImagenNoFumador;
+        
+        /// <summary>
+        /// hfdPathImagenNoVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdPathImagenNoVehiculo;
+        
+        /// <summary>
         /// imgFumador control.
         /// </summary>
         /// <remarks>
@@ -211,6 +247,15 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.CheckBox chkFumador;
         
         /// <summary>
+        /// hfdFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdFumador;
+        
+        /// <summary>
         /// imgVehiculo control.
         /// </summary>
         /// <remarks>
@@ -227,6 +272,15 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkVehiculo;
+        
+        /// <summary>
+        /// hfdVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdVehiculo;
         
         /// <summary>
         /// txbIdUsuario control.

@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="BuscarViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.BuscarViaje" %>
+<%@ Register Src="~/Front/Cuentas/wuc/PerfilPublico.ascx" TagName="PerfilPublico" TagPrefix="uc" %>
+
 <asp:Content runat="server" ID="ScriptContent" ContentPlaceHolderID="ScriptsContent">
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"> </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"> </script>
@@ -92,7 +94,7 @@
                     <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
                 <div class="divCelda">
-                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("NombreConductor") %>'></asp:Label>    
+                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%# Eval("NombreConductor") %>' CommandName="VerPefil" CommandArgument="IdUsuario"></asp:LinkButton>                        
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("ParadaOrigen") %>'></asp:Label>    
@@ -106,7 +108,10 @@
             </ItemTemplate>
             <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
          </asp:DataList>
+        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" CausesValidation="false"/>
     </div>
+
+    <uc:PerfilPublico ID="ucPerfilPublico" runat="server"/>
 <%--
     <div>
         <div class="viajeUV">
