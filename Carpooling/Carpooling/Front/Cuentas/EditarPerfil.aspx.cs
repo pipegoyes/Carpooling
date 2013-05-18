@@ -45,6 +45,10 @@ namespace Carpooling.Front.Cuentas
         {
             hfdImagePathHombre.Value = ConfigurationManager.AppSettings["ImagenCuentaHombre"];
             hfdImagePathMujer.Value = ConfigurationManager.AppSettings["ImagenCuentaMujer"];
+            hfdPathImagenFumador.Value = ConfigurationManager.AppSettings["ImagenFumador"];
+            hfdPathImagenNoFumador.Value = ConfigurationManager.AppSettings["ImagenNoFumador"];
+            hfdPathImagenVehiculo.Value = ConfigurationManager.AppSettings["ImagenVehiculo"];
+            hfdPathImagenNoVehiculo.Value = ConfigurationManager.AppSettings["ImagenNoVehiculo"];
         }
 
         protected void CargarDdlOcupacion()
@@ -89,9 +93,11 @@ namespace Carpooling.Front.Cuentas
                 if (usuarioApp.Fumador)
                     imgFumador.ImageUrl = "~/Styles/images/fumador.jpg";
                 chkFumador.Checked = usuarioApp.Fumador;
+                hfdFumador.Value = usuarioApp.Fumador ? "1" : "0";
                 if (usuarioApp.VehiculoPropio)
                     imgVehiculo.ImageUrl = "~/Styles/images/vehiculo.png";
                 chkVehiculo.Checked = usuarioApp.VehiculoPropio;
+                hfdVehiculo.Value = usuarioApp.VehiculoPropio ? "1" : "0";
                 txbIdUsuario.Text = usuarioApp.IdUsuario;
                 txbEmail.Text = usuarioApp.Email;
                 imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
@@ -154,7 +160,11 @@ namespace Carpooling.Front.Cuentas
                 usuarioApp.FechaNacimiento = new DateTime(Convert.ToInt32(ddlAnioNacimiento.SelectedValue), Convert.ToInt32(ddlMesNacimiento.SelectedValue), Convert.ToInt32(hfDiaNacimiento.Value));
 
                 string rutaImagenCuentaActual = Session["imagenUsuario"].ToString();
-                string rutaImagenCuentaNueva = Server.MapPath(Request.Form["hfdImagePath"]);
+                string rutaImagenCuentaNueva;
+                if (Request.Form["hfdImagePath"].LastIndexOf('?') != -1)
+                    rutaImagenCuentaNueva = Server.MapPath(Request.Form["hfdImagePath"].Substring(0, Request.Form["hfdImagePath"].LastIndexOf('?')));
+                else
+                    rutaImagenCuentaNueva = Server.MapPath(Request.Form["hfdImagePath"]);
                 bool imagenesIguales;
                 string rutaImagenMostrar;
                 byte[] imagenNueva = AdministradorCuentas.Instancia.ActualizarImagenCuenta(Server.MapPath("/"), rutaImagenCuentaActual, rutaImagenCuentaNueva, out imagenesIguales, out rutaImagenMostrar);

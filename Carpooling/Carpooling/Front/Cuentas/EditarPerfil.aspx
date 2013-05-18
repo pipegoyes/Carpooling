@@ -35,21 +35,15 @@
 
     <section id="datosPesonales">
         <fieldset>
-            <span>
-                Nombres:
-            </span>
+            <legend>Nombres:</legend>
             <asp:TextBox ID="txbNombres" runat="server" Text="No disponible"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <span>
-                Apellidos:
-            </span>
+            <legend>Apellidos:</legend>
             <asp:TextBox ID="txbApellidos" runat="server" Text="No disponible"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <span>
-                Ciudad de residencia:
-            </span>
+            <legend>Ciudad de residencia:</legend>
             <asp:DropDownList ID="ddlPais" runat="server"/>
             <ajaxToolkit:CascadingDropDown ID="cddlPais" runat="server" TargetControlID="ddlPais" SelectedValue="57"
                                         Category="Pais" PromptText="Seleccione un país" LoadingText="[Cargando paises...]" 
@@ -64,9 +58,7 @@
                                         ServiceMethod="ObtenerCiudadesDdl" ServicePath="~/WebServices/SiteWebMethod.asmx"/>
         </fieldset>
         <fieldset>
-            <span>
-                Genero:
-            </span>
+            <legend>Genero:</legend>
             <div id="generoUsuario">
                 <asp:RadioButtonList ID="rblGenero" ClientID="rblGenero" runat="server" >
                     <asp:ListItem Text="Hombre" Value="H"></asp:ListItem>
@@ -75,9 +67,7 @@
             </div>
         </fieldset>
         <fieldset>
-            <span>
-                Fecha de nacimiento:
-            </span>
+            <legend>Fecha de nacimiento:</legend>
             <div ClientID="fechaNacimiento">
                 <asp:DropDownList ID="ddlAnioNacimiento" ClientID="ddlAnioNacimiento" runat="server">
                     <asp:ListItem Value="-1" Text="Año" Selected="True"></asp:ListItem>
@@ -188,48 +178,43 @@
             </div>
         </fieldset>
         <fieldset>
-            <span>
-                Ocupación:
-            </span>
+            <legend>Ocupación:</legend>
             <asp:DropDownList ID="ddlOcupacion" ClientID="ddlOcupacion" runat="server" ></asp:DropDownList>
         </fieldset>
         <fieldset>
-            <span>
-                Teléfono movil:
-            </span>
+            <legend>Teléfono movil:</legend>
             <asp:TextBox ID="txbTelefonoMovil" runat="server" Text="No disponible"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <span>
-                Teléfono fijo:
-            </span>
+            <legend>Teléfono fijo:</legend>
             <asp:TextBox ID="txbTelefonoFijo" runat="server" Text="No disponible"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <asp:Image ID="imgFumador" runat="server" Height="50" Width="50" ImageUrl="~/Styles/images/orderedList0.png"/>
-            <asp:CheckBox ID="chkFumador" runat="server" Text="Soy fumador"/>
-            <asp:Image ID="imgVehiculo" runat="server" Height="50" Width="50" ImageUrl="~/Styles/images/orderedList0.png"/>
-            <asp:CheckBox ID="chkVehiculo" runat="server" Text="Tengo vehículo"/>
+            <legend>Caracteristicas:</legend>
+            <asp:HiddenField ID="hfdPathImagenFumador" runat="server" ClientIDMode="Static" />              
+            <asp:HiddenField ID="hfdPathImagenVehiculo" runat="server" ClientIDMode="Static" />              
+            <asp:HiddenField ID="hfdPathImagenNoFumador" runat="server" ClientIDMode="Static" />              
+            <asp:HiddenField ID="hfdPathImagenNoVehiculo" runat="server" ClientIDMode="Static" />              
+            <asp:Image ID="imgFumador" ClientID="imgFumador" runat="server" Height="50" Width="50" ImageUrl="~/Styles/images/nofumador.png"/>
+            <asp:CheckBox ID="chkFumador" ClientID="chkFumador" runat="server" Text="Soy fumador"/>
+            <asp:HiddenField ID="hfdFumador" runat="server" ClientIDMode="Static" />              
+            <asp:Image ID="imgVehiculo" ClientID="imgVehiculo" runat="server" Height="50" Width="50" ImageUrl="~/Styles/images/novehiculo.png"/>
+            <asp:CheckBox ID="chkVehiculo" ClientID="chkVehiculo" runat="server" Text="Tengo vehículo"/>
+            <asp:HiddenField ID="hfdVehiculo" runat="server" ClientIDMode="Static" />              
         </fieldset>
     </section>
 
     <section id="datosCuenta">
         <fieldset>
-            <span>
-                Id Usuario:
-            </span>
+            <legend>Id Usuario:</legend>
             <asp:TextBox ID="txbIdUsuario" ClientID="txbIdUsuario" runat="server" Text="No disponible" Enabled="false"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <span>
-                Email:
-            </span>
+            <legend>Email:</legend>
             <asp:TextBox ID="txbEmail" runat="server" Text="No disponible"></asp:TextBox>               
         </fieldset>
         <fieldset>
-            <span>
-                Contraseña actual:
-            </span>
+            <legend>Contraseña actual:</legend>
             <asp:TextBox ID="txbContraseniaActual" runat="server" Text="No disponible" TextMode="Password"></asp:TextBox>
             <span>
                 Nueva contraseña:
@@ -244,9 +229,7 @@
 
     <section id="datosAdicionales">
         <fieldset>
-            <span>
-                Imagen de la cuenta:
-            </span>
+            <legend>Imagen de la cuenta:</legend>
             <figure>
                 <input id="hfdImagePath" type="hidden" name="hfdImagePath" />
                 <asp:HiddenField ID="hfdImagePathHombre" runat="server" ClientIDMode="Static" />              
@@ -271,9 +254,7 @@
             </div>
         </fieldset>
         <fieldset>
-            <span>
-                Información adicional (¿Algo más que quieras que tus compañeros de viaje conozcan de ti?)
-            </span>
+            <legend>Información adicional (¿Algo más que quieras que tus compañeros de viaje conozcan de ti?)</legend>
             <asp:TextBox ID="txbInfoAdicional" runat="server" TextMode="MultiLine" Height="60"></asp:TextBox>
         </fieldset>
     </section>
