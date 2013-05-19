@@ -286,8 +286,11 @@
                         <asp:Label ID="Label15" runat="server" Text="Respuesta"></asp:Label>
                         <asp:TextBox ID="txbRespuesta" runat="server" ></asp:TextBox>
                     </div>
+                    <div>
+                        <asp:Label runat="server" ID="lblRespuesta" Visible="False"></asp:Label>
+                    </div>
                     <div class="divBotonPopUp">
-                        <asp:Button runat="server" ID="btnOk" Text="Aceptar" />        
+                        <asp:Button runat="server" ID="btnOk" Text="Aceptar" OnClick="BtnConfirmarRespuesta" />        
                     </div>
                     <div class="divBotonPopUp">
                         <asp:Button runat="server" ID="btnCancel" Text="Cancelar" />    

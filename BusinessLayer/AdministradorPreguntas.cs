@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataLayer.DAOs;
 using Entities.Aplicacion;
 using Entities.Negocio;
 
@@ -20,7 +21,7 @@ namespace BusinessLayer
             get { return _instancia ?? (_instancia = new AdministradorPreguntas()); }
         }
 
-         public List<ItemTablaPregunta> CreateItemPregunta(Viaje pViaje)
+        public List<ItemTablaPregunta> CreateItemPregunta(Viaje pViaje)
          {
              return pViaje.Preguntas.Select(p => new ItemTablaPregunta()
              {
@@ -30,5 +31,10 @@ namespace BusinessLayer
                  TextoRespuesta = (String.IsNullOrWhiteSpace(p.TextoRespuesta))?"Sin respuesta":p.TextoRespuesta
              }).ToList();
          } 
+
+        public bool GuardarRespuesta(Pregunta pPregunta)
+        {
+            return PreguntaDao.Instancia.ActualizarPregunta(pPregunta);
+        }
     }
 }

@@ -121,6 +121,7 @@ namespace Carpooling.Front.Viajes
             {
                 var idPreguntaSeleccionada = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
                 var preguntaSeleccionada =  ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
+                Session["preguntaSeleccionada"] = preguntaSeleccionada;
                 lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
                 mpeResponder.Show();
             }
@@ -129,6 +130,21 @@ namespace Carpooling.Front.Viajes
         protected void BtnOkPopUpConfirmacion(object sender, DataListCommandEventArgs e)    
         {
             popUpConfirmation.CerrarPopUp();
+        }
+
+        protected void BtnConfirmarRespuesta(object sender, EventArgs e)
+        {
+            var preguntaSeleccionada = (Pregunta) Session["preguntaSeleccionada"];
+            preguntaSeleccionada.TextoRespuesta = txbRespuesta.Text;
+            lblRespuesta.Visible = true;
+            if(AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
+            {
+                lblRespuesta.Text = "Su respuesta fue actualizada";
+            }
+            else
+            {
+                lblRespuesta.Text = "Su respuesta no fue actualizada, por favor reintete de nuevo";
+            }
         }
 
         //Actualiza el listado de las solicitudes (Aprobadas y pendientes) segun el viaje seleccionado

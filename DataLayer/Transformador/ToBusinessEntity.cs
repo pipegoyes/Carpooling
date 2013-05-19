@@ -189,7 +189,8 @@ namespace DataLayer.Transformador
                                                   CreadorPregunta = ToUsuario(p.USUARIO),
                                                   TextoPregunta = p.TEXTO_PREGUNTA,
                                                   IdPregunta = p.ID_PREGUNTA,
-                                                  TextoRespuesta = p.TEXTO_RESPUESTA
+                                                  TextoRespuesta = p.TEXTO_RESPUESTA,
+                                                  IdViaje = p.ID_VIAJE
                                               }).ToList();
         }
 
