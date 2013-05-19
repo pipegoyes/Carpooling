@@ -143,7 +143,8 @@ namespace DataLayer.Transformador
                            ID_CREADOR_PREGUNTA = pPregunta.CreadorPregunta.IdUsuario,
                            ID_VIAJE = pPregunta.IdViaje,
                            TEXTO_PREGUNTA = pPregunta.TextoPregunta,
-                           TEXTO_RESPUESTA = pPregunta.TextoRespuesta
+                           TEXTO_RESPUESTA = pPregunta.TextoRespuesta,
+                           ID_PREGUNTA = pPregunta.IdPregunta
                        };
         }
     }

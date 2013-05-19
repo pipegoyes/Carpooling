@@ -247,6 +247,15 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.TextBox txbRespuesta;
         
         /// <summary>
+        /// lblRespuesta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRespuesta;
+        
+        /// <summary>
         /// btnOk control.
         /// </summary>
         /// <remarks>
