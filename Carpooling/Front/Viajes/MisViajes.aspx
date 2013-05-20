@@ -19,7 +19,6 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
-    <%--<uc:PopUpConfirmation ID="popUpConfirmation" runat="server" />--%>
     <div class="titulo">Viajes vigentes</div>
     <div class="text">Son aquellos viajes que a la fecha no se han realizado. </div>
     <asp:DataList runat="server" ID="dataListViajesVigentes" 
@@ -28,13 +27,13 @@
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                      ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
         <HeaderTemplate>
-            <div class="divCeldaMisViajesVigentes">
+            <div class="divCeldaMisViajes">
                 <asp:Label ID="Label2" runat="server" Text="Fecha y hora"></asp:Label>    
             </div>
-            <div class="divCeldaMisViajesVigentes">
+            <div class="divCeldaMisViajes">
                 <asp:Label ID="Label4" runat="server" Text="Ciudad Origen"></asp:Label>    
             </div>
-            <div class="divCeldaMisViajesVigentes">
+            <div class="divCeldaMisViajes">
                 <asp:Label ID="Label5" runat="server" Text="Ciudad Destino"></asp:Label>    
             </div>
             <div class="clearfix"></div>
@@ -42,74 +41,61 @@
         <ItemStyle BackColor="#E3EAEB" />
         <ItemTemplate>
             <div>
-                <div class="divCeldaMisViajesVigentes">
+                <div class="divCeldaMisViajes">
                     <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
-                <div class="divCeldaMisViajesVigentes">
+                <div class="divCeldaMisViajes">
                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("ParadaOrigen") %>'></asp:Label>    
                 </div>
-                <div class="divCeldaMisViajesVigentes">
+                <div class="divCeldaMisViajes">
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div>
-                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalleVigente" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-    </asp:DataList><%--
-    <asp:Panel ID="PanelSolicitudesDetalle" runat="server" Visible="False">
-        <div class="subtitulo">Listado de solicitudes</div>
-        <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                      ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarSolicitud">
-            <AlternatingItemStyle BackColor="White" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                         ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-            <HeaderTemplate>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text="Solicitante"></asp:Label>
+    </asp:DataList>
+    <asp:Label runat="server" ID="lblSinViajesVigentes" Text="No hay viajes vigentes" Visible="False"></asp:Label>
+    
+     <div class="titulo">Viajes realizados</div>
+    <div class="text">Son aquellos viajes en los que ya has asistido, además en el detalle del viaje podriás calificar a tus compañeros de viaje si aun no lo has hecho. </div>
+    <asp:DataList runat="server" ID="dataListViajesRealizados" 
+                  ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerDetalleClick" >
+        <AlternatingItemStyle BackColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+        <HeaderTemplate>
+            <div class="divCeldaMisViajes">
+                <asp:Label ID="Label2" runat="server" Text="Fecha y hora"></asp:Label>    
+            </div>
+            <div class="divCeldaMisViajes">
+                <asp:Label ID="Label4" runat="server" Text="Ciudad Origen"></asp:Label>    
+            </div>
+            <div class="divCeldaMisViajes">
+                <asp:Label ID="Label5" runat="server" Text="Ciudad Destino"></asp:Label>    
+            </div>
+            <div class="clearfix"></div>
+        </HeaderTemplate>
+        <ItemStyle BackColor="#E3EAEB" />
+        <ItemTemplate>
+            <div>
+                <div class="divCeldaMisViajes">
+                    <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text="Ciudad origen"></asp:Label>
+                <div class="divCeldaMisViajes">
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("ParadaOrigen") %>'></asp:Label>    
                 </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label  runat="server" Text="Ciudad destino"></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label  runat="server" Text="Cupos solicitados"></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label  runat="server" Text="Cupos disponibles"></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text="Comentario"></asp:Label>
-                </div>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text='<%# Eval("NombreSolicitante") %>'></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text='<%# Eval("CiudadOrigen") %>'></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text='<%# Eval("CiudadDestino") %>'></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label runat="server" Text='<%# Eval("CuposSolicitados") %>'></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label ID="Label10" runat="server" Text='<%# Eval("CuposDisponibles") %>'></asp:Label>
-                </div>
-                <div class="divCeldaSolicitudes">
-                    <asp:Label ID="Label11" runat="server" Text='<%# Eval("Comentario") %>'></asp:Label>
+                <div class="divCeldaMisViajes">
+                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div>
-                    <asp:LinkButton runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%# Eval("IdSolicitud") %>'></asp:LinkButton>
-                    <asp:LinkButton ID="LinkButton2" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%# Eval("IdSolicitud") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalleRealizado" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
-            </ItemTemplate>
-        </asp:DataList>
-        <div id="divOcultarSolicitudes"> Ocultar solicitudes </div>
-    </asp:Panel>--%>
+            </div>
+        </ItemTemplate>
+        <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+    </asp:DataList>
+    <asp:Label runat="server" ID="lblSinViajesRealizados" Text="No hay viajes realizados" Visible="False"></asp:Label>
 </asp:Content>

@@ -270,30 +270,23 @@
     <asp:UpdatePanel  ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div id="popUpContainer" class="popUpContainer">
-                <div id="divEncabezado">
-                    
-                    <div id="tituloPopUp">
-                        <asp:Label runat="server" ID="lblTitulo" Text="Respuesta"></asp:Label>    
-                    </div>
-                    <asp:ImageButton ID="btnClosePopUp2"  ImageUrl="~/Styles/images/close-icon.png" ClientIDMode="Static" runat="server"/>
-                    <div class="divClear"></div>
+                <div id="divEncabezado" class="divEncabezado">
+                    <asp:Label runat="server" ID="lblTitulo" Text="Responder la pregunta"></asp:Label> 
                 </div>
-                <div id="mainContentPopUp">
+                <div id="mainContentPopUp" class="mainContentPopUp">
                     <div>
                         <asp:Label runat="server" ID="lblPregunta"></asp:Label>
                     </div>
                     <div>
                         <asp:Label ID="Label15" runat="server" Text="Respuesta"></asp:Label>
-                        <asp:TextBox ID="txbRespuesta" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="txbRespuesta" runat="server" Rows="3" ></asp:TextBox>
                     </div>
                     <div>
                         <asp:Label runat="server" ID="lblRespuesta" Visible="False"></asp:Label>
                     </div>
-                    <div class="divBotonPopUp">
-                        <asp:Button runat="server" ID="btnOk" Text="Aceptar" OnClick="BtnConfirmarRespuesta" />        
-                    </div>
-                    <div class="divBotonPopUp">
-                        <asp:Button runat="server" ID="btnCancel" Text="Cancelar" />    
+                    <div id="divBotonesPopUp" class="divBotonesPopUp">
+                        <asp:Button runat="server" ID="btnOk" CssClass="button-gradient green" Text="Aceptar" OnClick="BtnConfirmarRespuesta" />
+                        <asp:Button runat="server" ID="btnCancel" CssClass="button-gradient blue" Text="Cancelar" />    
                     </div>
                     <div class="divClear"></div>
                 

@@ -29,14 +29,26 @@ namespace Carpooling.Front.Viajes
                     var misViajesVigentes = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
                     dataListViajesVigentes.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
                     dataListViajesVigentes.DataBind();
+
+                    var misViajesRealizados = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado);
+                    dataListViajesRealizados.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesRealizados);
+                    dataListViajesRealizados.DataBind();
                 }
             }
         }
 
         protected void BtnVerDetalleClick(object sender, DataListCommandEventArgs e)
         {
-            if (e.CommandName.ToLower().Equals("verdetalle"))
+            if (e.CommandName.ToLower().Equals("verdetallevigente"))
             {
+                //TODO aqui hay q enviar un parametro para q no se pueda calificar participantes
+                long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                if (id != 0)
+                    Response.Redirect("../Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + id);
+            }
+            else if (e.CommandName.ToLower().Equals("verdetallerealizado"))
+            {
+                //TODO aqui hay q enviar un parametro para q se pueda calificar participantes
                 long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
                 if (id != 0)
                     Response.Redirect("../Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + id);
