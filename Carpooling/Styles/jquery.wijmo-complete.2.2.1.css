@@ -3159,7 +3159,7 @@ border-bottom-left-radius: 0px;
     bottom: 0;
     color: #F1F1F1;
     font-style: italic;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.50);
+    /*    text-shadow: 1px 1px 1px rgba(0,0,0,0.50);*/
     padding: 7px;
 }
 

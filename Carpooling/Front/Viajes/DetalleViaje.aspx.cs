@@ -81,7 +81,7 @@ namespace Carpooling.Front.Viajes
             if (!e.CommandName.ToLower().Equals("participar")) return;
             long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
             Session["idTrayecto"] = idTrayecto;
-            popUpConfirmarCupos.MostrarVentana();
+            mpeMensajes.Show();
         }
 
         protected void BtnConfirmarCuposClick(object sender, EventArgs eventArgs)
@@ -90,8 +90,8 @@ namespace Carpooling.Front.Viajes
             var idTrayecto = (long)Session["idTrayecto"];
             var solicitudNueva = new Solicitud()
             {
-                Comentario = popUpConfirmarCupos.Comentario,
-                CuposSolicitados = popUpConfirmarCupos.NumeroCupos,
+                Comentario = txbComentario.Text,
+                CuposSolicitados = int.Parse(txbCuposSolicitados.Text),
                 Estado = Solicitud.SolicitudEstado.Pendiente,
                 CreadorSolicitud = pasajero,
                 IdTrayecto = idTrayecto
@@ -99,33 +99,42 @@ namespace Carpooling.Front.Viajes
 
             if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
             {
-                popUpConfirmation.TituloPopUp = "Transaccion exitosa";
-                popUpConfirmation.TransaccionExitosa = true;
-                popUpConfirmation.MensajePrincipal =
-                    "Su solicitud fue realizado con exito. Recuerda que el propietario es el que finalmente decidi si eres aceptado dentro del viaje";
+                panelExitoso.Visible = true;
+                //popUpConfirmation.TituloPopUp = "Transaccion exitosa";
+                //popUpConfirmation.TransaccionExitosa = true;
+                //popUpConfirmation.MensajePrincipal =
+                //    "Su solicitud fue realizado con exito. Recuerda que el propietario es el que finalmente decidi si eres aceptado dentro del viaje";
             }
             else
             {
-                popUpConfirmation.TituloPopUp = "Transaccion invalida";
-                popUpConfirmation.TransaccionExitosa = false;
-                popUpConfirmation.MensajePrincipal =
-                    "No puedes enviar mas de una solicitud para un mismo trayecto.";
+                panelError.Visible = true;
+                //popUpConfirmation.TituloPopUp = "Transaccion invalida";
+                //popUpConfirmation.TransaccionExitosa = false;
+                //popUpConfirmation.MensajePrincipal =
+                //    "No puedes enviar mas de una solicitud para un mismo trayecto.";
             }
-            popUpConfirmation.MostrarPopUp();
+            //popUpConfirmation.MostrarPopUp();
         }
 
-        protected void FinalTransaccionClick(object sender, EventArgs e)
+        protected void CerrarPopUp(object sender, EventArgs e)
         {
-            if(popUpConfirmation.TransaccionExitosa)
-            {
-                //TODO Definir hacia donde es el redireccionamiento
-                Response.Redirect("../Viajes/MisViajes.aspx");
-            }
-            else
-            {
-                popUpConfirmarCupos.CerrarVentana();
-                popUpConfirmation.CerrarPopUp();
-            }
+            panelExitoso.Visible = false;
+            panelError.Visible = false;
+            mpeMensajes.Hide();
         }
+
+        //protected void FinalTransaccionClick(object sender, EventArgs e)
+        //{
+        //    if(popUpConfirmation.TransaccionExitosa)
+        //    {
+        //        //TODO Definir hacia donde es el redireccionamiento
+        //        Response.Redirect("../Viajes/MisViajes.aspx");
+        //    }
+        //    else
+        //    {
+        //        //popUpConfirmarCupos.CerrarVentana();
+        //        //popUpConfirmation.CerrarPopUp();
+        //    }
+        //}
     }
 }
