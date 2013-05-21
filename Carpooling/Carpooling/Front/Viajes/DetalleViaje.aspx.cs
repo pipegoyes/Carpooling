@@ -81,6 +81,7 @@ namespace Carpooling.Front.Viajes
             if (!e.CommandName.ToLower().Equals("participar")) return;
             long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
             Session["idTrayecto"] = idTrayecto;
+            HabilitarPopUp(true);
             mpeMensajes.Show();
         }
 
@@ -100,20 +101,24 @@ namespace Carpooling.Front.Viajes
             if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
             {
                 panelExitoso.Visible = true;
-                //popUpConfirmation.TituloPopUp = "Transaccion exitosa";
-                //popUpConfirmation.TransaccionExitosa = true;
-                //popUpConfirmation.MensajePrincipal =
-                //    "Su solicitud fue realizado con exito. Recuerda que el propietario es el que finalmente decidi si eres aceptado dentro del viaje";
+                HabilitarPopUp(false);
             }
             else
-            {
                 panelError.Visible = true;
-                //popUpConfirmation.TituloPopUp = "Transaccion invalida";
-                //popUpConfirmation.TransaccionExitosa = false;
-                //popUpConfirmation.MensajePrincipal =
-                //    "No puedes enviar mas de una solicitud para un mismo trayecto.";
-            }
-            //popUpConfirmation.MostrarPopUp();
+        }
+
+        private void HabilitarPopUp(bool habilitado)
+        {
+            txbComentario.Enabled = habilitado;
+            txbCuposSolicitados.Enabled = habilitado;
+            //TODO cuando el boton no es enable no se nota en la UI
+            btnAceptarPopUp.Enabled = habilitado;
+
+            if (!habilitado) return;
+            txbComentario.Text = "";
+            txbCuposSolicitados.Text = "";
+            panelError.Visible = false;
+            panelExitoso.Visible = false;
         }
 
         protected void CerrarPopUp(object sender, EventArgs e)
@@ -122,19 +127,5 @@ namespace Carpooling.Front.Viajes
             panelError.Visible = false;
             mpeMensajes.Hide();
         }
-
-        //protected void FinalTransaccionClick(object sender, EventArgs e)
-        //{
-        //    if(popUpConfirmation.TransaccionExitosa)
-        //    {
-        //        //TODO Definir hacia donde es el redireccionamiento
-        //        Response.Redirect("../Viajes/MisViajes.aspx");
-        //    }
-        //    else
-        //    {
-        //        //popUpConfirmarCupos.CerrarVentana();
-        //        //popUpConfirmation.CerrarPopUp();
-        //    }
-        //}
     }
 }
