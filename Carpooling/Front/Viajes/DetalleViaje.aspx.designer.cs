@@ -13,15 +13,6 @@ namespace Carpooling.Front.Viajes {
     public partial class DetalleViaje {
         
         /// <summary>
-        /// popUpConfirmation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmation;
-        
-        /// <summary>
         /// dataListParada control.
         /// </summary>
         /// <remarks>
@@ -202,13 +193,13 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label lblMensajeExitoso;
         
         /// <summary>
-        /// btnOk control.
+        /// btnAceptarPopUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOk;
+        protected global::System.Web.UI.WebControls.Button btnAceptarPopUp;
         
         /// <summary>
         /// btnCancelPopUp control.

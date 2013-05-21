@@ -10,11 +10,6 @@
     <script src="../../Scripts/front-js/DetalleViaje.js" type="text/javascript" > </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
-    <%-- <uc:PopUpCupos ID="popUpConfirmarCupos" runat="server" 
-        MensajePopUp="Ingrese el numero de cupos a solicitar" 
-        TituloMensaje="Confirmar numero de cupos" 
-        OnOnClickAceptar="BtnConfirmarCuposClick"></uc:PopUpCupos> --%>
-    <uc:PopUpConfirmation ID="popUpConfirmation" runat="server" OnOnClickAceptar="FinalTransaccionClick" />
     <section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
@@ -156,7 +151,7 @@
                             </div>
                         </asp:Panel>
                         <div class="divBotonesPopUp">
-                            <asp:Button runat="server" ID="btnOk" Text="Aceptar" CssClass="button-gradient green" OnClick="BtnConfirmarCuposClick"/>
+                            <asp:Button runat="server" ID="btnAceptarPopUp" Text="Aceptar" CssClass="button-gradient green" OnClick="BtnConfirmarCuposClick"/>
                             <asp:Button runat="server" ID="btnCancelPopUp" Text="Cancelar" CssClass="button-gradient blue" OnClick="CerrarPopUp" />    
                         </div>
                         <div class="divClear"></div>
