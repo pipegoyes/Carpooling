@@ -14,6 +14,7 @@
         <%--<link href="Styles/themes/redmond/jquery-ui-1.9.1.custom.css" rel="stylesheet">--%>
         <%--<link href="Styles/themes/south-street/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>
         <link href="/Styles/themes/aristo/jquery-wijmo.css" rel="stylesheet"/>
+        <link href="../Styles/themes/smoothness/jquery-ui-1.10.3.custom.css" type="text/css" rel="stylesheet"/>
         <%--<link href="Styles/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
         <%--<link href="Styles/themes/Supercharged/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
         <%--<link href="Styles/themes/start/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>

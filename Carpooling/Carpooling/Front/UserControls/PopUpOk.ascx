@@ -8,16 +8,14 @@
     <asp:UpdatePanel  ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div id="popUpContainer" class="popUpContainer">
-                <div id="divEncabezado">
-                    <div id="tituloPopUp">
-                        <asp:Label runat="server" ID="lblTitulo"></asp:Label>    
-                    </div>
-                    <asp:ImageButton ID="btnClosePopUp2"  ImageUrl="~/Styles/images/close-icon.png" ClientIDMode="Static" runat="server"/>
-                    <div class="divClear"></div>
+                <div id="divEncabezado" class="divEncabezado">
+                        <asp:Label runat="server" ID="lblTitulo"></asp:Label>
                 </div>
                 <div id="mainContentPopUp">
                     <asp:Label runat="server" ID="lblTextoMensaje"></asp:Label>
-                    <asp:Button runat="server" ID="btnOk" Text="Aceptar" OnClick="OnClickPadre"/>        
+                    <div class="divBotonesPopUp">
+                        <asp:Button runat="server" ID="btnOk" Text="Aceptar" OnClick="OnClickPadre" CssClass="button-gradient green"/>            
+                    </div>
                 </div>
             </div>
         </ContentTemplate>

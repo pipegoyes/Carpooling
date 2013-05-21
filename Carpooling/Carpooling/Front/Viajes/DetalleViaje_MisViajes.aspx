@@ -278,8 +278,11 @@
                         <asp:Label runat="server" ID="lblPregunta"></asp:Label>
                     </div>
                     <div>
-                        <asp:Label ID="Label15" runat="server" Text="Respuesta"></asp:Label>
-                        <asp:TextBox ID="txbRespuesta" runat="server" Rows="3" ></asp:TextBox>
+                        <div class="labelRespuesta">
+                            <asp:Label ID="Label15" runat="server" Text="Respuesta"></asp:Label>    
+                        </div>
+                        
+                        <asp:TextBox ID="txbRespuesta" runat="server" Rows="4" TextMode="MultiLine" ></asp:TextBox>
                     </div>
                     <div>
                         <asp:Label runat="server" ID="lblRespuesta" Visible="False"></asp:Label>
