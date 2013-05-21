@@ -230,5 +230,15 @@ namespace Carpooling.Front.Viajes
             popUpConfirmation.TituloPopUp = transaccionExitosa ? "Transacción Exitosa" : "Transacción fallida";
             popUpConfirmation.MostrarPopUp();
         }
+
+        protected void BtnCancelarViaje(object sender, EventArgs e)
+        {
+            mpeConfirmarCancelacion.Show();
+        }
+
+        protected void BtnCancelacionConfirmada(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
