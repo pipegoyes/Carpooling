@@ -123,6 +123,7 @@ namespace Carpooling.Front.Viajes
                 var preguntaSeleccionada =  ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
                 Session["preguntaSeleccionada"] = preguntaSeleccionada;
                 lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
+                InicializarPopUpRespuesta();
                 mpeResponder.Show();
             }
         }
@@ -137,14 +138,23 @@ namespace Carpooling.Front.Viajes
             var preguntaSeleccionada = (Pregunta) Session["preguntaSeleccionada"];
             preguntaSeleccionada.TextoRespuesta = txbRespuesta.Text;
             lblRespuesta.Visible = true;
-            if(AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
+            if (AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
             {
-                lblRespuesta.Text = "Su respuesta fue actualizada";
+                panelExitoso.Visible = true;
+                panelError.Visible = false;
             }
             else
             {
-                lblRespuesta.Text = "Su respuesta no fue actualizada, por favor reintete de nuevo";
+                panelExitoso.Visible = false;
+                panelError.Visible = true;
             }
+        }
+
+        private void InicializarPopUpRespuesta()
+        {
+            panelError.Visible = false;
+            panelExitoso.Visible = false;
+            txbRespuesta.Text = "";
         }
 
         //Actualiza el listado de las solicitudes (Aprobadas y pendientes) segun el viaje seleccionado
@@ -206,6 +216,11 @@ namespace Carpooling.Front.Viajes
                 return solicitudSeleccionada;
             }
             throw new Exception("Error buscando la solicitud dentro de los trayectos del viaje");
+        }
+
+        protected void BtnCancelarPopUp(object sender, EventArgs e)
+        {
+            mpeResponder.Hide();
         }
 
         private void MostrarPopUpCOnfirmacion(bool transaccionExitosa, string mensaje)

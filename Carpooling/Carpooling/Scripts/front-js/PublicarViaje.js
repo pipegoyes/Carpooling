@@ -133,7 +133,7 @@ function publicarViaje() {
                     buttons: {
                         Ok: function () {
                             $(this).dialog("close");
-                            window.location = "/Front/Viajes/Bienvenida.aspx";
+                            window.location = "/Front/Bienvenida.aspx";
                         }
                     }
                 });
