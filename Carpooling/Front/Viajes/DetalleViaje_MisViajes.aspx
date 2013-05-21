@@ -259,9 +259,6 @@
         </div>
     </asp:Panel>
     
-    <div id="contenedorMapa">Google Map</div>
-    <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
-    
     <asp:Panel runat="server" ID="pnlResponder" Style="display: none;">
     <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeResponder" PopupControlID="pnlResponder"
                                     TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" >
@@ -310,6 +307,52 @@
                     <div id="divBotonesPopUp" class="divBotonesPopUp">
                         <asp:Button runat="server" ID="btnOk" CssClass="button-gradient green" Text="Aceptar" OnClick="BtnConfirmarRespuesta" />
                         <asp:Button runat="server" ID="btnCancel" CssClass="button-gradient blue" Text="Cancelar" OnClick="BtnCancelarPopUp" />    
+                    </div>
+                    <div class="divClear"></div>
+                
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Panel>
+    
+    <div id="contenedorMapa">Google Map</div>
+    <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
+    
+    <div>
+        <asp:Button runat="server" Text="Cancelar Viaje" CssClass="button-gradient blue rightPosition" OnClick="BtnCancelarViaje"/>
+    </div>
+
+    <asp:Panel runat="server" ID="pnlConfirmarCancelacion" Style="display: none;">
+    <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeConfirmarCancelacion" PopupControlID="pnlConfirmarCancelacion"
+                                    TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelConfirmacionPopUp" >
+    </ajaxToolkit:ModalPopupExtender>
+    <asp:Label runat="server" ID="lblCC"></asp:Label>
+    <asp:UpdatePanel  ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+            <div id="Div3" class="popUpContainer">
+                <div id="div4" class="divEncabezado">
+                    <asp:Label runat="server" ID="Label17" Text="Cancelación del viaje"></asp:Label> 
+                </div>
+                <div id="Div5" class="mainContentPopUp">
+                    <div>
+                        <asp:Label runat="server" ID="Label18" Text="¿Estas seguro que deseas cancelar el viaje?"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:Panel ID="panelMensajeCancelacionPopup" class="ui-widget" runat="server" Visible="False" Width="450px">
+                        <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                            <p>
+                                <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                <strong>Tenga en cuenta:</strong>
+                                <asp:Label ID="Label16" runat="server" Text="Esta accion no se puede reversar"></asp:Label>
+                            </p>
+                        </div>
+                    </asp:Panel>
+                    </div>
+
+                    <div id="div6" class="divBotonesPopUp">
+                        <asp:Button runat="server" ID="btnAceptarCancelacionPopUp" CssClass="button-gradient green" Text="Aceptar" OnClick="BtnCancelacionConfirmada" />
+                        <asp:Button runat="server" ID="btnCancelConfirmacionPopUp" CssClass="button-gradient blue" Text="Cancelar"  />    
                     </div>
                     <div class="divClear"></div>
                 
