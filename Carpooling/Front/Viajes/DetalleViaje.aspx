@@ -35,7 +35,7 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <div class="divCeldaParada">
-                        <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                                        Eval("NumeroParada") %>'></asp:Label>
+                        <asp:Label ID="lblNumeroParada" runat="server" Text='<%# Eval("NumeroParada") %>'></asp:Label>
                     </div>
                     <div class="divCeldaParada">
                         <asp:Label runat="server" Text='<%#Eval("Direccion") %>'></asp:Label>
@@ -86,13 +86,13 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="divCeldaTrayecto">
-                    <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                Eval("ParadaOrigen.Direccion") %>'></asp:Label>
+                    <asp:Label ID="lblNumeroParada" runat="server" Text='<%# Eval("ParadaOrigen.Direccion") %>'></asp:Label>
                 </div>
                 <div class="divCeldaTrayecto">
-                    <asp:Label ID="Label1" runat="server" Text='<%#                Eval("ParadaDestino.Direccion") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("ParadaDestino.Direccion") %>'></asp:Label>
                 </div>
                 <div class="divCeldaTrayecto">
-                    <asp:Label ID="Label2" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("CuposDisponibles") %>'></asp:Label>
                 </div>
                 <div>
                     <asp:UpdatePanel runat="server">

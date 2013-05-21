@@ -258,13 +258,13 @@
             </div>
         </div>
     </asp:Panel>
-
+    
     <div id="contenedorMapa">Google Map</div>
     <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
     
     <asp:Panel runat="server" ID="pnlResponder" Style="display: none;">
     <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeResponder" PopupControlID="pnlResponder"
-                                    TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancel">
+                                    TargetControlID="lblMensajesPop" BackgroundCssClass="modalBackgroundMensajeModal" >
     </ajaxToolkit:ModalPopupExtender>
     <asp:Label runat="server" ID="lblMensajesPop"></asp:Label>
     <asp:UpdatePanel  ID="UpdatePanel1" runat="server">
@@ -287,9 +287,29 @@
                     <div>
                         <asp:Label runat="server" ID="lblRespuesta" Visible="False"></asp:Label>
                     </div>
+                    <%--Divs de respuesta de la transaccion--%>
+                    <asp:Panel ID="panelError" class="ui-widget" runat="server" Visible="False" Width="450px">
+                        <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                            <p>
+                                <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                <strong>Alert:</strong>
+                                <asp:Label ID="lblMensajeError" runat="server" Text="Su respuesta no ha podido ser actualizada, por favor intente de nuevo."></asp:Label>
+                            </p>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel class="ui-widget"  runat="server" ID="panelExitoso" Visible="False" Width="450px">
+                        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                            <p>
+                                <span class="ui-icon ui-icon-check" style="float: left; margin-right: .3em;"></span>
+                                <strong class="divWithoutShadow">Hey!</strong>
+                                <asp:Label ID="lblMensajeExitoso" runat="server" CssClass="divWithoutShadow" Text="Su respuesta ha sido actualizada."></asp:Label>
+                            </p>
+                        </div>
+                    </asp:Panel>
+
                     <div id="divBotonesPopUp" class="divBotonesPopUp">
                         <asp:Button runat="server" ID="btnOk" CssClass="button-gradient green" Text="Aceptar" OnClick="BtnConfirmarRespuesta" />
-                        <asp:Button runat="server" ID="btnCancel" CssClass="button-gradient blue" Text="Cancelar" />    
+                        <asp:Button runat="server" ID="btnCancel" CssClass="button-gradient blue" Text="Cancelar" OnClick="BtnCancelarPopUp" />    
                     </div>
                     <div class="divClear"></div>
                 

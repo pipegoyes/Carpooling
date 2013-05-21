@@ -76,7 +76,6 @@
     <Content Include="Front\Cuentas\RecuperarContrasenia.aspx" />
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Front\Cuentas\wuc\PerfilPublico.ascx" />
-    <Content Include="Front\UserControls\PopUpConfrimarCupos.ascx" />
     <Content Include="Front\UserControls\PopUpOk.ascx" />
     <Content Include="Front\Cuentas\wuc\CambioContrasenia.ascx" />
     <Content Include="Front\Error.aspx" />
@@ -448,13 +447,6 @@
     </Compile>
     <Compile Include="Front\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Front\UserControls\PopUpConfrimarCupos.ascx.cs">
-      <DependentUpon>PopUpConfrimarCupos.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Front\UserControls\PopUpConfrimarCupos.ascx.designer.cs">
-      <DependentUpon>PopUpConfrimarCupos.ascx</DependentUpon>
     </Compile>
     <Compile Include="Front\UserControls\PopUpOk.ascx.cs">
       <DependentUpon>PopUpOk.ascx</DependentUpon>
