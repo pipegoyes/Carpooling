@@ -121,5 +121,12 @@ namespace BusinessLayer
                 IdViaje = v.IdViaje
             }).ToList();
         }
+
+        public bool CancelarViaje(Viaje pViaje)
+        {
+            //TODO aqui deberia hacer una lista de destinatarios del viaje y guardarla para despues enviar un email de cancelacion
+            pViaje.Estado = Viaje.ViajeEstado.Cancelado;
+            return ViajeDao.Instancia.EliminarViaje(pViaje);
+        }
     }
 }
