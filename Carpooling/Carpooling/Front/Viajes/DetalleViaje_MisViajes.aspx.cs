@@ -238,7 +238,17 @@ namespace Carpooling.Front.Viajes
 
         protected void BtnCancelacionConfirmada(object sender, EventArgs e)
         {
-            
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            mpeConfirmarCancelacion.Hide();
+            if(AdministradorViajes.Instancia.CancelarViaje(ViajeDetalle))
+            {
+                MostrarPopUpCOnfirmacion(true,"Su viaje ha sido cancelado");
+                
+            }
+            else
+            {
+                MostrarPopUpCOnfirmacion(false, "Su viaje no ha sido cancelado, por favor intente mas tarde");
+            }
         }
     }
 }

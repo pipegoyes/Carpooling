@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Objects;
 using System.Linq;
@@ -86,15 +87,16 @@ namespace DataLayer.DAOs
             return regViajes.Any() ? ToBusinessEntity.Instancia.ToViajes(regViajes.ToList()) : null;
         }
 
-        //public bool ActualizarViaje(Viaje pViaje)
-        //{
+        public bool EliminarViaje(Viaje viaje)
+        {
+            EstablecerConexion();
+            var viajeDb = ToDataEntity.Instancia.ToViaje(viaje);
+            Conexion.VIAJE.Attach(viajeDb);
+            var entidad = Conexion.Entry(viajeDb);
+            entidad.Property(e => e.ESTADO).IsModified = true;
+            return ConfirmarCambios();
+        }
 
-        //    var viajeDb = ToDataEntity.Instancia.ToViaje(pViaje);
-        //    EstablecerConexion();
-        //    Conexion.VIAJE.Attach(viajeDb);
-        //    return ConfirmarCambios();
-
-        //}
     }
     
 }
