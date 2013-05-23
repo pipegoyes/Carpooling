@@ -11,12 +11,12 @@
                 <div id="divEncabezado" class="divEncabezado">
                         <asp:Label runat="server" ID="lblTitulo"></asp:Label>
                 </div>
-                <div id="mainContentPopUp">
+                <div id="mainContentPopUp" class="mainContentPopUp">
                     <div>
-                        <asp:Label runat="server" ID="lblTextoMensaje"></asp:Label>    
+                        <asp:Label runat="server" ID="lblTextoMensaje" Visible="False"></asp:Label>    
                     </div>
                     
-                    <div class="divBotonesPopUp">
+                    <div>
                         <asp:Button runat="server" ID="btnOk" Text="Aceptar" OnClick="OnClickPadre" CssClass="button-gradient green"/>            
                     </div>
                     <div class="clearfix"></div>

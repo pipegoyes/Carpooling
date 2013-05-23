@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using BusinessLayer;
+using Carpooling.Front.UserControls;
 using Entities.Aplicacion;
 using Entities.Negocio;
 
@@ -85,71 +86,6 @@ namespace Carpooling.Front.Viajes
             }
         }
 
-        protected void BtnAceptarSolicitud(object sender, DataListCommandEventArgs e)
-        {
-            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
-            if (e.CommandName.ToLower().Equals("aceptarsolicitud"))
-            {
-                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                var solicitudSeleccionada = BuscarSolicitud(idSolicitud);
-                if (AdministradorSolicitudes.Instancia.AceparSolicitud(ViajeDetalle, solicitudSeleccionada))
-                {
-                    PintarSolicitudes();
-                    MostrarPopUpCOnfirmacion(true, "Se han actualizado los cupos de tu viaje exitosamente.");
-                }
-                else
-                    MostrarPopUpCOnfirmacion(false, "No se ha podido actualizar los cupos de tu viaje, por favor intenta de nuevo, si el problema persiste conteactese con servicio al cliente.");
-
-            }
-            else if (e.CommandName.ToLower().Equals("rechazarsolicitud"))
-            {
-                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                var solicitudRechazada = BuscarSolicitud(idSolicitud);
-                if (AdministradorSolicitudes.Instancia.RechazarSolicitud(solicitudRechazada))
-                {
-                    PintarSolicitudes();
-                    MostrarPopUpCOnfirmacion(true, "La solicitud ha sido rechazada exitosamente, además el usuario será notificado via email.");
-                }
-                else
-                    MostrarPopUpCOnfirmacion(false, "Presentamos inconvenientes en nuestra aplicacion, por favor realice esta acción nuevamente.");
-            }
-        }
-
-        protected void BtnResponderClick(object sender, DataListCommandEventArgs e)
-        {
-            if (e.CommandName.ToLower().Equals("responder"))
-            {
-                var idPreguntaSeleccionada = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
-                var preguntaSeleccionada =  ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
-                Session["preguntaSeleccionada"] = preguntaSeleccionada;
-                lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
-                InicializarPopUpRespuesta();
-                mpeResponder.Show();
-            }
-        }
-
-        protected void BtnOkPopUpConfirmacion(object sender, DataListCommandEventArgs e)    
-        {
-            popUpConfirmation.CerrarPopUp();
-        }
-
-        protected void BtnConfirmarRespuesta(object sender, EventArgs e)
-        {
-            var preguntaSeleccionada = (Pregunta) Session["preguntaSeleccionada"];
-            preguntaSeleccionada.TextoRespuesta = txbRespuesta.Text;
-            lblRespuesta.Visible = true;
-            if (AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
-            {
-                panelExitoso.Visible = true;
-                panelError.Visible = false;
-            }
-            else
-            {
-                panelExitoso.Visible = false;
-                panelError.Visible = true;
-            }
-        }
-
         private void InicializarPopUpRespuesta()
         {
             panelError.Visible = false;
@@ -218,17 +154,12 @@ namespace Carpooling.Front.Viajes
             throw new Exception("Error buscando la solicitud dentro de los trayectos del viaje");
         }
 
-        protected void BtnCancelarPopUp(object sender, EventArgs e)
-        {
-            mpeResponder.Hide();
-        }
-
         private void MostrarPopUpCOnfirmacion(bool transaccionExitosa, string mensaje)
         {
-            popUpConfirmation.MensajePrincipal = mensaje;
-            popUpConfirmation.TransaccionExitosa = transaccionExitosa;
-            popUpConfirmation.TituloPopUp = transaccionExitosa ? "Transacción Exitosa" : "Transacción fallida";
-            popUpConfirmation.MostrarPopUp();
+            popUpConfirmacionSolicitud.MensajePrincipal = mensaje;
+            popUpConfirmacionSolicitud.TransaccionExitosa = transaccionExitosa;
+            popUpConfirmacionSolicitud.TituloPopUp = transaccionExitosa ? "Transacción Exitosa" : "Transacción fallida";
+            popUpConfirmacionSolicitud.MostrarPopUp();
         }
 
         protected void BtnCancelarViaje(object sender, EventArgs e)
@@ -236,19 +167,103 @@ namespace Carpooling.Front.Viajes
             mpeConfirmarCancelacion.Show();
         }
 
-        protected void BtnCancelacionConfirmada(object sender, EventArgs e)
+        protected void BtnAceptarRechazarSolicitud(object sender, DataListCommandEventArgs e)
         {
             if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
-            mpeConfirmarCancelacion.Hide();
-            if(AdministradorViajes.Instancia.CancelarViaje(ViajeDetalle))
+            if (e.CommandName.ToLower().Equals("aceptarsolicitud"))
             {
-                MostrarPopUpCOnfirmacion(true,"Su viaje ha sido cancelado");
-                
+                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                var solicitudSeleccionada = BuscarSolicitud(idSolicitud);
+                if (AdministradorSolicitudes.Instancia.AceparSolicitud(ViajeDetalle, solicitudSeleccionada))
+                {
+                    PintarSolicitudes();
+                    MostrarPopUpCOnfirmacion(true, "Se han actualizado los cupos de tu viaje exitosamente.");
+                }
+                else
+                    MostrarPopUpCOnfirmacion(false, "No se ha podido actualizar los cupos de tu viaje, por favor intenta de nuevo, si el problema persiste conteactese con servicio al cliente.");
+
+            }
+            else if (e.CommandName.ToLower().Equals("rechazarsolicitud"))
+            {
+                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                var solicitudRechazada = BuscarSolicitud(idSolicitud);
+                if (AdministradorSolicitudes.Instancia.RechazarSolicitud(solicitudRechazada))
+                {
+                    PintarSolicitudes();
+                    MostrarPopUpCOnfirmacion(true, "La solicitud ha sido rechazada exitosamente, además el usuario será notificado via email.");
+                }
+                else
+                    MostrarPopUpCOnfirmacion(false, "Presentamos inconvenientes en nuestra aplicacion, por favor realice esta acción nuevamente.");
+            }
+        }
+
+        protected void BtnResponderClick(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower().Equals("responder"))
+            {
+                var idPreguntaSeleccionada = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                var preguntaSeleccionada = ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
+                Session["preguntaSeleccionada"] = preguntaSeleccionada;
+                lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
+                InicializarPopUpRespuesta();
+                mpeResponder.Show();
+            }
+        }
+
+        protected void BtnCancelarPopUpResponder(object sender, EventArgs e)
+        {
+            mpeResponder.Hide();
+        }
+
+        #region Aceptar del popup de un solo boton
+
+        protected void AceptarPopUpResponder(object sender, EventArgs e)
+        {
+            var preguntaSeleccionada = (Pregunta)Session["preguntaSeleccionada"];
+            preguntaSeleccionada.TextoRespuesta = txbRespuesta.Text;
+            lblRespuesta.Visible = true;
+            if (AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
+            {
+                panelExitoso.Visible = true;
+                panelError.Visible = false;
             }
             else
             {
-                MostrarPopUpCOnfirmacion(false, "Su viaje no ha sido cancelado, por favor intente mas tarde");
+                panelExitoso.Visible = false;
+                panelError.Visible = true;
             }
         }
+
+        protected void AceptarPopUpCancelacion(object sender, EventArgs e)
+        {
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            mpeConfirmarCancelacion.Hide();
+            if (AdministradorViajes.Instancia.CancelarViaje(ViajeDetalle))
+            {
+                popUpConfirmacionCancelacion.MensajePrincipal =
+                    "Ya se ha cancelado tu viaje, de tener participantes ellos seran informados";
+                popUpConfirmacionCancelacion.TituloPopUp = "Transaccion exitosa";
+
+            }
+            else
+            {
+                popUpConfirmacionCancelacion.MensajePrincipal =
+                    "No se ha podido cancelar tu viaje, Lo sentimos.";
+                popUpConfirmacionCancelacion.TituloPopUp = "Transaccion fallida";
+            }
+            popUpConfirmacionCancelacion.MostrarPopUp();
+        }
+
+        //Esta funcion solo redirecciona despues de cancelar el viaje
+        protected void AceptarPopUpCancelacionRealizada(object sender, EventArgs e)
+        {
+            Response.Redirect("../Front/Bienvenida.aspx");
+        }
+
+        protected void AceptarPopUpSolicitud(object sender, EventArgs eventArgs)
+        {
+            popUpConfirmacionSolicitud.CerrarPopUp();
+        }
+        #endregion
     }
 }

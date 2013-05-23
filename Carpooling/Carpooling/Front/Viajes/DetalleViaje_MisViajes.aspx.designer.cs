@@ -13,13 +13,22 @@ namespace Carpooling.Front.Viajes {
     public partial class DetalleViaje_MisViajes {
         
         /// <summary>
-        /// popUpConfirmation control.
+        /// popUpConfirmacionSolicitud control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmation;
+        protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmacionSolicitud;
+        
+        /// <summary>
+        /// popUpConfirmacionCancelacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmacionCancelacion;
         
         /// <summary>
         /// dataListParada control.
@@ -157,6 +166,15 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label lblSinPreguntas;
         
         /// <summary>
+        /// contenedorHiddenFields control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder contenedorHiddenFields;
+        
+        /// <summary>
         /// pnlResponder control.
         /// </summary>
         /// <remarks>
@@ -290,15 +308,6 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// contenedorHiddenFields control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder contenedorHiddenFields;
         
         /// <summary>
         /// pnlConfirmarCancelacion control.
