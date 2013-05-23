@@ -75,7 +75,7 @@
     </div>
     <div class="divClear"></div>
     <div>
-        <asp:DataList runat="server" ID="dataListTrayectos" OnItemCommand="btnVerParticipar_Click"
+        <asp:DataList runat="server" ID="dataListTrayectos" OnItemCommand="ShowPopUpParticipar"
                       ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%">
             <AlternatingItemStyle BackColor="White" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -105,7 +105,10 @@
             </ItemTemplate>
         </asp:DataList>
     </div>
-
+    
+    <div>
+        <asp:Button runat="server" Text="Preguntar" CssClass="button-gradient blue" OnClick="ShowPopUpRespuesta"/>
+    </div>
     <div id="contenedorMapa">Google Map</div>
     <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
     
@@ -151,8 +154,56 @@
                             </div>
                         </asp:Panel>
                         <div class="divBotonesPopUp">
-                            <asp:Button runat="server" ID="btnAceptarPopUp" Text="Aceptar" CssClass="button-gradient green" OnClick="BtnConfirmarCuposClick"/>
-                            <asp:Button runat="server" ID="btnCancelPopUp" Text="Cancelar" CssClass="button-gradient blue" OnClick="CerrarPopUp" />    
+                            <asp:Button runat="server" ID="btnAceptarPopUp" Text="Aceptar" CssClass="button-gradient green" OnClick="BtnEnviarSolicitud"/>
+                            <asp:Button runat="server" ID="btnCancelPopUp" Text="Cancelar" CssClass="button-gradient blue" OnClick="HidePopUpParticipar" />    
+                        </div>
+                        <div class="divClear"></div>
+                
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </asp:Panel>
+    
+    <%--El popup para preguntar--%>
+    <asp:Panel runat="server" ID="pnlPreguntar" Style="display: none;">
+        <ajaxToolkit:ModalPopupExtender runat="server" ID="mpePreguntar" PopupControlID="pnlPreguntar"
+                                        TargetControlID="lblMensajesPopPreguntar" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelPopUpResponder">
+        </ajaxToolkit:ModalPopupExtender>
+        <asp:Label runat="server" ID="lblMensajesPopPreguntar"></asp:Label>
+        <asp:UpdatePanel  ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <div class="popUpContainer">
+                    <div id="div2" class="divEncabezado">
+                        <asp:Label runat="server" ID="Label5" Text="Realizar pregunta"></asp:Label>
+                    </div>
+                    <div class="mainContentPopUp">
+                        <div>
+                            <asp:Label runat="server" ID="Label6" Text="Escriba la pregunta que desea realizar"></asp:Label>
+                            <asp:TextBox ID="txbPregunta" runat="server" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                        </div>
+                        <%--Divs de respuesta de la transaccion--%>
+                        <asp:Panel ID="panelPreguntaRespuestaErr" class="ui-widget" runat="server" Visible="False" Width="450px">
+                            <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                                <p>
+                                    <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                    <strong>Alert:</strong>
+                                    <asp:Label ID="Label8" runat="server" Text="No se pudo realizar la pregunta, verifique el campo pregunta."></asp:Label>
+                                </p>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel class="ui-widget"  runat="server" ID="panelPreguntaRespuestaExt" Visible="False" Width="450px">
+                            <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                                <p>
+                                    <span class="ui-icon ui-icon-check" style="float: left; margin-right: .3em;"></span>
+                                    <strong class="divWithoutShadow">Hey!</strong>
+                                    <asp:Label ID="Label9" runat="server" CssClass="divWithoutShadow" Text="Tu pregunta ha sido enviada, te informaremos cuando tu pregunta sea resuelta."></asp:Label>
+                                </p>
+                            </div>
+                        </asp:Panel>
+                        <div class="divBotonesPopUp">
+                            <asp:Button runat="server" ID="btnPreguntarPopUp" Text="Preguntar" CssClass="button-gradient green" OnClick="BtnRealizarPregunta"/>
+                            <asp:Button runat="server" ID="btnCancelPopUpResponder" Text="Cancelar" CssClass="button-gradient blue" OnClick="CerrarPopUp" />    
                         </div>
                         <div class="divClear"></div>
                 

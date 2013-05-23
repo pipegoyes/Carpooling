@@ -29,5 +29,13 @@ namespace DataLayer.DAOs
             entidad.Property(p => p.TEXTO_RESPUESTA).IsModified = true;
             return ConfirmarCambios();
         }
+
+        public bool CrearPregunta(Pregunta pPregunta)
+        {
+            EstablecerConexion();
+            var preguntaDb = ToDataEntity.Instancia.ToPregunta(pPregunta);
+            Conexion.PREGUNTA.Add(preguntaDb);
+            return ConfirmarCambios();
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace Carpooling.Front.Viajes
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             if (idViajeStr != null)
             {
+                Session["idViajeDetalle"] = long.Parse(idViajeStr);
                 UsuarioConectado = (Usuario)Session["usuario"];
                 IdViaje = Convert.ToInt64(idViajeStr);
                 ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
@@ -76,7 +77,22 @@ namespace Carpooling.Front.Viajes
             }
         }
 
-        protected void btnVerParticipar_Click(object sneder, DataListCommandEventArgs e)
+        private void HabilitarPopUp(bool habilitado)
+        {
+            txbComentario.Enabled = habilitado;
+            txbCuposSolicitados.Enabled = habilitado;
+            //TODO cuando el boton no es enable no se nota en la UI
+            btnAceptarPopUp.Enabled = habilitado;
+
+            if (!habilitado) return;
+            txbComentario.Text = "";
+            txbCuposSolicitados.Text = "";
+            panelError.Visible = false;
+            panelExitoso.Visible = false;
+        }
+
+        #region Participar
+        protected void ShowPopUpParticipar(object sneder, DataListCommandEventArgs e)
         {
             if (!e.CommandName.ToLower().Equals("participar")) return;
             long idTrayecto = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
@@ -85,7 +101,7 @@ namespace Carpooling.Front.Viajes
             mpeMensajes.Show();
         }
 
-        protected void BtnConfirmarCuposClick(object sender, EventArgs eventArgs)
+        protected void BtnEnviarSolicitud(object sender, EventArgs eventArgs)
         {
             var pasajero = (Usuario)Session["usuario"];
             var idTrayecto = (long)Session["idTrayecto"];
@@ -107,25 +123,47 @@ namespace Carpooling.Front.Viajes
                 panelError.Visible = true;
         }
 
-        private void HabilitarPopUp(bool habilitado)
-        {
-            txbComentario.Enabled = habilitado;
-            txbCuposSolicitados.Enabled = habilitado;
-            //TODO cuando el boton no es enable no se nota en la UI
-            btnAceptarPopUp.Enabled = habilitado;
-
-            if (!habilitado) return;
-            txbComentario.Text = "";
-            txbCuposSolicitados.Text = "";
-            panelError.Visible = false;
-            panelExitoso.Visible = false;
-        }
-
-        protected void CerrarPopUp(object sender, EventArgs e)
+        protected void HidePopUpParticipar(object sender, EventArgs e)
         {
             panelExitoso.Visible = false;
             panelError.Visible = false;
             mpeMensajes.Hide();
         }
+        #endregion 
+
+        #region Preguntar
+        protected void ShowPopUpRespuesta(object sender, EventArgs e)
+        {
+           mpePreguntar.Show();
+        }
+
+        protected void BtnRealizarPregunta(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txbPregunta.Text))
+            {
+                var pregunta = new Pregunta()
+                    {
+                        IdViaje = (long)Session["idViajeDetalle"],
+                        CreadorPregunta = (Usuario) Session["usuario"],
+                        TextoPregunta = txbPregunta.Text
+                    };
+                if (AdministradorPreguntas.Instancia.RealizarPregunta(pregunta))
+                {
+                    panelPreguntaRespuestaExt.Visible = true;
+                    panelPreguntaRespuestaErr.Visible = false;
+                }
+            }
+            else
+            {
+                panelPreguntaRespuestaExt.Visible = false;
+                panelPreguntaRespuestaErr.Visible = true;
+            }
+        }
+
+        protected void HidePopUpRespuesta(object sender, EventArgs e)
+        {
+            mpePreguntar.Hide();
+        }
+        #endregion
     }
 }

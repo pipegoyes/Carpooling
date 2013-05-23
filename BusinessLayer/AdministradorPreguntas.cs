@@ -36,5 +36,10 @@ namespace BusinessLayer
         {
             return PreguntaDao.Instancia.ActualizarPregunta(pPregunta);
         }
+
+        public bool RealizarPregunta(Pregunta ppregunta)
+        {
+            return PreguntaDao.Instancia.CrearPregunta(ppregunta);
+        }
     }
 }
