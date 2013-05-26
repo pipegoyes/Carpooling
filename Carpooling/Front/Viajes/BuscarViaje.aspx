@@ -94,7 +94,7 @@
                     <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
                 <div class="divCelda">
-                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%# Eval("NombreConductor") %>' CommandName="VerPerfil" CommandArgument="manuellinares007"></asp:LinkButton>                        
+                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%# Eval("NombreConductor") %>' CommandName="VerPerfil" CommandArgument=<%# Eval("IdUsuario") %>></asp:LinkButton>                        
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("ParadaOrigen") %>'></asp:Label>    
