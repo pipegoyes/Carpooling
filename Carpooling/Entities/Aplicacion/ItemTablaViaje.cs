@@ -13,5 +13,6 @@ namespace Entities.Aplicacion
         public string ParadaDestino { get; set; }
         public string Cupos { get; set; }
         public string FechaHora { get;set; }
+        public string IdUsuario { get; set; }
     }
 }

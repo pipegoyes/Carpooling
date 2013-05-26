@@ -33,7 +33,8 @@ namespace DataLayer.Transformador
                                    ParadaDestino = nombrePParadaDestino, 
                                    ParadaOrigen = nombrePParadaOrigen,
                                    FechaHora = fechaHoraViaje,
-                                   IdViaje = viajeDB.ID_VIAJE
+                                   IdViaje = viajeDB.ID_VIAJE,
+                                   IdUsuario = viajeDB.USUARIO.ID_USUARIO
                                }).ToList();
         }
 
