@@ -19,7 +19,7 @@
                 <img runat="server" id="btnCerrar" src="~/Styles/images/close-icon.png" class="botonModal cerrar" alt=""/>
             </div>
             <div id="titutlo">
-                <asp:Label ID="tituloModal" runat="server" Text="Nombre Usuario"></asp:Label>
+                <asp:Label ID="lblTituloModal" runat="server" Text="Nombre Usuario"></asp:Label>
             </div>
             <div style="clear:both;"></div>
         </section>
@@ -27,7 +27,7 @@
         <section id="areaFormulario" class="areaFormulario">
             <div id="datosFormulario">
 
-                <section id="datosPesonales">
+                <section id="datosPesonales" class="seccionDatosPersonales">
                     <fieldset>
                         <legend>Nombres:</legend>
                         <asp:Label ID="lblNombresApellidos" runat="server" Text="No disponible"></asp:Label>
@@ -63,7 +63,7 @@
                     </fieldset>
                 </section>
 
-                <section id="datosCuenta">
+                <section id="datosCuenta" class="seccionDatos">
                     <fieldset>
                         <legend>Id Usuario:</legend>
                         <asp:Label ID="lblIdUsuario" runat="server" Text="No disponible"></asp:Label>               
@@ -89,7 +89,7 @@
                     </fieldset>
                 </section>
 
-                <section id="datosAdicionales">
+                <section id="datosAdicionales" class="seccionDatos">
                     <fieldset>
                         <legend>Imagen de la cuenta:</legend>
                         <figure>

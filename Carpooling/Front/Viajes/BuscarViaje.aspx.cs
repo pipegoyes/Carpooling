@@ -48,13 +48,9 @@ namespace Carpooling.Front.Viajes
             }
             else if (e.CommandName.ToLower().Equals("verperfil"))
             {
-                ucPerfilPublico.MostrarVentana();
+                string idUsuario = (string)(((LinkButton)e.CommandSource).CommandArgument);
+                ucPerfilPublico.MostrarVentana(idUsuario);
             }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            ucPerfilPublico.MostrarVentana();
         }
 
     }
