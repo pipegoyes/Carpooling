@@ -65,6 +65,11 @@ namespace BusinessLayer
             return UsuarioDao.Instancia.ActualizarContrasenia(pUsuario);
         }
 
+        public Usuario ConsultarUsuarioPorId(string pIdUsuario)
+        {
+            return UsuarioDao.Instancia.ObtenerPorId(pIdUsuario);
+        }
+
         public Usuario AutenticarUsuario(string pIdEmailUsuario, string pContrasenia)
         {
             Usuario usuario;

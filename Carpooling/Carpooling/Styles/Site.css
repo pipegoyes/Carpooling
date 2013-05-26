@@ -1028,3 +1028,15 @@ tr.pager td {
 .botonModal.mover {
     cursor: move;
 }
+
+.seccionDatosPersonales {
+    height: 100%;
+    width: 43%;
+    float: left;
+}
+
+.seccionDatos{
+    height: 43%;
+    width: 43%;
+    float: left;
+}

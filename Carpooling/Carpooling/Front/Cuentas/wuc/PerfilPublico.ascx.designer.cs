@@ -67,13 +67,13 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.HtmlControls.HtmlImage btnCerrar;
         
         /// <summary>
-        /// tituloModal control.
+        /// lblTituloModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tituloModal;
+        protected global::System.Web.UI.WebControls.Label lblTituloModal;
         
         /// <summary>
         /// lblNombresApellidos control.

@@ -94,7 +94,7 @@
                     <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
                 </div>
                 <div class="divCelda">
-                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%# Eval("NombreConductor") %>' CommandName="VerPefil" CommandArgument="IdUsuario"></asp:LinkButton>                        
+                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%# Eval("NombreConductor") %>' CommandName="VerPerfil" CommandArgument="manuellinares007"></asp:LinkButton>                        
                 </div>
                 <div class="divCelda">
                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("ParadaOrigen") %>'></asp:Label>    
@@ -108,7 +108,6 @@
             </ItemTemplate>
             <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
          </asp:DataList>
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" CausesValidation="false"/>
     </div>
 
     <uc:PerfilPublico ID="ucPerfilPublico" runat="server"/>
