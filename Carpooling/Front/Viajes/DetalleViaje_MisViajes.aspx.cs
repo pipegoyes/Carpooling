@@ -95,37 +95,42 @@ namespace Carpooling.Front.Viajes
         private void PintarSolicitudes()
         {
             if(ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
-            var listaSolicitudesItem = AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
-            
-            if(listaSolicitudesItem.Count >0)
-            {
-                var solitudesPendientes =
-                    listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
-                if(solitudesPendientes.Any())
-                {
-                    tabSolicitudes.InnerText =  "Solicitudes ("+solitudesPendientes.Count+")";
-                    dataListSolicitudes.DataSource = solitudesPendientes;
-                    dataListSolicitudes.DataBind();
-                    lblSinSolicitudes.Visible = false;   
-                }
-                var solicitudesAprobadas =
-                    listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
-                if(solicitudesAprobadas.Any())
-                {
-                    tabParticipantes.InnerText = "Participantes (" + solicitudesAprobadas.Count + ")";
-                    dataListParticipantes.DataSource = solicitudesAprobadas;
-                    dataListParticipantes.DataBind();
-                    lblSinParticipantes.Visible = false;
-                }
-                else
-                    lblSinParticipantes.Visible = true;
-                
-            }
-            else
-                lblSinSolicitudes.Visible = true;
-            
+            var listTrayectosSolicitudesPendientes =
+                AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudes(ViajeDetalle.TrayectosViaje);
 
-            
+
+
+            //var listaSolicitudesItem = AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
+
+            //if(listaSolicitudesItem.Count >0)
+            //{
+            //    var solitudesPendientes =
+            //        listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
+            //    if(solitudesPendientes.Any())
+            //    {
+            //        tabSolicitudes.InnerText =  "Solicitudes ("+solitudesPendientes.Count+")";
+            //        dataListSolicitudes.DataSource = solitudesPendientes;
+            //        dataListSolicitudes.DataBind();
+            //        lblSinSolicitudes.Visible = false;   
+            //    }
+            //    var solicitudesAprobadas =
+            //        listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
+            //    if(solicitudesAprobadas.Any())
+            //    {
+            //        tabParticipantes.InnerText = "Participantes (" + solicitudesAprobadas.Count + ")";
+            //        dataListParticipantes.DataSource = solicitudesAprobadas;
+            //        dataListParticipantes.DataBind();
+            //        lblSinParticipantes.Visible = false;
+            //    }
+            //    else
+            //        lblSinParticipantes.Visible = true;
+
+            //}
+            //else
+            //    lblSinSolicitudes.Visible = true;
+
+
+
         }
 
         private void PintarPreguntas()

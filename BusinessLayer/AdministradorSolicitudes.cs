@@ -30,21 +30,22 @@ namespace BusinessLayer
                 if (trayecto.ListaSolicitudes == null) continue;
                 var trayecto1 = trayecto;
                 //var listaTrayectosPendientes = trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
-                    
+
                 listaResult.AddRange(trayecto.ListaSolicitudes.Select((solicitud => new ItemTablaSolicitud()
-                                                                                        {
-                                                                                            CiudadDestino = pViaje.GetCiudadDestino().Direccion,
-                                                                                            CiudadOrigen = pViaje.GetCiudadOrigen().Direccion,
-                                                                                            Comentario = solicitud.Comentario,
-                                                                                            CuposDisponibles = trayecto1.CuposDisponibles.ToString(),
-                                                                                            CuposSolicitados = solicitud.CuposSolicitados.ToString(),
-                                                                                            IdSolicitud = solicitud.IdSolicitud,
-                                                                                            NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos(),
-                                                                                            //TODO la reputacion podria mostrarse con unas estrellas
-                                                                                            Reputacion = (String.IsNullOrWhiteSpace(solicitud.CreadorSolicitud.Reputacion.ToString() ) )
-                                                                                            ? "Sin reputacion":solicitud.CreadorSolicitud.Reputacion.ToString(),
-                                                                                            Estado = solicitud.Estado
-                                                                                        })));
+                    {
+                        CiudadDestino = pViaje.GetCiudadDestino().Direccion,
+                        CiudadOrigen = pViaje.GetCiudadOrigen().Direccion,
+                        Comentario = solicitud.Comentario,
+                        CuposDisponibles = trayecto1.CuposDisponibles.ToString(),
+                        CuposSolicitados = solicitud.CuposSolicitados.ToString(),
+                        IdSolicitud = solicitud.IdSolicitud,
+                        NombreSolicitante = solicitud.CreadorSolicitud.ObtenerNombreApellidos(),
+                        //TODO la reputacion podria mostrarse con unas estrellas
+                        Reputacion = (String.IsNullOrWhiteSpace(solicitud.CreadorSolicitud.Reputacion.ToString()))
+                                         ? "Sin reputacion"
+                                         : solicitud.CreadorSolicitud.Reputacion.ToString(),
+                        Estado = solicitud.Estado
+                    })));
             }
             return listaResult;
         }
@@ -53,9 +54,9 @@ namespace BusinessLayer
         {
             var trayectoSeleccionado = pViaje.TrayectosViaje.Find(t => t.IdTrayecto == pSolicitud.IdTrayecto);
 
-            IEnumerable<Trayecto> trayectosModificar = (trayectoSeleccionado.TrayectoSimple)? 
-                DeterminarTrayectosAfectosTryS(pViaje, trayectoSeleccionado):
-                DeterminarTrayectosAfectosTryC(pViaje,trayectoSeleccionado);
+            IEnumerable<Trayecto> trayectosModificar = (trayectoSeleccionado.TrayectoSimple)
+                                                           ? DeterminarTrayectosAfectosTryS(pViaje, trayectoSeleccionado)
+                                                           : DeterminarTrayectosAfectosTryC(pViaje, trayectoSeleccionado);
             trayectosModificar.ToList().ForEach(t => t.CuposDisponibles -= pSolicitud.CuposSolicitados);
             var trayectosSinModificar = pViaje.TrayectosViaje.Where(
                 trayecto => trayectosModificar.ToList().All(t => t.IdTrayecto != trayecto.IdTrayecto)).ToList();
@@ -77,7 +78,7 @@ namespace BusinessLayer
         //solicitud para un trayecto simple
         private static List<Trayecto> DeterminarTrayectosAfectosTryS(Viaje pViaje, Trayecto pTrayectoSeleccionado)
         {
-            
+
             var iParadaOrigen = pTrayectoSeleccionado.ParadaOrigen.NumeroParada;
             var iParadaDestino = pTrayectoSeleccionado.ParadaDestino.NumeroParada;
             return (from trayectoViaje in pViaje.TrayectosViaje
@@ -97,13 +98,19 @@ namespace BusinessLayer
             var iParadaOrigen = pTrayectoSeleccionado.ParadaOrigen.NumeroParada;
             var iParadaDestino = pTrayectoSeleccionado.ParadaDestino.NumeroParada;
             var listResult = (from trayectoViaje in trayectosPendientes
-                                         let tempOrigen = trayectoViaje.ParadaOrigen.NumeroParada
-                                         let tempDestino = trayectoViaje.ParadaDestino.NumeroParada
-                                         where (tempOrigen > iParadaOrigen && tempOrigen < iParadaDestino) ||
-                                               (tempDestino > iParadaOrigen && tempDestino < iParadaDestino)
-                                         select trayectoViaje).ToList();
+                              let tempOrigen = trayectoViaje.ParadaOrigen.NumeroParada
+                              let tempDestino = trayectoViaje.ParadaDestino.NumeroParada
+                              where (tempOrigen > iParadaOrigen && tempOrigen < iParadaDestino) ||
+                                    (tempDestino > iParadaOrigen && tempDestino < iParadaDestino)
+                              select trayectoViaje).ToList();
             listResult.AddRange(trayectoAlgoritmoSimple);
             return listResult;
+        }
+
+        //Retorna los trayectos con solicitudes
+        public List<Trayecto> DeterimnarTrayectosConSolicitudes(List<Trayecto> pTrayectos)
+        {
+            return pTrayectos.Where(trayecto => trayecto.ListaSolicitudes != null).ToList();
         }
 
     }
