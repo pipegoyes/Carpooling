@@ -1,9 +1,6 @@
 .labelRutaViaje{
 	width: 100px;
 }
-/*.textoRutaViaje{
-	/*width: 80px;
-}*/
 .contenedorSecundarioRV{
 	width: 100%;	
 }
@@ -19,12 +16,10 @@
 	text-align: center;
 }
 .divCeldaTrayecto{
-	float: left;
-	width: 33%;
 	text-align: center;
 }
 #contenedorMapa{
-	height: 400px;
+	height: 380px;
 	width: 100%;
 }
 .divCeldaSolicitudes {
@@ -59,4 +54,66 @@
 }
 .divWithoutShadow{
 	text-shadow: none;
+}
+#divLeftSection{
+	width: 260px;
+	overflow-y: auto;
+	height: 400px;
+	float: left;
+}
+#divRightSection{
+	width: 700px;
+	float: left;
+	height: 400px;
+	font-size: 10px;
+}
+.scrollY{
+	overflow-y: auto;
+}
+.rutaViajeParada{
+	float: left;
+	width: 30px;
+	text-align: center;
+}
+.textLeft{
+	text-align: left;
+}
+.tituloLabelDV{
+	background-color: #1C5E55;
+	color: white;
+	font-weight: bold;
+	padding: 2px;
+	text-align: center;
+	width: 60px;
+}
+.divBotones
+{
+    width: 100%;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.divBotones input[type="submit"]{
+	margin-right: 10px;
+    float: right;
+}
+#tabsDetalleViaje{
+	height: 427px;
+}
+.marginLeft{
+	margin-left: 5px;
+	width: 100%;
+}
+.divCupos{
+	height: 29px;
+	padding: 2px;
+	font-size: 24px;
+	padding-right: 10px;
+}
+.divHeaderOrigenDestino{
+	padding-left: 4px;
+}
+
+.divHeaderCupos{
+	padding-right: 4px;
 }

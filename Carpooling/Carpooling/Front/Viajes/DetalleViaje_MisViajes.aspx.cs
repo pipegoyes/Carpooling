@@ -51,13 +51,11 @@ namespace Carpooling.Front.Viajes
         public void PintarDetalleViaje()
         {
             //Informacion del viaje
-            txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy") + " (mm/dd/yyyy)";
-            txtHora.Text = String.Format("{0:HH:mm}", ViajeDetalle.FechaHoraPartida) + " (24h)";
+            txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy HH:mm");
             txtTarifa.Text = "$" + ViajeDetalle.AporteEconomico + " COP";
+            txbOrigen.Text = ViajeDetalle.GetCiudadOrigen().Direccion;
+            txbDestino.Text = ViajeDetalle.GetCiudadDestino().Direccion;
 
-            //Informacion del conductor
-            txtNombreConductor.Text = ViajeDetalle.Conductor.Nombre;
-            //TODO agregar mas informacion del conductor
 
 
             //Informacion del trayecto selecionado el trayecto seleccionado
@@ -105,6 +103,7 @@ namespace Carpooling.Front.Viajes
                     listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
                 if(solitudesPendientes.Any())
                 {
+                    tabSolicitudes.InnerText =  "Solicitudes ("+solitudesPendientes.Count+")";
                     dataListSolicitudes.DataSource = solitudesPendientes;
                     dataListSolicitudes.DataBind();
                     lblSinSolicitudes.Visible = false;   
@@ -113,6 +112,7 @@ namespace Carpooling.Front.Viajes
                     listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
                 if(solicitudesAprobadas.Any())
                 {
+                    tabParticipantes.InnerText = "Participantes (" + solicitudesAprobadas.Count + ")";
                     dataListParticipantes.DataSource = solicitudesAprobadas;
                     dataListParticipantes.DataBind();
                     lblSinParticipantes.Visible = false;
@@ -133,6 +133,11 @@ namespace Carpooling.Front.Viajes
             if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
             if(ViajeDetalle.Preguntas.Count> 0)
             {
+                tabPreguntas.InnerText = (ViajeDetalle.Preguntas.Any(p => String.IsNullOrWhiteSpace(p.TextoRespuesta)))
+                                             ? "Preguntas (" +
+                                               ViajeDetalle.Preguntas.FindAll(
+                                                   p => String.IsNullOrWhiteSpace(p.TextoRespuesta)).Count+")"
+                                             : "Preguntas"; 
                 dataListPreguntas.DataSource = AdministradorPreguntas.Instancia.CreateItemPregunta(ViajeDetalle);
                 dataListPreguntas.DataBind();
                 lblSinPreguntas.Visible = false;

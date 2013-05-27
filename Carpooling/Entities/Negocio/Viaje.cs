@@ -95,5 +95,13 @@ namespace Entities.Negocio
                 TrayectosViaje.Find(
                     t => t.ParadaDestino.Direccion == pCiudadDestino && t.ParadaOrigen.Direccion == pCiudadOrigen);
         }
+
+        public List<Usuario> GetPasajeros()
+        {
+            var listSolicitudesAprobadas = new List<Solicitud>();
+            foreach (var trayecto in TrayectosViaje)
+                listSolicitudesAprobadas.AddRange(trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada));
+            return listSolicitudesAprobadas.Select(s => s.CreadorSolicitud).ToList();
+        } 
     }
 }

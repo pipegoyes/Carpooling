@@ -2,7 +2,7 @@
     // Handler for .ready() called.
     //alert("Estoy en la parte exitosa");
     initialize();
-
+    $("#tabsDetalleViaje").tabs();
 });
 
 var geocoder;
