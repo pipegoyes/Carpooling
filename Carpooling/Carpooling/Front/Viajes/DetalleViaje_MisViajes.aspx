@@ -91,14 +91,6 @@
                     <div class="rightPosition divCupos">
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
                     </div>
-                    <%--<div>
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <asp:LinkButton ID="linkSolicitarCupos" ClientIDMode="Static" runat="server" Text="Participar" CommandArgument='<%# Eval("IdTrayecto") %>' CommandName="participar"></asp:LinkButton>        
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        
-                        </div>--%>
                 </ItemTemplate>
             </asp:DataList>
         </div> 
@@ -115,163 +107,191 @@
                 <li><a href="#tabPreguntas" id="tabPreguntas" runat="server">Preguntas</a></li>
             </ul>
             <div id="tabSolicitudes" class="scrollY">
-            <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
-                <div class="subtitulo">Listado de solicitudes</div>
-                <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                              ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud">
-                    <AlternatingItemStyle BackColor="White" />
-                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-                    <HeaderTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label3" runat="server" Text="Solicitante"></asp:Label>
+                <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
+                    <div class="subtitulo">Listado de solicitudes</div>
+                    <%--<asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                  ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud">
+                        <AlternatingItemStyle BackColor="White" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                        <HeaderTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label3" runat="server" Text="Solicitante"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label4" runat="server" Text="Ciudad origen"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label5"  runat="server" Text="Ciudad destino"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label6"  runat="server" Text="Cupos solicitados"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label7"  runat="server" Text="Cupos disponibles"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
+                            </div>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreSolicitante") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label12" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label14" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
+                            </div>
+                            <div>
+                                <asp:LinkButton ID="LinkButton1" runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>--%>
+                    <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                  ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud" ShowHeader="False">
+                        <AlternatingItemStyle BackColor="White" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                        <ItemTemplate>
+                            <div class="leftPosition">
+                                <div>
+                                    <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                                </div>
+                                <div>
+                                    <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                                </div>
+                            </div>
+                            
+                            <div class="rightPosition divCupos">
+                                <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
+                            </div>
+                            <div class="divClear"></div>
+                            <asp:ListView runat="server" ID="listViewSolicitudes" DataSource='<%# Eval("ListaSolicitudes") %>'>
+                                <ItemTemplate>
+                                    
+                                </ItemTemplate>
+                            </asp:ListView>
+
+                        </ItemTemplate>
+                    </asp:DataList>
+
+                    <div>
+                        <div id="divSinSolicitudes">
+                            <asp:Label runat="server" Text="No hay solicitudes pendientes" ID="lblSinSolicitudes"></asp:Label>    
                         </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label4" runat="server" Text="Ciudad origen"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label5"  runat="server" Text="Ciudad destino"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label6"  runat="server" Text="Cupos solicitados"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label7"  runat="server" Text="Cupos disponibles"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
-                        </div>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreSolicitante") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label12" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label14" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
-                        </div>
-                        <div>
-                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton2" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-                <div>
-                    <div id="divSinSolicitudes">
-                        <asp:Label runat="server" Text="No hay solicitudes pendientes" ID="lblSinSolicitudes"></asp:Label>    
                     </div>
-                </div>
-            </asp:Panel>    
-        </div>
-        <div id="tabParticipantes" class="scrollY">
-            <asp:Panel ID="PanelParticipantes" runat="server" >
-                <div class="subtitulo">Listado de participantes</div>
-                <asp:DataList ID="dataListParticipantes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                              ShowFooter="False" Width="100%" >
-                    <AlternatingItemStyle BackColor="White" />
-                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-                    <HeaderTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label3" runat="server" Text="Participante"></asp:Label>
+                </asp:Panel>    
+            </div>
+            <div id="tabParticipantes" class="scrollY">
+                <asp:Panel ID="PanelParticipantes" runat="server" >
+                    <div class="subtitulo">Listado de participantes</div>
+                    <asp:DataList ID="dataListParticipantes" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                  ShowFooter="False" Width="100%" >
+                        <AlternatingItemStyle BackColor="White" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                        <HeaderTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label3" runat="server" Text="Participante"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label4" runat="server" Text="Ciudad origen"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label5"  runat="server" Text="Ciudad destino"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label6"  runat="server" Text="Cupos solicitados"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label7"  runat="server" Text="Reputacion"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
+                            </div>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreSolicitante") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label12" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label13" runat="server" Text='<%#Eval("Reputacion") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label14" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <div>
+                        <div id="div1">
+                            <asp:Label runat="server" Text="Aun no hay participantes para el viaje." ID="lblSinParticipantes"></asp:Label>    
                         </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label4" runat="server" Text="Ciudad origen"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label5"  runat="server" Text="Ciudad destino"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label6"  runat="server" Text="Cupos solicitados"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label7"  runat="server" Text="Reputacion"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
-                        </div>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreSolicitante") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label12" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label13" runat="server" Text='<%#Eval("Reputacion") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label14" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-                <div>
-                    <div id="div1">
-                        <asp:Label runat="server" Text="Aun no hay participantes para el viaje." ID="lblSinParticipantes"></asp:Label>    
                     </div>
-                </div>
-            </asp:Panel>    
-        </div>
-        <div id="tabPreguntas" class="scrollY">
-            <asp:Panel ID="PanelPreguntas" runat="server" >
-                <div class="subtitulo">Listado de preguntas</div>
-                <asp:DataList ID="dataListPreguntas" runat="server" ForeColor="#333333" RepeatColumns="1"
-                              ShowFooter="False" Width="100%" OnItemCommand="BtnResponderClick">
-                    <AlternatingItemStyle BackColor="White" />
-                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-                    <HeaderTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label3" runat="server" Text="Creador"></asp:Label>
+                </asp:Panel>    
+            </div>
+            <div id="tabPreguntas" class="scrollY">
+                <asp:Panel ID="PanelPreguntas" runat="server" >
+                    <div class="subtitulo">Listado de preguntas</div>
+                    <asp:DataList ID="dataListPreguntas" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                  ShowFooter="False" Width="100%" OnItemCommand="BtnResponderClick">
+                        <AlternatingItemStyle BackColor="White" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                        <HeaderTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label3" runat="server" Text="Creador"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label4" runat="server" Text="Pregunta"></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label5"  runat="server" Text="Respuesta"></asp:Label>
+                            </div>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreCreador") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label10" runat="server" Text='<%#Eval("TextoPregunta") %>'></asp:Label>
+                            </div>
+                            <div class="divCeldaSolicitudes">
+                                <asp:Label ID="Label11" runat="server" Text='<%#Eval("TextoRespuesta") %>'></asp:Label>
+                            </div>
+                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Responder" CommandName="responder" CommandArgument='<%#Eval("IdPregunta") %>'></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <div>
+                        <div id="div2">
+                            <asp:Label runat="server" Text="Aun no existen preguntas por responder" ID="lblSinPreguntas"></asp:Label>    
                         </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label4" runat="server" Text="Pregunta"></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label5"  runat="server" Text="Respuesta"></asp:Label>
-                        </div>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreCreador") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label10" runat="server" Text='<%#Eval("TextoPregunta") %>'></asp:Label>
-                        </div>
-                        <div class="divCeldaSolicitudes">
-                            <asp:Label ID="Label11" runat="server" Text='<%#Eval("TextoRespuesta") %>'></asp:Label>
-                        </div>
-                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Responder" CommandName="responder" CommandArgument='<%#Eval("IdPregunta") %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:DataList>
-                <div>
-                    <div id="div2">
-                        <asp:Label runat="server" Text="Aun no existen preguntas por responder" ID="lblSinPreguntas"></asp:Label>    
                     </div>
-                </div>
-            </asp:Panel>
-        </div>
-        <div id="tabMapa">
-            <div id="contenedorMapa">Google Map</div>    
-        </div>
+                </asp:Panel>
+            </div>
+            <div id="tabMapa">
+                <div id="contenedorMapa">Google Map</div>    
+            </div>
         </div>
         
         <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
