@@ -116,13 +116,13 @@
                     <figure id="logoSite" class="float-left">
                         <p class="site-title" >CarpoolingCo</p>
                     </figure>
-                    <nav>
+                    <%--<nav>
                         <ul id="menu">
                             <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
                             <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
                             <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
                         </ul>
-                    </nav>
+                    </nav>--%>
                 </div>               
             </header>        
             <div id="body">
@@ -136,6 +136,14 @@
                     <div class="float-left">
                         <p>&copy; <%: DateTime.Now.Year %> - CarpoolingCo</p>
                     </div>
+                <nav>
+                    <ul id="menu">
+                        <li>
+                            <a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a>
+                        </li>
+                        <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
+                    </ul>
+                </nav>
                 </div>
             </footer>
         </form>

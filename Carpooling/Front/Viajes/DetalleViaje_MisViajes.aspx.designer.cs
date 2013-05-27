@@ -31,15 +31,6 @@ namespace Carpooling.Front.Viajes {
         protected global::Carpooling.Front.UserControls.PopUpOk popUpConfirmacionCancelacion;
         
         /// <summary>
-        /// dataListParada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListParada;
-        
-        /// <summary>
         /// txtFechaViaje control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,22 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txtFechaViaje;
         
         /// <summary>
-        /// txtHora control.
+        /// txbOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtHora;
+        protected global::System.Web.UI.WebControls.Label txbOrigen;
+        
+        /// <summary>
+        /// txbDestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txbDestino;
         
         /// <summary>
         /// txtTarifa control.
@@ -67,13 +67,31 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txtTarifa;
         
         /// <summary>
-        /// txtNombreConductor control.
+        /// btnEditar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtNombreConductor;
+        protected global::System.Web.UI.WebControls.Button btnEditar;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// dataListParada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListParada;
         
         /// <summary>
         /// dataListTrayectos control.
@@ -83,6 +101,33 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dataListTrayectos;
+        
+        /// <summary>
+        /// tabSolicitudes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor tabSolicitudes;
+        
+        /// <summary>
+        /// tabParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor tabParticipantes;
+        
+        /// <summary>
+        /// tabPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor tabPreguntas;
         
         /// <summary>
         /// PanelSolicitudesDetalle control.

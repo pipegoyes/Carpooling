@@ -91,5 +91,48 @@ namespace BusinessLayer
             mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
             EnviarCorreoPlano(CuentaEmailAdministrador , destinatarios, null, null, asunto, mensaje, true);
         }
+
+        //Envia el correo a los diferentes pasajeros del viaje
+        public void CorreoCancelacionViaje(Viaje pViaje)
+        {
+            //inicializa los parametros de envio del correo
+            List<string> destinatarios = pViaje.GetPasajeros().Select(p => p.Email).ToList();
+            
+            string asunto = "CarpoolingCo - Cancelación de un viaje";
+            string mensaje = "El viaje con destino a la ciudad de: " + pViaje.GetCiudadDestino()
+                + ", en el cual usted se encontraba como participante en uno de los trayectos, desafortunadamente ha sido cancelado. ";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
+
+        //Envia el correo a los diferentes pasajeros del viaje
+        public void CorreoRespuestaPregunta(Pregunta pPregunta)
+        {
+            //inicializa los parametros de envio del correo
+            List<string> destinatarios = new List<string> {pPregunta.CreadorPregunta.Email};
+
+            string asunto = "CarpoolingCo - Han respondido tu pregunta";
+
+            string mensaje = "A la pregunta: (" + pPregunta.TextoPregunta + ") el conductor del viaje ha respondido: " +
+                             pPregunta.TextoRespuesta;
+            mensaje += "<br/> Puedes ampliar la informacion del viaje ingresando a tu cuenta de CarpoolingCo";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
+
+        //Envia el correo con la pregunta que realizaron de un viaje
+        public void CorreoPregunta(Pregunta pPregunta, Usuario tUsuario)
+        {
+            //inicializa los parametros de envio del correo
+            List<string> destinatarios = new List<string> { tUsuario.Email };
+
+            string asunto = "CarpoolingCo - Hay una nueva pregunta por responder en tu viaje";
+
+            string mensaje = "El usuario: " + pPregunta.CreadorPregunta.ObtenerNombreApellidos() +
+                             " tiene la siguiente pregunta en tu viaje: " + pPregunta.TextoPregunta;
+            mensaje += "<br/> Puedes responder la pregunta en el deatlle del viaje, sección de preguntas de tu viaje.";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
     }
 }

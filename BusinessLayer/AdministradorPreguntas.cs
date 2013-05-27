@@ -34,12 +34,24 @@ namespace BusinessLayer
 
         public bool GuardarRespuesta(Pregunta pPregunta)
         {
-            return PreguntaDao.Instancia.ActualizarPregunta(pPregunta);
+            if(PreguntaDao.Instancia.ActualizarPregunta(pPregunta))
+            {
+                AdministradorCorreosElectronicos.Instancia.CorreoRespuestaPregunta(pPregunta);
+                return true;
+            }
+                throw new Exception("No se ha podido actualizar la respuesta de la pregunta, por favor realice la acción de nuevo.");
+            
         }
 
         public bool RealizarPregunta(Pregunta ppregunta)
         {
-            return PreguntaDao.Instancia.CrearPregunta(ppregunta);
+            var viajePregunta = ViajeDao.Instancia.ObtenerViaje(ppregunta.IdViaje);
+            if (PreguntaDao.Instancia.CrearPregunta(ppregunta))
+            {
+                AdministradorCorreosElectronicos.Instancia.CorreoPregunta(ppregunta, viajePregunta.Conductor);
+                return true;
+            }
+            throw new Exception("No se ha podido generar la pregunta sobre el viaje, por favor re-intente enviar su solicitud.");
         }
     }
 }

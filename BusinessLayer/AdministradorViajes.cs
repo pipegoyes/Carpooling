@@ -124,9 +124,13 @@ namespace BusinessLayer
 
         public bool CancelarViaje(Viaje pViaje)
         {
-            //TODO aqui deberia hacer una lista de destinatarios del viaje y guardarla para despues enviar un email de cancelacion
             pViaje.Estado = Viaje.ViajeEstado.Cancelado;
-            return ViajeDao.Instancia.EliminarViaje(pViaje);
+            if(ViajeDao.Instancia.EliminarViaje(pViaje))
+            {
+                AdministradorCorreosElectronicos.Instancia.CorreoCancelacionViaje(pViaje);
+                return true;
+            }
+            throw new Exception("El correo electronico a los pasajeros del viaje no ha sido enviado exitosamente, por favor re-intente realizar la acción");
         }
     }
 }

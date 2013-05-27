@@ -203,7 +203,7 @@
                         </asp:Panel>
                         <div class="divBotonesPopUp">
                             <asp:Button runat="server" ID="btnPreguntarPopUp" Text="Preguntar" CssClass="button-gradient green" OnClick="BtnRealizarPregunta"/>
-                            <asp:Button runat="server" ID="btnCancelPopUpResponder" Text="Cancelar" CssClass="button-gradient blue" OnClick="CerrarPopUp" />    
+                            <asp:Button runat="server" ID="btnCancelPopUpResponder" Text="Cancelar" CssClass="button-gradient blue" OnClick="HidePopUpRespuesta" />    
                         </div>
                         <div class="divClear"></div>
                 
