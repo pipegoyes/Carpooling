@@ -108,9 +108,18 @@ namespace BusinessLayer
         }
 
         //Retorna los trayectos con solicitudes
-        public List<Trayecto> DeterimnarTrayectosConSolicitudes(List<Trayecto> pTrayectos)
+        public List<Trayecto> DeterimnarTrayectosConSolicitudesPendientes(List<Trayecto> pTrayectos)
         {
-            return pTrayectos.Where(trayecto => trayecto.ListaSolicitudes != null).ToList();
+            var listTrayectos = new List<Trayecto>();
+            foreach (var pTrayecto in pTrayectos.Where(pTrayecto => pTrayecto.ListaSolicitudes.Any(s => s.Estado == Solicitud.SolicitudEstado.Pendiente)))
+            {
+                pTrayecto.ListaSolicitudes =
+                    pTrayecto.ListaSolicitudes.FindAll(e => e.Estado == Solicitud.SolicitudEstado.Pendiente);
+                listTrayectos.Add(pTrayecto);
+            }
+
+
+            return listTrayectos;
         }
 
     }
