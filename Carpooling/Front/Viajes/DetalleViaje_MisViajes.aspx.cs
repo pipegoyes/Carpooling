@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using BusinessLayer;
-using Carpooling.Front.UserControls;
 using Entities.Aplicacion;
 using Entities.Negocio;
 
 namespace Carpooling.Front.Viajes
 {
-    public partial class DetalleViaje_MisViajes : System.Web.UI.Page
+    public partial class DetalleViaje_MisViajes : Page
     {
         public Viaje ViajeDetalle { get; set; }
 
@@ -26,12 +24,12 @@ namespace Carpooling.Front.Viajes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var idViajeStr = Request.QueryString["idViajeDetalle"];
+            string idViajeStr = Request.QueryString["idViajeDetalle"];
             try
             {
-
-                if (idViajeStr == null) throw new Exception("Por favor re-ingrese a la aplicacón, su tiempo de sesiòn ha expirado.");
-                UsuarioConectado = (Usuario)Session["usuario"];
+                if (idViajeStr == null)
+                    throw new Exception("Por favor re-ingrese a la aplicacón, su tiempo de sesiòn ha expirado.");
+                UsuarioConectado = (Usuario) Session["usuario"];
                 IdViaje = Convert.ToInt64(idViajeStr);
                 ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
                 Session["ViajeSeleccionado"] = ViajeDetalle;
@@ -42,8 +40,8 @@ namespace Carpooling.Front.Viajes
             }
             catch (Exception ex)
             {
-                var error = new ErrorAplicacion { TituloError = ex.Message, DetalleError = ex.StackTrace };
-                ((Global)this.Context.ApplicationInstance).ErrorExcepcion = error;
+                var error = new ErrorAplicacion {TituloError = ex.Message, DetalleError = ex.StackTrace};
+                ((Global) Context.ApplicationInstance).ErrorExcepcion = error;
                 Response.Redirect("~/Front/Error.aspx");
             }
         }
@@ -57,7 +55,6 @@ namespace Carpooling.Front.Viajes
             txbDestino.Text = ViajeDetalle.GetCiudadDestino().Direccion;
 
 
-
             //Informacion del trayecto selecionado el trayecto seleccionado
             dataListTrayectos.DataSource = ViajeDetalle.TrayectosViaje;
             dataListTrayectos.DataBind();
@@ -69,17 +66,21 @@ namespace Carpooling.Front.Viajes
 
         private void CrearHiddenFields()
         {
+            var hiddenCiudadOrigen = new HtmlInputHidden
+                                         {ID = "txbCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion};
+            contenedorHiddenFields.Controls.Add(hiddenCiudadOrigen);
 
-            var hiddenCiudadOrigen = new HtmlInputHidden { ID = "txbCiudadOrigen", Value = ViajeDetalle.GetCiudadOrigen().Direccion };
-            this.contenedorHiddenFields.Controls.Add(hiddenCiudadOrigen);
+            var hiddenCiudadDestino = new HtmlInputHidden
+                                          {ID = "txbCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion};
+            contenedorHiddenFields.Controls.Add(hiddenCiudadDestino);
 
-            var hiddenCiudadDestino = new HtmlInputHidden { ID = "txbCiudadDestino", Value = ViajeDetalle.GetCiudadDestino().Direccion };
-            this.contenedorHiddenFields.Controls.Add(hiddenCiudadDestino);
-
-            int[] count = { 1 };
-            foreach (var hiddenParada in ViajeDetalle.GetParadasSinOrigenDestino().Select(parada => new HtmlInputHidden { ID = "txbParada" + count[0], Value = parada.Direccion }))
+            int[] count = {1};
+            foreach (
+                HtmlInputHidden hiddenParada in
+                    ViajeDetalle.GetParadasSinOrigenDestino().Select(
+                        parada => new HtmlInputHidden {ID = "txbParada" + count[0], Value = parada.Direccion}))
             {
-                this.contenedorHiddenFields.Controls.Add(hiddenParada);
+                contenedorHiddenFields.Controls.Add(hiddenParada);
                 count[0]++;
             }
         }
@@ -94,71 +95,62 @@ namespace Carpooling.Front.Viajes
         //Actualiza el listado de las solicitudes (Aprobadas y pendientes) segun el viaje seleccionado
         private void PintarSolicitudes()
         {
-            if(ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
-            var listTrayectosSolicitudesPendientes =
-                AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudesPendientes(ViajeDetalle.TrayectosViaje);
-            dataListSolicitudes.DataSource = listTrayectosSolicitudesPendientes;
-            dataListSolicitudes.DataBind();
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
+            List<Trayecto> listTrayectosSolicitudesPendientes =
+                AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudesPendientes(
+                    ViajeDetalle.TrayectosViaje);
+            if (listTrayectosSolicitudesPendientes.Count > 0)
+            {
+                tabSolicitudes.InnerText = "Solicitudes (" + listTrayectosSolicitudesPendientes.Count + ")";
+                dataListSolicitudes.DataSource = listTrayectosSolicitudesPendientes;
+                dataListSolicitudes.DataBind();
+                lblSinSolicitudes.Visible = false;
+            }
+            else
+                lblSinSolicitudes.Visible = true;
 
 
-            //var listaSolicitudesItem = AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
+            List<ItemTablaSolicitud> listaSolicitudesItem =
+                AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
 
-            //if(listaSolicitudesItem.Count >0)
-            //{
-            //    var solitudesPendientes =
-            //        listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Pendiente);
-            //    if(solitudesPendientes.Any())
-            //    {
-            //        tabSolicitudes.InnerText =  "Solicitudes ("+solitudesPendientes.Count+")";
-            //        dataListSolicitudes.DataSource = solitudesPendientes;
-            //        dataListSolicitudes.DataBind();
-            //        lblSinSolicitudes.Visible = false;   
-            //    }
-            //    var solicitudesAprobadas =
-            //        listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
-            //    if(solicitudesAprobadas.Any())
-            //    {
-            //        tabParticipantes.InnerText = "Participantes (" + solicitudesAprobadas.Count + ")";
-            //        dataListParticipantes.DataSource = solicitudesAprobadas;
-            //        dataListParticipantes.DataBind();
-            //        lblSinParticipantes.Visible = false;
-            //    }
-            //    else
-            //        lblSinParticipantes.Visible = true;
-
-            //}
-            //else
-            //    lblSinSolicitudes.Visible = true;
-
-
-
+            List<ItemTablaSolicitud> solicitudesAprobadas =
+                listaSolicitudesItem.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada);
+            if (solicitudesAprobadas.Any())
+            {
+                tabParticipantes.InnerText = "Participantes (" + solicitudesAprobadas.Count + ")";
+                dataListParticipantes.DataSource = solicitudesAprobadas;
+                dataListParticipantes.DataBind();
+                lblSinParticipantes.Visible = false;
+            }
+            else
+                lblSinParticipantes.Visible = true;
         }
 
         private void PintarPreguntas()
         {
             if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
-            if(ViajeDetalle.Preguntas.Count> 0)
+            if (ViajeDetalle.Preguntas.Count > 0)
             {
                 tabPreguntas.InnerText = (ViajeDetalle.Preguntas.Any(p => String.IsNullOrWhiteSpace(p.TextoRespuesta)))
                                              ? "Preguntas (" +
                                                ViajeDetalle.Preguntas.FindAll(
-                                                   p => String.IsNullOrWhiteSpace(p.TextoRespuesta)).Count+")"
-                                             : "Preguntas"; 
+                                                   p => String.IsNullOrWhiteSpace(p.TextoRespuesta)).Count + ")"
+                                             : "Preguntas";
                 dataListPreguntas.DataSource = AdministradorPreguntas.Instancia.CreateItemPregunta(ViajeDetalle);
                 dataListPreguntas.DataBind();
                 lblSinPreguntas.Visible = false;
             }
             else
                 lblSinPreguntas.Visible = true;
-            
         }
 
         //Dentro del listado de mis viajes localizado en las variables de sesion busca la solicitud
         private Solicitud BuscarSolicitud(long idSolicitud)
         {
-            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
-            foreach (var solicitudSeleccionada in ViajeDetalle.TrayectosViaje.Select(
-                trayecto => trayecto.ListaSolicitudes.Find(t => t.IdSolicitud == idSolicitud)).Where(solicitudSeleccionada => solicitudSeleccionada != null))
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
+            foreach (Solicitud solicitudSeleccionada in ViajeDetalle.TrayectosViaje.Select(
+                trayecto => trayecto.ListaSolicitudes.Find(t => t.IdSolicitud == idSolicitud)).Where(
+                    solicitudSeleccionada => solicitudSeleccionada != null))
             {
                 return solicitudSeleccionada;
             }
@@ -178,42 +170,37 @@ namespace Carpooling.Front.Viajes
             mpeConfirmarCancelacion.Show();
         }
 
-        protected void BtnAceptarRechazarSolicitud(object sender, DataListCommandEventArgs e)
+        protected void BtnAceptarRechazarSolicitud(object sender, ListViewCommandEventArgs e)
         {
-            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
             if (e.CommandName.ToLower().Equals("aceptarsolicitud"))
             {
-                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                var solicitudSeleccionada = BuscarSolicitud(idSolicitud);
+                long idSolicitud = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                Solicitud solicitudSeleccionada = BuscarSolicitud(idSolicitud);
                 if (AdministradorSolicitudes.Instancia.AceparSolicitud(ViajeDetalle, solicitudSeleccionada))
                 {
                     PintarSolicitudes();
-                    MostrarPopUpCOnfirmacion(true, "Se han actualizado los cupos de tu viaje exitosamente.");
+                    PintarDetalleViaje();
+                    //upListTrayectos.Update();
                 }
-                else
-                    MostrarPopUpCOnfirmacion(false, "No se ha podido actualizar los cupos de tu viaje, por favor intenta de nuevo, si el problema persiste conteactese con servicio al cliente.");
-
+                    
             }
             else if (e.CommandName.ToLower().Equals("rechazarsolicitud"))
             {
-                var idSolicitud = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                var solicitudRechazada = BuscarSolicitud(idSolicitud);
+                long idSolicitud = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                Solicitud solicitudRechazada = BuscarSolicitud(idSolicitud);
                 if (AdministradorSolicitudes.Instancia.RechazarSolicitud(solicitudRechazada))
-                {
                     PintarSolicitudes();
-                    MostrarPopUpCOnfirmacion(true, "La solicitud ha sido rechazada exitosamente, además el usuario será notificado via email.");
-                }
-                else
-                    MostrarPopUpCOnfirmacion(false, "Presentamos inconvenientes en nuestra aplicacion, por favor realice esta acción nuevamente.");
             }
+            //upSolicitudes.Update();
         }
 
         protected void BtnResponderClick(object sender, DataListCommandEventArgs e)
         {
             if (e.CommandName.ToLower().Equals("responder"))
             {
-                var idPreguntaSeleccionada = long.Parse(((LinkButton)e.CommandSource).CommandArgument);
-                var preguntaSeleccionada = ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
+                long idPreguntaSeleccionada = long.Parse(((LinkButton) e.CommandSource).CommandArgument);
+                Pregunta preguntaSeleccionada = ViajeDetalle.Preguntas.Find(p => p.IdPregunta == idPreguntaSeleccionada);
                 Session["preguntaSeleccionada"] = preguntaSeleccionada;
                 lblPregunta.Text = preguntaSeleccionada.TextoPregunta;
                 InicializarPopUpRespuesta();
@@ -230,7 +217,7 @@ namespace Carpooling.Front.Viajes
 
         protected void AceptarPopUpResponder(object sender, EventArgs e)
         {
-            var preguntaSeleccionada = (Pregunta)Session["preguntaSeleccionada"];
+            var preguntaSeleccionada = (Pregunta) Session["preguntaSeleccionada"];
             preguntaSeleccionada.TextoRespuesta = txbRespuesta.Text;
             lblRespuesta.Visible = true;
             if (AdministradorPreguntas.Instancia.GuardarRespuesta(preguntaSeleccionada))
@@ -247,14 +234,13 @@ namespace Carpooling.Front.Viajes
 
         protected void AceptarPopUpCancelacion(object sender, EventArgs e)
         {
-            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
             mpeConfirmarCancelacion.Hide();
             if (AdministradorViajes.Instancia.CancelarViaje(ViajeDetalle))
             {
                 popUpConfirmacionCancelacion.MensajePrincipal =
                     "Ya se ha cancelado tu viaje, de tener participantes ellos seran informados";
                 popUpConfirmacionCancelacion.TituloPopUp = "Transaccion exitosa";
-
             }
             else
             {
@@ -275,6 +261,7 @@ namespace Carpooling.Front.Viajes
         {
             popUpConfirmacionSolicitud.CerrarPopUp();
         }
+
         #endregion
     }
 }
