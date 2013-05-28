@@ -23,7 +23,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
     <uc:PopUpConfirmation ID="popUpConfirmacionSolicitud" runat="server" OnOnClickAceptar="AceptarPopUpSolicitud" />
     <uc:PopUpConfirmation ID="popUpConfirmacionCancelacion" runat="server" OnOnClickAceptar="AceptarPopUpCancelacionRealizada"/>
-    
+        
     <div id="divLeftSection">
         <table cellpadding="2px" cellspacing="0">
             <tr>
@@ -61,11 +61,13 @@
                             <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                                        Eval("NumeroParada") %>'></asp:Label>
                         </div>
                         <div class="leftPosition">
-                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Direccion") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%#Eval
+                                                                                                   ("Direccion") %>'></asp:Label>
                         </div>
                         <div class="divClear"></div>
                     </ItemTemplate>
                 </asp:DataList>
+                
             </div>
         </div>
         <div class="divClear"></div>
@@ -82,10 +84,10 @@
                 <ItemTemplate>
                     <div class="leftPosition">
                         <div>
-                            <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                Eval("ParadaOrigen.Direccion") %>'></asp:Label>
+                            <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                                        Eval("ParadaOrigen.Direccion") %>'></asp:Label>
                         </div>
                         <div>
-                            <asp:Label ID="Label1" runat="server" Text='<%#                Eval("ParadaDestino.Direccion") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%#                                        Eval("ParadaDestino.Direccion") %>'></asp:Label>
                         </div>
                     </div>
                     <div class="rightPosition divCupos">
@@ -95,7 +97,6 @@
             </asp:DataList>
         </div> 
     </div>
-    
 
     <div id="divRightSection">
         
@@ -106,61 +107,11 @@
                 <li><a href="#tabParticipantes" id="tabParticipantes" runat="server">Participantes</a></li>
                 <li><a href="#tabPreguntas" id="tabPreguntas" runat="server">Preguntas</a></li>
             </ul>
-            <div id="tabSolicitudes">
-                <asp:Panel ID="PanelSolicitudesDetalle" runat="server" CssClass="scrollY" >
+            <div id="tabSolicitudes" class="scrollY">
+                <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
                     <div class="subtitulo">Listado de solicitudes</div>
-                    <%--<asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                                  ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud">
-                        <AlternatingItemStyle BackColor="White" />
-                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                                     ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-                        <HeaderTemplate>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label3" runat="server" Text="Solicitante"></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label4" runat="server" Text="Ciudad origen"></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label5"  runat="server" Text="Ciudad destino"></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label6"  runat="server" Text="Cupos solicitados"></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label7"  runat="server" Text="Cupos disponibles"></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
-                            </div>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label9" runat="server" Text='<%#Eval("NombreSolicitante") %>'></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label12" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
-                            </div>
-                            <div class="divCeldaSolicitudes">
-                                <asp:Label ID="Label14" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
-                            </div>
-                            <div>
-                                <asp:LinkButton ID="LinkButton1" runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton2" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
-                            </div>
-                        </ItemTemplate>
-                    </asp:DataList>--%>
                     <asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
-                                  ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud" ShowHeader="False">
+                                  ShowFooter="False" Width="100%" ShowHeader="False">
                         <AlternatingItemStyle BackColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                                      ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
@@ -171,33 +122,38 @@
                                 </div>
                                 <div class="leftPosition divSubtituloTrayecto">
                                     <div>
-                                        <asp:Label ID="Label10" runat="server" Text='<%#Eval("ParadaOrigen.Direccion") %>'></asp:Label>
+                                        <asp:Label ID="Label10" runat="server" Text='<%#                Eval("ParadaOrigen.Direccion") %>'></asp:Label>
                                     </div>
                                     <div>
-                                        <asp:Label ID="Label11" runat="server" Text='<%#Eval("ParadaDestino.Direccion") %>'></asp:Label>
+                                        <asp:Label ID="Label11" runat="server" Text='<%#                Eval("ParadaDestino.Direccion") %>'></asp:Label>
                                     </div>
                                 </div>
                                 <div class="rightPosition divSubtituloCupos">
                                     <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
                                 </div>
-                                
+                                <div class="divClear"></div>
                             </div>
-                            <div class="divClear"></div>
-                            <asp:ListView runat="server" ID="listViewSolicitudes" DataSource='<%# Eval("ListaSolicitudes") %>'>
+                            <asp:ListView runat="server" ID="listViewSolicitudes" DataSource='<%#Eval("ListaSolicitudes") %>' OnItemCommand="BtnAceptarRechazarSolicitud">
                                 <ItemTemplate>
                                     <div class="divSolicitante">
                                         <div class="leftPosition divNombreSolicitante">
                                             <div>
-                                                <asp:Label ID="Label20" runat="server" Text='<%# Eval("CreadorSolicitud.Nombre") %>'></asp:Label>
+                                                <asp:Label ID="Label20" runat="server" Text='<%#                Eval("CreadorSolicitud.Nombre") %>'></asp:Label>
                                             </div>
                                         </div>
                                         <div class="leftPosition divComentarioSolicitante">
-                                            <asp:Label runat="server" Text='<%# Eval("Comentario") %>'></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Comentario") %>'></asp:Label>
                                         </div>
                                         <div class="rightPosition">
-                                            <asp:Label runat="server" Text="Cupos solicitados"></asp:Label>
-                                            <asp:Label ID="Label21" runat="server" Text='<%# Eval("CuposSolicitados") %>'></asp:Label>
-                                        </div>    
+                                            <asp:Label ID="Label2" runat="server" Text="Cupos solicitados"></asp:Label>
+                                            <asp:Label ID="Label21" runat="server" Text='<%#Eval("CuposSolicitados") %>'></asp:Label>
+                                        </div>
+                                        <div class="divClear"></div>
+                                        <div class="leftPosition">
+                                            <asp:LinkButton ID="LinkButton2" runat="server" Text="Aceptar" CommandName="aceptarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton3" runat="server" Text="Rechazar" CommandName="rechazarSolicitud" CommandArgument='<%#Eval("IdSolicitud") %>'></asp:LinkButton>
+                                        </div>
+                                        <div class="divClear"></div> 
                                     </div>
                                     <div class="divClear"></div>
                                 </ItemTemplate>
@@ -205,6 +161,7 @@
 
                         </ItemTemplate>
                     </asp:DataList>
+                    
 
                     <div>
                         <div id="divSinSolicitudes">
@@ -316,8 +273,7 @@
         <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
     </div>
    
-
-    
+   
     
     <%--ModalPopUps--%>
     <asp:Panel runat="server" ID="pnlResponder" Style="display: none;">
