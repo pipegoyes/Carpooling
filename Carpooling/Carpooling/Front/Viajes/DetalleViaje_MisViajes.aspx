@@ -106,8 +106,8 @@
                 <li><a href="#tabParticipantes" id="tabParticipantes" runat="server">Participantes</a></li>
                 <li><a href="#tabPreguntas" id="tabPreguntas" runat="server">Preguntas</a></li>
             </ul>
-            <div id="tabSolicitudes" class="scrollY">
-                <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
+            <div id="tabSolicitudes">
+                <asp:Panel ID="PanelSolicitudesDetalle" runat="server" CssClass="scrollY" >
                     <div class="subtitulo">Listado de solicitudes</div>
                     <%--<asp:DataList ID="dataListSolicitudes" runat="server" ForeColor="#333333" RepeatColumns="1"
                                   ShowFooter="False" Width="100%" OnItemCommand="BtnAceptarRechazarSolicitud">
@@ -165,22 +165,41 @@
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                                      ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
                         <ItemTemplate>
-                            <div class="leftPosition">
-                                <div>
-                                    <asp:Label ID="Label10" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                            <div class="divContenedorTituloTrayecto">
+                                <div class="leftPosition divTituloTrayecto">
+                                    <asp:Label ID="Label19" runat="server" Text="Trayecto"></asp:Label>
                                 </div>
-                                <div>
-                                    <asp:Label ID="Label11" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                                <div class="leftPosition divSubtituloTrayecto">
+                                    <div>
+                                        <asp:Label ID="Label10" runat="server" Text='<%#Eval("ParadaOrigen.Direccion") %>'></asp:Label>
+                                    </div>
+                                    <div>
+                                        <asp:Label ID="Label11" runat="server" Text='<%#Eval("ParadaDestino.Direccion") %>'></asp:Label>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="rightPosition divCupos">
-                                <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
+                                <div class="rightPosition divSubtituloCupos">
+                                    <asp:Label ID="Label13" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
+                                </div>
+                                
                             </div>
                             <div class="divClear"></div>
                             <asp:ListView runat="server" ID="listViewSolicitudes" DataSource='<%# Eval("ListaSolicitudes") %>'>
                                 <ItemTemplate>
-                                    
+                                    <div class="divSolicitante">
+                                        <div class="leftPosition divNombreSolicitante">
+                                            <div>
+                                                <asp:Label ID="Label20" runat="server" Text='<%# Eval("CreadorSolicitud.Nombre") %>'></asp:Label>
+                                            </div>
+                                        </div>
+                                        <div class="leftPosition divComentarioSolicitante">
+                                            <asp:Label runat="server" Text='<%# Eval("Comentario") %>'></asp:Label>
+                                        </div>
+                                        <div class="rightPosition">
+                                            <asp:Label runat="server" Text="Cupos solicitados"></asp:Label>
+                                            <asp:Label ID="Label21" runat="server" Text='<%# Eval("CuposSolicitados") %>'></asp:Label>
+                                        </div>    
+                                    </div>
+                                    <div class="divClear"></div>
                                 </ItemTemplate>
                             </asp:ListView>
 

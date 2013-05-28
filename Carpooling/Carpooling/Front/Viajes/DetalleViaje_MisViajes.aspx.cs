@@ -96,8 +96,9 @@ namespace Carpooling.Front.Viajes
         {
             if(ViajeDetalle == null) ViajeDetalle = (Viaje) Session["ViajeSeleccionado"];
             var listTrayectosSolicitudesPendientes =
-                AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudes(ViajeDetalle.TrayectosViaje);
-
+                AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudesPendientes(ViajeDetalle.TrayectosViaje);
+            dataListSolicitudes.DataSource = listTrayectosSolicitudesPendientes;
+            dataListSolicitudes.DataBind();
 
 
             //var listaSolicitudesItem = AdministradorSolicitudes.Instancia.CreateItemSolicitud(ViajeDetalle);
