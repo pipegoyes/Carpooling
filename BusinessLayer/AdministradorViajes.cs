@@ -132,5 +132,11 @@ namespace BusinessLayer
             }
             throw new Exception("El correo electronico a los pasajeros del viaje no ha sido enviado exitosamente, por favor re-intente realizar la acción");
         }
+
+        public List<Viaje> BuscarViajesVigentesPasajero(Usuario pUsuario)
+        {
+            var listSolicitudes = SolicitudDao.Instancia.ConsultarSolicitudesVigentes(pUsuario);
+            return listSolicitudes.Any() ? ViajeDao.Instancia.ConsultarDetalleViajes(listSolicitudes) : null;
+        } 
     }
 }

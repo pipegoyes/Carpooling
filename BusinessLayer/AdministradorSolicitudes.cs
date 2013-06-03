@@ -65,13 +65,19 @@ namespace BusinessLayer
             pViaje.TrayectosViaje.AddRange(trayectosSinModificar.ToList());
             pViaje.TrayectosViaje.AddRange(trayectosModificar);
             pSolicitud.Estado = Solicitud.SolicitudEstado.Aprobada;
-            return TrayectoDao.Instancia.ActualizarCuposSolicitud(pViaje.TrayectosViaje, pSolicitud);
+            if(TrayectoDao.Instancia.ActualizarCuposSolicitud(pViaje.TrayectosViaje, pSolicitud))
+                AdministradorCorreosElectronicos.Instancia.CorreoSolicitudAprobada(pSolicitud);
+            //Todo retornoar un valor variable
+            return true;
         }
 
         public bool RechazarSolicitud(Solicitud pSolicitud)
         {
             pSolicitud.Estado = Solicitud.SolicitudEstado.Rechazada;
-            return SolicitudDao.Instancia.ActualizarEstadoSolicitud(pSolicitud);
+            if(SolicitudDao.Instancia.ActualizarEstadoSolicitud(pSolicitud))
+                AdministradorCorreosElectronicos.Instancia.CorreoSolicitudRechazada(pSolicitud);
+            //Todo retornoar un valor variable
+            return true;
         }
 
         //Busca la lista de trayectos que deben ser modificados en terminos de cupos, dado que se acepte una 

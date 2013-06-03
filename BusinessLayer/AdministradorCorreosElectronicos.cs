@@ -134,5 +134,37 @@ namespace BusinessLayer
             mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
             EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
         }
+
+        public void CorreoSolicitudAprobada(Solicitud pSolicitud)
+        {
+            //inicializa los parametros de envio del correo
+            var destinatarios = new List<string> { pSolicitud.CreadorSolicitud.Email};
+            
+            //TODO probar que el trayecto venga dentro de la solicitud y no solo el id del trayecto
+            string asunto = "CarpoolingCo - Su solicitud fue aprobada";
+
+            string mensaje = "Su solicitud para participar en el viaje desde:" + pSolicitud.Trayecto.ParadaOrigen.Direccion +
+                " hasta la ciudad de: "+ pSolicitud.Trayecto.ParadaDestino.Direccion +
+                             " ha sido aprobada.";
+            mensaje += "<br/> Puedes ver mas informacion con relacion al viaje dentro del listado de tus viajes.";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
+
+        public void CorreoSolicitudRechazada(Solicitud pSolicitud)
+        {
+            //inicializa los parametros de envio del correo
+            var destinatarios = new List<string> { pSolicitud.CreadorSolicitud.Email };
+
+            //TODO probar que el trayecto venga dentro de la solicitud y no solo el id del trayecto
+            string asunto = "CarpoolingCo - Su solicitud fue rechazada";
+
+            string mensaje = "Su solicitud para participar en el viaje desde:" + pSolicitud.Trayecto.ParadaOrigen.Direccion +
+                " hasta la ciudad de: " + pSolicitud.Trayecto.ParadaDestino.Direccion +
+                             " ha sido rechazada.";
+            
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
     }
 }

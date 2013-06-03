@@ -14,8 +14,6 @@ namespace Carpooling.Front.Viajes
     {
         public Usuario UsuarioActivo { get; set; }
 
-        //public List<Viaje> MisViajesList { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -26,10 +24,20 @@ namespace Carpooling.Front.Viajes
                     var listaMisViajes = AdministradorViajes.Instancia.BuscarMisViajesVigentes(UsuarioActivo);
                     Session["MisViajesList"] = listaMisViajes;
                     if(!listaMisViajes.Any()) return;
-                    var misViajesVigentes = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
-                    dataListViajesVigentes.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
-                    dataListViajesVigentes.DataBind();
 
+                    //Viajes vigentes como conductor
+                    var misViajesVigentes = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
+                    dataListViajesVigentesConductor.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
+                    dataListViajesVigentesConductor.DataBind();
+
+                    //Viajes vigentes como pasajero 
+                    var misParticipacionesVigentes =
+                        AdministradorViajes.Instancia.BuscarViajesVigentesPasajero(UsuarioActivo);
+                    dataListViajesVigentesPasajero.DataSource =
+                        AdministradorViajes.Instancia.ToListItemTabla(misParticipacionesVigentes);
+                    dataListViajesVigentesPasajero.DataBind();
+
+                    //Viajes realizados
                     var misViajesRealizados = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado);
                     dataListViajesRealizados.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesRealizados);
                     dataListViajesRealizados.DataBind();
