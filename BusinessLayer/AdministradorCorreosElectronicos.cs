@@ -143,8 +143,7 @@ namespace BusinessLayer
             //TODO probar que el trayecto venga dentro de la solicitud y no solo el id del trayecto
             string asunto = "CarpoolingCo - Su solicitud fue aprobada";
 
-            string mensaje = "Su solicitud para participar en el viaje desde:" + pSolicitud.Trayecto.ParadaOrigen.Direccion +
-                " hasta la ciudad de: "+ pSolicitud.Trayecto.ParadaDestino.Direccion +
+            string mensaje = "Su solicitud para participar en un viaje" +
                              " ha sido aprobada.";
             mensaje += "<br/> Puedes ver mas informacion con relacion al viaje dentro del listado de tus viajes.";
             mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
