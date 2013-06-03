@@ -69,11 +69,11 @@
                                                 <div id="divLoginFormFloat">
                                                     <fieldset>
                                                         <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
-                                                        <input id="txbNombreUsuario" type="text" value="pipegoyes" />
+                                                        <input id="txbNombreUsuario" type="text" value="manuellinares007" />
                                                     </fieldset>
                                                     <fieldset>
                                                         <label for="txbContrasenia"><strong>Contraseña</strong></label>
-                                                        <input id="txbContrasenia" type="password" value="admin1234" />
+                                                        <input id="txbContrasenia" type="password" value="a123456789" />
                                                     </fieldset>
                                                     <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/> <%--OnClientClick="btnIniciarSesion_OnClientClick()"--%>
                                                     <a href="Cuentas/RecuperarContrasenia.aspx">¿Olvidaste tu usuario o contraseña?</a>
@@ -86,16 +86,16 @@
                             <LoggedInTemplate>
                                 <ul id="menuIzquierdoUsuarioRegistrado">
                                     <li>
-                                        <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Tu perfil</a>
+                                        <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Mi Perfil</a>
                                     </li>
                                     <li>
-                                        <a id="lnkMisViajes" runat="server" href="~/Front/Viajes/MisViajes.aspx">Tus viajes</a>
+                                        <a id="lnkMisViajes" runat="server" href="~/Front/Viajes/MisViajes.aspx">Mis Viajes</a>
                                     </li>
                                     <li>
-                                        <a id="lnkPublicarViaje" runat="server" href="~/Front/Viajes/PublicarViaje.aspx">Publica un viaje</a>
+                                        <a id="lnkPublicarViaje" runat="server" href="~/Front/Viajes/PublicarViaje.aspx">Publica un Viaje</a>
                                     </li>
                                     <li>
-                                        <a id="lnkBuscarViaje" runat="server" href="~/Front/Viajes/BuscarViaje.aspx">Encuentra un viaje</a>
+                                        <a id="lnkBuscarViaje" runat="server" href="~/Front/Viajes/BuscarViaje.aspx">Encuentra un Viaje</a>
                                     </li>
                                 </ul>
                                 <ul id="menuDerechoUsuarioRegistrado">

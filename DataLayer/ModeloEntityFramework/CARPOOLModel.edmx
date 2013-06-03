@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CARPOOLModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CARPOOLModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CARPOOLModelStoreContainer">
           <EntitySet Name="CALIFICACION" EntityType="CARPOOLModel.Store.CALIFICACION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CIUDAD" EntityType="CARPOOLModel.Store.CIUDAD" store:Type="Tables" Schema="dbo" />
@@ -163,7 +163,7 @@
             <PropertyRef Name="ID_USUARIO" />
           </Key>
           <Property Name="ID_USUARIO" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="CONTRASENIA" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CONTRASENIA" Type="varchar" Nullable="false" MaxLength="400" />
           <Property Name="NOMBRE" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="APELLIDO" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="50" />
@@ -179,6 +179,7 @@
           <Property Name="FOTO" Type="image" />
           <Property Name="INFORMACION_ADICIONAL" Type="varchar" MaxLength="800" />
           <Property Name="REPUTACION" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="ESTADO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="VIAJE">
           <Key>
@@ -360,8 +361,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CARPOOLModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -375,16 +375,7 @@
           <EntitySet Name="PREGUNTA" EntityType="CARPOOLModel.PREGUNTA" />
           <EntitySet Name="SOLICITUD" EntityType="CARPOOLModel.SOLICITUD" />
           <EntitySet Name="TRAYECTO" EntityType="CARPOOLModel.TRAYECTO" />
-          <EntitySet Name="USUARIO" EntityType="CARPOOLModel.USUARIO" />
           <EntitySet Name="VIAJE" EntityType="CARPOOLModel.VIAJE" />
-          <AssociationSet Name="FK_Calificacion_Evaluado" Association="CARPOOLModel.FK_Calificacion_Evaluado">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Calificacion_Evaluador" Association="CARPOOLModel.FK_Calificacion_Evaluador">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
-          </AssociationSet>
           <AssociationSet Name="FK_Calificacion_Viaje" Association="CARPOOLModel.FK_Calificacion_Viaje">
             <End Role="VIAJE" EntitySet="VIAJE" />
             <End Role="CALIFICACION" EntitySet="CALIFICACION" />
@@ -393,25 +384,13 @@
             <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
             <End Role="CIUDAD" EntitySet="CIUDAD" />
           </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Ciudad" Association="CARPOOLModel.FK_Usuario_Ciudad">
-            <End Role="CIUDAD" EntitySet="CIUDAD" />
-            <End Role="USUARIO" EntitySet="USUARIO" />
-          </AssociationSet>
           <AssociationSet Name="FK_Departamento_Pais" Association="CARPOOLModel.FK_Departamento_Pais">
             <End Role="PAIS" EntitySet="PAIS" />
             <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Ocupacion" Association="CARPOOLModel.FK_Usuario_Ocupacion">
-            <End Role="OCUPACION" EntitySet="OCUPACION" />
-            <End Role="USUARIO" EntitySet="USUARIO" />
-          </AssociationSet>
           <AssociationSet Name="FK_Parada_Trayecto" Association="CARPOOLModel.FK_Parada_Trayecto">
             <End Role="TRAYECTO" EntitySet="TRAYECTO" />
             <End Role="PARADA" EntitySet="PARADA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pregunta_Usuario" Association="CARPOOLModel.FK_Pregunta_Usuario">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
           </AssociationSet>
           <AssociationSet Name="FK_Pregunta_Viaje" Association="CARPOOLModel.FK_Pregunta_Viaje">
             <End Role="VIAJE" EntitySet="VIAJE" />
@@ -421,19 +400,40 @@
             <End Role="TRAYECTO" EntitySet="TRAYECTO" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
-          <AssociationSet Name="FK_Solicitud_Usuario" Association="CARPOOLModel.FK_Solicitud_Usuario">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-          </AssociationSet>
           <AssociationSet Name="FK_Trayecto_Viaje" Association="CARPOOLModel.FK_Trayecto_Viaje">
             <End Role="VIAJE" EntitySet="VIAJE" />
             <End Role="TRAYECTO" EntitySet="TRAYECTO" />
+          </AssociationSet>
+          <EntitySet Name="USUARIO" EntityType="CARPOOLModel.USUARIO" />
+          <AssociationSet Name="FK_Calificacion_Evaluado" Association="CARPOOLModel.FK_Calificacion_Evaluado">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calificacion_Evaluador" Association="CARPOOLModel.FK_Calificacion_Evaluador">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CALIFICACION" EntitySet="CALIFICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ciudad" Association="CARPOOLModel.FK_Usuario_Ciudad">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ocupacion" Association="CARPOOLModel.FK_Usuario_Ocupacion">
+            <End Role="OCUPACION" EntitySet="OCUPACION" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Usuario" Association="CARPOOLModel.FK_Pregunta_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PREGUNTA" EntitySet="PREGUNTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Usuario" Association="CARPOOLModel.FK_Solicitud_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
           <AssociationSet Name="FK_Viaje_Usuario" Association="CARPOOLModel.FK_Viaje_Usuario">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="VIAJE" EntitySet="VIAJE" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="CALIFICACION">
           <Key>
             <PropertyRef Name="ID_CALIFICACION" />
@@ -445,10 +445,10 @@
           <Property Name="ID_EVALUADO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="FECHA_REALIZACION" Type="DateTime" Precision="3" />
           <Property Name="COMENTARIO" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="CALIFICACION" ToRole="VIAJE" />
           <NavigationProperty Name="USUARIO_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="CALIFICACION" ToRole="USUARIO" />
           <NavigationProperty Name="USUARIO_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="CALIFICACION" ToRole="USUARIO" />
-          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Calificacion_Viaje" FromRole="CALIFICACION" ToRole="VIAJE" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="CIUDAD">
           <Key>
             <PropertyRef Name="ID_CIUDAD" />
@@ -507,8 +507,8 @@
           <Property Name="ID_CREADOR_PREGUNTA" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="TEXTO_PREGUNTA" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="TEXTO_RESPUESTA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="PREGUNTA" ToRole="USUARIO" />
           <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Pregunta_Viaje" FromRole="PREGUNTA" ToRole="VIAJE" />
+          <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="PREGUNTA" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
@@ -535,35 +535,6 @@
           <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Trayecto" FromRole="TRAYECTO" ToRole="SOLICITUD" />
           <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="TRAYECTO" ToRole="VIAJE" />
         </EntityType>
-        <EntityType Name="USUARIO">
-          <Key>
-            <PropertyRef Name="ID_USUARIO" />
-          </Key>
-          <Property Name="ID_USUARIO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="CONTRASENIA" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FECHA_ULTIMO_INGRESO" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="GENERO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="ID_CIUDAD_RESIDENCIA" Type="Int32" Nullable="false" />
-          <Property Name="ID_OCUPACION" Type="Int32" Nullable="false" />
-          <Property Name="TELEFONO_MOVIL" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="TELEFONO_FIJO" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="VEHICULO_PROPIO" Type="Boolean" Nullable="false" />
-          <Property Name="FUMADOR" Type="Boolean" Nullable="false" />
-          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="INFORMACION_ADICIONAL" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
-          <Property Name="REPUTACION" Type="Decimal" Precision="4" Scale="2" />
-          <NavigationProperty Name="CALIFICACIONES_OBTENIDAS" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="USUARIO" ToRole="CALIFICACION" />
-          <NavigationProperty Name="CALIFICACIONES_REALIZADAS" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="USUARIO" ToRole="CALIFICACION" />
-          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="USUARIO" ToRole="CIUDAD" />
-          <NavigationProperty Name="OCUPACION" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="USUARIO" ToRole="OCUPACION" />
-          <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="USUARIO" ToRole="PREGUNTA" />
-          <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Usuario" FromRole="USUARIO" ToRole="SOLICITUD" />
-          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Viaje_Usuario" FromRole="USUARIO" ToRole="VIAJE" />
-        </EntityType>
         <EntityType Name="VIAJE">
           <Key>
             <PropertyRef Name="ID_VIAJE" />
@@ -580,30 +551,6 @@
           <NavigationProperty Name="TRAYECTO" Relationship="CARPOOLModel.FK_Trayecto_Viaje" FromRole="VIAJE" ToRole="TRAYECTO" />
           <NavigationProperty Name="USUARIO" Relationship="CARPOOLModel.FK_Viaje_Usuario" FromRole="VIAJE" ToRole="USUARIO" />
         </EntityType>
-        <Association Name="FK_Calificacion_Evaluado">
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
-          <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="ID_USUARIO" />
-            </Principal>
-            <Dependent Role="CALIFICACION">
-              <PropertyRef Name="ID_EVALUADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Calificacion_Evaluador">
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
-          <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="ID_USUARIO" />
-            </Principal>
-            <Dependent Role="CALIFICACION">
-              <PropertyRef Name="ID_EVALUADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Calificacion_Viaje">
           <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="1" />
           <End Role="CALIFICACION" Type="CARPOOLModel.CALIFICACION" Multiplicity="*" />
@@ -628,18 +575,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuario_Ciudad">
-          <End Role="CIUDAD" Type="CARPOOLModel.CIUDAD" Multiplicity="1" />
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CIUDAD">
-              <PropertyRef Name="ID_CIUDAD" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="ID_CIUDAD_RESIDENCIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Departamento_Pais">
           <End Role="PAIS" Type="CARPOOLModel.PAIS" Multiplicity="1" />
           <End Role="DEPARTAMENTO" Type="CARPOOLModel.DEPARTAMENTO" Multiplicity="*" />
@@ -652,18 +587,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuario_Ocupacion">
-          <End Role="OCUPACION" Type="CARPOOLModel.OCUPACION" Multiplicity="1" />
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OCUPACION">
-              <PropertyRef Name="ID_OCUPACION" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="ID_OCUPACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Parada_Trayecto">
           <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="1" />
           <End Role="PARADA" Type="CARPOOLModel.PARADA" Multiplicity="*" />
@@ -673,18 +596,6 @@
             </Principal>
             <Dependent Role="PARADA">
               <PropertyRef Name="ID_TRAYECTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pregunta_Usuario">
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
-          <End Role="PREGUNTA" Type="CARPOOLModel.PREGUNTA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="ID_USUARIO" />
-            </Principal>
-            <Dependent Role="PREGUNTA">
-              <PropertyRef Name="ID_CREADOR_PREGUNTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -712,18 +623,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Solicitud_Usuario">
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="1" />
-          <End Role="SOLICITUD" Type="CARPOOLModel.SOLICITUD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="ID_USUARIO" />
-            </Principal>
-            <Dependent Role="SOLICITUD">
-              <PropertyRef Name="ID_PASAJERO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Trayecto_Viaje">
           <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="1" />
           <End Role="TRAYECTO" Type="CARPOOLModel.TRAYECTO" Multiplicity="*" />
@@ -736,9 +635,111 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Type="String" Name="ID_USUARIO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CONTRASENIA" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="FECHA_ULTIMO_INGRESO" Nullable="false" Precision="3" />
+          <Property Type="String" Name="GENERO" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ID_CIUDAD_RESIDENCIA" Nullable="false" />
+          <Property Type="Int32" Name="ID_OCUPACION" Nullable="false" />
+          <Property Type="String" Name="TELEFONO_MOVIL" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TELEFONO_FIJO" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="VEHICULO_PROPIO" Nullable="false" />
+          <Property Type="Boolean" Name="FUMADOR" Nullable="false" />
+          <Property Type="Binary" Name="FOTO" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="INFORMACION_ADICIONAL" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="REPUTACION" Precision="4" Scale="2" />
+          <Property Type="Int32" Name="ESTADO" Nullable="false" />
+          <NavigationProperty Name="CALIFICACION_EVALUADO" Relationship="CARPOOLModel.FK_Calificacion_Evaluado" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <NavigationProperty Name="CALIFICACION_EVALUADOR" Relationship="CARPOOLModel.FK_Calificacion_Evaluador" FromRole="USUARIO" ToRole="CALIFICACION" />
+          <NavigationProperty Name="CIUDAD" Relationship="CARPOOLModel.FK_Usuario_Ciudad" FromRole="USUARIO" ToRole="CIUDAD" />
+          <NavigationProperty Name="OCUPACION" Relationship="CARPOOLModel.FK_Usuario_Ocupacion" FromRole="USUARIO" ToRole="OCUPACION" />
+          <NavigationProperty Name="PREGUNTA" Relationship="CARPOOLModel.FK_Pregunta_Usuario" FromRole="USUARIO" ToRole="PREGUNTA" />
+          <NavigationProperty Name="SOLICITUD" Relationship="CARPOOLModel.FK_Solicitud_Usuario" FromRole="USUARIO" ToRole="SOLICITUD" />
+          <NavigationProperty Name="VIAJE" Relationship="CARPOOLModel.FK_Viaje_Usuario" FromRole="USUARIO" ToRole="VIAJE" />
+        </EntityType>
+        <Association Name="FK_Calificacion_Evaluado">
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="CARPOOLModel.CALIFICACION" Role="CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="ID_EVALUADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calificacion_Evaluador">
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="CARPOOLModel.CALIFICACION" Role="CALIFICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="CALIFICACION">
+              <PropertyRef Name="ID_EVALUADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ciudad">
+          <End Type="CARPOOLModel.CIUDAD" Role="CIUDAD" Multiplicity="1" />
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID_CIUDAD" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_CIUDAD_RESIDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ocupacion">
+          <End Type="CARPOOLModel.OCUPACION" Role="OCUPACION" Multiplicity="1" />
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OCUPACION">
+              <PropertyRef Name="ID_OCUPACION" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_OCUPACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Usuario">
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="CARPOOLModel.PREGUNTA" Role="PREGUNTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PREGUNTA">
+              <PropertyRef Name="ID_CREADOR_PREGUNTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Usuario">
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="CARPOOLModel.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="ID_PASAJERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Viaje_Usuario">
-          <End Role="USUARIO" Type="CARPOOLModel.USUARIO" Multiplicity="0..1" />
-          <End Role="VIAJE" Type="CARPOOLModel.VIAJE" Multiplicity="*" />
+          <End Type="CARPOOLModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+          <End Type="CARPOOLModel.VIAJE" Role="VIAJE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
               <PropertyRef Name="ID_USUARIO" />
@@ -748,7 +749,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -847,29 +848,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="CARPOOLModel.USUARIO">
-              <MappingFragment StoreEntitySet="USUARIO">
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-                <ScalarProperty Name="FECHA_ULTIMO_INGRESO" ColumnName="FECHA_ULTIMO_INGRESO" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-                <ScalarProperty Name="ID_CIUDAD_RESIDENCIA" ColumnName="ID_CIUDAD_RESIDENCIA" />
-                <ScalarProperty Name="ID_OCUPACION" ColumnName="ID_OCUPACION" />
-                <ScalarProperty Name="TELEFONO_MOVIL" ColumnName="TELEFONO_MOVIL" />
-                <ScalarProperty Name="TELEFONO_FIJO" ColumnName="TELEFONO_FIJO" />
-                <ScalarProperty Name="VEHICULO_PROPIO" ColumnName="VEHICULO_PROPIO" />
-                <ScalarProperty Name="FUMADOR" ColumnName="FUMADOR" />
-                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
-                <ScalarProperty Name="INFORMACION_ADICIONAL" ColumnName="INFORMACION_ADICIONAL" />
-                <ScalarProperty Name="REPUTACION" ColumnName="REPUTACION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VIAJE">
             <EntityTypeMapping TypeName="CARPOOLModel.VIAJE">
               <MappingFragment StoreEntitySet="VIAJE">
@@ -880,6 +858,30 @@
                 <ScalarProperty Name="APORTE_ECONOMICO" ColumnName="APORTE_ECONOMICO" />
                 <ScalarProperty Name="INFORMACION_ADICIONAL" ColumnName="INFORMACION_ADICIONAL" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="CARPOOLModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="REPUTACION" ColumnName="REPUTACION" />
+                <ScalarProperty Name="INFORMACION_ADICIONAL" ColumnName="INFORMACION_ADICIONAL" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="FUMADOR" ColumnName="FUMADOR" />
+                <ScalarProperty Name="VEHICULO_PROPIO" ColumnName="VEHICULO_PROPIO" />
+                <ScalarProperty Name="TELEFONO_FIJO" ColumnName="TELEFONO_FIJO" />
+                <ScalarProperty Name="TELEFONO_MOVIL" ColumnName="TELEFONO_MOVIL" />
+                <ScalarProperty Name="ID_OCUPACION" ColumnName="ID_OCUPACION" />
+                <ScalarProperty Name="ID_CIUDAD_RESIDENCIA" ColumnName="ID_CIUDAD_RESIDENCIA" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="FECHA_ULTIMO_INGRESO" ColumnName="FECHA_ULTIMO_INGRESO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

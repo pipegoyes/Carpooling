@@ -16,8 +16,8 @@ namespace DataLayer.ModeloEntityFramework
     {
         public USUARIO()
         {
-            this.CALIFICACIONES_OBTENIDAS = new HashSet<CALIFICACION>();
-            this.CALIFICACIONES_REALIZADAS = new HashSet<CALIFICACION>();
+            this.CALIFICACION_EVALUADO = new HashSet<CALIFICACION>();
+            this.CALIFICACION_EVALUADOR = new HashSet<CALIFICACION>();
             this.PREGUNTA = new HashSet<PREGUNTA>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.VIAJE = new HashSet<VIAJE>();
@@ -40,9 +40,10 @@ namespace DataLayer.ModeloEntityFramework
         public byte[] FOTO { get; set; }
         public string INFORMACION_ADICIONAL { get; set; }
         public Nullable<decimal> REPUTACION { get; set; }
+        public int ESTADO { get; set; }
     
-        public virtual ICollection<CALIFICACION> CALIFICACIONES_OBTENIDAS { get; set; }
-        public virtual ICollection<CALIFICACION> CALIFICACIONES_REALIZADAS { get; set; }
+        public virtual ICollection<CALIFICACION> CALIFICACION_EVALUADO { get; set; }
+        public virtual ICollection<CALIFICACION> CALIFICACION_EVALUADOR { get; set; }
         public virtual CIUDAD CIUDAD { get; set; }
         public virtual OCUPACION OCUPACION { get; set; }
         public virtual ICollection<PREGUNTA> PREGUNTA { get; set; }

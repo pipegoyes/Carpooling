@@ -22,8 +22,8 @@ namespace DataLayer.ModeloEntityFramework
         public Nullable<System.DateTime> FECHA_REALIZACION { get; set; }
         public string COMENTARIO { get; set; }
     
+        public virtual VIAJE VIAJE { get; set; }
         public virtual USUARIO USUARIO_EVALUADO { get; set; }
         public virtual USUARIO USUARIO_EVALUADOR { get; set; }
-        public virtual VIAJE VIAJE { get; set; }
     }
 }

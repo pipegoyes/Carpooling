@@ -127,7 +127,8 @@ namespace DataLayer.Transformador
                     Fumador = pUsuario.FUMADOR,
                     Foto = pUsuario.FOTO,
                     InformacionAdicional = pUsuario.INFORMACION_ADICIONAL,
-                    Reputacion = pUsuario.REPUTACION
+                    Reputacion = pUsuario.REPUTACION,
+                    Estado = (UsuarioEstado)pUsuario.ESTADO
                 };
             return usuarioBO;
         }
@@ -173,14 +174,23 @@ namespace DataLayer.Transformador
 
         }
 
+        public Calificacion ToCalificacion(CALIFICACION pCalificacion)
+        {
+            return new Calificacion 
+                {
+                    IdCalificacion = pCalificacion.ID_CALIFICACION,
+                    Puntaje = pCalificacion.PUNTAJE,
+                    FechaRealizacion = pCalificacion.FECHA_REALIZACION,
+                    Comentario = pCalificacion.COMENTARIO,
+                    IdUsuarioEvaluador = pCalificacion.USUARIO_EVALUADOR.ID_USUARIO,
+                    IdUsuarioEvaluado = pCalificacion.USUARIO_EVALUADO.ID_USUARIO,
+                    IdViaje = pCalificacion.VIAJE.ID_VIAJE
+                };
+        }
+
         public List<Calificacion> ToCalificaciones(List<CALIFICACION> pCalificacions)
         {
-            return pCalificacions.Select(pCalificacion => new Calificacion()
-                                                                                  {
-                                                                                      Evaluador = this.ToUsuario(pCalificacion.USUARIO_EVALUADOR), 
-                                                                                      FechaRealizacion = pCalificacion.FECHA_REALIZACION, 
-                                                                                      Puntaje = pCalificacion.PUNTAJE
-                                                                                  }).ToList();
+            return pCalificacions.Select(ToCalificacion).ToList();
         } 
 
         public List<Pregunta> ToPreguntas (List<PREGUNTA> pPreguntas )

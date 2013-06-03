@@ -5,8 +5,17 @@ using System.Text;
 
 namespace Entities.Negocio
 {
+    [Flags]
+    public enum ViajeEstado : int
+    {
+        Publicado = 1,
+        Cancelado = 2,
+        Realizado = 3
+    }
+
     public class Viaje
     {
+
         [Flags]
         public enum ViajeEstado : int
         {

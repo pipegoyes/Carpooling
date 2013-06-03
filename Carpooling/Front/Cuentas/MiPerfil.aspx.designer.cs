@@ -202,6 +202,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Button btnCambiarContrasenia;
         
         /// <summary>
+        /// btnDesactivarCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDesactivarCuenta;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// ucCambioContrasenia control.
         /// </summary>
         /// <remarks>
@@ -209,5 +227,14 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Carpooling.Front.Cuentas.wuc.CambioContrasenia ucCambioContrasenia;
+        
+        /// <summary>
+        /// ucDesactivarCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Carpooling.Front.Cuentas.wuc.DesactivarCuenta ucDesactivarCuenta;
     }
 }

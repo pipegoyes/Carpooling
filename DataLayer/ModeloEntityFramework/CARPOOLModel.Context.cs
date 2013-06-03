@@ -34,7 +34,7 @@ namespace DataLayer.ModeloEntityFramework
         public DbSet<PREGUNTA> PREGUNTA { get; set; }
         public DbSet<SOLICITUD> SOLICITUD { get; set; }
         public DbSet<TRAYECTO> TRAYECTO { get; set; }
-        public DbSet<USUARIO> USUARIO { get; set; }
         public DbSet<VIAJE> VIAJE { get; set; }
+        public DbSet<USUARIO> USUARIO { get; set; }
     }
 }
