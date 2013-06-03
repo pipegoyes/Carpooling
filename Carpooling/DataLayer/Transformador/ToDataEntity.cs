@@ -41,7 +41,8 @@ namespace DataLayer.Transformador
                                   VEHICULO_PROPIO = pUsuario.VehiculoPropio,
                                   FOTO = pUsuario.Foto,
                                   INFORMACION_ADICIONAL = pUsuario.InformacionAdicional,
-                                  REPUTACION = pUsuario.Reputacion
+                                  REPUTACION = pUsuario.Reputacion,
+                                  ESTADO = (int)pUsuario.Estado
                               };
 
             return usuario;
@@ -157,11 +158,13 @@ namespace DataLayer.Transformador
         {
             return new CALIFICACION()
                        {
-                           //TODO a esto le faltan cosas
                            ID_CALIFICACION = pCalificacion.IdCalificacion,
                            FECHA_REALIZACION = pCalificacion.FechaRealizacion,
                            PUNTAJE = pCalificacion.Puntaje,
-                           USUARIO_EVALUADOR = ToUsuario(pCalificacion.Evaluador)
+                           COMENTARIO = pCalificacion.Comentario,
+                           ID_VIAJE = pCalificacion.IdViaje,
+                           ID_EVALUADO = pCalificacion.IdUsuarioEvaluado,
+                           ID_EVALUADOR = pCalificacion.IdUsuarioEvaluador
                        };
         }
     }

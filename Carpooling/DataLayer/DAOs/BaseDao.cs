@@ -15,16 +15,31 @@ namespace DataLayer.DAOs
             get { return _conexion; }
         }
 
-        public DbContext EstablecerConexion()
+        public CARPOOLEntities EstablecerConexion()
         {
             _conexion = new CARPOOLEntities();
             return _conexion;
         }
 
-        public void TerminarConexion()
+        protected CARPOOLEntities EstablecerConexion(CARPOOLEntities pContextoDb)
+        {
+            if (pContextoDb == null)
+                _conexion = new CARPOOLEntities();
+            else
+                _conexion = pContextoDb;
+            return _conexion;
+        }
+
+        protected void TerminarConexion()
         {
             if (this._conexion != null)
                 this._conexion.Dispose();
+        }
+
+        public void TerminarConexion(CARPOOLEntities pContextoDb)
+        {
+            if (pContextoDb != null)
+                pContextoDb.Dispose();
         }
 
         public bool ConfirmarCambios()
@@ -32,6 +47,16 @@ namespace DataLayer.DAOs
             if (this.Conexion.SaveChanges() > 0)
                 return true;
             return false;
+        }
+
+        protected long ConfirmarCambiosMultiple()
+        {
+            return (long)this.Conexion.SaveChanges();
+        }
+
+        public long ConfirmarCambios(CARPOOLEntities pContextoDb)
+        {
+            return (long)pContextoDb.SaveChanges();
         }
     }
 }

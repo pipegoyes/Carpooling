@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="MiPerfil.aspx.cs" Inherits="Carpooling.Front.Cuentas.MiPerfil" %>
 <%@ Register Src="~/Front/Cuentas/wuc/CambioContrasenia.ascx" TagName="CambioContrasenia" TagPrefix="uc" %>
+<%@ Register Src="~/Front/Cuentas/wuc/DesactivarCuenta.ascx" TagName="DesactivarCuenta" TagPrefix="uc" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -107,11 +108,13 @@
         <asp:UpdatePanel ID="upnMiPerfil" runat="server" >
             <ContentTemplate>
                 <asp:Button ID="btnCambiarContrasenia" ClientID="btnCambiarContrasenia" runat="server" Text="Cambiar contraseña" style="float:left;" OnClick="btnCambiarContrasenia_Click"/>
+                <asp:Button ID="btnDesactivarCuenta" ClientID="btnDesactivarCuenta" runat="server" Text="Desactivar cuenta" style="float:left;" OnClick="btnDesactivarCuenta_Click"/>
+                <asp:Button ID="Button1" runat="server" Text="estaado viajes" style="float:left;" OnClick="Button1_Click"/>
             </ContentTemplate>
         </asp:UpdatePanel>
 
     </section>
 
     <uc:CambioContrasenia ID="ucCambioContrasenia" runat="server"/>
+    <uc:DesactivarCuenta ID="ucDesactivarCuenta" runat="server"/>
 </asp:Content>
-

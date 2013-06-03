@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Threading;
+using BusinessLayer;
 using Entities.Aplicacion;
 
 namespace Carpooling
@@ -23,16 +26,24 @@ namespace Carpooling
             }
         }
 
+        public BackgroundWorker worker;
+
+
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
-
+            worker = new BackgroundWorker();
+            worker.DoWork += new DoWorkEventHandler(AdministradorViajes.MonitorViajesVigentes);
+            worker.WorkerReportsProgress = false;
+            worker.WorkerSupportsCancellation = true;
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(AdministradorViajes.MonitorViajesVigentesCompleto);
+            worker.RunWorkerAsync();
         }
+
 
         void Application_End(object sender, EventArgs e)
         {
-            //  Code that runs on application shutdown
-
+            if (worker != null)
+                worker.CancelAsync();
         }
 
         void Application_Error(object sender, EventArgs e)

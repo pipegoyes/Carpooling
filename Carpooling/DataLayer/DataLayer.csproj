@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOs\BaseDao.cs" />
+    <Compile Include="DAOs\CalificacionDao.cs" />
     <Compile Include="DAOs\ListaDesplegableDao.cs" />
     <Compile Include="DAOs\PreguntaDao.cs" />
     <Compile Include="DAOs\SolicitudDao.cs" />

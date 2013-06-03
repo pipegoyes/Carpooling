@@ -51,6 +51,7 @@ namespace DataLayer.DAOs
             entidad.Property(x => x.VEHICULO_PROPIO).IsModified = true;
             entidad.Property(x => x.CONTRASENIA).IsModified = true;
             entidad.Property(x => x.ID_CIUDAD_RESIDENCIA).IsModified = true;
+            entidad.Property(x => x.ESTADO).IsModified = true;
             return ConfirmarCambios();
         }
 
@@ -74,7 +75,18 @@ namespace DataLayer.DAOs
             var entidad = Conexion.Entry(usuario);
             entidad.Property(x => x.CONTRASENIA).IsModified = true;
             return ConfirmarCambios();
-        }        
+        }
+
+        //Metodo para actualizar el estado
+        public bool ActualizarEstado(Usuario pUsuario)
+        {
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            EstablecerConexion();
+            Conexion.USUARIO.Attach(usuario);
+            var entidad = Conexion.Entry(usuario);
+            entidad.Property(x => x.ESTADO).IsModified = true;
+            return ConfirmarCambios();
+        }
 
         public Usuario ObtenerPorId(string pIdUsuario)
         {

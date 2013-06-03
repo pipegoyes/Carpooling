@@ -52,6 +52,13 @@ namespace BusinessLayer
             return UsuarioDao.Instancia.ActualizarUltimoIngreso(pUsuario);
         }
 
+        //Desactivar la cuenta
+        public bool DesactivarCuenta(Usuario pUsuario)
+        {
+            pUsuario.Estado = UsuarioEstado.Inactiva;
+            return UsuarioDao.Instancia.ActualizarEstado(pUsuario);
+        }
+
         //Metodo para actualizar la contraseña
         public bool ActualizarContrasenia(Usuario pUsuario, string pContraseniaActual, string pContraseniaNueva, out string pMensajeRetorno)
         {
@@ -70,23 +77,28 @@ namespace BusinessLayer
             return UsuarioDao.Instancia.ObtenerPorId(pIdUsuario);
         }
 
-        public Usuario AutenticarUsuario(string pIdEmailUsuario, string pContrasenia)
+        public bool AutenticarUsuario(string pIdEmailUsuario, string pContrasenia, out Usuario pUsuario)
         {
-            Usuario usuario;
             pIdEmailUsuario.Trim().ToLower();
             if (pIdEmailUsuario.Contains("@"))
-                usuario = UsuarioDao.Instancia.ObtenerPorEmail(pIdEmailUsuario);
+                pUsuario = UsuarioDao.Instancia.ObtenerPorEmail(pIdEmailUsuario);
             else
-                usuario = UsuarioDao.Instancia.ObtenerPorId(pIdEmailUsuario);
+                pUsuario = UsuarioDao.Instancia.ObtenerPorId(pIdEmailUsuario);
 
-            if(usuario != null)
+            if (pUsuario != null)
             {
-                string contraseniaDbDesencriptada = this.DesencriptarContrasenia(usuario.Contrasenia);
-                contraseniaDbDesencriptada.Trim();
-                if (contraseniaDbDesencriptada.Equals(pContrasenia.Trim()))
-                    return usuario;
+                if (pUsuario.Estado == UsuarioEstado.Activo)
+                {
+                    string contraseniaDbDesencriptada = this.DesencriptarContrasenia(pUsuario.Contrasenia);
+                    contraseniaDbDesencriptada.Trim();
+                    if (contraseniaDbDesencriptada.Equals(pContrasenia.Trim()))
+                    {
+                        ActualizarUltimoIngreso(pUsuario);
+                        return true;
+                    }
+                }
            }
-            return null;
+           return false;
         }
 
         public bool RecuperarContrasenia(string pIdEmailUsuario)

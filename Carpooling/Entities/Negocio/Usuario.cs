@@ -6,6 +6,13 @@ using System.Globalization;
 
 namespace Entities.Negocio
 {
+    [Flags]
+    public enum UsuarioEstado : int
+    {
+        Activo = 1,
+        Inactiva = 2
+    }
+
     public class Usuario
     {
         public string Apellido { get; set; }
@@ -25,6 +32,7 @@ namespace Entities.Negocio
         public string Contrasenia { get; set; }
         public decimal? Reputacion { get; set; }              
         public UbicacionGeografica ResidenciaUbicacion { get; set; }
+        public UsuarioEstado Estado { get; set; }
 
         public string ObtenerNombreApellidos()
         {

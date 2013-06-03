@@ -60,5 +60,15 @@ namespace Carpooling.Front.Cuentas
         {
             ucCambioContrasenia.MostrarVentana();
         }
+
+        protected void btnDesactivarCuenta_Click(object sender, EventArgs e)
+        {
+            ucDesactivarCuenta.MostrarVentana();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //AdministradorViajes.Instancia.MonitorViajesVigentes(new object());
+        }
     }
 }

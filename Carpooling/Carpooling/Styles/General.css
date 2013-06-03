@@ -87,14 +87,20 @@
     height: 100%;
 }
 .divBotonesPopUp {
-    width: 50%;
+    width: 100%;
     margin: auto;
     padding-top: 20px;
+    text-align:center;
 }
 	.divBotonesPopUp input[type="submit"] {
-    	float: left;
-    	margin-left: 10%;
+        display: inline-block !important;
+    	margin: 0 5px;
 	}
 	.mainContentPopUp textarea{
 			height: 85px;
 		}
+
+.divWithoutShadow {
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}

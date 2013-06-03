@@ -29,11 +29,10 @@ namespace Carpooling.Front
             {
                 string nombreEmailUsuario = Request.Form["hfdNombreUsuario"];
                 string contrasenia = Request.Form["hfdContrasenia"];
-                usuarioApp = AdministradorCuentas.Instancia.AutenticarUsuario(nombreEmailUsuario, contrasenia);
-                if (usuarioApp != null)
+                
+                if (AdministradorCuentas.Instancia.AutenticarUsuario(nombreEmailUsuario, contrasenia, out usuarioApp))
                 {
                     Session["usuario"] = usuarioApp;
-                    AdministradorCuentas.Instancia.ActualizarUltimoIngreso(usuarioApp);
                     AdministradorCuentas.Instancia.EliminarImagenTemporal(Server.MapPath("/"), usuarioApp.IdUsuario);
                     
                     string fileName;
@@ -54,6 +53,14 @@ namespace Carpooling.Front
                 }
                 else
                 {
+                    if (usuarioApp != null)
+                    {
+                        //TODO: mensaje que avisa que la cuenta esta desactivada
+                    }
+                    else 
+                    {
+                        //TODO: mensaje que avisa que la cuenta no existe (usuario o contraseña incorrectos)
+                    }
                     //TODO: actualizar un hiddenfield desde aca con el estado de logue no exitoso y luego por JS mostrar un mensaje dependiendo valor del hiddenfield
                     //WebControl divLoginForm = (WebControl)this.FindControl("divLoginFormFloat");
                     //divLoginForm.Style.Add("display", "block");

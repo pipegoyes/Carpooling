@@ -135,11 +135,36 @@ namespace BusinessLayer
             EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
         }
 
+        //Envia el correo notificando calificacion pendiente al conductor
+        public void CorreoCalificacionParticipante(Viaje pViaje, Usuario pUsuario)
+        {
+            //inicializa los parametros de envio del correo
+            var destinatarios = new List<string> { pUsuario.Email };
+
+            //TODO probar que el trayecto venga dentro de la solicitud y no solo el id del trayecto
+            string asunto = "CarpoolingCo - Tienes un viaje por calificar";
+
+            string mensaje = "Por favor califica el viaje con destino a la ciudad de: " + pViaje.GetCiudadDestino().Direccion + " , en el que participaste.";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
+
+        //Envia el correo notificando calificacion pendiente al pasajero
+        public void CorreoCalificacionConductor(Viaje pViaje)
+        {
+            //inicializa los parametros de envio del correo
+            List<string> destinatarios = new List<string> { pViaje.Conductor.Email };
+            string asunto = "CarpoolingCo - Tienes un viaje por calificar‏";
+            string mensaje = "Por favor califica a los pasajeros que viajaron contigo en el viaje con destino a la ciudad de: " + pViaje.GetCiudadDestino().Direccion;
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
+
         public void CorreoSolicitudAprobada(Solicitud pSolicitud)
         {
             //inicializa los parametros de envio del correo
-            var destinatarios = new List<string> { pSolicitud.CreadorSolicitud.Email};
-            
+            var destinatarios = new List<string> { pSolicitud.CreadorSolicitud.Email };
+
             //TODO probar que el trayecto venga dentro de la solicitud y no solo el id del trayecto
             string asunto = "CarpoolingCo - Su solicitud fue aprobada";
 
@@ -161,7 +186,7 @@ namespace BusinessLayer
             string mensaje = "Su solicitud para participar en el viaje desde:" + pSolicitud.Trayecto.ParadaOrigen.Direccion +
                 " hasta la ciudad de: " + pSolicitud.Trayecto.ParadaDestino.Direccion +
                              " ha sido rechazada.";
-            
+
             mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
             EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
         }

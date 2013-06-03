@@ -20,7 +20,7 @@ namespace DataLayer.ModeloEntityFramework
         public string TEXTO_PREGUNTA { get; set; }
         public string TEXTO_RESPUESTA { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
         public virtual VIAJE VIAJE { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
 }

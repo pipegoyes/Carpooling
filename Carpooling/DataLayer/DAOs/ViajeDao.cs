@@ -100,26 +100,51 @@ namespace DataLayer.DAOs
         public List<Viaje> ConsultarDetalleViajes(List<Solicitud> listSolicitudes )
         {
             EstablecerConexion();
-            return (from solicitude in listSolicitudes
-                              select (from t in Conexion.TRAYECTO
-                                      where t.ID_TRAYECTO == solicitude.IdTrayecto
-                                      select t).First()
-                              into trayectoEncontrado select (from v in Conexion.VIAJE
-                                                              where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE && v.ESTADO == (int) Viaje.ViajeEstado.Publicado
-                                                              select v).First()
-                              into viajeEncontrado select ToBusinessEntity.Instancia.ToViaje(viajeEncontrado)).ToList();
-            //foreach (var solicitude in listSolicitudes)
-            //{
-            //    var trayectoEncontrado = (from t in Conexion.TRAYECTO
-            //                              where t.ID_TRAYECTO == solicitude.IdTrayecto
-            //                              select t).First();
-            //    var viajeEncontrado = (from v in Conexion.VIAJE
-            //                           where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE && v.ESTADO == (int)Viaje.ViajeEstado.Publicado
-            //                           select v).First();
-            //    listViajes.Add(ToBusinessEntity.Instancia.ToViaje(viajeEncontrado));
-            //}
+            //return (from solicitude in listSolicitudes
+            //                  select (from t in Conexion.TRAYECTO
+            //                          where t.ID_TRAYECTO == solicitude.IdTrayecto
+            //                          select t).First()
+            //                  into trayectoEncontrado select (from v in Conexion.VIAJE
+            //                                                  where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE && v.ESTADO == (int) Viaje.ViajeEstado.Publicado
+            //                                                  select v).First()
+            //                  into viajeEncontrado select ToBusinessEntity.Instancia.ToViaje(viajeEncontrado)).ToList();
+            var listViajes = new List<Viaje>();
+            foreach (var solicitude in listSolicitudes)
+            {
+                var trayectoEncontrado = (from t in Conexion.TRAYECTO
+                                          where t.ID_TRAYECTO == solicitude.IdTrayecto
+                                          select t).First();
+                var viajeEncontrado = (from v in Conexion.VIAJE
+                                       where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE && v.ESTADO == (int)Viaje.ViajeEstado.Publicado
+                                       select v).FirstOrDefault();
+                if(viajeEncontrado != null)
+                    listViajes.Add(ToBusinessEntity.Instancia.ToViaje(viajeEncontrado));
+            }
+            return listViajes;
         }
 
+        /// <summary>
+        /// Actualiza el estado de los viajes que dejaron de ser vigentes y los retorna
+        /// </summary>
+        /// <returns></returns>
+        public long  ActualizarEstadoViajesRealizados(DateTime pFechaHoraCorte, out IEnumerable<Viaje> pViajesActualizados, CARPOOLEntities pContextoDb, bool pConfirmarCambios)
+        {
+            EstablecerConexion(pContextoDb);
+            var viajesActualizar = from v in Conexion.VIAJE
+                                   where v.FECHA_HORA_PARTIDA <= DateTime.Now && v.ESTADO == (int)ViajeEstado.Publicado
+                                   select v;
+
+            foreach (var viaje in viajesActualizar)
+            {
+                viaje.ESTADO = (int)ViajeEstado.Realizado;
+            }
+
+            pViajesActualizados = ToBusinessEntity.Instancia.ToViajes(viajesActualizar.ToList());
+            if (pConfirmarCambios)
+                return ConfirmarCambiosMultiple();
+            else
+                return pViajesActualizados.Count();
+        }
     }
     
 }

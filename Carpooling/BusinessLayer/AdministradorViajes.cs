@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using DataLayer.DAOs;
@@ -131,6 +133,74 @@ namespace BusinessLayer
                 return true;
             }
             throw new Exception("El correo electronico a los pasajeros del viaje no ha sido enviado exitosamente, por favor re-intente realizar la acción");
+        }
+
+        /// <summary>
+        /// Procedimiento que se ejecuta periodicamente para actualizar el estado de los viajes que de acuerdo a su fecha de realización
+        /// ya dejaron de ser vigentes
+        /// </summary>
+        /// <returns></returns>
+        public static void MonitorViajesVigentes(object sender, DoWorkEventArgs e)
+        {
+            //Actualiza el estado de los viajes en la BD
+            IEnumerable<Viaje> viajesActualizar= new List<Viaje>();
+            var contextoBd = ViajeDao.Instancia.EstablecerConexion(); //obtiene un contexto de bd para la trasaccion global
+
+            //Acutializa el estado de los viajes que ya no son vigentes
+            long viajesActualizadoBD = ViajeDao.Instancia.ActualizarEstadoViajesRealizados(DateTime.Today, out viajesActualizar, contextoBd, false);
+
+            //Crear los registros de calificaciones pendientes
+            if (viajesActualizar.Count() == (int)viajesActualizadoBD)
+            {
+                foreach (var viaje in viajesActualizar)
+                {
+                    foreach (var pasajero in viaje.GetPasajeros())
+	                {
+                        Calificacion calificacionInsertar;
+                        //registro calificacion conductor pasajero
+                        calificacionInsertar = new Calificacion() 
+                            {
+                                Puntaje = 0,
+                                IdViaje = viaje.IdViaje,
+                                IdUsuarioEvaluador = viaje.Conductor.IdUsuario,
+                                IdUsuarioEvaluado = pasajero.IdUsuario
+                            };
+                        CalificacionDao.Instancia.Insertar(calificacionInsertar, contextoBd, false);
+
+                        //registro calificacion pasajero conductor
+                        calificacionInsertar = new Calificacion()
+                        {
+                            Puntaje = 0,
+                            IdViaje = viaje.IdViaje,
+                            IdUsuarioEvaluador = pasajero.IdUsuario,
+                            IdUsuarioEvaluado = viaje.Conductor.IdUsuario
+                        };
+                        CalificacionDao.Instancia.Insertar(calificacionInsertar, contextoBd, false);
+
+                        //envia el email de calificacion pendiente al pasajero 
+                        AdministradorCorreosElectronicos.Instancia.CorreoCalificacionParticipante(viaje, pasajero);
+	                }
+
+                    //envia el email de calificacion pendiente al conductor
+                    AdministradorCorreosElectronicos.Instancia.CorreoCalificacionConductor(viaje);
+                }
+                
+                //confirma los cambios en la bd y destruye el contexto
+                ViajeDao.Instancia.ConfirmarCambios(contextoBd);
+            }
+            ViajeDao.Instancia.TerminarConexion(contextoBd);
+        }
+
+
+        public static void MonitorViajesVigentesCompleto(object sender, RunWorkerCompletedEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            if (worker != null)
+            {
+                int intervaloEjecucion = Convert.ToInt32(ConfigurationManager.AppSettings["IntervaloSegundosEjecucionMonitoreoViajesVigentes"]);
+                System.Threading.Thread.Sleep(intervaloEjecucion);
+                worker.RunWorkerAsync();
+            }
         }
 
         public List<Viaje> BuscarViajesVigentesPasajero(Usuario pUsuario)
