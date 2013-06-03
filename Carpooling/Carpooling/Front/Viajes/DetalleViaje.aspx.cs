@@ -39,12 +39,14 @@ namespace Carpooling.Front.Viajes
         public void PintarDetalleViaje()
         {
             //Informacion del viaje
-            txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy") + " (mm/dd/yyyy)";
-            txtHora.Text = String.Format("{0:HH:mm}", ViajeDetalle.FechaHoraPartida) + " (24h)";
+            txtFechaViaje.Text = ViajeDetalle.FechaHoraPartida.ToString("MM/dd/yyyy HH:mm");
             txtTarifa.Text = "$"+ViajeDetalle.AporteEconomico+" COP";
-            
+            txbOrigen.Text = ViajeDetalle.GetCiudadOrigen().Direccion;
+            txbDestino.Text = ViajeDetalle.GetCiudadDestino().Direccion;
+
             //Informacion del conductor
-            txtNombreConductor.Text = ViajeDetalle.Conductor.Nombre;
+            txbNombreConductor.Text = ViajeDetalle.Conductor.ObtenerNombreApellidos();
+            
             //TODO agregar mas informacion del conductor
 
 

@@ -97,6 +97,29 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
+        public List<Viaje> ConsultarDetalleViajes(List<Solicitud> listSolicitudes )
+        {
+            EstablecerConexion();
+            //foreach (var solicitude in listSolicitudes)
+            //{
+            //    var trayectoEncontrado = (from t in Conexion.TRAYECTO
+            //                              where t.ID_TRAYECTO == solicitude.IdTrayecto
+            //                              select t).First();
+            //    var viajeEncontrado = (from v in Conexion.VIAJE
+            //                           where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE
+            //                           select v).First();
+            //    listViajes.Add(ToBusinessEntity.Instancia.ToViaje(viajeEncontrado));
+            //}
+            return (from solicitude in listSolicitudes
+                    select (from t in Conexion.TRAYECTO
+                            where t.ID_TRAYECTO == solicitude.IdTrayecto
+                            select t).First()
+                    into trayectoEncontrado select (from v in Conexion.VIAJE
+                                                    where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE
+                                                    select v).First()
+                    into viajeEncontrado select ToBusinessEntity.Instancia.ToViaje(viajeEncontrado)).ToList();
+        }
+
     }
     
 }

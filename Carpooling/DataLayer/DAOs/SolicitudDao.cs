@@ -55,5 +55,16 @@ namespace DataLayer.DAOs
             entidad.Property(s => s.ESTADO).IsModified = true;
             return ConfirmarCambios();
         }
+
+        public List<Solicitud> ConsultarSolicitudesVigentes(Usuario pasajero)
+        {
+            EstablecerConexion();
+            var regSolicitudes = from n in Conexion.SOLICITUD
+                                 where
+                                     n.ID_PASAJERO == pasajero.IdUsuario &&
+                                     n.ESTADO == (int) Solicitud.SolicitudEstado.Aprobada
+                                 select n;
+            return regSolicitudes.Any() ? ToBusinessEntity.Instancia.ToSolicitudes(regSolicitudes.ToList()) : null;
+        } 
     }
 }

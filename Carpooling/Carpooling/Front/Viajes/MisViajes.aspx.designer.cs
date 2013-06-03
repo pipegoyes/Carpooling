@@ -13,22 +13,40 @@ namespace Carpooling.Front.Viajes {
     public partial class MisViajes {
         
         /// <summary>
-        /// dataListViajesVigentes control.
+        /// dataListViajesVigentesConductor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListViajesVigentes;
+        protected global::System.Web.UI.WebControls.DataList dataListViajesVigentesConductor;
         
         /// <summary>
-        /// lblSinViajesVigentes control.
+        /// lblSinViajesVigentesConductor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSinViajesVigentes;
+        protected global::System.Web.UI.WebControls.Label lblSinViajesVigentesConductor;
+        
+        /// <summary>
+        /// dataListViajesVigentesPasajero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListViajesVigentesPasajero;
+        
+        /// <summary>
+        /// lblSinViajesVigentesPasajero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinViajesVigentesPasajero;
         
         /// <summary>
         /// dataListViajesRealizados control.

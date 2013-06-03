@@ -209,6 +209,20 @@ namespace DataLayer.Transformador
                                                      }).ToList();
         }
 
+        public Trayecto ToTrayecto(TRAYECTO pTrayecto)
+        {
+            return new Trayecto
+                       {
+                           CuposDisponibles = pTrayecto.CUPOS,
+                           TrayectoSimple = pTrayecto.TRAYECTO_SIMPLE,
+                           IdTrayecto = pTrayecto.ID_TRAYECTO,
+                           IdViaje = pTrayecto.ID_VIAJE,
+                           ListaSolicitudes = ToSolicitudes(pTrayecto.SOLICITUD.ToList()),
+                           ParadaOrigen = ToParada(pTrayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "I")),
+                           ParadaDestino = ToParada(pTrayecto.PARADA.ToList().Find(t => t.TIPO_PARADA == "F"))
+                       };
+        }
+
         public Parada ToParada(PARADA pParada)
         {
             return new Parada()

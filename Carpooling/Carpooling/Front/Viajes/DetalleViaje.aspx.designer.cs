@@ -13,15 +13,6 @@ namespace Carpooling.Front.Viajes {
     public partial class DetalleViaje {
         
         /// <summary>
-        /// dataListParada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListParada;
-        
-        /// <summary>
         /// txtFechaViaje control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,22 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txtFechaViaje;
         
         /// <summary>
-        /// txtHora control.
+        /// txbOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtHora;
+        protected global::System.Web.UI.WebControls.Label txbOrigen;
+        
+        /// <summary>
+        /// txbDestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txbDestino;
         
         /// <summary>
         /// txtTarifa control.
@@ -49,13 +49,31 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txtTarifa;
         
         /// <summary>
-        /// txtNombreConductor control.
+        /// btnPreguntar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtNombreConductor;
+        protected global::System.Web.UI.WebControls.Button btnPreguntar;
+        
+        /// <summary>
+        /// dataListParada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListParada;
+        
+        /// <summary>
+        /// txbNombreConductor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txbNombreConductor;
         
         /// <summary>
         /// dataListTrayectos control.
@@ -65,6 +83,60 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dataListTrayectos;
+        
+        /// <summary>
+        /// PanelParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelParticipantes;
+        
+        /// <summary>
+        /// dataListParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListParticipantes;
+        
+        /// <summary>
+        /// lblSinParticipantes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinParticipantes;
+        
+        /// <summary>
+        /// PanelPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelPreguntas;
+        
+        /// <summary>
+        /// dataListPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListPreguntas;
+        
+        /// <summary>
+        /// lblSinPreguntas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinPreguntas;
         
         /// <summary>
         /// contenedorHiddenFields control.

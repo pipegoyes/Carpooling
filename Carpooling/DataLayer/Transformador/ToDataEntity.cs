@@ -58,43 +58,43 @@ namespace DataLayer.Transformador
                                    ID_CONDUCTOR = viajeActual.Conductor.IdUsuario,
                                    ESTADO = (int) viajeActual.Estado,
                                    ID_VIAJE = viajeActual.IdViaje,
-                                   PREGUNTA = viajeActual.Preguntas.Select(ToPregunta).ToList(),
-                                   USUARIO = (viajeActual.Conductor !=null)?ToUsuario(viajeActual.Conductor):null,
-                                   TRAYECTO = viajeActual.TrayectosViaje.Select(ToTrayecto).ToList(),
-                                   CALIFICACION = viajeActual.Calificaciones.Select(ToCalificacion).ToList()
-                                   //TRAYECTO = new Collection<TRAYECTO>()
+                                   PREGUNTA = (viajeActual.Preguntas ==null)?null:viajeActual.Preguntas.Select(ToPregunta).ToList(),
+                                   //USUARIO = (viajeActual.Conductor !=null)?ToUsuario(viajeActual.Conductor):null,
+                                   //TRAYECTO = viajeActual.TrayectosViaje.Select(ToTrayecto).ToList(),
+                                   CALIFICACION = (viajeActual.Calificaciones==null)?null:viajeActual.Calificaciones.Select(ToCalificacion).ToList(),
+                                   TRAYECTO = new Collection<TRAYECTO>()
                                };
 
-            //foreach (Trayecto trayectoActual in viajeActual.TrayectosViaje)
-            //{
-            //    var trayectoDao = new TRAYECTO
-            //                          {
-            //                              TRAYECTO_SIMPLE = trayectoActual.TrayectoSimple
-            //                          };
+            foreach (Trayecto trayectoActual in viajeActual.TrayectosViaje)
+            {
+                var trayectoDao = new TRAYECTO
+                                      {
+                                          TRAYECTO_SIMPLE = trayectoActual.TrayectoSimple
+                                      };
 
-            //    var coordenadaOrigen = new PARADA()
-            //                               {
-            //                                   LATITUD = trayectoActual.ParadaOrigen.Latitud,
-            //                                   LONGITUD = trayectoActual.ParadaOrigen.Longitud,
-            //                                   DIRECCION= trayectoActual.ParadaOrigen.Direccion,
-            //                                   TIPO_PARADA = trayectoActual.ParadaOrigen.TipoParada,
-            //                                   NUMERO_PARADA = trayectoActual.ParadaOrigen.NumeroParada
-            //                               };
+                var coordenadaOrigen = new PARADA()
+                                           {
+                                               LATITUD = trayectoActual.ParadaOrigen.Latitud,
+                                               LONGITUD = trayectoActual.ParadaOrigen.Longitud,
+                                               DIRECCION= trayectoActual.ParadaOrigen.Direccion,
+                                               TIPO_PARADA = trayectoActual.ParadaOrigen.TipoParada,
+                                               NUMERO_PARADA = trayectoActual.ParadaOrigen.NumeroParada
+                                           };
 
-            //    var coordenadaDestino = new PARADA()
-            //                                {
-            //                                    LATITUD= trayectoActual.ParadaDestino.Latitud,
-            //                                    LONGITUD= trayectoActual.ParadaDestino.Longitud,
-            //                                    DIRECCION = trayectoActual.ParadaDestino.Direccion,
-            //                                    TIPO_PARADA = trayectoActual.ParadaDestino.TipoParada,
-            //                                    NUMERO_PARADA = trayectoActual.ParadaDestino.NumeroParada
-            //                                };
+                var coordenadaDestino = new PARADA()
+                                            {
+                                                LATITUD= trayectoActual.ParadaDestino.Latitud,
+                                                LONGITUD= trayectoActual.ParadaDestino.Longitud,
+                                                DIRECCION = trayectoActual.ParadaDestino.Direccion,
+                                                TIPO_PARADA = trayectoActual.ParadaDestino.TipoParada,
+                                                NUMERO_PARADA = trayectoActual.ParadaDestino.NumeroParada
+                                            };
 
-            //    trayectoDao.PARADA.Add(coordenadaOrigen);
-            //    trayectoDao.PARADA.Add(coordenadaDestino);
-            //    trayectoDao.CUPOS = trayectoActual.CuposDisponibles;
-            //    viajeDao.TRAYECTO.Add(trayectoDao);
-            //}
+                trayectoDao.PARADA.Add(coordenadaOrigen);
+                trayectoDao.PARADA.Add(coordenadaDestino);
+                trayectoDao.CUPOS = trayectoActual.CuposDisponibles;
+                viajeDao.TRAYECTO.Add(trayectoDao);
+            }
 
 
             return viajeDao;
