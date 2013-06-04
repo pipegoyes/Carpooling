@@ -21,26 +21,57 @@ namespace Carpooling.Front.Viajes
                 UsuarioActivo = (Usuario) Session["usuario"];
                 if (UsuarioActivo != null)
                 {
-                    var listaMisViajes = AdministradorViajes.Instancia.BuscarMisViajesVigentes(UsuarioActivo);
-                    Session["MisViajesList"] = listaMisViajes;
-                    if(!listaMisViajes.Any()) return;
+                    var listMisViajesCompleta = new List<Viaje>();
+                    var listMisViajesRealizadosCompleta = new List<Viaje>();
 
-                    //Viajes vigentes como conductor
-                    var misViajesVigentes = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
-                    dataListViajesVigentesConductor.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
-                    dataListViajesVigentesConductor.DataBind();
+                    //Viajes como pasajero 
+                    var listaMisViajesConductor = AdministradorViajes.Instancia.BuscarMisViajesConductor(UsuarioActivo);
+                    if(listaMisViajesConductor != null)
+                    {
+                        //Viajes vigentes como conductor
+                        var misViajesVigentes = listaMisViajesConductor.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
+                        if(misViajesVigentes.Any())
+                        {
+                            dataListViajesVigentesConductor.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
+                            dataListViajesVigentesConductor.DataBind();    
+                        }
+                        
 
-                    //Viajes vigentes como pasajero 
-                    var misParticipacionesVigentes =
-                        AdministradorViajes.Instancia.BuscarViajesVigentesPasajero(UsuarioActivo);
-                    dataListViajesVigentesPasajero.DataSource =
-                        AdministradorViajes.Instancia.ToListItemTabla(misParticipacionesVigentes);
-                    dataListViajesVigentesPasajero.DataBind();
+                        //Viajes realizados como conductor
+                        listMisViajesRealizadosCompleta.AddRange(listaMisViajesConductor.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado));
 
-                    //Viajes realizados
-                    var misViajesRealizados = listaMisViajes.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado);
-                    dataListViajesRealizados.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesRealizados);
-                    dataListViajesRealizados.DataBind();
+                        //Agregar al lista definitivo
+                        listMisViajesCompleta.AddRange(listaMisViajesConductor);
+                    }
+
+
+                    //Viajes como pasajero 
+                    var listMisViajesPasajero = AdministradorViajes.Instancia.BuscarViajesVigentesPasajero(UsuarioActivo);
+                    if(listMisViajesPasajero !=null)
+                    {
+                        //Viajes vigentes como pasajero
+                        var misViajesVigentesPasajero = listMisViajesPasajero.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
+                        if(misViajesVigentesPasajero.Any())
+                        {
+                            dataListViajesVigentesPasajero.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentesPasajero);
+                            dataListViajesVigentesPasajero.DataBind();    
+                        }
+                        
+
+                        //Viajes realizados como pasajero
+                        listMisViajesRealizadosCompleta.AddRange(listMisViajesPasajero.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado));
+
+                        listMisViajesCompleta.AddRange(listMisViajesPasajero);
+                    }
+
+                    if(listMisViajesRealizadosCompleta.Any())
+                    {
+                        dataListViajesRealizados.DataSource =
+                            AdministradorViajes.Instancia.ToListItemTabla(listMisViajesRealizadosCompleta);
+                        dataListViajesRealizados.DataBind();
+                    }
+
+                    Session["MisViajesList"] = listMisViajesCompleta;
                 }
             }
         }

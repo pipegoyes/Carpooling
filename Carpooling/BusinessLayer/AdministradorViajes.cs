@@ -108,7 +108,7 @@ namespace BusinessLayer
             return false;
         }
 
-        public List<Viaje> BuscarMisViajesVigentes(Usuario pUsuario)
+        public List<Viaje> BuscarMisViajesConductor(Usuario pUsuario)
         {
             return ViajeDao.Instancia.ConsultarMisViajes(pUsuario);
         }
@@ -205,8 +205,8 @@ namespace BusinessLayer
 
         public List<Viaje> BuscarViajesVigentesPasajero(Usuario pUsuario)
         {
-            var listSolicitudes = SolicitudDao.Instancia.ConsultarSolicitudesVigentes(pUsuario);
-            return listSolicitudes.Any() ? ViajeDao.Instancia.ConsultarDetalleViajes(listSolicitudes) : null;
+            var listSolicitudes = SolicitudDao.Instancia.ConsultarSolicitudesAprobadas(pUsuario);
+            return listSolicitudes != null ? ViajeDao.Instancia.ConsultarViajesFromSolicitudes(listSolicitudes) : null;
         } 
     }
 }
