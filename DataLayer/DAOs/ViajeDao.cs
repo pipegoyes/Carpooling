@@ -97,7 +97,7 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
-        public List<Viaje> ConsultarDetalleViajes(List<Solicitud> listSolicitudes )
+        public List<Viaje> ConsultarViajesFromSolicitudes(List<Solicitud> listSolicitudes )
         {
             EstablecerConexion();
             //return (from solicitude in listSolicitudes
@@ -115,7 +115,7 @@ namespace DataLayer.DAOs
                                           where t.ID_TRAYECTO == solicitude.IdTrayecto
                                           select t).First();
                 var viajeEncontrado = (from v in Conexion.VIAJE
-                                       where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE && v.ESTADO == (int)Viaje.ViajeEstado.Publicado
+                                       where v.ID_VIAJE == trayectoEncontrado.ID_VIAJE
                                        select v).FirstOrDefault();
                 if(viajeEncontrado != null)
                     listViajes.Add(ToBusinessEntity.Instancia.ToViaje(viajeEncontrado));

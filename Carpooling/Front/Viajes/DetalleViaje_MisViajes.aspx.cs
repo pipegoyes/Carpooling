@@ -107,7 +107,12 @@ namespace Carpooling.Front.Viajes
                 lblSinSolicitudes.Visible = false;
             }
             else
+            {
                 lblSinSolicitudes.Visible = true;
+                dataListSolicitudes.DataSource = null;
+                dataListSolicitudes.DataBind();
+            }
+                
 
 
             List<ItemTablaSolicitud> listaSolicitudesItem =
@@ -179,6 +184,7 @@ namespace Carpooling.Front.Viajes
                 Solicitud solicitudSeleccionada = BuscarSolicitud(idSolicitud);
                 if (AdministradorSolicitudes.Instancia.AceparSolicitud(ViajeDetalle, solicitudSeleccionada))
                 {
+                    ActualizarViajeDetalle();
                     PintarSolicitudes();
                     PintarDetalleViaje();
                     //upListTrayectos.Update();
@@ -263,5 +269,12 @@ namespace Carpooling.Front.Viajes
         }
 
         #endregion
+
+        private void ActualizarViajeDetalle()
+        {
+            string idViajeStr = Request.QueryString["idViajeDetalle"];
+            ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
+            Session["ViajeSeleccionado"] = ViajeDetalle;
+        }
     }
 }

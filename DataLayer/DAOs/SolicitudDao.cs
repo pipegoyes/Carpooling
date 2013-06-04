@@ -56,7 +56,7 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
-        public List<Solicitud> ConsultarSolicitudesVigentes(Usuario pasajero)
+        public List<Solicitud> ConsultarSolicitudesAprobadas(Usuario pasajero)
         {
             EstablecerConexion();
             var regSolicitudes = from n in Conexion.SOLICITUD
