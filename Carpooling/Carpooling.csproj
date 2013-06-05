@@ -83,9 +83,11 @@
     <Content Include="Front\Error.aspx" />
     <Content Include="Front\Viajes\DetalleViaje.aspx" />
     <Content Include="Front\Viajes\DetalleViaje_MisViajes.aspx" />
+    <Content Include="Front\Viajes\EditarViaje.aspx" />
     <Content Include="Front\Viajes\MisViajes.aspx" />
     <Content Include="Scripts\front-js\BuscarViaje.js" />
     <Content Include="Scripts\front-js\EditarPerfil.js" />
+    <Content Include="Scripts\front-js\EditarViaje.js" />
     <Content Include="Scripts\front-js\MisViajes.js" />
     <Content Include="Scripts\front-js\RegistroUsuario.js" />
     <Content Include="Scripts\front-js\SiteMaster.js" />
@@ -491,6 +493,13 @@
     </Compile>
     <Compile Include="Front\Viajes\DetalleViaje_MisViajes.aspx.designer.cs">
       <DependentUpon>DetalleViaje_MisViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\EditarViaje.aspx.cs">
+      <DependentUpon>EditarViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\EditarViaje.aspx.designer.cs">
+      <DependentUpon>EditarViaje.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Viajes\MisViajes.aspx.cs">
       <DependentUpon>MisViajes.aspx</DependentUpon>
