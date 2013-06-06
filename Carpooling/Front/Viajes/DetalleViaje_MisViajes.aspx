@@ -45,8 +45,8 @@
         </table>
         <div class="divClear"></div>
         <div id="divBotones" class="divBotones">
-            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button-gradient green" />
-            <asp:Button ID="Button1" runat="server" Text="Cancelar" CssClass="button-gradient blue" OnClick="BtnCancelarViaje"/>
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button-gradient green" OnClick="BtnEditarClick"/>
+            <asp:Button ID="btnCancelarViaje" runat="server" Text="Cancelar" CssClass="button-gradient blue" OnClick="BtnCancelarViaje"/>
         </div>
         <div class="divClear"></div>
         <div>
