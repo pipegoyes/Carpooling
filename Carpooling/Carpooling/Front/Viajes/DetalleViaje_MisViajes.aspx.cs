@@ -214,6 +214,13 @@ namespace Carpooling.Front.Viajes
             }
         }
 
+        protected void BtnEditarClick(object sender, EventArgs e)
+        {
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            Response.Redirect("../Viajes/EditarViaje.aspx?id=" + ViajeDetalle.IdViaje);
+            
+        }
+
         protected void BtnCancelarPopUpResponder(object sender, EventArgs e)
         {
             mpeResponder.Hide();
