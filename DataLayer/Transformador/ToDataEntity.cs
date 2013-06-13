@@ -123,7 +123,7 @@ namespace DataLayer.Transformador
                     CUPOS = pTrayecto.CuposDisponibles,
                     ID_TRAYECTO = pTrayecto.IdTrayecto,
                     ID_VIAJE = pTrayecto.IdViaje,
-                    SOLICITUD = pTrayecto.ListaSolicitudes.Select(ToSolicitud).ToList(),
+                    SOLICITUD = (pTrayecto.ListaSolicitudes != null)?pTrayecto.ListaSolicitudes.Select(ToSolicitud).ToList(): null,
                     PARADA = ToParadas(listParadas)
                 };
         }

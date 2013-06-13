@@ -35,6 +35,32 @@ namespace DataLayer.DAOs
             return viajeInsertar.ID_VIAJE;
         }
 
+        public bool ActualizarViaje(Viaje pViaje)
+        {
+            EstablecerConexion();
+
+            var viajeEditableDb = from v in Conexion.VIAJE
+                                  where v.ID_VIAJE == pViaje.IdViaje
+                                  select v;
+            if(viajeEditableDb.Any())
+            {
+                var viajeEncontrado = (VIAJE) viajeEditableDb.First();
+                var listaTrayectos = new List<TRAYECTO>();
+                foreach (var trayecto in pViaje.TrayectosViaje)
+                {
+                    var trayectoDb = ToDataEntity.Instancia.ToTrayecto(trayecto);
+                    listaTrayectos.Add(trayectoDb);
+                }
+                viajeEncontrado.TRAYECTO.Clear();
+                viajeEncontrado.TRAYECTO = listaTrayectos;
+                //viajeEncontrado.TRAYECTO = pViaje.TrayectosViaje.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)).ToList();
+                viajeEncontrado.FECHA_HORA_PARTIDA = pViaje.FechaHoraPartida;
+                viajeEncontrado.APORTE_ECONOMICO = pViaje.AporteEconomico;                
+                return ConfirmarCambios();    
+            }
+            return false;
+        }
+
         public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino,
                                                         DateTime? fechaRealizacion)
         {

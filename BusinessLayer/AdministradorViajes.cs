@@ -37,7 +37,6 @@ namespace BusinessLayer
             listParadas.Add(viajeActual.Destination);
             DateTime tmp = DateTime.ParseExact(viajeActual.FechaPartida,"MM/dd/yyyy",null);
                 
-            //TODO Pendiente el Enum para los estados del viaje
             var viajeNuevo = new Viaje
                                  {
                                      FechaCreacion = DateTime.Now,
@@ -50,6 +49,27 @@ namespace BusinessLayer
 
             //TODO valiadaciones antes de guardar
             return ViajeDao.Instancia.GuardarViaje(viajeNuevo);
+        }
+
+        public bool GuardarCambios(ViajeJSON viajeActual, Usuario conductor, string idViajeEditable)
+        {
+            var listParadas = new List<Parada> { viajeActual.Origin };
+            listParadas.AddRange(viajeActual.Waypoints);
+            listParadas.Add(viajeActual.Destination);
+            DateTime tmp = DateTime.ParseExact(viajeActual.FechaPartida, "MM/dd/yyyy", null);
+
+            var viajeNuevo = new Viaje
+            {
+                IdViaje = Convert.ToInt32(idViajeEditable),
+                FechaCreacion = DateTime.Now,
+                AporteEconomico = viajeActual.Tarifa,
+                Conductor = conductor,
+                Estado = Viaje.ViajeEstado.Publicado,
+                TrayectosViaje = CrearListadoTrayectos(listParadas, viajeActual.Cupos),
+                FechaHoraPartida = Convert.ToDateTime(tmp.ToShortDateString() + " " + viajeActual.HoraPartida)
+            };
+
+            return ViajeDao.Instancia.ActualizarViaje(viajeNuevo);
         }
 
         public static List<Trayecto> CrearListadoTrayectos(List<Parada> listParadas, int cuposDisponibles)

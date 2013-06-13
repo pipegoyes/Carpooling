@@ -121,21 +121,30 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.TextBox txbCupos;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
-        /// btnPublicar control.
+        /// btnGuardarCambios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPublicar;
+        protected global::System.Web.UI.WebControls.Button btnGuardarCambios;
+        
+        /// <summary>
+        /// hfIdViajeEditable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIdViajeEditable;
     }
 }
