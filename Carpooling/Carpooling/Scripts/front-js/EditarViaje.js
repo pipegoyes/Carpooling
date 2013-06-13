@@ -87,7 +87,7 @@ function CrearComponentes() {
 //Todas las funciones que tienen relacion con el API de google Maps
 
 
-function publicarViaje() {
+function guardarCambiosViaje() {
     var clientValidate = window.Page_ClientValidate('grupoPaso2');
     if (clientValidate) {
         var jsonViaje = {};
@@ -113,7 +113,7 @@ function publicarViaje() {
 
         $.ajax({
             type: "POST",
-            url: "PublicarViaje.aspx/PublicarViajeAsynch",
+            url: "EditarViaje.aspx/GuardarCambiosAsynch",
             data: JSON.stringify({ viajeJson: jsonViaje }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -133,7 +133,7 @@ function publicarViaje() {
                     buttons: {
                         Ok: function () {
                             $(this).dialog("close");
-                            window.location = "/Front/Bienvenida.aspx";
+//                            window.location = "/Front/Bienvenida.aspx";
                         }
                     }
                 });

@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLayer;
+using Entities.Aplicacion;
 using Entities.Negocio;
 
 namespace Carpooling.Front.Viajes
 {
     public partial class EditarViaje : System.Web.UI.Page
     {
+        public static Usuario UsuarioCreador { get; set; }
+
+        public static string IdViajeEditable { get; set;}
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
+                UsuarioCreador = (Usuario) Session["usuario"];
                 string idViajeStr = Request.QueryString["id"];
+                IdViajeEditable = idViajeStr;
                 var idViaje = long.Parse(idViajeStr);
                 var viajeEditable = AdministradorViajes.Instancia.VerDetalleViaje(idViaje);
                 Session["viajeEditable"] = viajeEditable;
@@ -38,16 +46,28 @@ namespace Carpooling.Front.Viajes
 
         private void CrearParadasViaje(Viaje viajeEditable)
         {
-            string script = null;
-            foreach (var parada in viajeEditable.GetParadasSinOrigenDestino())
-            {
-                script += "CrearParadaConCiudad('" + parada.Direccion + "'); ";
-                //ScriptManager.RegisterStartupScript(Page, GetType(), "JsStatus", "CrearParadaConCiudad('" + parada.Direccion + "');", true);    
-            }
-            //script += "GenerarRuta();";
+            var script = viajeEditable.GetParadasSinOrigenDestino().Aggregate<Parada, string>(null, (current, parada) => current + ("CrearParadaConCiudad('" + parada.Direccion + "'); "));
+            //foreach (var parada in viajeEditable.GetParadasSinOrigenDestino())
+            //    script += "CrearParadaConCiudad('" + parada.Direccion + "'); ";
             ScriptManager.RegisterStartupScript(Page, GetType(), "JsStatus", script, true);
-            //ScriptManager.RegisterStartupScript(Page, GetType(), "JsStatus", "GenerarRuta();", true);
             
+        }
+
+        [WebMethod]
+        public static string GuardarCambiosAsynch(ViajeJSON viajeJson)
+        {
+            try
+            {
+                if (UsuarioCreador != null)
+                {
+                    AdministradorViajes.Instancia.GuardarCambios(viajeJson, UsuarioCreador, IdViajeEditable);
+                }
+                throw new Exception("Su sesion ha caducado por favor intente de nuevo.");
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error del sistema por favor re-intente mas tarde.");
+            }
         }
     }
 }

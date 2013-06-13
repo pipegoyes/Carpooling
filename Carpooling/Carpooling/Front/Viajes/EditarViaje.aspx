@@ -113,17 +113,13 @@
             </p>
         </div>
 
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
-                <div class="botonesBox">
-                    <input id="btnAtras" type="button" value="Atras" />
-                    <asp:Button runat="server" ClientID="btnPublicar" Text="Publicar" OnClientClick=" publicarViaje(); " ID="btnPublicar"/>
-                </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+        <div class="botonesBox">
+            <asp:Button runat="server" ID="btnCancelar" CssClass="button-gradient blue" Text="Cancelar"  />
+            <asp:Button runat="server" ClientID="btnPublicar" Text="GuardarCambios" OnClientClick=" guardarCambiosViaje(); " ID="btnGuardarCambios"/>
+        </div>
             
         <div class="divClear"></div>
             
     </div>
-
+    <asp:HiddenField runat="server" ID="hfIdViajeEditable"/>
 </asp:Content>

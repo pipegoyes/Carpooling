@@ -38,7 +38,7 @@ namespace Carpooling.Front.Viajes
             
         }
 
-        protected void btnVerDetalle_Click(object sneder, DataListCommandEventArgs e)
+        protected void BtnVerDetalle_Click(object sneder, DataListCommandEventArgs e)
         {
             if(e.CommandName.ToLower().Equals("verdetalle"))
             {

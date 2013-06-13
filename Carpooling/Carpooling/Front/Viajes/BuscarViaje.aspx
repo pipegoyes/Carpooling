@@ -69,7 +69,7 @@
     <div class="divRelleno"></div>
     <div>
         <asp:DataList runat="server" ID="dataListItemsViajesEncontrados" 
-            ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="btnVerDetalle_Click" >
+            ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerDetalle_Click" >
             <AlternatingItemStyle BackColor="White" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
