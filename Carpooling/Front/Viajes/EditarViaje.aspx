@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"> </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"> </script>
-    <script src="../../Scripts/front-js/EditarViaje.js" type="text/javascript"></script>
+    <script src="../../Scripts/front-js/EditarViaje.js" type="text/javascript"> </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
@@ -14,33 +14,26 @@
     <div id="divPaso1">
         <div class="titulo">Paso 1. Crear ruta de viaje</div>
         <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
-        <div>
-            <div>
-                <div class="leftPosition centerDivs elementoPaso1">
-                    <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-                    <div><asp:TextBox ID="txbCiudadOrigen" runat="server" CausesValidation="False"></asp:TextBox></div>
-                </div>
-                <div class="leftPosition centerDivs elementoPaso1">
-                    <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-                    <div><asp:TextBox ID="txbCiudadDestino" runat="server" CausesValidation="False" ></asp:TextBox></div>
-                </div>
-                <div class="divClear"></div>
-            </div>
-            <div class="leftPosition centerDivs elementoPaso1" onclick=" CrearParada() ">Agregar parada</div>
-            <div class="divMediaLinea"></div>
+        <div id="divContenedorCiudades" class="leftPosition">
+            <div class="subtitulo textLeft">Ruta de viaje</div>
+            <div class="labelCiudad">Origen</div>
+            <asp:TextBox ID="txbCiudadOrigen" runat="server" CausesValidation="False" ></asp:TextBox>
+
+            <div class="labelCiudad">Destino</div>
+            <asp:TextBox ID="txbCiudadDestino" runat="server" CausesValidation="False" ></asp:TextBox>
+            <div class="leftPosition dviRefresh" onclick=" GenerarRuta(); "></div>
+            <div id="btnAgregarParada" onclick=" CrearParada(); " class="button-gradient blue rightPosition">Agregar parada</div>
+            
             <div class="divClear"></div>
                         
             <div id="contenedorParadas">
                 <%--aqui van las paradas--%>
             </div>
-
-            <div id="contenedorMapa">Mapa</div>
-            
-            <div class="botonesBox">
-                <input id="btnSiguientePaso" class="rightPosition" type="button" value="Siguiente"/>
-            </div>
         </div>
-    </div>                
+        <div id="contenedorMapa" class="leftPosition">Mapa</div>
+        <div class="divClear"></div>
+        <div id="btnSiguientePaso" ClientID="btnSiguientePaso" class="button-gradient green rightPosition" >Siguiente</div>
+    </div>             
 
     <div id="divPaso2">
         <div class="titulo">Paso 2. Datos del viaje</div>
@@ -55,7 +48,7 @@
         </div>
     
         <div class="subtitulo">Informacion basica</div>
-        <div>
+        <div id="divFecha">
             <div class="labelInformacionBasica leftPosition ">Fecha de partida*</div>
             <div class="txbInformacionBasica leftPosition ">
                 <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>
@@ -112,11 +105,15 @@
                 Tu viaje ya ha sido publicado, ahora ya eres parte de la comunidad de CarpoolingCo !
             </p>
         </div>
-
-        <div class="botonesBox">
-            <asp:Button runat="server" ID="btnCancelar" CssClass="button-gradient blue" Text="Cancelar"  />
-            <asp:Button runat="server" ClientID="btnPublicar" Text="GuardarCambios" OnClientClick=" guardarCambiosViaje(); " ID="btnGuardarCambios"/>
-        </div>
+        <asp:UpdatePanel runat="server" ID="upBotonGuardar" UpdateMode="Conditional">
+            <ContentTemplate>
+                <div id="btnAtras" class="button-gradient green leftPosition">Atras</div>
+                <asp:Button runat="server" ID="btnCancelar" CssClass="button-gradient blue rightPosition btnCancelar" Text="Cancelar" OnClick="BtnCancelarClick"  />
+                <asp:Button runat="server" Text="GuardarCambios" OnClientClick=" guardarCambiosViaje(); " CssClass="button-gradient green rightPosition" ID="btnGuardarCambios"/>
+                 
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
             
         <div class="divClear"></div>
             

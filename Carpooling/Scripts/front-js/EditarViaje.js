@@ -43,17 +43,11 @@ $(document).ready(function () {
 //#region Componentes JQuery
 function CrearComponentes() {
 
-    //----Botones
-    $('#btnSiguientePaso').button();
-    $('#btnAtras').button();
-    $("[ClientID='btnPublicar']").button();
-
     //------Tarifa
     $("[id*=txbTarifa]").wijinputnumber({
         showSpinner: true,
         type: 'currency',
         decimalPlaces: 0,
-        value: 10000,
         minValue: 10000,
         maxValue: 1000000,
         increment: 500,
@@ -76,7 +70,6 @@ function CrearComponentes() {
         minValue: 1,
         maxValue: 40,
         increment: 1,
-        value: 1,
         showSpinner: true,
         decimalPlaces: 0
     });
@@ -108,8 +101,6 @@ function guardarCambiosViaje() {
         jsonViaje.fechaPartida = $("[id*=txbFechaPartida]").val();
         jsonViaje.horaPartida = $("[id*=txbHora]").val();
 
-        //TEmporal
-        //        window.ViajeEnCreacion = jsonViaje;
 
         $.ajax({
             type: "POST",
@@ -128,15 +119,22 @@ function guardarCambiosViaje() {
             async: false,
             success: function (result) {
                 //---Mensjae exitoso
-                $("#dialog-message").dialog({
-                    modal: true,
-                    buttons: {
-                        Ok: function () {
-                            $(this).dialog("close");
-//                            window.location = "/Front/Bienvenida.aspx";
+                if (result != 0) {
+                    $("#dialog-message").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                                window.location = "/Front/Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + result.d;
+                            }
                         }
-                    }
-                });
+                    });
+                } else if (result == -1) {
+                    alert("Un error ha ocurrido en la aplicación, por favor intente mas tarde.");
+                } else if (result == 0) {
+                    alert("Su sesión ha terminado por favor ingrese nuevamente a la aplicación.");
+                }
+
             }
 
         });

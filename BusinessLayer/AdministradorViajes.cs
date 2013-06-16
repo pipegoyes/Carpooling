@@ -51,7 +51,7 @@ namespace BusinessLayer
             return ViajeDao.Instancia.GuardarViaje(viajeNuevo);
         }
 
-        public bool GuardarCambios(ViajeJSON viajeActual, Usuario conductor, string idViajeEditable)
+        public long GuardarCambios(ViajeJSON viajeActual, Usuario conductor, string idViajeEditable)
         {
             var listParadas = new List<Parada> { viajeActual.Origin };
             listParadas.AddRange(viajeActual.Waypoints);
@@ -68,8 +68,11 @@ namespace BusinessLayer
                 TrayectosViaje = CrearListadoTrayectos(listParadas, viajeActual.Cupos),
                 FechaHoraPartida = Convert.ToDateTime(tmp.ToShortDateString() + " " + viajeActual.HoraPartida)
             };
-
-            return ViajeDao.Instancia.ActualizarViaje(viajeNuevo);
+            var context = ViajeDao.Instancia.EstablecerConexion();
+            var result = ViajeDao.Instancia.ActualizarViaje(viajeNuevo, context);
+            if(result!=0)
+                return result;
+            return 0;
         }
 
         public static List<Trayecto> CrearListadoTrayectos(List<Parada> listParadas, int cuposDisponibles)

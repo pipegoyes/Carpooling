@@ -33,5 +33,17 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
+        public void BorrarTrayecto(List<TRAYECTO> listTrayectos, CARPOOLEntities pCarpoolConexion, bool guardarCambios)
+        {
+            foreach (var trayecto in listTrayectos)
+            {
+                ParadaDao.Instancia.BorrarParada(trayecto.PARADA.ToList(), pCarpoolConexion, false);
+                pCarpoolConexion.TRAYECTO.Remove(trayecto);    
+            }
+            if (guardarCambios)
+                ConfirmarCambios(pCarpoolConexion);
+
+        }
+
     }
 }

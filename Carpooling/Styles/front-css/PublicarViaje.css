@@ -20,6 +20,10 @@
 .elementoPaso1{
 	width: 50%;
 }
+.labelCiudad {
+    font-size: 13px;
+    padding: 2px;
+}
 .labelInformacionBasica{
 	width: 40%;
 	text-align: right;
@@ -36,21 +40,24 @@
 .invalidValue{
 	background-color: lemonchiffon;
 }
-
 .btnEliminar{
 	background-image: url(../Resources/deleteIcon.png);
 	width: 21px;
 	height: 20px;
 }
+#divContenedorCiudades {
+    padding-right: 10px;
+    width: 250px;
+}
 #contenedorMapa{
-	height: 400px;
-	width: 100%;
+	width: 700px;
+	height: 380px;
 }
 #divPaso1{
 	display: block;
 }
 #divPaso2{
-	display: block;
+	display: none;
 }
 #divPublicacionExitosa{
 	display: none;
@@ -58,6 +65,29 @@
 #comboBoxHora,#comboBoxMinutos{
 	width: 20px;
 }
-#divCupos, #divTarifa,#divHora{
+#divCupos, #divTarifa, #divHora{
 	padding-top: 10px;
+}
+#btnAgregarParada {
+    width: 80px !important;
+    margin-top: 10px;
+}
+
+.dviRefresh {
+    background-image: url(../../Styles/images/refresh.png);
+    cursor: pointer;
+    width: 26px;
+    height: 28px;
+    display: block;
+    margin-top: 10px;
+}
+#divInfoPaso2 * {
+    font-size: 13px;
+    padding: 3px;
+}
+#divFecha input[type="text"] {
+    width: 120px !important;
+}
+.btnCancelar {
+    margin-left: 10px !important;
 }

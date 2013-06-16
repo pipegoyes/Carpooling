@@ -14,7 +14,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
-    <section class="featured">
+    <%--<section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
                 <h1>Comparte tus viajes.</h1>
@@ -23,7 +23,7 @@
                 <h2>Ahora puedes empezar a publicar tus viajes y ser parte de la comunidad CarpoolingCo</h2>
             </p>
         </div>
-    </section>
+    </section>--%>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -31,37 +31,29 @@
     <div id="divPaso1">
         <div class="titulo">Paso 1. Crear ruta de viaje</div>
         <div class="text">Seleccione las ciudades de origen, destino y paradas (si aplica)</div>
-        <div>
-            <div>
-                <div class="leftPosition centerDivs elementoPaso1">
-                    <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-                    <div><asp:TextBox ID="txbCiudadOrigen" runat="server" CausesValidation="False"></asp:TextBox></div>
-                </div>
-                <div class="leftPosition centerDivs elementoPaso1">
-                    <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-                    <div><asp:TextBox ID="txbCiudadDestino" runat="server" CausesValidation="False" ></asp:TextBox></div>
-                </div>
-                <div class="divClear"></div>
-            </div>
-            <div class="leftPosition centerDivs elementoPaso1" onclick=" CrearParada() ">Agregar parada</div>
-            <div class="divMediaLinea"></div>
+        <div id="divContenedorCiudades" class="leftPosition">
+            <div class="subtitulo textLeft">Ruta de viaje</div>
+            <div class="labelCiudad">Origen</div>
+            <asp:TextBox ID="txbCiudadOrigen" runat="server" CausesValidation="False" ></asp:TextBox>
+
+            <div class="labelCiudad">Destino</div>
+            <asp:TextBox ID="txbCiudadDestino" runat="server" CausesValidation="False" ></asp:TextBox>
+            <div class="leftPosition dviRefresh" onclick="GenerarRuta();"></div>
+            <div id="btnAgregarParada" onclick="CrearParada();" class="button-gradient blue rightPosition">Agregar parada</div>
+            
             <div class="divClear"></div>
                         
             <div id="contenedorParadas">
                 <%--aqui van las paradas--%>
             </div>
-
-            <div id="contenedorMapa">Mapa</div>
-            
-            <div class="botonesBox">
-                <input id="btnSiguientePaso" class="rightPosition" type="button" value="Siguiente"/>
-            </div>
         </div>
+        <div id="contenedorMapa" class="leftPosition">Mapa</div>
+        <div class="divClear"></div>
+        <div id="btnSiguientePaso" ClientID="btnSiguientePaso" class="button-gradient green rightPosition" >Siguiente</div>
     </div>
                         
 
     <div id="divPaso2">
-        <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
 
         <div class="titulo">Paso 2. Datos del viaje</div>
         <div class="text">Configura todos los datos de tu viaje</div>
@@ -79,7 +71,7 @@
         <div class="subtitulo">Informacion basica</div>
             
             
-        <div>
+        <div id="divFecha">
             <div class="labelInformacionBasica leftPosition ">Fecha de partida*</div>
             <div class="txbInformacionBasica leftPosition ">
                 <asp:TextBox ID="txbFechaPartida" runat="server"></asp:TextBox>
@@ -139,10 +131,8 @@
 
         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-                <div class="botonesBox">
-                    <input id="btnAtras" type="button" value="Atras" />
-                    <asp:Button runat="server" ClientID="btnPublicar" Text="Publicar" OnClientClick=" publicarViaje(); " ID="btnPublicar"/>
-                </div>
+                <div id="btnAtras" class="button-gradient green leftPosition">Atras</div>
+                <asp:Button runat="server" ClientID="btnPublicar" Text="Publicar" CssClass="button-gradient green rightPosition" OnClientClick=" publicarViaje(); " ID="btnPublicar"/>
             </ContentTemplate>
         </asp:UpdatePanel>
             

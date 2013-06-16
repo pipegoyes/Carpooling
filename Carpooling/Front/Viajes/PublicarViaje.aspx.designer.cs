@@ -13,15 +13,6 @@ namespace Carpooling.Front.Viajes {
     public partial class PublicarViaje {
         
         /// <summary>
-        /// lblCiudadOrigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadOrigen;
-        
-        /// <summary>
         /// txbCiudadOrigen control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbCiudadOrigen;
-        
-        /// <summary>
-        /// lblCiudadDestino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadDestino;
         
         /// <summary>
         /// txbCiudadDestino control.
