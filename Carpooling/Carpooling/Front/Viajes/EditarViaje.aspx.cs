@@ -32,6 +32,12 @@ namespace Carpooling.Front.Viajes
             }
         }
 
+        protected void BtnCancelarClick(object sender, EventArgs e)
+        {
+            string idViajeStr = Request.QueryString["id"];
+            Response.Redirect("../Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + idViajeStr);
+        }
+
         private void Paso2Viaje(Viaje viajeEditable)
         {
             txbCiudadOrigen.Text = viajeEditable.GetCiudadOrigen().Direccion;
@@ -40,33 +46,34 @@ namespace Carpooling.Front.Viajes
             txbCupos.Text = "0";
             txbFechaPartida.Text = viajeEditable.FechaHoraPartida.ToString("MM/dd/yyyy");
             txbHora.Text = viajeEditable.FechaHoraPartida.ToString("hh:mm tt").Replace(".","");
-            txbTarifa.Text = viajeEditable.AporteEconomico.ToString();
-            
+            txbTarifa.Text = Convert.ToInt32(viajeEditable.AporteEconomico).ToString();
+            txbCupos.Text = viajeEditable.TrayectosViaje.First().CuposDisponibles.ToString();
         }
 
         private void CrearParadasViaje(Viaje viajeEditable)
         {
             var script = viajeEditable.GetParadasSinOrigenDestino().Aggregate<Parada, string>(null, (current, parada) => current + ("CrearParadaConCiudad('" + parada.Direccion + "'); "));
-            //foreach (var parada in viajeEditable.GetParadasSinOrigenDestino())
-            //    script += "CrearParadaConCiudad('" + parada.Direccion + "'); ";
             ScriptManager.RegisterStartupScript(Page, GetType(), "JsStatus", script, true);
             
         }
 
         [WebMethod]
-        public static string GuardarCambiosAsynch(ViajeJSON viajeJson)
+        public static long GuardarCambiosAsynch(ViajeJSON viajeJson)
         {
             try
             {
                 if (UsuarioCreador != null)
                 {
-                    AdministradorViajes.Instancia.GuardarCambios(viajeJson, UsuarioCreador, IdViajeEditable);
+                    var resultId = AdministradorViajes.Instancia.GuardarCambios(viajeJson, UsuarioCreador,
+                                                                                IdViajeEditable);
+                    if (resultId != 0)
+                        return resultId;
                 }
-                throw new Exception("Su sesion ha caducado por favor intente de nuevo.");
+                return 0;
             }
             catch (Exception exception)
             {
-                throw new Exception("Error del sistema por favor re-intente mas tarde.");
+                return -1;
             }
         }
     }

@@ -133,6 +133,7 @@
     <Content Include="Styles\images\heroAccent.png" />
     <Content Include="Styles\images\imgFotoPerfilHombre.jpg" />
     <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
+    <Content Include="Styles\images\refresh.png" />
     <Content Include="Styles\images\uploading.gif" />
     <Content Include="Styles\images\vehiculo.png" />
     <Content Include="Styles\images\warning.gif" />

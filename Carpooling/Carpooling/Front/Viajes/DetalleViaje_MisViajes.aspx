@@ -23,6 +23,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
     <uc:PopUpConfirmation ID="popUpConfirmacionSolicitud" runat="server" OnOnClickAceptar="AceptarPopUpSolicitud" />
     <uc:PopUpConfirmation ID="popUpConfirmacionCancelacion" runat="server" OnOnClickAceptar="AceptarPopUpCancelacionRealizada"/>
+    <uc:PopUpConfirmation ID="popUpEdicionInvalidad" runat="server" OnOnClickAceptar="AceptarEdicionInvalida"/>
         
     <div id="divLeftSection">
         <table cellpadding="2px" cellspacing="0">

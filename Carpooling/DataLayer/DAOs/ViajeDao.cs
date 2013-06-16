@@ -35,30 +35,29 @@ namespace DataLayer.DAOs
             return viajeInsertar.ID_VIAJE;
         }
 
-        public bool ActualizarViaje(Viaje pViaje)
+        public long ActualizarViaje(Viaje pViaje, CARPOOLEntities pContext)
         {
-            EstablecerConexion();
-
-            var viajeEditableDb = from v in Conexion.VIAJE
+            var viajeEditableDb = from v in pContext.VIAJE
                                   where v.ID_VIAJE == pViaje.IdViaje
                                   select v;
             if(viajeEditableDb.Any())
             {
                 var viajeEncontrado = (VIAJE) viajeEditableDb.First();
-                var listaTrayectos = new List<TRAYECTO>();
+                viajeEncontrado.FECHA_HORA_PARTIDA = pViaje.FechaHoraPartida;
+                viajeEncontrado.APORTE_ECONOMICO = pViaje.AporteEconomico;
+
+                TrayectoDao.Instancia.BorrarTrayecto(viajeEncontrado.TRAYECTO.ToList(), pContext, false);
+
                 foreach (var trayecto in pViaje.TrayectosViaje)
                 {
                     var trayectoDb = ToDataEntity.Instancia.ToTrayecto(trayecto);
-                    listaTrayectos.Add(trayectoDb);
+                    viajeEncontrado.TRAYECTO.Add(trayectoDb);
                 }
-                viajeEncontrado.TRAYECTO.Clear();
-                viajeEncontrado.TRAYECTO = listaTrayectos;
-                //viajeEncontrado.TRAYECTO = pViaje.TrayectosViaje.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)).ToList();
-                viajeEncontrado.FECHA_HORA_PARTIDA = pViaje.FechaHoraPartida;
-                viajeEncontrado.APORTE_ECONOMICO = pViaje.AporteEconomico;                
-                return ConfirmarCambios();    
+
+                if (ConfirmarCambios(pContext) > 0)
+                    return viajeEncontrado.ID_VIAJE;
             }
-            return false;
+            return 0;
         }
 
         public List<ItemTablaViaje> ConsultarListaViaje(string ciudadOrigen, string ciudadDestino,

@@ -217,7 +217,16 @@ namespace Carpooling.Front.Viajes
         protected void BtnEditarClick(object sender, EventArgs e)
         {
             if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
-            Response.Redirect("../Viajes/EditarViaje.aspx?id=" + ViajeDetalle.IdViaje);
+            
+            if(ViajeDetalle.GetPasajeros().Count > 0)
+            {
+                popUpEdicionInvalidad.TituloPopUp = "Edición invalida";
+                popUpEdicionInvalidad.MensajePrincipal =
+                    "No es posible editar un viaje cuando ya existen pasajeros en el.";
+                popUpEdicionInvalidad.MostrarPopUp();
+            }
+            else
+                Response.Redirect("../Viajes/EditarViaje.aspx?id=" + ViajeDetalle.IdViaje);            
             
         }
 
@@ -262,6 +271,11 @@ namespace Carpooling.Front.Viajes
                 popUpConfirmacionCancelacion.TituloPopUp = "Transaccion fallida";
             }
             popUpConfirmacionCancelacion.MostrarPopUp();
+        }
+
+        protected void AceptarEdicionInvalida(object sender, EventArgs e)
+        {
+            popUpEdicionInvalidad.CerrarPopUp();
         }
 
         //Esta funcion solo redirecciona despues de cancelar el viaje

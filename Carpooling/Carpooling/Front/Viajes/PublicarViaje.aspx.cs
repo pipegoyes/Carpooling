@@ -19,23 +19,20 @@ namespace Carpooling.Front.Viajes
         }
 
         [WebMethod]
-        public static string PublicarViajeAsynch(ViajeJSON viajeJson)
+        public static long PublicarViajeAsynch(ViajeJSON viajeJson)
         {
             try
             {
                 if (UsuarioCreador != null)
                 {
-                    long idViaje = AdministradorViajes.Instancia.PublicarViaje(viajeJson, UsuarioCreador);
-                    return idViaje.ToString();
+                    var idViaje = AdministradorViajes.Instancia.PublicarViaje(viajeJson, UsuarioCreador);
+                    return idViaje;
                 }
-                else
-                    //TODO Podria ser redireccionado a la pagina de registrarse
-                    return "Debe ingresar a su cuenta para publicar viajes";
+                return 0;
             }
             catch (Exception exception)
             {
-                //TODO revisar como mostrar esto en pantalla
-                return "Error del sistema - " + exception.Message;
+                return -1;
             }
         }
 

@@ -43,10 +43,6 @@ $(document).ready(function () {
 //#region Componentes JQuery
 function CrearComponentes() {
 
-    //----Botones
-    $('#btnSiguientePaso').button();
-    $('#btnAtras').button();
-    $("[ClientID='btnPublicar']").button();
 
     //------Tarifa
     $("[id*=txbTarifa]").wijinputnumber({
@@ -128,15 +124,22 @@ function publicarViaje() {
             async: false,
             success: function (result) {
                 //---Mensjae exitoso
-                $("#dialog-message").dialog({
-                    modal: true,
-                    buttons: {
-                        Ok: function () {
-                            $(this).dialog("close");
-                            window.location = "/Front/Bienvenida.aspx";
+                if (result == 0) {
+                    alert("Su sesion ha caducado, por favor inicie sesion de nuevo.");
+                    window.location = "/Front/Bienvenida.aspx";
+                } else if (result == -1) {
+                    alert("Ha ocurrido un error en la aplicacion.");
+                } else {
+                    $("#dialog-message").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                                window.location = "/Front/Bienvenida.aspx";
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
 
         });
@@ -164,14 +167,12 @@ function llenarInfoPaso2() {
 }
 
 function CrearParada() {
-    var divContenedor = $("[id*=contenedorParadas]").first();
+//    var divContenedor = $("[id*=contenedorParadas]").first();
     var i = document.getElementById("contenedorParadas").childNodes.length;
     var paradaNombre = "txbParada" + i;
     $("<div />", { "class": "parada", id: "divParada" + i })
-        .append($("<span />", { "class":"labelParada",ID: "label" + i }).text ="Parada"+i)
+        .append($("<span />", { "class": "labelCiudad", ID: "label" + i }).text = "Parada " + i)
         .append($("<input />", { type: "text", id: paradaNombre }))
-    //TODO pendiente por el boton de eliminar parada
-//        .append($("<div />", { "class": "btnEliminar", id: "btnEliminar" + i }))
         .appendTo("#contenedorParadas");
     autocompletar(paradaNombre);
 }
