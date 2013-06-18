@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("[id*=calendarFechaViaje]").datepicker();
-    $("[ClientID=btnBuscar]").button();
+//    $("[ClientID=btnBuscar]").button();
 
     var txtCiudadOrigen = document.getElementById("MainContent_txbCiudadOrigen"); //$("[id*=txbCiudadOrigen]").getElement();
     var txtCiudadDestino = document.getElementById("MainContent_txbCiudadDestino"); // $("[id*=txbCiudadDestino]").getElement();

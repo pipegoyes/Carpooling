@@ -69,7 +69,7 @@ namespace BusinessLayer
                 FechaHoraPartida = Convert.ToDateTime(tmp.ToShortDateString() + " " + viajeActual.HoraPartida)
             };
             var context = ViajeDao.Instancia.EstablecerConexion();
-            var result = ViajeDao.Instancia.ActualizarViaje(viajeNuevo, context);
+            var result = ViajeDao.Instancia.ActualizarParametrosViaje(viajeNuevo, context);
             if(result!=0)
                 return result;
             return 0;

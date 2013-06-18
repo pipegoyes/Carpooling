@@ -66,5 +66,10 @@ namespace DataLayer.DAOs
                                  select n;
             return regSolicitudes.Any() ? ToBusinessEntity.Instancia.ToSolicitudes(regSolicitudes.ToList()) : null;
         } 
+
+        public void EliminarSolicitud(SOLICITUD pSolicitud, CARPOOLEntities pConexion)
+        {
+            pConexion.SOLICITUD.Remove(pSolicitud);
+        }
     }
 }

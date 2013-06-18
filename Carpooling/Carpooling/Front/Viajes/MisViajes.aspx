@@ -51,7 +51,7 @@
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div>
-                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalleVigente" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalleConductor" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>
@@ -91,7 +91,7 @@
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
                 <div>
-                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetalleVigente" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
+                    <asp:LinkButton ID="btnVerSolicitud" runat="server" Text="Ver Detalle" CommandName="VerDetallePasajero" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>

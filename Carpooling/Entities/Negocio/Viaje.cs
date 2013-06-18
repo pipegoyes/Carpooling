@@ -112,5 +112,13 @@ namespace Entities.Negocio
                 listSolicitudesAprobadas.AddRange(trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada));
             return listSolicitudesAprobadas.Select(s => s.CreadorSolicitud).ToList();
         } 
+
+        public Solicitud GetSolicitudParticipante(Usuario usuario)
+        {
+            var listSolicitudesAprobadas = new List<Solicitud>();
+            foreach (var trayecto in TrayectosViaje)
+                listSolicitudesAprobadas.AddRange(trayecto.ListaSolicitudes.FindAll(s => s.Estado == Solicitud.SolicitudEstado.Aprobada));
+            return listSolicitudesAprobadas.Find(p=> p.CreadorSolicitud.IdUsuario == usuario.IdUsuario);
+        }
     }
 }
