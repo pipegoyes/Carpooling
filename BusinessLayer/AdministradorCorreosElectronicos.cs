@@ -190,5 +190,22 @@ namespace BusinessLayer
             mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
             EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
         }
+
+        public void CorreoParticipacionCancelada(Viaje pvViaje, Solicitud pSolicitud)
+        {
+            //inicializa los parametros de envio del correo
+            var destinatarios = new List<string> { pvViaje.Conductor.Email };
+
+            string asunto = "CarpoolingCo - Participacion cancelada";
+
+            string mensaje = "El participante: " + pSolicitud.CreadorSolicitud.ObtenerNombreApellidos() +
+                             " ha decidido cancelar la participación en uno de tus viajes, desde la ciudad de: " +
+                             pvViaje.GetCiudadOrigen().Direccion +
+                             " hasta la ciudad de: " + pvViaje.GetCiudadDestino().Direccion;
+
+            mensaje += "<br/> Puedes ver mas informacion con relacion al viaje dentro del listado de tus viajes.";
+            mensaje += "<br/><br/>Gracias por hacer parte de CarpoolingCo.";
+            EnviarCorreoPlano(CuentaEmailAdministrador, destinatarios, null, null, asunto, mensaje, true);
+        }
     }
 }

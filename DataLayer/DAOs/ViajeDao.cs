@@ -35,7 +35,7 @@ namespace DataLayer.DAOs
             return viajeInsertar.ID_VIAJE;
         }
 
-        public long ActualizarViaje(Viaje pViaje, CARPOOLEntities pContext)
+        public long ActualizarParametrosViaje(Viaje pViaje, CARPOOLEntities pContext)
         {
             var viajeEditableDb = from v in pContext.VIAJE
                                   where v.ID_VIAJE == pViaje.IdViaje
@@ -115,10 +115,14 @@ namespace DataLayer.DAOs
         public bool EliminarViaje(Viaje viaje)
         {
             EstablecerConexion();
-            var viajeDb = ToDataEntity.Instancia.ToViaje(viaje);
-            Conexion.VIAJE.Attach(viajeDb);
-            var entidad = Conexion.Entry(viajeDb);
-            entidad.Property(e => e.ESTADO).IsModified = true;
+            var regViaje = from v in Conexion.VIAJE
+                           where v.ID_VIAJE == viaje.IdViaje
+                           select v;
+            if (regViaje.Any())
+            {
+                var viajeDb = regViaje.First();
+                viajeDb.ESTADO = 2;
+            }
             return ConfirmarCambios();
         }
 

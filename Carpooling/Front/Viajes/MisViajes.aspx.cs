@@ -78,12 +78,18 @@ namespace Carpooling.Front.Viajes
 
         protected void BtnVerDetalleClick(object sender, DataListCommandEventArgs e)
         {
-            if (e.CommandName.ToLower().Equals("verdetallevigente"))
+            if (e.CommandName.ToLower().Equals("verdetalleconductor"))
             {
                 //TODO aqui hay q enviar un parametro para q no se pueda calificar participantes
                 long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
                 if (id != 0)
                     Response.Redirect("../Viajes/DetalleViaje_MisViajes.aspx?idViajeDetalle=" + id);
+            }
+            else if (e.CommandName.ToLower().Equals("verdetallepasajero"))
+            {
+                long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
+                if (id != 0)
+                    Response.Redirect("../Viajes/DetalleViaje.aspx?idViajeDetalle=" + id);
             }
             else if (e.CommandName.ToLower().Equals("verdetallerealizado"))
             {

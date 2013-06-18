@@ -53,11 +53,12 @@ namespace BusinessLayer
         public bool AceparSolicitud(Viaje pViaje, Solicitud pSolicitud)
         {
             var trayectoSeleccionado = pViaje.TrayectosViaje.Find(t => t.IdTrayecto == pSolicitud.IdTrayecto);
-
+            
             IEnumerable<Trayecto> trayectosModificar = (trayectoSeleccionado.TrayectoSimple)
                                                            ? DeterminarTrayectosAfectosTryS(pViaje, trayectoSeleccionado)
                                                            : DeterminarTrayectosAfectosTryC(pViaje, trayectoSeleccionado);
             trayectosModificar.ToList().ForEach(t => t.CuposDisponibles -= pSolicitud.CuposSolicitados);
+            trayectoSeleccionado.CuposDisponibles -= pSolicitud.CuposSolicitados;
             var trayectosSinModificar = pViaje.TrayectosViaje.Where(
                 trayecto => trayectosModificar.ToList().All(t => t.IdTrayecto != trayecto.IdTrayecto)).ToList();
 
@@ -65,10 +66,10 @@ namespace BusinessLayer
             pViaje.TrayectosViaje.AddRange(trayectosSinModificar.ToList());
             pViaje.TrayectosViaje.AddRange(trayectosModificar);
             pSolicitud.Estado = Solicitud.SolicitudEstado.Aprobada;
-            if(TrayectoDao.Instancia.ActualizarCuposSolicitud(pViaje.TrayectosViaje, pSolicitud))
+            var result = TrayectoDao.Instancia.ActualizarCuposAprobados(pViaje.TrayectosViaje, pSolicitud);
+            if(result)
                 AdministradorCorreosElectronicos.Instancia.CorreoSolicitudAprobada(pSolicitud);
-            //Todo retornoar un valor variable
-            return true;
+            return result;
         }
 
         public bool RechazarSolicitud(Solicitud pSolicitud)
@@ -79,6 +80,32 @@ namespace BusinessLayer
             //Todo retornoar un valor variable
             return true;
         }
+
+        public bool CancelarParticipacion(long idViaje, Usuario participante)
+        {
+            var pViaje = ViajeDao.Instancia.ObtenerViaje(idViaje);
+            var pSolicitud = pViaje.GetSolicitudParticipante(participante);
+
+            var trayectoSeleccionado = pViaje.TrayectosViaje.Find(t => t.IdTrayecto == pSolicitud.IdTrayecto);
+
+            IEnumerable<Trayecto> trayectosModificar = (trayectoSeleccionado.TrayectoSimple)
+                                                           ? DeterminarTrayectosAfectosTryS(pViaje, trayectoSeleccionado)
+                                                           : DeterminarTrayectosAfectosTryC(pViaje, trayectoSeleccionado);
+            trayectosModificar.ToList().ForEach(t => t.CuposDisponibles += pSolicitud.CuposSolicitados);
+            trayectoSeleccionado.CuposDisponibles += pSolicitud.CuposSolicitados;
+            var trayectosSinModificar = pViaje.TrayectosViaje.Where(
+                trayecto => trayectosModificar.ToList().All(t => t.IdTrayecto != trayecto.IdTrayecto)).ToList();
+
+            pViaje.TrayectosViaje.Clear();
+            pViaje.TrayectosViaje.AddRange(trayectosSinModificar.ToList());
+            pViaje.TrayectosViaje.AddRange(trayectosModificar);
+            var result = TrayectoDao.Instancia.ActualizarCuposCancelacion(pViaje.TrayectosViaje, pSolicitud);
+            if (result)
+                AdministradorCorreosElectronicos.Instancia.CorreoParticipacionCancelada(pViaje, pSolicitud);
+            return result;
+        }
+
+        #region Internal functions
 
         //Busca la lista de trayectos que deben ser modificados en terminos de cupos, dado que se acepte una 
         //solicitud para un trayecto simple
@@ -128,5 +155,6 @@ namespace BusinessLayer
             return listTrayectos;
         }
 
+        #endregion
     }
 }

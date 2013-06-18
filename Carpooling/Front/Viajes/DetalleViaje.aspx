@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="DetalleViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje" %>
-<%@ PreviousPageType VirtualPath="BuscarViaje.aspx" %>
+<%--<%@ PreviousPageType VirtualPath="BuscarViaje.aspx" %>--%>
+<%@ Register TagPrefix="uc" TagName="PopUpConfirmation" Src="~/Front/UserControls/PopUpOk.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Styles/front-css/DetalleViaje.css" type="text/css" rel="stylesheet"/>
 </asp:Content>
@@ -21,6 +22,7 @@
     </section>--%>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
+    <uc:PopUpConfirmation ID="popUpInformativo" runat="server"  />
    <div id="divLeftSection">
         <table cellpadding="2px" cellspacing="0">
             <tr>
@@ -43,6 +45,7 @@
         <div class="divClear"></div>
         <div id="divBotones" class="divBotones">
             <asp:Button ID="btnPreguntar" runat="server" Text="Preguntar" OnClick="ShowPopUpRespuesta" CssClass="button-gradient green" />
+            <asp:Button runat="server" ID="btnCancelarParticipacion" Text="No participar" CssClass="button-gradient blue" OnClick="ShowPopUpCancelarParticipacion"/>
         </div>
         <div class="divClear"></div>
         <div>
@@ -298,6 +301,46 @@
                         <div class="divBotonesPopUp">
                             <asp:Button runat="server" ID="btnPreguntarPopUp" Text="Preguntar" CssClass="button-gradient green" OnClick="BtnRealizarPregunta"/>
                             <asp:Button runat="server" ID="btnCancelPopUpResponder" Text="Cancelar" CssClass="button-gradient blue" OnClick="HidePopUpRespuesta" />    
+                        </div>
+                        <div class="divClear"></div>
+                
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </asp:Panel>
+    
+    <%--El popup para confirmar la cancelacion de la participacion --%>
+    <asp:Panel runat="server" ID="pnlConfirmarCancelacion" Style="display: none;">
+        <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeConfirmarCancelacion" PopupControlID="pnlConfirmarCancelacion"
+                                        TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelConfirmacionPopUp" >
+        </ajaxToolkit:ModalPopupExtender>
+        <asp:Label runat="server" ID="lblCC"></asp:Label>
+        <asp:UpdatePanel  ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+                <div class="popUpContainer">
+                    <div class="divEncabezado">
+                        <asp:Label runat="server" ID="Label17" Text="Cancelación de la participación"></asp:Label> 
+                    </div>
+                    <div class="mainContentPopUp">
+                        <div>
+                            <asp:Label runat="server" ID="Label18" Text="¿Estas seguro que deseas cancelar la participacion en este viaje?"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Panel ID="panelMensajeCancelacionPopup" class="ui-widget" runat="server" Visible="False" Width="450px">
+                                <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                                    <p>
+                                        <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                        <strong>Error:</strong>
+                                        <asp:Label ID="Label16" runat="server" Text="No se pudo cancelar tu participacion, intenta mas tarde."></asp:Label>
+                                    </p>
+                                </div>
+                            </asp:Panel>
+                        </div>
+
+                        <div class="divBotonesPopUp">
+                            <asp:Button runat="server" ID="btnAceptarCancelacionPopUp" CssClass="button-gradient green" Text="Aceptar" OnClick="AceptarPopUpCancelarParticipacion" />
+                            <asp:Button runat="server" ID="btnCancelConfirmacionPopUp" CssClass="button-gradient blue" Text="Cancelar"  OnClick="HidePopUpCancelarParticipacion"/>    
                         </div>
                         <div class="divClear"></div>
                 

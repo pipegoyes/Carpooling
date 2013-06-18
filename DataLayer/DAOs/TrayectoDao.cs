@@ -18,7 +18,7 @@ namespace DataLayer.DAOs
         }
 
         //Establece la conexion y actualiza cada uno de los trayectos
-        public bool ActualizarCuposSolicitud(List<Trayecto> pTrayectos, Solicitud pSolicitud)
+        public bool ActualizarCuposAprobados(List<Trayecto> pTrayectos, Solicitud pSolicitud)
         {
             EstablecerConexion();
             foreach (var trayectoDb in pTrayectos.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)))
@@ -28,6 +28,22 @@ namespace DataLayer.DAOs
                 entidad.Property(t => t.CUPOS).IsModified = true;
                 if (trayectoDb.SOLICITUD.Any(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud))
                     SolicitudDao.Instancia.ActualizarEstadoSolicitud(trayectoDb.SOLICITUD.ToList().Find(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud),Conexion);
+            }
+
+            return ConfirmarCambios();
+        }
+
+        //Establece la conexion y actualiza cada uno de los trayectos
+        public bool ActualizarCuposCancelacion(List<Trayecto> pTrayectos, Solicitud pSolicitud)
+        {
+            EstablecerConexion();
+            foreach (var trayectoDb in pTrayectos.Select(trayecto => ToDataEntity.Instancia.ToTrayecto(trayecto)))
+            {
+                Conexion.TRAYECTO.Attach(trayectoDb);
+                var entidad = Conexion.Entry(trayectoDb);
+                entidad.Property(t => t.CUPOS).IsModified = true;
+                if (trayectoDb.SOLICITUD.Any(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud))
+                    SolicitudDao.Instancia.EliminarSolicitud(trayectoDb.SOLICITUD.ToList().Find(s => s.ID_SOLICITUD == pSolicitud.IdSolicitud), Conexion);
             }
 
             return ConfirmarCambios();

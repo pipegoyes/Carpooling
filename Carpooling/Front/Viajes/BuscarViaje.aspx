@@ -58,11 +58,11 @@
             <div><asp:Label ID="Label1" runat="server" Text="Fecha:"></asp:Label></div>
             <div><asp:TextBox ID="calendarFechaViaje" runat="server"></asp:TextBox> </div>
         </div>
-        <div class="divClear"></div>
-        <div class="botonesBox">
-            <asp:Button runat="server" ClientID="btnBuscar" ID="btnBuscarViaje" 
-                Text="Buscar" CausesValidation="True" onclick="btnBuscarViaje_Click"/>
+        <div id="divBtnBuscar" class="buscadorElemento">
+            <asp:Button runat="server" ClientID="btnBuscar" ID="btnBuscarViaje" CssClass="button-gradient green float-left" Text="Buscar" CausesValidation="True" onclick="btnBuscarViaje_Click"/>
         </div>
+        
+        <div class="divClear"></div>
     </div>
     
     <div class="titulo">Resultados de la busqueda</div>

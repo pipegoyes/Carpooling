@@ -93,6 +93,33 @@ namespace Carpooling.Front.Viajes
             panelExitoso.Visible = false;
         }
 
+        #region CancelarParticipacion
+
+        protected void ShowPopUpCancelarParticipacion(object sender, EventArgs e)
+        {
+            panelMensajeCancelacionPopup.Visible = false;
+            mpeConfirmarCancelacion.Show();
+        }
+
+        protected void AceptarPopUpCancelarParticipacion(object sender, EventArgs e)
+        {
+            string idViajeStr = Request.QueryString["idViajeDetalle"];
+            var participante = (Usuario) Session["usuario"];
+            long idViaje = Convert.ToInt32(idViajeStr);
+            var result = AdministradorSolicitudes.Instancia.CancelarParticipacion(idViaje, participante);
+            if(result)
+                Response.Redirect("~/Front/Bienvenida.aspx");
+            else
+                panelMensajeCancelacionPopup.Visible = true;
+        }
+
+        protected void HidePopUpCancelarParticipacion(object sender, EventArgs e)
+        {
+            mpeConfirmarCancelacion.Hide();
+        }
+
+        #endregion
+
         #region Participar
         protected void ShowPopUpParticipar(object sneder, DataListCommandEventArgs e)
         {
@@ -131,6 +158,7 @@ namespace Carpooling.Front.Viajes
             panelError.Visible = false;
             mpeMensajes.Hide();
         }
+
         #endregion 
 
         #region Preguntar
