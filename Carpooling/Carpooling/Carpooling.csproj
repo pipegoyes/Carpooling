@@ -97,8 +97,11 @@
     <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\prefixfree.min.js" />
     <Content Include="Styles\front-css\MisViajes.css" />
+    <Content Include="Styles\images\Bienvenida.png" />
     <Content Include="Styles\images\close-icon.png" />
     <Content Include="Styles\images\fumador.jpg" />
+    <Content Include="Styles\images\LogoCompleto.png" />
+    <Content Include="Styles\images\LogoSimple.png" />
     <Content Include="Styles\images\orderedList0.png" />
     <Content Include="Styles\images\orderedList1.png" />
     <Content Include="Styles\images\orderedList2.png" />

@@ -107,3 +107,21 @@
 .textLeft{
 	text-align: left;
 }
+
+.roundBorders {
+    -webkit-border-radius: 20px;
+    border-radius: 20px; 
+}
+#linkRegistrarse {
+    color: white;
+    font-size: 40px;
+    left: 495px;
+    position: absolute;
+    top: 240px;
+    font-style: italic;
+}
+#linkRegistrarse:hover {
+    text-shadow: 1px 1px 2px #080606;
+    filter: dropshadow(color=#080606, offx=1, offy=1);
+    background: none;
+}
