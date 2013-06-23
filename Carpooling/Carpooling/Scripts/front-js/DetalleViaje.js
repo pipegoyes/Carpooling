@@ -2,6 +2,11 @@
     // Handler for .ready() called.
     //alert("Estoy en la parte exitosa");
     initialize();
+
+    if ($("#hdfEstadoViaje").val() != 'Realizado') {
+        $("#tabCalificaciones1").css('display', 'none');
+    }
+
     $("#tabsDetalleViaje").tabs();
 });
 

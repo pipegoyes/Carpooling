@@ -49,7 +49,7 @@
 
     <body onload="InicializarMaster()">
         <form id="Form1" runat="server">
-            <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server"></ajaxToolkit:ToolkitScriptManager>
+            <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server" EnablePartialRendering="true"></ajaxToolkit:ToolkitScriptManager>
                        
             <header>
                 <div id="login-div">

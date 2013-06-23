@@ -88,6 +88,8 @@ namespace DataLayer.DAOs
             return ConfirmarCambios();
         }
 
+
+
         public Usuario ObtenerPorId(string pIdUsuario)
         {
             EstablecerConexion();
@@ -109,7 +111,5 @@ namespace DataLayer.DAOs
                 return ToBusinessEntity.Instancia.ToUsuario(usuarioDB);
             return null;
         }
-
-
     }
 }

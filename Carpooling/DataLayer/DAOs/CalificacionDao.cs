@@ -47,5 +47,41 @@ namespace DataLayer.DAOs
             else
                 return false;
         }
+
+        public List<Calificacion> ObtenerCalificacionesRelizadas(string pIdUsuario)
+        {
+            EstablecerConexion();
+            var query = (from c in Conexion.CALIFICACION
+                         where c.FECHA_REALIZACION != null && c.ID_EVALUADO == pIdUsuario
+                                  select c).ToList();
+
+            var calificaciones = ToBusinessEntity.Instancia.ToCalificaciones(query);
+            return calificaciones;
+        }
+
+        public List<Calificacion> ObtenerCalificacionesTodas(string pIdUsuario)
+        {
+            EstablecerConexion();
+            var query = (from c in Conexion.CALIFICACION
+                         where c.ID_EVALUADO == pIdUsuario
+                         select c).ToList();
+
+            var calificaciones = ToBusinessEntity.Instancia.ToCalificaciones(query);
+            return calificaciones;
+        }
+
+        //Metodo para actualizar reputacion
+        public bool ActualizarReputacion(Usuario pUsuario, CARPOOLEntities pContextoDb, bool pConfirmarCambios)
+        {
+            var usuario = ToDataEntity.Instancia.ToUsuario(pUsuario);
+            EstablecerConexion(pContextoDb);
+            Conexion.USUARIO.Attach(usuario);
+            var entidad = Conexion.Entry(usuario);
+            entidad.Property(x => x.REPUTACION).IsModified = true;
+            if (pConfirmarCambios)
+                return ConfirmarCambios();
+            else
+                return false;
+        }
     }
 }

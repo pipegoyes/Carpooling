@@ -1040,3 +1040,14 @@ tr.pager td {
     width: 43%;
     float: left;
 }
+
+.popupCalificar table{
+    width: 80%;
+    margin: 0 auto !important;
+}
+
+.popupCalificar table td{
+    padding: 0 5px !important;
+
+}
+

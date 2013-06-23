@@ -1,7 +1,108 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="DetalleViaje_MisViajes.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje_MisViajes" %>
 <%@ Register TagPrefix="uc" TagName="PopUpConfirmation" Src="~/Front/UserControls/PopUpOk.ascx" %>
+<%@ Register TagPrefix="uc" TagName="PopUpCalificar" Src="~/Front/UserControls/PopupCalificarParticipante.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Styles/front-css/DetalleViaje.css" type="text/css" rel="stylesheet" />
+
+    <style type="text/css">
+
+/* ****************** RatingStar ****************** */
+.ratingStar
+{
+	white-space:nowrap;
+	margin:1em;
+	height:14px;
+}
+.ratingStar .ratingItem {
+    font-size: 0pt;
+    width: 13px;
+    height: 12px;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    background-repeat: no-repeat;
+	cursor:pointer;
+}
+.ratingStar .Filled {
+    background-image: url("../../Styles/images/rating/ratingStarFilled.png");
+}
+.ratingStar .Empty {
+    background-image: url("../../Styles/images/rating/ratingStarEmpty.png");
+}
+.ratingStar .Saved {
+    background-image: url("../../Styles/images/rating/ratingStarSaved.png");
+}
+
+/* ****************** Gauge ****************** */
+.ratingGauge
+{
+	white-space:nowrap;
+    font-size: 0pt;
+	width:122px;
+	height:12px;
+	padding:1px 0 1px 1px;
+	margin:1em;
+	background-color:transparent;
+	background-position:top left;
+	background-repeat:no-repeat;
+	background-image:url("../../Styles/images/rating/ratingGauge.png");
+}
+.ratingGauge .ratingItem {
+    font-size:0pt;
+    width:20px;
+    height:8px;
+    margin:0;
+    padding:0;
+    display:block;
+    background-repeat: repeat-x;
+	cursor:e-resize;
+}
+.ratingGauge .Filled {
+    background-color:transparent;
+}
+.ratingGauge .Empty {
+    background-color:#ff0;
+}
+.ratingGauge .Saved {
+    background-color:#f00;
+}
+
+/* ****************** Thermometer ****************** */
+.ratingThermometer 
+{
+	white-space:nowrap;
+	width:220px;
+	height:0px;
+	padding:26px 20px 20px 16px;
+	margin:1em;
+	background-color:transparent;
+	background-position:top left;
+	background-repeat:no-repeat;
+	background-image:url("../../Styles/images/rating/ratingThermometer2.png");
+}
+.ratingThermometer .ratingItem {
+    font-size: 0pt;
+    width: 10px;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background-repeat: repeat-x;
+	cursor:e-resize;
+}
+.ratingThermometer .Filled {
+    background-image: url("../../Styles/images/rating/ratingFilled.png");
+}
+.ratingThermometer .Empty {
+    background-image: url("../../Styles/images/rating/ratingEmpty.png");
+}
+.ratingThermometer .Saved {
+    background-image: url("../../Styles/images/rating/ratingSaved.png");
+}
+
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC-_VdOgJeuq0exLR38Un_LoM5DilB_1_0&sensor=false"> </script>
@@ -24,7 +125,7 @@
     <uc:PopUpConfirmation ID="popUpConfirmacionSolicitud" runat="server" OnOnClickAceptar="AceptarPopUpSolicitud" />
     <uc:PopUpConfirmation ID="popUpConfirmacionCancelacion" runat="server" OnOnClickAceptar="AceptarPopUpCancelacionRealizada"/>
     <uc:PopUpConfirmation ID="popUpEdicionInvalidad" runat="server" OnOnClickAceptar="AceptarEdicionInvalida"/>
-        
+
     <div id="divLeftSection">
         <table cellpadding="2px" cellspacing="0">
             <tr>
@@ -102,12 +203,76 @@
     <div id="divRightSection">
         
         <div id="tabsDetalleViaje">
+            <asp:HiddenField ID="hdfEstadoViaje" runat="server" ClientIDMode="Static"/>
+
             <ul>
                 <li><a href="#tabMapa">Mapa</a></li>
                 <li><a href="#tabSolicitudes" id="tabSolicitudes" runat="server">Solicitudes</a></li>
                 <li><a href="#tabParticipantes" id="tabParticipantes" runat="server">Participantes</a></li>
                 <li><a href="#tabPreguntas" id="tabPreguntas" runat="server">Preguntas</a></li>
+                <li><a href="#tabCalificacionesDiv" id="tabCalificaciones" runat="server">Calificaciones</a></li>
             </ul>
+            <div id="tabCalificacionesDiv" class="scrollY">
+                <asp:UpdatePanel ID="upPanelCalificacionesDetalle" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
+                    <ContentTemplate>
+                        
+                        <asp:Panel ID="PanelCalificacionesDetalle" runat="server" >
+                            <div class="subtitulo">Listado de calificaciones por realizar</div>
+                            <asp:DataList ID="dataListCalificaciones" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                          ShowFooter="False" Width="100%"  OnItemCommand="dataListCalificaciones_ItemCommand">
+                                <AlternatingItemStyle BackColor="White" />
+                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                             ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                                <HeaderTemplate>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblParticipanteCalificarH" runat="server" Text="Participante"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadOrigenH" runat="server" Text="Ciudad origen"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadDestinoH"  runat="server" Text="Ciudad destino"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblReputacionParticipanteH"  runat="server" Text="Reputacion"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                    </div>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:HiddenField ID="hdfIdEvaluado" runat="server" Value='<%#Eval("IdEvaluado") %>' />
+                                        <asp:HiddenField ID="hdfIdEvaluador" runat="server" Value='<%#Eval("IdEvaluador") %>' />
+                                        <asp:Label ID="lblParticipanteCalificar" runat="server" Text='<%#Eval("NombreParticipante") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadOrigen" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadDestino" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblReputacionParticipante" runat="server" Text='<%#Eval("Reputacion") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:LinkButton ID="btnCalificarParticipante" runat="server" Text="Calificar" CommandName="calificar" CommandArgument='<%#Eval("IdCalificacion") %>'></asp:LinkButton>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <div>
+                                <div id="div7">
+                                    <asp:Label runat="server" Text="No tiene calificaciones pendientes." ID="lblSinCalificaciones"></asp:Label>    
+                                </div>
+                            </div>
+                        </asp:Panel>    
+
+                        <uc:PopUpCalificar ID="popUpCalificar" runat="server" />
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                
+            </div>
+
             <div id="tabSolicitudes" class="scrollY">
                 <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
                     <div class="subtitulo">Listado de solicitudes</div>
@@ -336,7 +501,7 @@
 
     <asp:Panel runat="server" ID="pnlConfirmarCancelacion" Style="display: none;">
         <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeConfirmarCancelacion" PopupControlID="pnlConfirmarCancelacion"
-                                        TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelConfirmacionPopUp" >
+                                        TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal"  > <%--CancelControlID="btnCancelConfirmacionPopUp"--%>
         </ajaxToolkit:ModalPopupExtender>
         <asp:Label runat="server" ID="lblCC"></asp:Label>
         <asp:UpdatePanel  ID="UpdatePanel2" runat="server">
@@ -372,5 +537,11 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </asp:Panel>
+
+    <script type="text/javascript">
+        function ActualizarContadorTab(idTab, valor) {
+            document.getElementById(idTab).innerHTML = valor;
+        }
+    </script>
 
 </asp:Content>

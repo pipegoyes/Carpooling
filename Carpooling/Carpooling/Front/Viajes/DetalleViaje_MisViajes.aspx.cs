@@ -22,8 +22,13 @@ namespace Carpooling.Front.Viajes
 
         public Usuario UsuarioConectado { get; set; }
 
+        public int NumeroCalificacionesPendientes { get; set; }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.popUpCalificar.OnContinuarClick += new EventHandler(PopupCalificar_OnContinuarClick);
+
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             try
             {
@@ -36,6 +41,7 @@ namespace Carpooling.Front.Viajes
                 PintarDetalleViaje();
                 PintarSolicitudes();
                 PintarPreguntas();
+                PintarCalificaciones();
                 CrearHiddenFields();
             }
             catch (Exception ex)
@@ -90,6 +96,37 @@ namespace Carpooling.Front.Viajes
             panelError.Visible = false;
             panelExitoso.Visible = false;
             txbRespuesta.Text = "";
+        }
+
+        //Actualiza la seccion de calificacion
+        private void PintarCalificaciones()
+        {
+            if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+            hdfEstadoViaje.Value = ViajeDetalle.Estado.ToString();
+
+            if (ViajeDetalle.Estado != Viaje.ViajeEstado.Realizado)
+            {
+                tabCalificaciones.Visible = false;
+                PanelCalificacionesDetalle.Visible = false;
+            }
+            else
+            {
+                List<ItemTablaCalificacion> listaCalificaciones = AdministradorCalificaciones.Instancia.CrearItemCalificacion(ViajeDetalle, UsuarioConectado);
+                NumeroCalificacionesPendientes = listaCalificaciones.Count;
+                if (NumeroCalificacionesPendientes > 0)
+                {
+                    tabCalificaciones.InnerText = "Calificaciones (" + NumeroCalificacionesPendientes + ")";
+                    dataListCalificaciones.DataSource = listaCalificaciones;
+                    dataListCalificaciones.DataBind();
+                    lblSinCalificaciones.Visible = false;
+                }
+                else
+                {
+                    lblSinCalificaciones.Visible = true;
+                    dataListCalificaciones.DataSource = null;
+                    dataListCalificaciones.DataBind();
+                }
+            }
         }
 
         //Actualiza el listado de las solicitudes (Aprobadas y pendientes) segun el viaje seleccionado
@@ -296,6 +333,41 @@ namespace Carpooling.Front.Viajes
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
             Session["ViajeSeleccionado"] = ViajeDetalle;
+        }
+
+        protected void dataListCalificaciones_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower().Equals("calificar"))
+            {
+                popUpCalificar.TituloPopUp = "Calificar a " + ((Label)e.Item.FindControl("lblParticipanteCalificar")).Text;
+                if (ViajeDetalle == null) ViajeDetalle = (Viaje)Session["ViajeSeleccionado"];
+
+                var calificacionActual = new Calificacion() 
+                    {
+                        IdCalificacion = Convert.ToInt64(((LinkButton)e.Item.FindControl("btnCalificarParticipante")).CommandArgument),
+                        IdUsuarioEvaluado = ((HiddenField)e.Item.FindControl("hdfIdEvaluado")).Value,
+                        IdUsuarioEvaluador = ((HiddenField)e.Item.FindControl("hdfIdEvaluador")).Value,
+                        IdViaje = ViajeDetalle.IdViaje
+                    };
+
+                popUpCalificar.CalificacionActual = calificacionActual;
+                if (calificacionActual.IdUsuarioEvaluado.Equals(ViajeDetalle.Conductor.IdUsuario))
+                    popUpCalificar.MostrarVentana(Rol.Conductor);
+                else
+                    popUpCalificar.MostrarVentana(Rol.Pasajero);
+            }
+        }
+
+        protected void PopupCalificar_OnContinuarClick(object sender, EventArgs e)
+        {
+            string scritpTab;
+            if(NumeroCalificacionesPendientes > 0)
+                scritpTab = " ActualizarContadorTab('" + tabCalificaciones.ClientID + "', 'Calificaciones (" + NumeroCalificacionesPendientes + ")');";
+            else
+                scritpTab = " ActualizarContadorTab('" + tabCalificaciones.ClientID + "', 'Calificaciones');";
+            //scritpTab += " </script>";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "tab" + ViajeDetalle.IdViaje.ToString(),  scritpTab, true);
+            upPanelCalificacionesDetalle.Update();
         }
     }
 }
