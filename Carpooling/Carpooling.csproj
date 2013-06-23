@@ -78,6 +78,7 @@
     <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
     <Content Include="Front\Cuentas\wuc\DesactivarCuenta.ascx" />
     <Content Include="Front\Cuentas\wuc\PerfilPublico.ascx" />
+    <Content Include="Front\UserControls\PopupCalificarParticipante.ascx" />
     <Content Include="Front\UserControls\PopUpOk.ascx" />
     <Content Include="Front\Cuentas\wuc\CambioContrasenia.ascx" />
     <Content Include="Front\Error.aspx" />
@@ -137,6 +138,15 @@
     <Content Include="Styles\images\imgFotoPerfilHombre.jpg" />
     <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
     <Content Include="Styles\images\refresh.png" />
+    <Content Include="Styles\images\rating\ratingEmpty.png" />
+    <Content Include="Styles\images\rating\ratingFilled.png" />
+    <Content Include="Styles\images\rating\ratingGauge.png" />
+    <Content Include="Styles\images\rating\ratingSaved.png" />
+    <Content Include="Styles\images\rating\ratingStarEmpty.png" />
+    <Content Include="Styles\images\rating\ratingStarFilled.png" />
+    <Content Include="Styles\images\rating\ratingStarSaved.png" />
+    <Content Include="Styles\images\rating\ratingThermometer.png" />
+    <Content Include="Styles\images\rating\ratingThermometer2.png" />
     <Content Include="Styles\images\uploading.gif" />
     <Content Include="Styles\images\vehiculo.png" />
     <Content Include="Styles\images\warning.gif" />
@@ -469,6 +479,13 @@
     </Compile>
     <Compile Include="Front\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Front\UserControls\PopupCalificarParticipante.ascx.cs">
+      <DependentUpon>PopupCalificarParticipante.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\UserControls\PopupCalificarParticipante.ascx.designer.cs">
+      <DependentUpon>PopupCalificarParticipante.ascx</DependentUpon>
     </Compile>
     <Compile Include="Front\UserControls\PopUpOk.ascx.cs">
       <DependentUpon>PopUpOk.ascx</DependentUpon>

@@ -40,12 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion\ErrorAplicacion.cs" />
+    <Compile Include="Aplicacion\ItemTablaCalificacion.cs" />
     <Compile Include="Aplicacion\ItemTablaPregunta.cs" />
     <Compile Include="Aplicacion\ItemTablaSolicitud.cs" />
     <Compile Include="Aplicacion\ItemTablaViaje.cs" />
     <Compile Include="Aplicacion\ListaDesplegable.cs" />
     <Compile Include="Aplicacion\ViajeJSON.cs" />
     <Compile Include="Negocio\Calificacion.cs" />
+    <Compile Include="Negocio\Enums.cs" />
     <Compile Include="Negocio\Ocupacion.cs" />
     <Compile Include="Negocio\Parada.cs" />
     <Compile Include="Negocio\Pregunta.cs" />

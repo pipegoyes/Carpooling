@@ -113,15 +113,15 @@
     border-radius: 20px; 
 }
 #linkRegistrarse {
-    color: white;
-    font-size: 40px;
-    left: 495px;
-    position: absolute;
-    top: 240px;
-    font-style: italic;
+    color: white !important;
+    font-size: 40px !important;
+    left: 296px !important;
+    position: absolute !important;
+    font-style: italic !important;
 }
-#linkRegistrarse:hover {
-    text-shadow: 1px 1px 2px #080606;
-    filter: dropshadow(color=#080606, offx=1, offy=1);
-    background: none;
-}
+    #linkRegistrarse:hover {
+        -webkit-text-shadow: 1px 1px 2px #080606;
+        text-shadow: 1px 1px 2px #080606;
+        filter: dropshadow(color=#080606, offx=1, offy=1);
+        background: none;
+    }

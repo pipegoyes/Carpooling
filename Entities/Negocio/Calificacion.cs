@@ -14,5 +14,6 @@ namespace Entities.Negocio
         public long IdViaje { get; set; }
         public string IdUsuarioEvaluador { get; set; }
         public string IdUsuarioEvaluado { get; set; }
+        //public Usuario UsuarioEvaluado { get; set; }
     }
 }
