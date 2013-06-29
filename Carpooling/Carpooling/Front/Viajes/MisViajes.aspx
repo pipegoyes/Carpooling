@@ -7,16 +7,7 @@
     <script src="../../Scripts/front-js/MisViajes.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
-    <section class="featured">
-        <div id="header_page" class="content-wrapper">
-            <hgroup class="title">
-                <h1>Mis viajes.</h1>
-            </hgroup>
-            <p>
-                <h2>Consulta aqui el listado completo de tus viajes.</h2>
-            </p>
-        </div>
-    </section>
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
     <div class="titulo">Viajes vigentes como conductor</div>
