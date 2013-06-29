@@ -12,16 +12,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
-    <section class="featured">
-        <div id="header_page" class="content-wrapper">
-            <hgroup class="title">
-                <h1>Busca tu viaje.</h1>
-            </hgroup>
-            <p>
-                <h2>¿Donde estas? ¿Hacia donde vas? y ¿Cuando vas?</h2>
-            </p>
-        </div>
-    </section>
+    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

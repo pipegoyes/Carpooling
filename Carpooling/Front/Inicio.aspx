@@ -9,24 +9,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
-
-    <div id="bannerDiv" class="bannerInfoDiv">
-    Aqui va el banner
-    </div>
-    <div id="buscador" class="buscadorDiv">
-        <div class="buscadorElemento">
-            <div><asp:Label ID="lblCiudadOrigen" runat="server" Text="Ciudad de Origen:"></asp:Label> </div>
-            <div><asp:TextBox ID="txbCiudadOrigen" runat="server"></asp:TextBox></div>
-        </div>
-        <div class="buscadorElemento">
-            <div><asp:Label ID="lblCiudadDestino" runat="server" Text="Ciudad de destino:"></asp:Label></div>
-            <div><asp:TextBox ID="txbCiudadDestino" runat="server" ></asp:TextBox></div>
-        </div>
-        <div id ="btnBuscar" class="buscadorElemento" onclick="GenerarRuta()">Boton</div>
-
-        <div class="divClear"></div>
-    </div>
-
-    <div id="map_canvas" onclick="initialize()"  class="mapaDiv" >Has click aqui!!</div>
+    <asp:Image runat="server" ID="bannerInicio" ImageUrl="../Styles/images/Inicio.png"/>
 
 </asp:Content>

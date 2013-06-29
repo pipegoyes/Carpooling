@@ -53,6 +53,13 @@
                        
             <header>
                 <div id="login-div">
+                    <div id="carpoolingSmall">
+                        <a href="/Front/Bienvenida.aspx">
+                            <img id="" src="/Styles/images/CarpoolingColombia_small.png" class="float-left" alt="" />
+                        </a>    
+                    </div>
+                    
+                    <img id="imgLogoSmall" src="/Styles/images/LogoSimple_small.png" class="float-right" alt=""/>
                     <section id="login">
                         <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
                             <AnonymousTemplate>
@@ -111,19 +118,20 @@
                             </LoggedInTemplate>
                         </asp:LoginView>
                     </section>
+                    <div class="divClear"></div>
                 </div>
-                <div class="content-wrapper">
+                <%--<div class="content-wrapper">
                     <figure id="logoSite" class="float-left">
                         <p class="site-title" >CarpoolingCo</p>
                     </figure>
-                    <%--<nav>
+                    <nav>
                         <ul id="menu">
                             <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
                             <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
                             <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
                         </ul>
-                    </nav>--%>
-                </div>               
+                    </nav>
+                </div>--%>               
             </header>        
             <div id="body">
                 <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />

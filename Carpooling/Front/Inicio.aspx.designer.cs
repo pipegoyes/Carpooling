@@ -13,39 +13,12 @@ namespace Carpooling.Front {
     public partial class Inicio {
         
         /// <summary>
-        /// lblCiudadOrigen control.
+        /// bannerInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadOrigen;
-        
-        /// <summary>
-        /// txbCiudadOrigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCiudadOrigen;
-        
-        /// <summary>
-        /// lblCiudadDestino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadDestino;
-        
-        /// <summary>
-        /// txbCiudadDestino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCiudadDestino;
+        protected global::System.Web.UI.WebControls.Image bannerInicio;
     }
 }
