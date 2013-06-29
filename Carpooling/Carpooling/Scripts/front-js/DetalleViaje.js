@@ -8,6 +8,16 @@
     }
 
     $("#tabsDetalleViaje").tabs();
+
+    //------Cupos txbCuposSolicitados
+    $("[id*=txbCuposSolicitados]").wijinputnumber({
+        minValue: 1,
+        maxValue: 40,
+        increment: 1,
+        value: 1,
+        showSpinner: true,
+        decimalPlaces: 0
+    });
 });
 
 var geocoder;
