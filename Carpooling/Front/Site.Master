@@ -5,7 +5,8 @@
     <head runat="server">
         <meta charset="iso-8859-1" />
         <title>CarpoolingCo</title>
-        
+        <link rel="shortcup icon" type="image/x-icon" href="/Styles/images/LogoSimple.png"/>
+
         <link href="../Styles/usercontrosl-css/PopUp.css" rel="stylesheet"/>
         <link href="/Styles/normalize.css" rel="stylesheet"/>
         <link href="/Styles/Site.css" rel="stylesheet"/>

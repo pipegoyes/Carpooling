@@ -32,9 +32,20 @@ namespace Carpooling.Front.Viajes
             if(DateTime.TryParseExact(calendarFechaViaje.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
                 FechaViaje = result;
             ViajesEncontrados = AdministradorViajes.Instancia.BuscarViaje(CiudadOrigen, CiudadDestino, FechaViaje);
+            if(ViajesEncontrados.Count >0)
+            {
+                this.dataListItemsViajesEncontrados.DataSource = ViajesEncontrados;
+                this.dataListItemsViajesEncontrados.DataBind();
+                tituloResultados.Visible = true;
+                panelSinResultados.Visible = false;
+            }
+            else
+            {
+                tituloResultados.Visible = false;
+                panelSinResultados.Visible = true;
 
-            this.dataListItemsViajesEncontrados.DataSource = ViajesEncontrados;
-            this.dataListItemsViajesEncontrados.DataBind();
+            }
+            
             
         }
 
