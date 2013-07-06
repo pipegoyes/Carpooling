@@ -38,6 +38,12 @@ namespace Carpooling.Front.Viajes
                 IdViaje = Convert.ToInt64(idViajeStr);
                 ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(IdViaje);
                 Session["ViajeSeleccionado"] = ViajeDetalle;
+                if(ViajeDetalle.Estado == Viaje.ViajeEstado.Realizado)
+                {
+                    btnEditar.Visible = false;
+                    btnCancelarViaje.Visible = false;
+                }
+
                 PintarDetalleViaje();
                 PintarSolicitudes();
                 PintarPreguntas();
@@ -136,7 +142,7 @@ namespace Carpooling.Front.Viajes
             List<Trayecto> listTrayectosSolicitudesPendientes =
                 AdministradorSolicitudes.Instancia.DeterimnarTrayectosConSolicitudesPendientes(
                     ViajeDetalle.TrayectosViaje);
-            if (listTrayectosSolicitudesPendientes.Count > 0)
+            if (listTrayectosSolicitudesPendientes.Count > 0 && ViajeDetalle.Estado != Viaje.ViajeEstado.Realizado)
             {
                 tabSolicitudes.InnerText = "Solicitudes (" + listTrayectosSolicitudesPendientes.Count + ")";
                 dataListSolicitudes.DataSource = listTrayectosSolicitudesPendientes;

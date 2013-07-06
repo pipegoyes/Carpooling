@@ -57,7 +57,9 @@ function CrearComponentes() {
     });
 
     //-----------FechaPArtida
-    $("[id*=txbFechaPartida]").datepicker();
+    $("[id*=txbFechaPartida]").datepicker({
+        minDate: +1
+    });
 
     //------Hora
     $("[id*=txbHora]").wijinputdate(
