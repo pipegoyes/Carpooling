@@ -60,8 +60,7 @@
                             <asp:Label ID="lblNumeroParada" runat="server" Text='<%#                                        Eval("NumeroParada") %>'></asp:Label>
                         </div>
                         <div class="leftPosition">
-                            <asp:Label ID="Label1" runat="server" Text='<%#Eval
-                                                                                                   ("Direccion") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("Direccion") %>'></asp:Label>
                         </div>
                         <div class="divClear"></div>
                     </ItemTemplate>
@@ -93,10 +92,11 @@
                             <asp:Label ID="Label1" runat="server" Text='<%#                                        Eval("ParadaDestino.Direccion") %>'></asp:Label>
                         </div>
                     </div>
-                    <asp:LinkButton ID="linkSolicitarCupos" ClientIDMode="Static" runat="server" Text="Participar" CommandArgument='<%#Eval("IdTrayecto") %>' CommandName="participar"></asp:LinkButton>        
                     <div class="rightPosition divCupos">
                         <asp:Label ID="Label2" runat="server" Text='<%#Eval("CuposDisponibles") %>'></asp:Label>
                     </div>
+                    <asp:LinkButton ID="linkSolicitarCupos" ClientIDMode="Static" CssClass="btnParticipar rightPosition" runat="server" Text="Participar" CommandArgument='<%#Eval("IdTrayecto") %>' CommandName="participar"></asp:LinkButton>        
+                    
                 </ItemTemplate>
             </asp:DataList>
         </div> 
@@ -237,7 +237,7 @@
                                 <p>
                                     <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
                                     <strong>Alert:</strong>
-                                    <asp:Label ID="lblMensajeError" runat="server" Text="No puedes enviar mas de una solicitud para un mismo trayecto."></asp:Label>
+                                    <asp:Label ID="lblMensajeError" runat="server" Text="Erro enviando la solicitud."></asp:Label>
                                 </p>
                             </div>
                         </asp:Panel>

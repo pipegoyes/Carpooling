@@ -70,6 +70,7 @@ namespace DataLayer.DAOs
                     from t in Conexion.TRAYECTO
                     where p.DIRECCION == ciudadOrigen && p.TIPO_PARADA == "I"
                     where p.ID_TRAYECTO == t.ID_TRAYECTO && v.ID_VIAJE == t.ID_VIAJE
+                    where v.ESTADO == (int) Viaje.ViajeEstado.Publicado
                     select v;
 
             s = from v in s
@@ -77,6 +78,7 @@ namespace DataLayer.DAOs
                 from p in t.PARADA
                 where p.DIRECCION == ciudadDestino && p.TIPO_PARADA == "F"
                 where p.ID_TRAYECTO == t.ID_TRAYECTO && v.ID_VIAJE == t.ID_VIAJE
+                where v.ESTADO == (int)Viaje.ViajeEstado.Publicado
                 select v;
 
 
@@ -87,7 +89,7 @@ namespace DataLayer.DAOs
                     where v.FECHA_HORA_PARTIDA.Day == fechaTemp.Day
                     select v;
             }
-
+            
             var listaTemp = s.Distinct().ToList();
             return ToBusinessEntity.Instancia.ListaViajesToItemsTabla(listaTemp);
         }

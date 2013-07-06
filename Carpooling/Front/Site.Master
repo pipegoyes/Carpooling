@@ -24,14 +24,14 @@
         <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet"/>       
         <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
 
-        <script src="/Scripts/modernizr.js"></script>
-        <script src="/Scripts/prefixfree.min.js"></script>
-        <script src="/Scripts/jquery-1.8.2.min.js"></script>
-        <script src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"></script>
-        <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"></script>
-        <script src="/Scripts/jquery.wijmo/globalize.cultures.js"></script>
-        <script src="/Scripts/front-js/SiteMaster.js"></script>
+        <script src="/Scripts/modernizr.js"> </script>
+        <script src="/Scripts/prefixfree.min.js"> </script>
+        <script src="/Scripts/jquery-1.8.2.min.js"> </script>
+        <script src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/globalize.cultures.js"> </script>
+        <script src="/Scripts/front-js/SiteMaster.js"> </script>
         <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
         
         <script type="text/javascript">
@@ -39,8 +39,8 @@
             function InicializarMaster() {
                 var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
 
-                pageRequestManager.add_endRequest(function () {
-                    $("[ClientID='btnIniciarSesion']").click(function () {
+                pageRequestManager.add_endRequest(function() {
+                    $("[ClientID='btnIniciarSesion']").click(function() {
                         btnIniciarSesion_OnClientClick();
                     });
                 });
@@ -48,7 +48,7 @@
         </script>
     </head>
 
-    <body onload="InicializarMaster()">
+    <body onload=" InicializarMaster() ">
         <form id="Form1" runat="server">
             <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server" EnablePartialRendering="true"></ajaxToolkit:ToolkitScriptManager>
                        
@@ -120,19 +120,7 @@
                         </asp:LoginView>
                     </section>
                     <div class="divClear"></div>
-                </div>
-                <%--<div class="content-wrapper">
-                    <figure id="logoSite" class="float-left">
-                        <p class="site-title" >CarpoolingCo</p>
-                    </figure>
-                    <nav>
-                        <ul id="menu">
-                            <li><a id="navHome" runat="server" href="~/Front/Bienvenida.aspx">Inicio</a></li>
-                            <li><a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a></li>
-                            <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>--%>               
+                </div>             
             </header>        
             <div id="body">
                 <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
@@ -145,18 +133,16 @@
                     <div class="float-left">
                         <p>&copy; <%: DateTime.Now.Year %> - CarpoolingCo</p>
                     </div>
-                <nav>
-                    <ul id="menu">
-                        <li>
-                            <a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a>
-                        </li>
-                        <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
-                    </ul>
-                </nav>
+                    <nav>
+                        <ul id="menu">
+                            <li>
+                                <a id="navAbout" runat="server" href="~/About.aspx">Nosotros</a>
+                            </li>
+                            <li><a id="navContact" runat="server" href="~/Contact.aspx">Contacto</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </footer>
         </form>
     </body>    
 </html>
-
-

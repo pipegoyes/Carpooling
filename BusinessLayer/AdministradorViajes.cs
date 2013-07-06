@@ -231,5 +231,13 @@ namespace BusinessLayer
             var listSolicitudes = SolicitudDao.Instancia.ConsultarSolicitudesAprobadas(pUsuario);
             return listSolicitudes != null ? ViajeDao.Instancia.ConsultarViajesFromSolicitudes(listSolicitudes) : null;
         } 
+
+        public bool HayCuposSuficientes(Solicitud pSolicitud, long idTrayecto)
+        {
+            var trayecto = TrayectoDao.Instancia.GetTrayecto(idTrayecto);
+            if (trayecto != null)
+                return pSolicitud.CuposSolicitados < trayecto.CuposDisponibles;
+            return false;
+        }
     }
 }

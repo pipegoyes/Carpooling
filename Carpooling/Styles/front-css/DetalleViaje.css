@@ -58,13 +58,13 @@
 #divLeftSection{
 	width: 260px;
 	overflow-y: auto;
-	height: 400px;
+	height: 530px;
 	float: left;
 }
 #divRightSection{
 	width: 700px;
 	float: left;
-	height: 400px;
+	height: 530px;
 	font-size: 10px;
 }
 .scrollY{
@@ -162,7 +162,12 @@
     padding: 5px;
     width: 240px;
 }
-
+.btnParticipar 
+{
+    font-size: 10px;
+    margin-right: 5px;
+    color: black !important;
+}
 
 
 
