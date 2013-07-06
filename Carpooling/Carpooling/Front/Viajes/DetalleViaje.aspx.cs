@@ -27,6 +27,9 @@ namespace Carpooling.Front.Viajes
             string idViajeStr = Request.QueryString["idViajeDetalle"];
             if (idViajeStr != null)
             {
+                bool desdeBusqueda = !String.IsNullOrWhiteSpace(Request.QueryString["b"]);
+                if (desdeBusqueda)
+                    btnCancelarParticipacion.Visible = false;
                 Session["idViajeDetalle"] = long.Parse(idViajeStr);
                 UsuarioConectado = (Usuario)Session["usuario"];
                 IdViaje = Convert.ToInt64(idViajeStr);
@@ -89,6 +92,8 @@ namespace Carpooling.Front.Viajes
             if (!habilitado) return;
             txbComentario.Text = "";
             txbCuposSolicitados.Text = "";
+            txbCuposSolicitados.Enabled = true;
+            txbComentario.Enabled = true;
             panelError.Visible = false;
             panelExitoso.Visible = false;
         }
@@ -143,13 +148,30 @@ namespace Carpooling.Front.Viajes
                 IdTrayecto = idTrayecto
             };
 
-            if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
+            if(AdministradorViajes.Instancia.HayCuposSuficientes(solicitudNueva,idTrayecto))
             {
-                panelExitoso.Visible = true;
-                HabilitarPopUp(false);
+                if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
+                {
+                    panelExitoso.Visible = true;
+                    HabilitarPopUp(false);
+                }
+                else
+                {
+                    lblMensajeError.Text = "No es posible enviar mas de una solicitud al mismo trayecto.";
+                    txbCuposSolicitados.Enabled = false;
+                    txbComentario.Enabled = false;
+                    panelError.Visible = true;
+                }                
             }
             else
-                panelError.Visible = true;
+            {
+                lblMensajeError.Text = "No hay cupos suficientes en el trayecto que usted seleccionó.";
+                txbCuposSolicitados.Enabled = false;
+                txbComentario.Enabled = false;
+                panelError.Visible = true; 
+            }
+
+                
         }
 
         protected void HidePopUpParticipar(object sender, EventArgs e)

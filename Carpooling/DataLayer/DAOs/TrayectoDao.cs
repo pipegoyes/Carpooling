@@ -61,5 +61,13 @@ namespace DataLayer.DAOs
 
         }
 
+        public Trayecto GetTrayecto(long idTrayecto)
+        {
+            EstablecerConexion();
+            return Conexion.TRAYECTO.Find(idTrayecto) != null
+                       ? ToBusinessEntity.Instancia.ToTrayecto(Conexion.TRAYECTO.Find(idTrayecto))
+                       : null;
+        }
+
     }
 }

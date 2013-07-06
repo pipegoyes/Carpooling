@@ -102,7 +102,7 @@
                 <div class="divCelda">
                     <asp:Label ID="Label8" runat="server" Text='<%#Eval("ParadaDestino") %>'></asp:Label>    
                 </div>
-                <div class="divClear">
+                <div>
                     <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
                 </div>
             </ItemTemplate>

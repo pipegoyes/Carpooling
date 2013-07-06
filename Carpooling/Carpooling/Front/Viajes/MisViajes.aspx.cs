@@ -30,11 +30,14 @@ namespace Carpooling.Front.Viajes
                     {
                         //Viajes vigentes como conductor
                         var misViajesVigentes = listaMisViajesConductor.FindAll(v => v.Estado == Viaje.ViajeEstado.Publicado);
-                        if(misViajesVigentes.Any())
+                        if (misViajesVigentes.Any())
                         {
                             dataListViajesVigentesConductor.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentes);
-                            dataListViajesVigentesConductor.DataBind();    
+                            dataListViajesVigentesConductor.DataBind();
+                            lblSinViajesVigentesConductor.Visible = false;
                         }
+                        else
+                            lblSinViajesVigentesConductor.Visible = true;
                         
 
                         //Viajes realizados como conductor
@@ -42,7 +45,8 @@ namespace Carpooling.Front.Viajes
 
                         //Agregar al lista definitivo
                         listMisViajesCompleta.AddRange(listaMisViajesConductor);
-                    }
+                    }else
+                        lblSinViajesVigentesConductor.Visible = true;
 
 
                     //Viajes como pasajero 
@@ -54,25 +58,35 @@ namespace Carpooling.Front.Viajes
                         if(misViajesVigentesPasajero.Any())
                         {
                             dataListViajesVigentesPasajero.DataSource = AdministradorViajes.Instancia.ToListItemTabla(misViajesVigentesPasajero);
-                            dataListViajesVigentesPasajero.DataBind();    
+                            dataListViajesVigentesPasajero.DataBind();
+                            lblSinViajesVigentesPasajero.Visible = false;
                         }
-                        
-
+                        else
+                            lblSinViajesVigentesPasajero.Visible = true;
                         //Viajes realizados como pasajero
                         listMisViajesRealizadosCompleta.AddRange(listMisViajesPasajero.FindAll(v => v.Estado == Viaje.ViajeEstado.Realizado));
 
                         listMisViajesCompleta.AddRange(listMisViajesPasajero);
                     }
-
+                    else
+                        lblSinViajesVigentesPasajero.Visible = true;
+                        
+                    //Listado de viajes realizados como pasajero y conductor
                     if(listMisViajesRealizadosCompleta.Any())
                     {
                         dataListViajesRealizados.DataSource =
                             AdministradorViajes.Instancia.ToListItemTabla(listMisViajesRealizadosCompleta);
                         dataListViajesRealizados.DataBind();
+                        lblSinViajesRealizados.Visible = false;
                     }
+                    else
+                        lblSinViajesRealizados.Visible = true;
 
                     Session["MisViajesList"] = listMisViajesCompleta;
                 }
+                else
+                    Response.Redirect("/Front/Bienvenida.aspx");
+
             }
         }
 

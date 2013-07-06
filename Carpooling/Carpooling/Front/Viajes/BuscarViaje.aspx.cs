@@ -55,7 +55,7 @@ namespace Carpooling.Front.Viajes
             {
                 long id = int.Parse(((LinkButton)e.CommandSource).CommandArgument);
                 if (id != 0)
-                    Response.Redirect("../Viajes/DetalleViaje.aspx?idViajeDetalle=" + id);
+                    Response.Redirect("../Viajes/DetalleViaje.aspx?idViajeDetalle=" + id+ "&b=1");
             }
             else if (e.CommandName.ToLower().Equals("verperfil"))
             {

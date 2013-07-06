@@ -48,7 +48,7 @@
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
     </asp:DataList>
-    <asp:Label runat="server" ID="lblSinViajesVigentesConductor" Text="No hay viajes vigentes" Visible="False"></asp:Label>
+    <asp:Label runat="server" ID="lblSinViajesVigentesConductor" Text="No hay viajes vigentes como conductor" Visible="False" CssClass="lblSinViajes"></asp:Label>
     
       <div class="titulo">Viajes vigentes como pasajero</div>
     <div class="text">Son aquellos viajes que a la fecha no se han realizado, pero tu solicitud ha sido aprobada para participar en el viaje. </div>
@@ -88,7 +88,7 @@
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
     </asp:DataList>
-    <asp:Label runat="server" ID="lblSinViajesVigentesPasajero" Text="No hay viajes vigentes" Visible="False"></asp:Label>
+    <asp:Label runat="server" ID="lblSinViajesVigentesPasajero" Text="No hay viajes vigentes como pasajero" Visible="False" CssClass="lblSinViajes"></asp:Label>
 
     
      <div class="titulo">Viajes realizados</div>
@@ -129,5 +129,5 @@
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
     </asp:DataList>
-    <asp:Label runat="server" ID="lblSinViajesRealizados" Text="No hay viajes realizados" Visible="False"></asp:Label>
+    <asp:Label runat="server" ID="lblSinViajesRealizados" Text="No hay viajes realizados" Visible="False" CssClass="lblSinViajes"></asp:Label>
 </asp:Content>
