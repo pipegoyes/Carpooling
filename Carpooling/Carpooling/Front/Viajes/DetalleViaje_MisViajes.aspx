@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="DetalleViaje_MisViajes.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje_MisViajes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master"  EnableEventValidation="false" AutoEventWireup="true"   CodeBehind="DetalleViaje_MisViajes.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje_MisViajes" %>
 <%@ Register TagPrefix="uc" TagName="PopUpConfirmation" Src="~/Front/UserControls/PopUpOk.ascx" %>
 <%@ Register TagPrefix="uc" TagName="PopUpCalificar" Src="~/Front/UserControls/PopupCalificarParticipante.ascx" %>
 
@@ -212,8 +212,71 @@
                 <li><a href="#tabPreguntas" id="tabPreguntas" runat="server">Preguntas</a></li>
                 <li><a href="#tabCalificacionesDiv" id="tabCalificaciones" runat="server">Calificaciones</a></li>
             </ul>
+
+            <div id="tabCalificacionesDiv" class="scrollY">
+                <asp:UpdatePanel ID="upPanelCalificacionesDetalle" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
+                    <ContentTemplate>
+                        
+                        <asp:Panel ID="PanelCalificacionesDetalle" runat="server" >
+                            <div class="subtitulo">Listado de calificaciones por realizar</div>
+                            <asp:DataList ID="dataListCalificaciones" runat="server" ForeColor="#333333" RepeatColumns="1"
+                                          ShowFooter="False" Width="100%"  OnItemCommand="dataListCalificaciones_ItemCommand">
+                                <AlternatingItemStyle BackColor="White" />
+                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                             ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                                <HeaderTemplate>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblParticipanteCalificarH" runat="server" Text="Participante"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadOrigenH" runat="server" Text="Ciudad origen"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadDestinoH"  runat="server" Text="Ciudad destino"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblReputacionParticipanteH"  runat="server" Text="Reputacion"></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                    </div>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:HiddenField ID="hdfIdEvaluado" runat="server" Value='<%#Eval("IdEvaluado") %>' />
+                                        <asp:HiddenField ID="hdfIdEvaluador" runat="server" Value='<%#Eval("IdEvaluador") %>' />
+                                        <asp:Label ID="lblParticipanteCalificar" runat="server" Text='<%#Eval("NombreParticipante") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadOrigen" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblCiudadDestino" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:Label ID="lblReputacionParticipante" runat="server" Text='<%#Eval("Reputacion") %>'></asp:Label>
+                                    </div>
+                                    <div class="divCeldaSolicitudes">
+                                        <asp:LinkButton ID="btnCalificarParticipante" runat="server" Text="Calificar" CommandName="calificar" CommandArgument='<%#Eval("IdCalificacion") %>'></asp:LinkButton>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                            <div>
+                                <div id="div7">
+                                    <asp:Label runat="server" Text="No tiene calificaciones pendientes." ID="lblSinCalificaciones"></asp:Label>    
+                                </div>
+                            </div>
+                        </asp:Panel>    
+
+                        
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+             </div>
+                   
+
             <div id="tabMapa">
                 <div id="contenedorMapa">Google Map</div>    
+
             </div>
             <div id="tabSolicitudes" class="scrollY">
                 <asp:Panel ID="PanelSolicitudesDetalle" runat="server" >
@@ -373,66 +436,6 @@
                     </div>
                 </asp:Panel>
             </div>
-            <div id="tabCalificacionesDiv" class="scrollY">
-                <asp:UpdatePanel ID="upPanelCalificacionesDetalle" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
-                    <ContentTemplate>
-                        
-                        <asp:Panel ID="PanelCalificacionesDetalle" runat="server" >
-                            <div class="subtitulo">Listado de calificaciones por realizar</div>
-                            <asp:DataList ID="dataListCalificaciones" runat="server" ForeColor="#333333" RepeatColumns="1"
-                                          ShowFooter="False" Width="100%"  OnItemCommand="dataListCalificaciones_ItemCommand">
-                                <AlternatingItemStyle BackColor="White" />
-                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                                             ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-                                <HeaderTemplate>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblParticipanteCalificarH" runat="server" Text="Participante"></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblCiudadOrigenH" runat="server" Text="Ciudad origen"></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblCiudadDestinoH"  runat="server" Text="Ciudad destino"></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblReputacionParticipanteH"  runat="server" Text="Reputacion"></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                    </div>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:HiddenField ID="hdfIdEvaluado" runat="server" Value='<%#Eval("IdEvaluado") %>' />
-                                        <asp:HiddenField ID="hdfIdEvaluador" runat="server" Value='<%#Eval("IdEvaluador") %>' />
-                                        <asp:Label ID="lblParticipanteCalificar" runat="server" Text='<%#Eval("NombreParticipante") %>'></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblCiudadOrigen" runat="server" Text='<%#Eval("CiudadOrigen") %>'></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblCiudadDestino" runat="server" Text='<%#Eval("CiudadDestino") %>'></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:Label ID="lblReputacionParticipante" runat="server" Text='<%#Eval("Reputacion") %>'></asp:Label>
-                                    </div>
-                                    <div class="divCeldaSolicitudes">
-                                        <asp:LinkButton ID="btnCalificarParticipante" runat="server" Text="Calificar" CommandName="calificar" CommandArgument='<%#Eval("IdCalificacion") %>'></asp:LinkButton>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:DataList>
-                            <div>
-                                <div id="div7">
-                                    <asp:Label runat="server" Text="No tiene calificaciones pendientes." ID="lblSinCalificaciones"></asp:Label>    
-                                </div>
-                            </div>
-                        </asp:Panel>    
-
-                        <uc:PopUpCalificar ID="popUpCalificar" runat="server" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-
-                
-            </div>
         </div>
         
         <asp:PlaceHolder ID="contenedorHiddenFields" runat="server"></asp:PlaceHolder>
@@ -536,6 +539,8 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </asp:Panel>
+
+    <uc:PopUpCalificar ID="popUpCalificar" runat="server" />
 
     <script type="text/javascript">
         function ActualizarContadorTab(idTab, valor) {
