@@ -157,6 +157,42 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor tabCalificaciones;
         
         /// <summary>
+        /// upPanelCalificacionesDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPanelCalificacionesDetalle;
+        
+        /// <summary>
+        /// PanelCalificacionesDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelCalificacionesDetalle;
+        
+        /// <summary>
+        /// dataListCalificaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListCalificaciones;
+        
+        /// <summary>
+        /// lblSinCalificaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSinCalificaciones;
+        
+        /// <summary>
         /// PanelSolicitudesDetalle control.
         /// </summary>
         /// <remarks>
@@ -236,51 +272,6 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSinPreguntas;
-        
-        /// <summary>
-        /// upPanelCalificacionesDetalle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upPanelCalificacionesDetalle;
-        
-        /// <summary>
-        /// PanelCalificacionesDetalle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelCalificacionesDetalle;
-        
-        /// <summary>
-        /// dataListCalificaciones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListCalificaciones;
-        
-        /// <summary>
-        /// lblSinCalificaciones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSinCalificaciones;
-        
-        /// <summary>
-        /// popUpCalificar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Carpooling.Front.UserControls.PopupCalificarParticipante popUpCalificar;
         
         /// <summary>
         /// contenedorHiddenFields control.
@@ -515,5 +506,14 @@ namespace Carpooling.Front.Viajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelConfirmacionPopUp;
+        
+        /// <summary>
+        /// popUpCalificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Carpooling.Front.UserControls.PopupCalificarParticipante popUpCalificar;
     }
 }
