@@ -239,5 +239,6 @@ namespace BusinessLayer
                 return pSolicitud.CuposSolicitados < trayecto.CuposDisponibles;
             return false;
         }
+
     }
 }

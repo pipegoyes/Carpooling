@@ -94,6 +94,33 @@ namespace Carpooling.Front.Viajes {
         protected global::System.Web.UI.WebControls.Label txbNombreConductor;
         
         /// <summary>
+        /// rtgReputacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Rating rtgReputacion;
+        
+        /// <summary>
+        /// btnVerPerfilPublico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerPerfilPublico;
+        
+        /// <summary>
+        /// ucPerfilpublico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Carpooling.Front.Cuentas.wuc.PerfilPublico ucPerfilpublico;
+        
+        /// <summary>
         /// dataListTrayectos control.
         /// </summary>
         /// <remarks>

@@ -39,6 +39,13 @@ namespace Carpooling.Front.Viajes
             }
         }
 
+        protected void VerPerfilPublicoClic(object sender, EventArgs e)
+        {
+            if (ViajeDetalle == null) return;
+            var idUsuario = ViajeDetalle.Conductor.IdUsuario;
+            ucPerfilpublico.MostrarVentana(idUsuario);
+        }
+
         public void PintarDetalleViaje()
         {
             //Informacion del viaje
@@ -49,8 +56,11 @@ namespace Carpooling.Front.Viajes
 
             //Informacion del conductor
             txbNombreConductor.Text = ViajeDetalle.Conductor.ObtenerNombreApellidos();
-            
-            //TODO agregar mas informacion del conductor
+            if (ViajeDetalle.Conductor.Reputacion != null)
+                rtgReputacion.CurrentRating = (int)ViajeDetalle.Conductor.Reputacion;
+            else
+                rtgReputacion.CurrentRating = 3;
+
 
 
             //Informacion del trayecto selecionado el trayecto seleccionado
@@ -148,7 +158,19 @@ namespace Carpooling.Front.Viajes
                 IdTrayecto = idTrayecto
             };
 
-            if(AdministradorViajes.Instancia.HayCuposSuficientes(solicitudNueva,idTrayecto))
+            var usuarioConectado = (Usuario)Session["usuario"];
+            var idViajeStr = Convert.ToInt32(Request.QueryString["idViajeDetalle"]);
+            ViajeDetalle = AdministradorViajes.Instancia.VerDetalleViaje(idViajeStr);
+            var conductor = (Usuario) ViajeDetalle.Conductor;
+
+            if (conductor.IdUsuario.Equals(usuarioConectado.IdUsuario))
+            {
+                lblMensajeError.Text = "No puede realizar participaciones a un viaje que ústed creó.";
+                txbCuposSolicitados.Enabled = false;
+                txbComentario.Enabled = false;
+                panelError.Visible = true; 
+            }
+            else if(AdministradorViajes.Instancia.HayCuposSuficientes(solicitudNueva,idTrayecto))
             {
                 if (AdministradorViajes.Instancia.RegistrarSolicitud(solicitudNueva))
                 {

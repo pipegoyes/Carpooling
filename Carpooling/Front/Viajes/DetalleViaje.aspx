@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Front/Site.Master" AutoEventWireup="true" CodeBehind="DetalleViaje.aspx.cs" Inherits="Carpooling.Front.Viajes.DetalleViaje" %>
 <%--<%@ PreviousPageType VirtualPath="BuscarViaje.aspx" %>--%>
+<%@ Register Src="~/Front/Cuentas/wuc/PerfilPublico.ascx" TagName="PerfilPublico" TagPrefix="uc" %>
 <%@ Register TagPrefix="uc" TagName="PopUpConfirmation" Src="~/Front/UserControls/PopUpOk.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Styles/front-css/DetalleViaje.css" type="text/css" rel="stylesheet"/>
@@ -69,9 +70,20 @@
             </div>
         </div>
         <div class="divClear"></div>
-        <div id="contenedorInfoConductor">
+        <div id="contenedorInfoConductor" >
             <div class="subtitulo textLeft">Conductor</div>
-            <asp:Label runat="server" ID="txbNombreConductor"></asp:Label>
+            <div style="width: 180px" class="float-left">
+                <asp:Label runat="server" ID="txbNombreConductor"></asp:Label>
+                <ajaxToolkit:Rating runat="server" ID="rtgReputacion" MaxRating="5" ReadOnly="True" CurrentRating="0" CssClass="ratingStar"
+                                StarCssClass="ratingItem" WaitingStarCssClass="Saved" FilledStarCssClass="Filled" EmptyStarCssClass="Empty"
+                               style="height:14px !important; margin:0 !important;"></ajaxToolkit:Rating>   
+            </div>
+            <div class="divBotones">
+                <asp:Button runat="server" ID="btnVerPerfilPublico" Text="Ver perfil" CssClass="button-gradient green" OnClick="VerPerfilPublicoClic"/>    
+            </div>
+            
+            <div class="divClear"></div>
+            <uc:PerfilPublico runat="server" ID="ucPerfilpublico" />
         </div>
         <div id="contenedorTrayectos">
             <div class="subtitulo textLeft">Trayectos</div>
