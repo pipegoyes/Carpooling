@@ -22,6 +22,15 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Label lblNombresApellidos;
         
         /// <summary>
+        /// imgImagenCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
+        
+        /// <summary>
         /// lblNombres control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApellidos;
-        
-        /// <summary>
-        /// lblResidencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResidencia;
         
         /// <summary>
         /// lblGenero control.
@@ -67,49 +67,13 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
         
         /// <summary>
-        /// lblOcupacion control.
+        /// lblResidencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOcupacion;
-        
-        /// <summary>
-        /// lblTelefonoMovil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoMovil;
-        
-        /// <summary>
-        /// lblTelefonoFijo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoFijo;
-        
-        /// <summary>
-        /// imgFumador control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgFumador;
-        
-        /// <summary>
-        /// imgVehiculo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgVehiculo;
+        protected global::System.Web.UI.WebControls.Label lblResidencia;
         
         /// <summary>
         /// lblIdUsuario control.
@@ -130,13 +94,13 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// ddlReputación control.
+        /// rtgReputación control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReputación;
+        protected global::AjaxControlToolkit.Rating rtgReputación;
         
         /// <summary>
         /// lblReputación control.
@@ -157,13 +121,67 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Label lblFechaUltimoIngreso;
         
         /// <summary>
-        /// imgImagenCuenta control.
+        /// lblTelefonoFijo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
+        protected global::System.Web.UI.WebControls.Label lblTelefonoFijo;
+        
+        /// <summary>
+        /// lblTelefonoMovil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTelefonoMovil;
+        
+        /// <summary>
+        /// lblOcupacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOcupacion;
+        
+        /// <summary>
+        /// imgFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgFumador;
+        
+        /// <summary>
+        /// chkFumador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkFumador;
+        
+        /// <summary>
+        /// imgVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgVehiculo;
+        
+        /// <summary>
+        /// chkVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkVehiculo;
         
         /// <summary>
         /// lblInfoAdicional control.
@@ -172,16 +190,7 @@ namespace Carpooling.Front.Cuentas {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoAdicional;
-        
-        /// <summary>
-        /// btnEditarPerfil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditarPerfil;
+        protected global::System.Web.UI.WebControls.TextBox lblInfoAdicional;
         
         /// <summary>
         /// upnMiPerfil control.
@@ -191,6 +200,15 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upnMiPerfil;
+        
+        /// <summary>
+        /// btnEditarPerfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditarPerfil;
         
         /// <summary>
         /// btnCambiarContrasenia control.
@@ -209,15 +227,6 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDesactivarCuenta;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// ucCambioContrasenia control.

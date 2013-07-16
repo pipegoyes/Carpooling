@@ -49,6 +49,15 @@ namespace Carpooling.Front.UserControls {
         protected global::System.Web.UI.UpdatePanel uplCalificarParticipante;
         
         /// <summary>
+        /// divDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDrag;
+        
+        /// <summary>
         /// lblTituloVentana control.
         /// </summary>
         /// <remarks>

@@ -2,8 +2,8 @@
 
 <asp:Panel runat="server" ID="pnlDesactivarCuenta" Style="display: none;">
     <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeDesactivarCuenta" PopupControlID="pnlDesactivarCuenta" BehaviorID ="ModalBehaviour"
-        TargetControlID="targetPop" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelConfirmacionPopUp">
-    </ajaxToolkit:ModalPopupExtender>
+        TargetControlID="targetPop" BackgroundCssClass="modalBackgroundMensajeModal">
+    </ajaxToolkit:ModalPopupExtender> <%--CancelControlID="btnCancelConfirmacionPopUp"--%>
     <div style="display: none;" runat="server" id="targetPop"></div>
 
     <asp:UpdatePanel ID="uplDesactivarCuenta" runat="server">

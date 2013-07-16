@@ -20,9 +20,7 @@ namespace Carpooling.Front.Cuentas.wuc
 
         private void MostrarInfoUsuario()
         {
-
-
-            lblTituloModal.Text = "Perfil de " + usuarioPerfil.ObtenerNombreApellidos();
+            lblTituloVentana.Text = "Perfil de " + usuarioPerfil.ObtenerNombreApellidos();
             lblNombresApellidos.Text = usuarioPerfil.ObtenerNombreApellidos();
             lblResidencia.Text = usuarioPerfil.ResidenciaUbicacion.NombreCiudad + " (" + usuarioPerfil.ResidenciaUbicacion.NombreDepartamento + ") - " + usuarioPerfil.ResidenciaUbicacion.NombrePais;
             lblGenero.Text = usuarioPerfil.Genero == "H" ? "Hombre" : "Mujer";
@@ -39,7 +37,7 @@ namespace Carpooling.Front.Cuentas.wuc
             if (usuarioPerfil.Reputacion != null && usuarioPerfil.Reputacion != 0)
             {
                 lblReputación.Text = usuarioPerfil.Reputacion.ToString();
-                ddlReputación.SelectedValue = Math.Round(usuarioPerfil.Reputacion.Value).ToString();
+                //ddlReputación.SelectedValue = Math.Round(usuarioPerfil.Reputacion.Value).ToString();
             }
             lblFechaUltimoIngreso.Text = usuarioPerfil.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
             imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
@@ -52,11 +50,6 @@ namespace Carpooling.Front.Cuentas.wuc
             if (usuarioPerfil != null)
                 MostrarInfoUsuario();
             mpePerfilPublico.Show();
-        }
-
-        public void CerrarVentana()
-        {
-            mpePerfilPublico.Hide();
         }
     }
 }

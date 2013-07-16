@@ -49,6 +49,42 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.Label lblNombreCuenta;
         
         /// <summary>
+        /// hfdImagePathHombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathHombre;
+        
+        /// <summary>
+        /// hfdImagePathMujer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathMujer;
+        
+        /// <summary>
+        /// imgImagenCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
+        
+        /// <summary>
+        /// upnCambiarImagen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upnCambiarImagen;
+        
+        /// <summary>
         /// txbNombres control.
         /// </summary>
         /// <remarks>
@@ -58,6 +94,24 @@ namespace Carpooling.Front.Cuentas {
         protected global::System.Web.UI.WebControls.TextBox txbNombres;
         
         /// <summary>
+        /// txtNombres_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNombres_Validator1;
+        
+        /// <summary>
+        /// txtNombres_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombres_VC1;
+        
+        /// <summary>
         /// txbApellidos control.
         /// </summary>
         /// <remarks>
@@ -65,6 +119,105 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbApellidos;
+        
+        /// <summary>
+        /// txtApellidos_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtApellidos_Validator1;
+        
+        /// <summary>
+        /// txtApellidos_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtApellidos_VC1;
+        
+        /// <summary>
+        /// rblGenero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblGenero;
+        
+        /// <summary>
+        /// rblstGenero_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rblstGenero_Validator1;
+        
+        /// <summary>
+        /// rblstGenero_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender rblstGenero_VC1;
+        
+        /// <summary>
+        /// ddlAnioNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnioNacimiento;
+        
+        /// <summary>
+        /// ddlMesNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMesNacimiento;
+        
+        /// <summary>
+        /// ddlDiaNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDiaNacimiento;
+        
+        /// <summary>
+        /// hfDiaNacimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfDiaNacimiento;
+        
+        /// <summary>
+        /// ddlFechaNacimiento_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator ddlFechaNacimiento_Validator1;
+        
+        /// <summary>
+        /// ddlFechaNacimiento_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlFechaNacimiento_VC1;
         
         /// <summary>
         /// ddlPais control.
@@ -121,58 +274,247 @@ namespace Carpooling.Front.Cuentas {
         protected global::AjaxControlToolkit.CascadingDropDown cddlCiudad;
         
         /// <summary>
-        /// rblGenero control.
+        /// ddlPais_Validator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblGenero;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlPais_Validator1;
         
         /// <summary>
-        /// ddlAnioNacimiento control.
+        /// ddlPais_VC1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAnioNacimiento;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlPais_VC1;
         
         /// <summary>
-        /// ddlMesNacimiento control.
+        /// ddlDepartamento_Validator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMesNacimiento;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlDepartamento_Validator1;
         
         /// <summary>
-        /// ddlDiaNacimiento control.
+        /// ddlDepartamento_VC1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDiaNacimiento;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlDepartamento_VC1;
         
         /// <summary>
-        /// hfDiaNacimiento control.
+        /// ddlCiudad_Validator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfDiaNacimiento;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlCiudad_Validator1;
         
         /// <summary>
-        /// ddlOcupacion control.
+        /// ddlCiudad_VC1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOcupacion;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ddlCiudad_VC1;
+        
+        /// <summary>
+        /// txbIdUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbIdUsuario;
+        
+        /// <summary>
+        /// txtNombreUsuario_Validation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNombreUsuario_Validation1;
+        
+        /// <summary>
+        /// txtNombreUsuario_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC1;
+        
+        /// <summary>
+        /// txtNombreUsuario_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtNombreUsuario_Validation2;
+        
+        /// <summary>
+        /// txtNombreUsuario_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC2;
+        
+        /// <summary>
+        /// txtNombreUsuario_Validation3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtNombreUsuario_Validation3;
+        
+        /// <summary>
+        /// txtNombreUsuario_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC3;
+        
+        /// <summary>
+        /// txbEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbEmail;
+        
+        /// <summary>
+        /// txtCorreoElectronico_Validation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCorreoElectronico_Validation1;
+        
+        /// <summary>
+        /// txtCorreoElectronico_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtCorreoElectronico_VC1;
+        
+        /// <summary>
+        /// txtCorreoElectronico_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtCorreoElectronico_Validation2;
+        
+        /// <summary>
+        /// txtCorreoElectronico_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtCorreoElectronico_VC2;
+        
+        /// <summary>
+        /// txbContraseniaActual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbContraseniaActual;
+        
+        /// <summary>
+        /// txtContrasena_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtContrasena_Validation2;
+        
+        /// <summary>
+        /// txtContrasena_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC2;
+        
+        /// <summary>
+        /// txbNuevaContrasenia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbNuevaContrasenia;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// ValidatorCalloutExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
+        
+        /// <summary>
+        /// txbReNuevaContrasenia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbReNuevaContrasenia;
+        
+        /// <summary>
+        /// txtReContrasena_Validator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator txtReContrasena_Validator3;
+        
+        /// <summary>
+        /// txtReContrasena_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReContrasena_VC3;
         
         /// <summary>
         /// txbTelefonoMovil control.
@@ -191,6 +533,15 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbTelefonoFijo;
+        
+        /// <summary>
+        /// ddlOcupacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlOcupacion;
         
         /// <summary>
         /// hfdPathImagenFumador control.
@@ -281,96 +632,6 @@ namespace Carpooling.Front.Cuentas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfdVehiculo;
-        
-        /// <summary>
-        /// txbIdUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbIdUsuario;
-        
-        /// <summary>
-        /// txbEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbEmail;
-        
-        /// <summary>
-        /// txbContraseniaActual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbContraseniaActual;
-        
-        /// <summary>
-        /// txbNuevaContrasenia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbNuevaContrasenia;
-        
-        /// <summary>
-        /// txbReNuevaContrasenia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbReNuevaContrasenia;
-        
-        /// <summary>
-        /// hfdImagePathHombre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathHombre;
-        
-        /// <summary>
-        /// hfdImagePathMujer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfdImagePathMujer;
-        
-        /// <summary>
-        /// imgImagenCuenta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
-        
-        /// <summary>
-        /// lnkCambiarFoto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCambiarFoto;
-        
-        /// <summary>
-        /// upnCambiarImagen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upnCambiarImagen;
         
         /// <summary>
         /// txbInfoAdicional control.

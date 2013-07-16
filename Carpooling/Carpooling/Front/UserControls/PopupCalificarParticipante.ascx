@@ -1,17 +1,20 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PopupCalificarParticipante.ascx.cs" Inherits="Carpooling.Front.UserControls.PopupCalificarParticipante" %>
 
-<asp:Panel runat="server" ID="pnlCalificarParticipante" Style="display: none;">
+
+<asp:Panel runat="server" ID="pnlCalificarParticipante"  Width="400" Style="display: none;">
     <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeCalificarParticipante" PopupControlID="pnlCalificarParticipante" BehaviorID ="ModalBehaviour"
-        TargetControlID="targetPop" BackgroundCssClass="modalBackgroundMensajeModal">
+        TargetControlID="targetPop" PopupDragHandleControlID="divDrag" BackgroundCssClass="modalBackgroundMensajeModal">
     </ajaxToolkit:ModalPopupExtender>
     <div style="display: none;" runat="server" id="targetPop"></div>
 
-    <asp:UpdatePanel ID="uplCalificarParticipante" runat="server">
+    <asp:UpdatePanel ID="uplCalificarParticipante" runat="server" UpdateMode="Always">
     <ContentTemplate>
+
     <div class="popUpContainer">
-        <div class="divEncabezado">
+        <div id="divDrag" class="divEncabezado" runat="server">
             <asp:Label runat="server" ID="lblTituloVentana" Text="Calificar"></asp:Label> 
         </div>
+
         <div class="mainContentPopUp">
             <asp:Panel ID="panelCalificarPasajero" runat="server" Visible="true" Style="padding: 10px; margin: 0 auto;">
                 <table style="width: 80%; margin: 0 auto !important;">
@@ -90,7 +93,7 @@
            
             
             <div>
-                <asp:Panel ID="panelError" class="ui-widget" runat="server" Visible="False" Width="450px">
+                <asp:Panel ID="panelError" class="ui-widget" runat="server" Visible="False" Width="100%">
                     <div class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
                         <p>
                             <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
@@ -98,7 +101,7 @@
                         </p>
                     </div>
                 </asp:Panel>
-                <asp:Panel class="ui-widget"  runat="server" ID="panelExitoso" Visible="False" Width="450px">
+                <asp:Panel class="ui-widget"  runat="server" ID="panelExitoso" Visible="False" Width="100%">
                     <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
                         <p>
                             <span class="ui-icon ui-icon-check" style="float: left; margin-right: .3em;"></span>
@@ -133,19 +136,6 @@
 </asp:Panel>
 
 <script type="text/javascript">
-    //$(document).ready(function () {
-    //    $('#rating').wijrating({
-    //        split: 2,
-    //        animation: {
-    //            animated: 'fade',
-    //            duration: 500,
-    //            easing: 'linear',
-    //            delay: 250
-    //        }
-    //    });
-    //});
-
-
     function HideModalPopup() {
         $find("ModalBehaviour").hide();
     }

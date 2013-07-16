@@ -13,15 +13,6 @@ namespace Carpooling.Front.Cuentas.wuc {
     public partial class PerfilPublico {
         
         /// <summary>
-        /// uplVentanaModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplVentanaModal;
-        
-        /// <summary>
         /// pnlPerfilPublico control.
         /// </summary>
         /// <remarks>
@@ -40,40 +31,103 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::AjaxControlToolkit.ModalPopupExtender mpePerfilPublico;
         
         /// <summary>
-        /// lblMensajesPop control.
+        /// targetPop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensajesPop;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl targetPop;
         
         /// <summary>
-        /// btnMover control.
+        /// uplVentanaModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage btnMover;
+        protected global::System.Web.UI.UpdatePanel uplVentanaModal;
         
         /// <summary>
-        /// btnCerrar control.
+        /// divDrag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage btnCerrar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDrag;
         
         /// <summary>
-        /// lblTituloModal control.
+        /// lblTituloVentana control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloModal;
+        protected global::System.Web.UI.WebControls.Label lblTituloVentana;
+        
+        /// <summary>
+        /// imgImagenCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
+        
+        /// <summary>
+        /// lblInfoAdicional control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInfoAdicional;
+        
+        /// <summary>
+        /// lblIdUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdUsuario;
+        
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
+        /// ddlReputación control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlReputación;
+        
+        /// <summary>
+        /// lblReputación control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblReputación;
+        
+        /// <summary>
+        /// lblFechaUltimoIngreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaUltimoIngreso;
         
         /// <summary>
         /// lblNombresApellidos control.
@@ -157,66 +211,12 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.Image imgVehiculo;
         
         /// <summary>
-        /// lblIdUsuario control.
+        /// btnCancelarPopUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdUsuario;
-        
-        /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-        
-        /// <summary>
-        /// ddlReputación control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReputación;
-        
-        /// <summary>
-        /// lblReputación control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReputación;
-        
-        /// <summary>
-        /// lblFechaUltimoIngreso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaUltimoIngreso;
-        
-        /// <summary>
-        /// imgImagenCuenta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
-        
-        /// <summary>
-        /// lblInfoAdicional control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoAdicional;
+        protected global::System.Web.UI.WebControls.Button btnCancelarPopUp;
     }
 }
