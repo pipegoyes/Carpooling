@@ -74,8 +74,8 @@ namespace Carpooling.Front.Cuentas
         {
             try
             {
-                lblNombresApellidos.Text = usuarioApp.ObtenerNombreApellidos();
-                lblNombreCuenta.Text = usuarioApp.IdUsuario;
+                lblNombresApellidos.Text = usuarioApp.ObtenerNombreApellidos().ToUpper();
+                lblNombreCuenta.Text = "(" + usuarioApp.IdUsuario + ")";
                 txbNombres.Text = usuarioApp.Nombre;
                 txbApellidos.Text = usuarioApp.Apellido;
                 cddlPais.SelectedValue = usuarioApp.ResidenciaUbicacion.IdPais.ToString();
@@ -207,6 +207,36 @@ namespace Carpooling.Front.Cuentas
                 ((Global)this.Context.ApplicationInstance).ErrorExcepcion = error;
                 Response.Redirect("~/Front/Error.aspx");
             }
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static AjaxControlToolkit.CascadingDropDownNameValue[] ObtenerPaisesDdl(string knownCategoryValues, string category)
+        {
+            return FuenteDatosControl.Instancia.ObtenerPaises().Select(item => new AjaxControlToolkit.CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static AjaxControlToolkit.CascadingDropDownNameValue[] ObtenerDepartamentosDdl(string knownCategoryValues, string category)
+        {
+            var keys = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            return FuenteDatosControl.Instancia.ObtenerDepartamentos(Int32.Parse(keys["pais"])).Select(item => new AjaxControlToolkit.CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static AjaxControlToolkit.CascadingDropDownNameValue[] ObtenerCiudadesDdl(string knownCategoryValues, string category)
+        {
+            var keys = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            return FuenteDatosControl.Instancia.ObtenerCiudades(Int32.Parse(keys["departamento"])).Select(item => new AjaxControlToolkit.CascadingDropDownNameValue { name = item.Dato, value = item.Valor }).ToArray();
+        }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public static List<int> ObtenerDiasDdl(string pMes, string pAnio)
+        {
+            return FuenteDatosControl.Instancia.ObtenerDiasMes(Int32.Parse(pMes), Int32.Parse(pAnio));
         }
     }
 }

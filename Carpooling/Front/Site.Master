@@ -66,7 +66,7 @@
                             <AnonymousTemplate>
                                 <ul id="menuUsuarioInvitado">
                                     <li>
-                                        <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/RegistroUsuario.aspx">Regístrate</a>
+                                        <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/CrearCuenta.aspx">Regístrate</a>
                                     </li>
                                     <li>
                                         <a id="lnkIniciaSesion" href="#">Inicia sesión</a>

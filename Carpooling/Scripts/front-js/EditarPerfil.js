@@ -1,4 +1,21 @@
 ﻿$(document).ready(function () {
+    //clic imagenes caracteristicas
+    $("[ClientID='imgFumador']").click(function () {
+        if ($('#chkFumador').is(':checked') == false)
+            $('#chkFumador').attr('checked', true);
+        else
+            $('#chkFumador').attr('checked', false);
+        CambioFumador();
+    });
+
+    $("[ClientID='imgVehiculo']").click(function () {
+        if ($('#chkVehiculo').is(':checked') == false)
+            $('#chkVehiculo').attr('checked', true);
+        else
+            $('#chkVehiculo').attr('checked', false);
+        CambioVehiculo();
+    });
+
     //Crea eventos para los controles
     $("[ClientID='ddlMesNacimiento']").change(ObtenerDiasMes);
     $("[ClientID='ddlAnioNacimiento']").change(ObtenerDiasMes);
@@ -21,7 +38,32 @@
 
     InicializarImagenCuenta();
     CrearPopupCambioImagen();
+
+    $('#generoUsuario br:lt(2)').remove();
 });
+
+//funcion que validad la fecha de nacimiento
+function ValidarFechaNacimiento(sender, args) {
+
+    var ddlAnio = $("[ClientID='ddlAnioNacimiento']");
+    var ddlMes = $("[ClientID='ddlMesNacimiento']");
+    var ddlDia = $("[ClientID='ddlDiaNacimiento']");
+    var fechaNacimiento = $("[ClientID='fechaNacimiento']");
+
+    if (ddlMes.val() == "-1" || ddlDia.val() == "-1" || ddlAnio.val() == "-1") {
+        //if (ddlDia.val() == "-1") {
+        args.IsValid = false;
+        //fechaNacimiento.addClass('errorValidacion');
+        //ddlMes.addClass('errorValidacion');
+        //ddlDia.addClass('errorValidacion');
+    }
+    else {
+        args.IsValid = true;
+        //ddlAnio.removeClass('errorValidacion');
+        //ddlMes.removeClass('errorValidacion');
+        //fechaNacimiento.removeClass('errorValidacion');
+    }
+}
 
 
 function ObtenerDiasMes() {
@@ -38,7 +80,7 @@ function ObtenerDiasMes() {
     if (ddlAnioNacimiento.val() != '-1' && ddlMesNacimiento.val() != '-1') {
         $.ajax({
             type: "POST",
-            url: "/WebServices/SiteWebMethod.asmx/ObtenerDiasDdl",
+            url: "EditarPerfil.aspx/ObtenerDiasDdl",
             data: JSON.stringify(json),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -57,7 +99,7 @@ function ObtenerDiasMes() {
                 }
             },
             error: function (msg) {
-                alert("La busqueda no se pudo realzar" + msg);
+                alert("La busqueda no se pudo realizar" + msg);
                 return false;
             },
         });
@@ -131,9 +173,9 @@ function CrearUploader() {
         disableCancelForFormUploads: true,
         disableDefaultDropzone: true,
         template: '<div class="qq-uploader">' +
-            '<pre class="qq-upload-drop-area" style="display= none;"><span>{dragZoneText}</span></pre>' +
+            '<pre class="qq-upload-drop-area" style="display:none;"><span>{dragZoneText}</span></pre>' +
             '<div class="qq-upload-button ui-button" style="width: auto;">{uploadButtonText}</div>' +
-            '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center;"></ul>' +
+            '<ul class="qq-upload-list" style="margin-top: 10px; text-align: center; display:none;"></ul>' +
             '</div>',
         classes: {
             success: 'alert alert-success',

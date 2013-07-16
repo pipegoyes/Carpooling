@@ -18,6 +18,11 @@ namespace Carpooling.Front.Cuentas.wuc
 
         public void MostrarVentana()
         {
+            panelExitoso.Visible = false;
+            panelError.Visible = false;
+            panelBotonesRespuesta.Visible = false;
+            panelBotonesPrincipales.Visible = true;
+            datosFormulario.Visible = true;
             mpeCambioContrasenia.Show();
         }
 
@@ -34,11 +39,25 @@ namespace Carpooling.Front.Cuentas.wuc
                 string mensaje;
                 if (!AdministradorCuentas.Instancia.ActualizarContrasenia(usuarioApp, txbContraseniaActual.Text.Trim(), txbNuevaContrasenia.Text.Trim(), out mensaje))
                 {
-                    txbContraseniaActual.Text = mensaje;
-                    return;
+                    panelExitoso.Visible = false;
+                    panelError.Visible = true;
                 }
-                CerrarVentana();
+                else
+                {
+                    usuarioApp.Contrasenia = txbNuevaContrasenia.Text.Trim();
+                    panelError.Visible = false;
+                    panelExitoso.Visible = true;
+                }
+                panelBotonesRespuesta.Visible = true;
+                panelBotonesPrincipales.Visible = false;
+                datosFormulario.Visible = false;
+                //CerrarVentana();
             }
+        }
+
+        protected void btnContinuar_Click(object sender, EventArgs e)
+        {
+            mpeCambioContrasenia.Hide();
         }
     }
 }

@@ -13,15 +13,6 @@ namespace Carpooling.Front.Cuentas.wuc {
     public partial class CambioContrasenia {
         
         /// <summary>
-        /// uplVentanaModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplVentanaModal;
-        
-        /// <summary>
         /// pnlCambioContrasenia control.
         /// </summary>
         /// <remarks>
@@ -40,40 +31,49 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::AjaxControlToolkit.ModalPopupExtender mpeCambioContrasenia;
         
         /// <summary>
-        /// lblMensajesPop control.
+        /// targetPop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensajesPop;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl targetPop;
         
         /// <summary>
-        /// btnMover control.
+        /// uplVentanaModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage btnMover;
+        protected global::System.Web.UI.UpdatePanel uplVentanaModal;
         
         /// <summary>
-        /// btnCerrar control.
+        /// divDrag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage btnCerrar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDrag;
         
         /// <summary>
-        /// tituloModal control.
+        /// lblTituloVentana control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tituloModal;
+        protected global::System.Web.UI.WebControls.Label lblTituloVentana;
+        
+        /// <summary>
+        /// datosFormulario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel datosFormulario;
         
         /// <summary>
         /// txbContraseniaActual control.
@@ -85,6 +85,42 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.TextBox txbContraseniaActual;
         
         /// <summary>
+        /// txbContraseniaActual_Validator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txbContraseniaActual_Validator1;
+        
+        /// <summary>
+        /// ValidatorCalloutExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
+        
+        /// <summary>
+        /// txtContrasena_Validation2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtContrasena_Validation2;
+        
+        /// <summary>
+        /// txtContrasena_VC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC2;
+        
+        /// <summary>
         /// txbNuevaContrasenia control.
         /// </summary>
         /// <remarks>
@@ -92,6 +128,42 @@ namespace Carpooling.Front.Cuentas.wuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbNuevaContrasenia;
+        
+        /// <summary>
+        /// txtContrasena_Validation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtContrasena_Validation1;
+        
+        /// <summary>
+        /// txtContrasena_VC1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC1;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// ValidatorCalloutExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
         
         /// <summary>
         /// txbReNuevaContrasenia control.
@@ -103,6 +175,69 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.TextBox txbReNuevaContrasenia;
         
         /// <summary>
+        /// txtReContrasena_Validator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator txtReContrasena_Validator3;
+        
+        /// <summary>
+        /// txtReContrasena_VC3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtReContrasena_VC3;
+        
+        /// <summary>
+        /// panelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelError;
+        
+        /// <summary>
+        /// lblMensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+        
+        /// <summary>
+        /// panelExitoso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelExitoso;
+        
+        /// <summary>
+        /// lblMensajeExitoso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeExitoso;
+        
+        /// <summary>
+        /// panelBotonesPrincipales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelBotonesPrincipales;
+        
+        /// <summary>
         /// btnGuardarContrasenia control.
         /// </summary>
         /// <remarks>
@@ -110,5 +245,32 @@ namespace Carpooling.Front.Cuentas.wuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardarContrasenia;
+        
+        /// <summary>
+        /// btnCancelConfirmacionPopUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelConfirmacionPopUp;
+        
+        /// <summary>
+        /// panelBotonesRespuesta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelBotonesRespuesta;
+        
+        /// <summary>
+        /// btnContinuar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnContinuar;
     }
 }

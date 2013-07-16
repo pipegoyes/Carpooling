@@ -277,7 +277,7 @@
     <%--El popup para preguntar--%>
     <asp:Panel runat="server" ID="pnlPreguntar" Style="display: none;">
         <ajaxToolkit:ModalPopupExtender runat="server" ID="mpePreguntar" PopupControlID="pnlPreguntar"
-                                        TargetControlID="lblMensajesPopPreguntar" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelPopUpResponder">
+                                        TargetControlID="lblMensajesPopPreguntar" BackgroundCssClass="modalBackgroundMensajeModal" > <%--CancelControlID="btnCancelPopUpResponder"--%>
         </ajaxToolkit:ModalPopupExtender>
         <asp:Label runat="server" ID="lblMensajesPopPreguntar"></asp:Label>
         <asp:UpdatePanel  ID="UpdatePanel2" runat="server">
@@ -325,7 +325,7 @@
     <%--El popup para confirmar la cancelacion de la participacion --%>
     <asp:Panel runat="server" ID="pnlConfirmarCancelacion" Style="display: none;">
         <ajaxToolkit:ModalPopupExtender runat="server" ID="mpeConfirmarCancelacion" PopupControlID="pnlConfirmarCancelacion"
-                                        TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal" CancelControlID="btnCancelConfirmacionPopUp" >
+                                        TargetControlID="lblCC" BackgroundCssClass="modalBackgroundMensajeModal" > <%--CancelControlID="btnCancelConfirmacionPopUp"--%>
         </ajaxToolkit:ModalPopupExtender>
         <asp:Label runat="server" ID="lblCC"></asp:Label>
         <asp:UpdatePanel  ID="UpdatePanel3" runat="server">

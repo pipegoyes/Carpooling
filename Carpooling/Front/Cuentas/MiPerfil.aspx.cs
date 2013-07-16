@@ -35,8 +35,10 @@ namespace Carpooling.Front.Cuentas
             lblOcupacion.Text = usuarioApp.Ocupacion.NombreOcupacion;
             lblTelefonoMovil.Text = usuarioApp.TelefonoMovil;
             lblTelefonoFijo.Text = usuarioApp.TelefonoFijo;
+            chkFumador.Checked = usuarioApp.Fumador; 
             if (usuarioApp.Fumador)
                 imgFumador.ImageUrl = "~/Styles/images/fumador.jpg";
+            chkVehiculo.Checked = usuarioApp.VehiculoPropio; 
             if (usuarioApp.VehiculoPropio)
                 imgVehiculo.ImageUrl = "~/Styles/images/vehiculo.png";
             lblIdUsuario.Text = usuarioApp.IdUsuario;
@@ -44,7 +46,9 @@ namespace Carpooling.Front.Cuentas
             if (usuarioApp.Reputacion != null && usuarioApp.Reputacion != 0)
             {
                 lblReputación.Text = usuarioApp.Reputacion.ToString();
-                ddlReputación.SelectedValue = Math.Round(usuarioApp.Reputacion.Value).ToString();
+                rtgReputación.CurrentRating = Convert.ToInt32(Math.Round(usuarioApp.Reputacion.Value));
+                rtgReputación.ToolTip = usuarioApp.Reputacion.Value.ToString();
+                //ddlReputación.SelectedValue = Math.Round(usuarioApp.Reputacion.Value).ToString();
             }
             lblFechaUltimoIngreso.Text = usuarioApp.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
             imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
@@ -66,9 +70,5 @@ namespace Carpooling.Front.Cuentas
             ucDesactivarCuenta.MostrarVentana();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //AdministradorViajes.Instancia.MonitorViajesVigentes(new object());
-        }
     }
 }
