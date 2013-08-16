@@ -65,7 +65,19 @@ namespace Carpooling
             // is set to InProc in the Web.config file. If session mode is set to StateServer 
             // or SQLServer, the event is not raised.
 
+            //HttpContext context = HttpContext.Current;
+            //context.Response.Redirect("~/Front/Bienvenida.aspx");
         }
+
+        //void Application_AcquireRequestState(object sender, EventArgs e)
+        //{
+        //    HttpContext context = HttpContext.Current;
+
+        //    if (context.Session != null && context.Session["usuario"] == null)
+        //    {
+        //        FormsAuthentication.SignOut();
+        //    }
+        //}
 
     }
 }

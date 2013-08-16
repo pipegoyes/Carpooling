@@ -101,8 +101,8 @@ namespace Carpooling.Front.Cuentas
 
                     InformacionAdicional = txbInfoAdicional.Text.Trim(),
                     Foto = null,
-                    Reputacion = null
-
+                    Reputacion = null,
+                    Estado = UsuarioEstado.Activo
                 };
 
                 //string rutaImagenCuentaActual = Session["imagenUsuario"].ToString();

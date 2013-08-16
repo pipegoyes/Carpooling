@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Front\Bienvenida.aspx" />
+    <Content Include="Front\Contacto.aspx" />
     <Content Include="Front\Cuentas\CrearCuenta.aspx" />
     <Content Include="Front\Cuentas\EditarPerfil.aspx" />
     <Content Include="Front\Cuentas\MiPerfil.aspx" />
@@ -422,6 +423,13 @@
     </Compile>
     <Compile Include="Front\Bienvenida.aspx.designer.cs">
       <DependentUpon>Bienvenida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\Cuentas\CrearCuenta.aspx.cs">
       <DependentUpon>CrearCuenta.aspx</DependentUpon>

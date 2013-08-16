@@ -46,10 +46,10 @@ namespace Carpooling.Front.Cuentas
             if (usuarioApp.Reputacion != null && usuarioApp.Reputacion != 0)
             {
                 lblReputación.Text = usuarioApp.Reputacion.ToString();
-                rtgReputación.CurrentRating = Convert.ToInt32(Math.Round(usuarioApp.Reputacion.Value));
-                rtgReputación.ToolTip = usuarioApp.Reputacion.Value.ToString();
-                //ddlReputación.SelectedValue = Math.Round(usuarioApp.Reputacion.Value).ToString();
+                rtgReputación.CurrentRating = (int)usuarioApp.Reputacion;
             }
+            else
+                rtgReputación.CurrentRating = 0;
             lblFechaUltimoIngreso.Text = usuarioApp.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
             imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
             lblInfoAdicional.Text = usuarioApp.InformacionAdicional;

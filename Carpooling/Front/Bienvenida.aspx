@@ -10,7 +10,7 @@
         <div style="height:125px;">
         </div>
         <div style="">
-            <a id="linkRegistrarse" href="Cuentas/RegistroUsuario.aspx">Registrate</a>
+            <a id="linkRegistrarse" href="Cuentas/CrearCuenta.aspx">Registrate</a>
         </div>
     </div>
     <asp:Image runat="server" ImageUrl="../Styles/images/Bienvenida.png" ID="imgBackgroud" CssClass="roundBorders"/>    

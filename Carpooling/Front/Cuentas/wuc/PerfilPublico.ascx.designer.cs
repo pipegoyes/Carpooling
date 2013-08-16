@@ -67,24 +67,6 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.Label lblTituloVentana;
         
         /// <summary>
-        /// imgImagenCuenta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
-        
-        /// <summary>
-        /// lblInfoAdicional control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoAdicional;
-        
-        /// <summary>
         /// lblIdUsuario control.
         /// </summary>
         /// <remarks>
@@ -94,31 +76,13 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.Label lblIdUsuario;
         
         /// <summary>
-        /// lblEmail control.
+        /// imgImagenCuenta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-        
-        /// <summary>
-        /// ddlReputación control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReputación;
-        
-        /// <summary>
-        /// lblReputación control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReputación;
+        protected global::System.Web.UI.WebControls.Image imgImagenCuenta;
         
         /// <summary>
         /// lblFechaUltimoIngreso control.
@@ -130,6 +94,24 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.Label lblFechaUltimoIngreso;
         
         /// <summary>
+        /// rtgReputación control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Rating rtgReputación;
+        
+        /// <summary>
+        /// lblReputación control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblReputación;
+        
+        /// <summary>
         /// lblNombresApellidos control.
         /// </summary>
         /// <remarks>
@@ -137,6 +119,15 @@ namespace Carpooling.Front.Cuentas.wuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombresApellidos;
+        
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
         /// lblResidencia control.
@@ -175,24 +166,6 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::System.Web.UI.WebControls.Label lblOcupacion;
         
         /// <summary>
-        /// lblTelefonoMovil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoMovil;
-        
-        /// <summary>
-        /// lblTelefonoFijo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoFijo;
-        
-        /// <summary>
         /// imgFumador control.
         /// </summary>
         /// <remarks>
@@ -209,6 +182,15 @@ namespace Carpooling.Front.Cuentas.wuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgVehiculo;
+        
+        /// <summary>
+        /// lblInfoAdicional control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInfoAdicional;
         
         /// <summary>
         /// btnCancelarPopUp control.

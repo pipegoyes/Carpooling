@@ -15,10 +15,10 @@
 <%--    <section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
-                <h1>Cuenta de CarpoolingCo</h1>
+                <h1>Cuenta de Carpooling Colombia</h1>
             </hgroup>
             <p>
-                <h2>Crea tu cuenta en CarpoolingCo y comienza a compartir tus viajes con nuestra comunidad.</h2>
+                <h2>Crea tu cuenta en Carpooling Colombia y comienza a compartir tus viajes con nuestra comunidad.</h2>
             </p>
         </div>
     </section>--%>
@@ -395,7 +395,7 @@
         <div class="campoCrearCuenta">
             <div class="labelInformacionBasica leftPosition ">¿Algo más que quieras que tus compañeros de viaje conozcan de ti?</div>
             <div class="txbInformacionBasica leftPosition ">
-                <asp:TextBox ID="txbInfoAdicional" runat="server" TextMode="MultiLine" Height="90"></asp:TextBox> 
+                <asp:TextBox ID="txbInfoAdicional" runat="server" TextMode="MultiLine" Height="90" style="border: 1px solid #C0C0C0 !important;"></asp:TextBox> 
             </div>
             <div class="divClear"></div>
         </div>
@@ -408,7 +408,7 @@
                     <input id="btnAtrasPaso3" type="button" value="Atras" class="button-gradient blue" style="display:inline;"/>
                     <asp:Button ID="btnFinalizar" ClientID="btnFinalizar" runat="server" Text="Finalizar" 
                         OnClick="btnFinalizar_Click" CausesValidation="true" ValidationGroup="ValidacionPaso3"
-                        CssClass="button-gradient green" style="display:inline-block; width:120px"/>
+                        CssClass="button-gradient green" style="display:inline-block; width:120px;"/>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>

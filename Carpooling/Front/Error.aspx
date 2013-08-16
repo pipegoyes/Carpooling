@@ -7,7 +7,7 @@
     <section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
-                <h1>Opps, CarpoolingCo!!</h1>
+                <h1>Opps, Carpooling Colombia!!</h1>
             </hgroup>
             <p>
                 <h2>Lo sentimos, la operación que intentaste realizar genero un error inesperado. Intentalo nuevamente.</h2>

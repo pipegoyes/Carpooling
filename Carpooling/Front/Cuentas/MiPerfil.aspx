@@ -115,10 +115,10 @@
     <section class="featured">
 <%--        <div id="header_page" class="content-wrapper">
             <hgroup class="title">
-                <h1>Tu perfil en CarpoolingCo</h1>
+                <h1>Tu perfil en Carpooling Colombia</h1>
             </hgroup>
             <p>
-                <h2>Revisa y ajusta tu perfil y compartelo con la comunidad de CarpoolingCo</h2>
+                <h2>Revisa y ajusta tu perfil y compartelo con la comunidad de Carpooling Colombia</h2>
             </p>
         </div>--%>
     </section>
@@ -136,7 +136,7 @@
     <section style="padding: 10px 0; margin-bottom: 10px; width:100%;">
         <figure style="width: 70%; margin: 0 auto; height: 161px;">
             <asp:Image ID="imgImagenCuenta" runat="server" Height="160" Width="160" 
-                style="border-radius: 5px; border: solid thin #888888; margin: 0 auto; display:block; cursor: pointer;"/>
+                style="border-radius: 5px; border: solid thin #888888; margin: 0 auto; display:block;"/>
         </figure>
         <div class="divClear"></div>
     </section>
@@ -300,7 +300,7 @@
                 <div style="width: 150px; float: right;">Información adicional:</div>
             </div>
             <div class="txbInformacionBasica leftPosition" style="width: 388px !important;">
-                <asp:TextBox ID="lblInfoAdicional" runat="server" Text="No disponible" TextMode="MultiLine" Height="80"  Enabled="false" ></asp:TextBox>               
+                <asp:TextBox ID="lblInfoAdicional" runat="server" Text="No disponible" TextMode="MultiLine" Height="80"  Enabled="false" style="border: 1px solid #C0C0C0 !important;"></asp:TextBox>               
             </div>
             <div class="divClear"></div>
         </div>

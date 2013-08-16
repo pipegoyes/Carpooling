@@ -20,7 +20,7 @@
                 <h1>Comparte tus viajes.</h1>
             </hgroup>
             <p>
-                <h2>Ahora puedes empezar a publicar tus viajes y ser parte de la comunidad CarpoolingCo</h2>
+                <h2>Ahora puedes empezar a publicar tus viajes y ser parte de la comunidad Carpooling Colombia</h2>
             </p>
         </div>
     </section>--%>
@@ -125,7 +125,7 @@
         <div id="dialog-message" title="Publicación Exitosa" style="display: none">
             <p>
                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                Tu viaje ya ha sido publicado, ahora ya eres parte de la comunidad de CarpoolingCo !
+                Tu viaje ya ha sido publicado, ahora ya eres parte de la comunidad de Carpooling Colombia !
             </p>
         </div>
 

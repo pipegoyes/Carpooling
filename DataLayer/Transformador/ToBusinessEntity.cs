@@ -29,7 +29,7 @@ namespace DataLayer.Transformador
                     let fechaHoraViaje = viajeDB.FECHA_HORA_PARTIDA.ToString("MM/dd/yyyy HH:mm")
                     select new ItemTablaViaje()
                                {
-                                   NombreConductor = viajeDB.USUARIO.NOMBRE + "-" + viajeDB.USUARIO.APELLIDO, 
+                                   NombreConductor = (System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(viajeDB.USUARIO.NOMBRE.Trim().ToLower()) + " " + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(viajeDB.USUARIO.APELLIDO.Trim().ToLower())).Trim(), 
                                    ParadaDestino = nombrePParadaDestino, 
                                    ParadaOrigen = nombrePParadaOrigen,
                                    FechaHora = fechaHoraViaje,

@@ -102,7 +102,7 @@
         <div id="dialog-message" title="Publicación Exitosa" style="display: none">
             <p>
                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                Tu viaje ya ha sido publicado, ahora ya eres parte de la comunidad de CarpoolingCo !
+                Tu viaje ya ha sido publicado, ahora ya eres parte de la comunidad de Carpooling Colombia !
             </p>
         </div>
         <asp:UpdatePanel runat="server" ID="upBotonGuardar" UpdateMode="Conditional">

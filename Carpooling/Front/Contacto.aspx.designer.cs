@@ -7,162 +7,171 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Carpooling.Front.Viajes {
+namespace Carpooling.Front {
     
     
-    public partial class BuscarViaje {
+    public partial class Contacto {
         
         /// <summary>
-        /// lblCiudadOrigen control.
+        /// pnlFormulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadOrigen;
+        protected global::System.Web.UI.WebControls.Panel pnlFormulario;
         
         /// <summary>
-        /// txbCiudadOrigen control.
+        /// txbNombreContacto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCiudadOrigen;
+        protected global::System.Web.UI.WebControls.TextBox txbNombreContacto;
         
         /// <summary>
-        /// RFVCiudadOrigen control.
+        /// txbNombreContacto_Validation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVCiudadOrigen;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txbNombreContacto_Validation1;
         
         /// <summary>
-        /// AVCCiudadOrigen control.
+        /// txtNombreUsuario_VC1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender AVCCiudadOrigen;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtNombreUsuario_VC1;
         
         /// <summary>
-        /// lblCiudadDestino control.
+        /// txbCorreoElectronico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudadDestino;
+        protected global::System.Web.UI.WebControls.TextBox txbCorreoElectronico;
         
         /// <summary>
-        /// txbCiudadDestino control.
+        /// txbCorreoElectronico_RV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCiudadDestino;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txbCorreoElectronico_RV;
         
         /// <summary>
-        /// RFVCiudadDestino control.
+        /// txbCorreoElectronico_VC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVCiudadDestino;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txbCorreoElectronico_VC;
         
         /// <summary>
-        /// AVCCiudadDestino control.
+        /// txtCorreoElectronico_REGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender AVCCiudadDestino;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtCorreoElectronico_REGV;
         
         /// <summary>
-        /// Label1 control.
+        /// txtCorreoElectronico_VC2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtCorreoElectronico_VC2;
         
         /// <summary>
-        /// calendarFechaViaje control.
+        /// txbAsunto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox calendarFechaViaje;
+        protected global::System.Web.UI.WebControls.TextBox txbAsunto;
         
         /// <summary>
-        /// btnBuscarViaje control.
+        /// txbAsunto_RV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarViaje;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txbAsunto_RV;
         
         /// <summary>
-        /// panelSinResultados control.
+        /// txbAsunto_VC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSinResultados;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txbAsunto_VC;
         
         /// <summary>
-        /// lblMensajeError control.
+        /// txbMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+        protected global::System.Web.UI.WebControls.TextBox txbMensaje;
         
         /// <summary>
-        /// tituloResultados control.
+        /// txbMensaje_RV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloResultados;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txbMensaje_RV;
         
         /// <summary>
-        /// uplListaResultado control.
+        /// txbMensaje_VC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplListaResultado;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender txbMensaje_VC;
         
         /// <summary>
-        /// dataListItemsViajesEncontrados control.
+        /// btnEnviar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListItemsViajesEncontrados;
+        protected global::System.Web.UI.WebControls.Button btnEnviar;
         
         /// <summary>
-        /// ucPerfilPublico control.
+        /// pnlConfirmacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Carpooling.Front.Cuentas.wuc.PerfilPublico ucPerfilPublico;
+        protected global::System.Web.UI.WebControls.Panel pnlConfirmacion;
+        
+        /// <summary>
+        /// btnRegresar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar;
     }
 }
