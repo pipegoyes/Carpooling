@@ -54,7 +54,6 @@ namespace Carpooling.Front.Cuentas.wuc
                 rtgReputación.CurrentRating = 0;
 
             lblFechaUltimoIngreso.Text = usuarioPerfil.FechaUltimoIngreso.ToString("HH:mm:ss, dd/MM/yyyy");
-            //imgImagenCuenta.ImageUrl = Session["imagenUsuario"].ToString().Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
             if (usuarioPerfil.Foto != null)
             {
                 string rutaImagen = AdministradorCuentas.Instancia.ObtenerImagenCuenta(Server.MapPath("/"), usuarioPerfil.IdUsuario);
@@ -63,7 +62,11 @@ namespace Carpooling.Front.Cuentas.wuc
                     var imagenCuenta = AdministradorCuentas.Instancia.ObtenerImageFromBinary(usuarioPerfil.Foto);
                     rutaImagen = AdministradorCuentas.Instancia.GuardarImagenCuenta(imagenCuenta, Server.MapPath("/"), usuarioPerfil.IdUsuario);
                 }
-                imgImagenCuenta.ImageUrl = rutaImagen.Replace(Server.MapPath("/"),"~/") + "?" + DateTime.Today.ToFileTime();
+                imgImagenCuenta.ImageUrl = rutaImagen.Replace(Server.MapPath("/"), "~/") + "?" + DateTime.Today.ToFileTime();
+            }
+            else
+            {
+                imgImagenCuenta.ImageUrl = AdministradorCuentas.Instancia.ObtenerImagenDefectoCuenta(usuarioPerfil.Genero) + "?" + DateTime.Today.ToFileTime();
             }
 
             lblInfoAdicional.Text = usuarioPerfil.InformacionAdicional;

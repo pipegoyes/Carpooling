@@ -8,6 +8,12 @@ function lnkIniciaSesion_OnClientClick() {
     var topDivLogin = 30 + lnkIniciaSesion.height();
     $('#divLoginFormFloat').css('left', leftDivLogin);
     $('#divLoginFormFloat').css('top', topDivLogin);
+
+    var errorDiv = $('#errorLoging');
+    var errorMsg = $('#lblMensajeError');
+    errorMsg.text('');
+    errorDiv.css('display', 'none');
+
     $('#divLoginFormFloat').toggle('blind', 500);
     return false;
 }

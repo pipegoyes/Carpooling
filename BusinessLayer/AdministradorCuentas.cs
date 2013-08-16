@@ -186,6 +186,11 @@ namespace BusinessLayer
             return string.Empty;
         }
 
+        public string ObtenerImagenDefectoCuenta(string pGenero)
+        {
+            return pGenero=="H" ? ConfigurationManager.AppSettings["ImagenCuentaHombre"] : ConfigurationManager.AppSettings["ImagenCuentaMujer"];
+        }
+
         //Borrar imagen de cuenta temporal
         public void EliminarImagenTemporal(string pPathSever, string pIdUsuario)
         {
