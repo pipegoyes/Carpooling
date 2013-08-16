@@ -59,7 +59,7 @@ namespace Carpooling.Front.Viajes
             if (ViajeDetalle.Conductor.Reputacion != null)
                 rtgReputacion.CurrentRating = (int)ViajeDetalle.Conductor.Reputacion;
             else
-                rtgReputacion.CurrentRating = 3;
+                rtgReputacion.CurrentRating = 0;
 
 
 

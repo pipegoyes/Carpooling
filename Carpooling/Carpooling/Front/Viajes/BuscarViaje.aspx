@@ -8,6 +8,101 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .ratingStar
+        {
+	        white-space:nowrap;
+	        margin:1em;
+	        height:14px;
+        }
+        .ratingStar .ratingItem {
+            font-size: 0pt;
+            width: 13px;
+            height: 12px;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            background-repeat: no-repeat;
+	        cursor:pointer;
+        }
+        .ratingStar .Filled {
+            background-image: url("../../Styles/images/rating/ratingStarFilled.png");
+        }
+        .ratingStar .Empty {
+            background-image: url("../../Styles/images/rating/ratingStarEmpty.png");
+        }
+        .ratingStar .Saved {
+            background-image: url("../../Styles/images/rating/ratingStarSaved.png");
+        }
+
+        /* ****************** Gauge ****************** */
+        .ratingGauge
+        {
+	        white-space:nowrap;
+            font-size: 0pt;
+	        width:122px;
+	        height:12px;
+	        padding:1px 0 1px 1px;
+	        margin:1em;
+	        background-color:transparent;
+	        background-position:top left;
+	        background-repeat:no-repeat;
+	        background-image:url("../../Styles/images/rating/ratingGauge.png");
+        }
+        .ratingGauge .ratingItem {
+            font-size:0pt;
+            width:20px;
+            height:8px;
+            margin:0;
+            padding:0;
+            display:block;
+            background-repeat: repeat-x;
+	        cursor:e-resize;
+        }
+        .ratingGauge .Filled {
+            background-color:transparent;
+        }
+        .ratingGauge .Empty {
+            background-color:#ff0;
+        }
+        .ratingGauge .Saved {
+            background-color:#f00;
+        }
+
+        /* ****************** Thermometer ****************** */
+        .ratingThermometer 
+        {
+	        white-space:nowrap;
+	        width:220px;
+	        height:0px;
+	        padding:26px 20px 20px 16px;
+	        margin:1em;
+	        background-color:transparent;
+	        background-position:top left;
+	        background-repeat:no-repeat;
+	        background-image:url("../../Styles/images/rating/ratingThermometer2.png");
+        }
+        .ratingThermometer .ratingItem {
+            font-size: 0pt;
+            width: 10px;
+            height: 8px;
+            margin: 0;
+            padding: 0;
+            display: block;
+            background-repeat: repeat-x;
+	        cursor:e-resize;
+        }
+        .ratingThermometer .Filled {
+            background-image: url("../../Styles/images/rating/ratingFilled.png");
+        }
+        .ratingThermometer .Empty {
+            background-image: url("../../Styles/images/rating/ratingEmpty.png");
+        }
+        .ratingThermometer .Saved {
+            background-image: url("../../Styles/images/rating/ratingSaved.png");
+        }
+    </style>
+
     <link href="/Styles/front-css/BuscarViaje.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
@@ -67,47 +162,52 @@
     <div runat="server" id="tituloResultados" class="titulo" Visible="False">Resultados de la busqueda</div>
     <div class="divRelleno"></div>
     <div>
-        <asp:DataList runat="server" ID="dataListItemsViajesEncontrados" 
-                      ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerDetalle_Click" >
-            <AlternatingItemStyle BackColor="White" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
-                         ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
-            <HeaderTemplate>
+        <asp:UpdatePanel ID="uplListaResultado" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
+            <ContentTemplate>
+                <asp:DataList runat="server" ID="dataListItemsViajesEncontrados" 
+                              ForeColor="#333333" RepeatColumns="1" ShowFooter="False" Width="100%" OnItemCommand="BtnVerDetalle_Click" >
+                    <AlternatingItemStyle BackColor="White" />
+                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="Small" 
+                                 ForeColor="White" HorizontalAlign="Center" VerticalAlign="Top" />
+                    <HeaderTemplate>
                 
-                <div class="divCelda">
-                    <asp:Label ID="Label2" runat="server" Text="Fecha y hora"></asp:Label>    
-                </div>
-                <div class="divCelda">
-                    <asp:Label ID="Label3" runat="server" Text="Conductor"></asp:Label>    
-                </div>
-                <div class="divCelda">
-                    <asp:Label ID="Label4" runat="server" Text="Ciudad Origen"></asp:Label>    
-                </div>
-                <div class="divCelda">
-                    <asp:Label ID="Label5" runat="server" Text="Ciudad Destino"></asp:Label>    
-                </div>
-                <div class="clearfix"></div>
-            </HeaderTemplate>
-            <ItemStyle BackColor="#E3EAEB" />
-            <ItemTemplate>
-                <div class="divCelda">
-                    <asp:Label ID="LinkButton1" runat="server" Text='<%#                                        Eval("FechaHora") %>'/>    
-                </div>
-                <div class="divCelda">
-                    <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%#Eval("NombreConductor") %>' CommandName="VerPerfil" CommandArgument=<%#Eval("IdUsuario") %>></asp:LinkButton>                        
-                </div>
-                <div class="divCelda">
-                    <asp:Label ID="Label7" runat="server" Text='<%#Eval("ParadaOrigen") %>'></asp:Label>    
-                </div>
-                <div class="divCelda">
-                    <asp:Label ID="Label8" runat="server" Text='<%#Eval("ParadaDestino") %>'></asp:Label>    
-                </div>
-                <div>
-                    <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
-                </div>
-            </ItemTemplate>
-            <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        </asp:DataList>
+                        <div class="divCelda">
+                            <asp:Label ID="Label2" runat="server" Text="Fecha y hora"></asp:Label>    
+                        </div>
+                        <div class="divCelda">
+                            <asp:Label ID="Label3" runat="server" Text="Conductor"></asp:Label>    
+                        </div>
+                        <div class="divCelda">
+                            <asp:Label ID="Label4" runat="server" Text="Ciudad Origen"></asp:Label>    
+                        </div>
+                        <div class="divCelda">
+                            <asp:Label ID="Label5" runat="server" Text="Ciudad Destino"></asp:Label>    
+                        </div>
+                        <div class="clearfix"></div>
+                    </HeaderTemplate>
+                    <ItemStyle BackColor="#E3EAEB" />
+                    <ItemTemplate>
+                        <div class="divCelda">
+                            <asp:Label ID="LinkButton1" runat="server" Text='<%# Eval("FechaHora") %>'/>    
+                        </div>
+                        <div class="divCelda">
+                            <asp:LinkButton ID="lblNombreConductor" runat="server" Text='<%#Eval("NombreConductor") %>' CommandName="VerPerfil" CommandArgument=<%#Eval("IdUsuario") %>></asp:LinkButton>                        
+                        </div>
+                        <div class="divCelda">
+                            <asp:Label ID="Label7" runat="server" Text='<%#Eval("ParadaOrigen") %>'></asp:Label>    
+                        </div>
+                        <div class="divCelda">
+                            <asp:Label ID="Label8" runat="server" Text='<%#Eval("ParadaDestino") %>'></asp:Label>    
+                        </div>
+                        <div>
+                            <asp:LinkButton ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument='<%#Eval("IdViaje") %>' ></asp:LinkButton>
+                        </div>
+                    </ItemTemplate>
+                    <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                </asp:DataList>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
     </div>
 
     <uc:PerfilPublico ID="ucPerfilPublico" runat="server"/>

@@ -18,7 +18,7 @@
                 <%--<h2>Registro de usuario.</h2>--%>
             </hgroup>
             <p>
-                <h2>En solo unos pasos crea tu cuenta y empieza a usar el servicio de CarpoolingCo</h2>
+                <h2>En solo unos pasos crea tu cuenta y empieza a usar el servicio de Carpooling Colombia</h2>
             </p>
         </div>
     </section>

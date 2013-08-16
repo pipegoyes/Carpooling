@@ -59,6 +59,24 @@ namespace BusinessLayer
             return UsuarioDao.Instancia.ActualizarEstado(pUsuario);
         }
 
+        //Activar la cuenta
+        public bool ActivarCuenta(string pIdEmailUsuario)
+        {
+            Usuario usuario;
+            pIdEmailUsuario.Trim().ToLower();
+            if (pIdEmailUsuario.Contains("@"))
+                usuario = UsuarioDao.Instancia.ObtenerPorEmail(pIdEmailUsuario);
+            else
+                usuario = UsuarioDao.Instancia.ObtenerPorId(pIdEmailUsuario);
+
+            if (usuario != null)
+            {
+                usuario.Estado = UsuarioEstado.Activo;
+                return UsuarioDao.Instancia.ActualizarEstado(usuario);
+            }
+            return false;
+        }
+
         //Metodo para actualizar la contraseña
         public bool ActualizarContrasenia(Usuario pUsuario, string pContraseniaActual, string pContraseniaNueva, out string pMensajeRetorno)
         {
@@ -116,7 +134,10 @@ namespace BusinessLayer
                 string nuevaContraseniaEncriptada = EncriptarContrasenia(nuevaContrasenia);
                 usuario.Contrasenia = nuevaContraseniaEncriptada;
                 if (UsuarioDao.Instancia.ActualizarContrasenia(usuario))
+                {
                     AdministradorCorreosElectronicos.Instancia.CorreoRecuperacionContrasenia(usuario);
+                    return true;
+                }
             }
             return false;            
         }
@@ -150,6 +171,19 @@ namespace BusinessLayer
             string fullPathImagen = pPathSever + ConfigurationManager.AppSettings["CacheImagenFolder"] + "/" + pIdUsuario + ".jpg";
             pImage.Save(fullPathImagen, ImageFormat.Jpeg);
             return fullPathImagen;
+        }
+
+        //Guarda una imagen en un directorio espeficificado
+        public string ObtenerImagenCuenta(string pPathSever, string pIdUsuario)
+        {
+            string fullPathImagen = pPathSever + ConfigurationManager.AppSettings["CacheImagenFolder"] + "/" + pIdUsuario + ".jpg";
+            if (File.Exists(fullPathImagen))
+                return fullPathImagen;
+            else
+            {
+ 
+            }
+            return string.Empty;
         }
 
         //Borrar imagen de cuenta temporal

@@ -18,21 +18,21 @@
 
                 <div class="mainContentPopUp">
                     <asp:Panel ID="datosFormulario" runat="server" Width="75%" style="margin: 0 auto !important;">
-                        <fieldset>
+                        <fieldset style="margin-bottom:5px;">
                             <legend>Contraseña actual:</legend>
                             <asp:TextBox ID="txbContraseniaActual" runat="server" Text="No disponible" TextMode="Password" CausesValidation="true"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="txbContraseniaActual_Validator1" runat="server" ControlToValidate="txbContraseniaActual" ErrorMessage="La constraseña actual es requerida" Display="None" ValidationGroup="ValidacionActualizarPass"></asp:RequiredFieldValidator>
                             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="txbContraseniaActual_Validator1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
-                            <asp:RegularExpressionValidator ID="txtContrasena_Validation2" runat="server" ControlToValidate="txbContraseniaActual" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None" ValidationGroup="ValidacionActualizarPass"></asp:RegularExpressionValidator>
-                            <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
+                            <%--<asp:RegularExpressionValidator ID="txtContrasena_Validation2" runat="server" ControlToValidate="txbContraseniaActual" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None" ValidationGroup="ValidacionActualizarPass"></asp:RegularExpressionValidator>
+                            <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>--%>
                         </fieldset>
-                        <fieldset>
+                        <fieldset style="margin-bottom:5px;">
                             <legend>Nueva contraseña:</legend>
                             <asp:TextBox ID="txbNuevaContrasenia" runat="server" Text="No disponible" TextMode="Password" CausesValidation="true"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="txtContrasena_Validation1" runat="server" ControlToValidate="txbNuevaContrasenia" ErrorMessage="La nueva constraseña es requerida" Display="None" ValidationGroup="ValidacionActualizarPass"></asp:RequiredFieldValidator>
                             <ajaxToolkit:ValidatorCalloutExtender ID="txtContrasena_VC1" runat="server" TargetControlID="txtContrasena_Validation1" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbNuevaContrasenia" ErrorMessage="El formato de la contraseña no es valido" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,20})$" Display="None" ValidationGroup="ValidacionActualizarPass"></asp:RegularExpressionValidator>
-                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="txtContrasena_Validation2" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
+                            <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RegularExpressionValidator1" HighlightCssClass="errorValidacion" ></ajaxToolkit:ValidatorCalloutExtender>
                         </fieldset>
                         <fieldset>
                             <legend>Confirmación nueva contraseña:</legend>

@@ -14,10 +14,10 @@
 <%--    <section class="featured">
         <div id="header_page" class="content-wrapper">
             <hgroup class="title">
-                <h1>Tu perfil en CarpoolingCo</h1>
+                <h1>Tu perfil en Carpooling Colombia</h1>
             </hgroup>
             <p>
-                <h2>Revisa y ajusta tu perfil y compartelo con la comunidad de CarpoolingCo</h2>
+                <h2>Revisa y ajusta tu perfil y compartelo con la comunidad de Carpooling Colombia</h2>
             </p>
         </div>
     </section>--%>
@@ -400,7 +400,7 @@
                 <div style="width: 150px; float: right;">¿Algo más que quieras que tus compañeros de viaje conozcan de ti?</div>
             </div>
             <div class="txbInformacionBasica leftPosition" style="width: 388px !important;">
-                <asp:TextBox ID="txbInfoAdicional" runat="server" TextMode="MultiLine" Height="80"></asp:TextBox>
+                <asp:TextBox ID="txbInfoAdicional" runat="server" TextMode="MultiLine" Height="80" style="border: 1px solid #C0C0C0 !important;"></asp:TextBox>
             </div>
             <div class="divClear"></div>
         </div>

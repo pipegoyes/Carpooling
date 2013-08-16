@@ -103,24 +103,6 @@ namespace Carpooling.Front.Cuentas.wuc {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
         
         /// <summary>
-        /// txtContrasena_Validation2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator txtContrasena_Validation2;
-        
-        /// <summary>
-        /// txtContrasena_VC2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender txtContrasena_VC2;
-        
-        /// <summary>
         /// txbNuevaContrasenia control.
         /// </summary>
         /// <remarks>
