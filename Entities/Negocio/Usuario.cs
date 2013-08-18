@@ -10,7 +10,7 @@ namespace Entities.Negocio
     public enum UsuarioEstado : int
     {
         Activo = 1,
-        Inactiva = 2
+        Inactivo = 2
     }
 
     public class Usuario

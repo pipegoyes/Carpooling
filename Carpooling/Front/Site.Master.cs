@@ -52,23 +52,18 @@ namespace Carpooling.Front
                 }
                 else
                 {
-                    if (usuarioApp != null)
+                    if (usuarioApp == null)
                     {
-                        //TODO: mensaje que avisa que la cuenta esta desactivada
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "divvv", "positionDivLog('Nombre de usuario inexistente.');", true);
+                    }
+                    else if (usuarioApp.Estado == UsuarioEstado.Inactivo)
+                    {
                         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "divvv", "positionDivLog('La cuenta se encuentra inactiva.');", true);
                     }
-                    else 
+                    else
                     {
-                        //TODO: mensaje que avisa que la cuenta no existe (usuario o contraseña incorrectos)
-                        //WebControl divLoginForm = (WebControl)this.FindControl("divLoginFormFloat");
-                        //divLoginForm.Style.Add("display", "block");
-
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "divvv", "positionDivLog('Nombre de usuario o Contraseña incorrectos.');", true);
-                        //document.getElementById('divLoginFormFloat').style.visibility = 'visible';
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "divvv", "positionDivLog('La contraseña es incorrecta.');", true);
                     }
-                    //TODO: actualizar un hiddenfield desde aca con el estado de logue no exitoso y luego por JS mostrar un mensaje dependiendo valor del hiddenfield
-                    //WebControl divLoginForm = (WebControl)this.FindControl("divLoginFormFloat");
-                    //divLoginForm.Style.Add("display", "block");
                 }
             }
             catch (Exception)

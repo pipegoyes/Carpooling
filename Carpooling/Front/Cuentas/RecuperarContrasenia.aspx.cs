@@ -33,15 +33,34 @@ namespace Carpooling.Front.Cuentas
         {
             try
             {
+                panelExitoso.Visible = panelError.Visible = false;
+
                 if (formulario.Equals("contrasenia"))
                 {
-                    AdministradorCuentas.Instancia.RecuperarContrasenia(txbIdEmailUsuario.Text);
+                    if (AdministradorCuentas.Instancia.RecuperarContrasenia(txbIdEmailUsuario.Text))
+                    {
+                        lblMensajeExitoso.Text = "Hemos enviado una nueva contraseña a su correo electronico.";
+                        panelExitoso.Visible = true;
+                    }
+                    else
+                    {
+                        lblMensajeError.Text = "No hemos podido enviar un correo electronico su la nueva contraseña. Intentelo nuevamente.";
+                        panelError.Visible = true;
+                    }
                 }
                 else
                 {
-                    AdministradorCuentas.Instancia.ActivarCuenta(txbIdEmailUsuario.Text);
+                    if (AdministradorCuentas.Instancia.ActivarCuenta(txbIdEmailUsuario.Text))
+                    {
+                        lblMensajeExitoso.Text = "Hemos reactivado su cuenta en Carpooling Colombia.";
+                        panelExitoso.Visible = true;
+                    }
+                    else
+                    {
+                        lblMensajeError.Text = "No hemos podido reactivar su cuenta. Intentelo nuevamente.";
+                        panelError.Visible = true;
+                    }
                 }
-                
             }
             catch (Exception ex)
             {

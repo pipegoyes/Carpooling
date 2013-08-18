@@ -55,7 +55,7 @@ namespace BusinessLayer
         //Desactivar la cuenta
         public bool DesactivarCuenta(Usuario pUsuario)
         {
-            pUsuario.Estado = UsuarioEstado.Inactiva;
+            pUsuario.Estado = UsuarioEstado.Inactivo;
             return UsuarioDao.Instancia.ActualizarEstado(pUsuario);
         }
 
