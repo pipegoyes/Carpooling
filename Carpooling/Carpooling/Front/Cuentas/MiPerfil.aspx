@@ -300,7 +300,7 @@
                 <div style="width: 150px; float: right;">Información adicional:</div>
             </div>
             <div class="txbInformacionBasica leftPosition" style="width: 388px !important;">
-                <asp:TextBox ID="lblInfoAdicional" runat="server" Text="No disponible" TextMode="MultiLine" Height="80"  Enabled="false" style="border: 1px solid #C0C0C0 !important;"></asp:TextBox>               
+                <asp:TextBox ID="lblInfoAdicional" runat="server" Text="No disponible" TextMode="MultiLine" Height="80"  Enabled="false" style="border: 1px solid black !important; background-color:rgb(239, 238, 239) !important;"></asp:TextBox>               
             </div>
             <div class="divClear"></div>
         </div>

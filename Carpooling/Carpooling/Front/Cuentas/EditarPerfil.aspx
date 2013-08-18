@@ -24,11 +24,11 @@
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+<%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:HiddenField ID="hfMensajes" runat="server" Value="" />
         </ContentTemplate>
-    </asp:UpdatePanel>
+    </asp:UpdatePanel>--%>
 
     <section id="tituloPerfil" class="titulo" style="border-bottom: 2px solid green; margin-bottom:10px;">
         <asp:Label ID="lblNombresApellidos" runat="server" Text="No disponible" style="padding: 0 5px !important; font-size: 22px !important; font-weight:bold !important; display:inline-block !important; vertical-align: middle !important;"></asp:Label>
@@ -118,7 +118,7 @@
         <div class="campoCrearCuenta" style="margin-bottom: 3px !important;">
             <div class="labelInformacionBasica leftPosition ">Fecha de nacimiento:</div>
             <div class="txbInformacionBasica leftPosition ">
-                <div ClientID="fechaNacimiento" style="width: 302px !important;"> 
+                <div ClientID="fechaNacimiento" style="width: 303px !important;"> 
                     <div class="styled-select" style="width: 80px !important; display:inline-block;">
                         <asp:DropDownList ID="ddlAnioNacimiento" ClientID="ddlAnioNacimiento" runat="server" style="width: 110px !important;">
                             <asp:ListItem Value="-1" Text="Año" Selected="True"></asp:ListItem>
@@ -308,7 +308,7 @@
             <div class="divClear"></div>
         </div>
 
-        <div class="campoCrearCuenta">
+<%--        <div class="campoCrearCuenta">
             <div class="labelInformacionBasica leftPosition ">Contraseña:</div>
             <div class="txbInformacionBasica leftPosition">
                 <asp:TextBox ID="txbContraseniaActual" runat="server" Text="No disponible" TextMode="Password"></asp:TextBox>
@@ -336,7 +336,7 @@
             <asp:CompareValidator ID="txtReContrasena_Validator3" runat="server" ControlToValidate="txbReNuevaContrasenia" ControlToCompare="txbNuevaContrasenia"  ErrorMessage="La confirmación de la contraseña no coincide" Display="None" ValidationGroup="ValidacionActualizar"></asp:CompareValidator>
             <ajaxToolkit:ValidatorCalloutExtender ID="txtReContrasena_VC3" runat="server" TargetControlID="txtReContrasena_Validator3" HighlightCssClass="errorValidacion"></ajaxToolkit:ValidatorCalloutExtender>
             <div class="divClear"></div>
-        </div>
+        </div>--%>
     </section>
 
     <div class="divClear" style="height: 15px !important;"></div>

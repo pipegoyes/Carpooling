@@ -144,17 +144,6 @@ namespace Carpooling.Front.Cuentas
         {
             try
             {
-                //valida la modificacion de la contraseña
-                if (!string.IsNullOrEmpty(txbContraseniaActual.Text) || !string.IsNullOrEmpty(txbNuevaContrasenia.Text) || !string.IsNullOrEmpty(txbReNuevaContrasenia.Text))
-                {
-                    if (txbContraseniaActual.Text.Trim() != AdministradorCuentas.Instancia.DesencriptarContrasenia(usuarioApp.Contrasenia))
-                    {
-                        hfMensajes.Value = "La contraseña actual es incorrecta."; //TODO: popup de serveridor
-                        return;
-                    }
-                    usuarioApp.Contrasenia = AdministradorCuentas.Instancia.EncriptarContrasenia(txbNuevaContrasenia.Text.Trim());
-                }
-
                 usuarioApp.Apellido = txbApellidos.Text.Trim();
                 usuarioApp.Email = txbEmail.Text.Trim();
                 usuarioApp.FechaNacimiento = new DateTime(Convert.ToInt32(ddlAnioNacimiento.SelectedValue), Convert.ToInt32(ddlMesNacimiento.SelectedValue), Convert.ToInt32(hfDiaNacimiento.Value));
@@ -195,10 +184,6 @@ namespace Carpooling.Front.Cuentas
                     Session["imagenUsuario"] = rutaImagenMostrar;
                     AdministradorCuentas.Instancia.EliminarImagenTemporal(Server.MapPath("/"), usuarioApp.IdUsuario);
                     Response.Redirect("~/Front/Cuentas/MiPerfil.aspx",false);
-                }
-                else
-                {
-                    hfMensajes.Value = "La contraseña actual es incorrecta.";
                 }
             }
             catch (Exception ex)
