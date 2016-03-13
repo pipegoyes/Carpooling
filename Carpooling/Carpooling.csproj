@@ -24,6 +24,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -612,6 +613,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\CapoolingAzure.pubxml" />
+    <None Include="Properties\PublishProfiles\CarpoolingCo.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling", "Carpooling\Carpooling.csproj", "{065989BD-E7BF-4C76-9283-92D416FBDD28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{2C034F7D-C4D5-444E-B569-E18A59D11235}"
@@ -9,11 +11,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C196E97B-E7A1-4279-8647-6CEB4757951B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.WebApp", "Carpooling.WebApp\Carpooling.WebApp.csproj", "{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{D34B8C9C-5CA3-42F1-9300-08AAF477A8C8}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
+		PublishScripts\Publish-WebApplicationVM.ps1 = PublishScripts\Publish-WebApplicationVM.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{62F8497A-49EC-4900-83E3-3407FE72AC62}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\CarpoolingWebApp-WAWS-dev.json = PublishScripts\Configurations\CarpoolingWebApp-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.Controllers", "Carpooling.Controllers\Carpooling.Controllers.csproj", "{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -35,8 +48,23 @@ Global
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62F8497A-49EC-4900-83E3-3407FE72AC62} = {D34B8C9C-5CA3-42F1-9300-08AAF477A8C8}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

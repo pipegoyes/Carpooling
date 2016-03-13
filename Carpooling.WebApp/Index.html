@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Carpooling Co</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/materialize.css"  rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body{
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        #main-logo-img{
+            margin-top: 13px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="green darken-1">
+            <a href="#" class="brand-logo left center">
+                <img id="main-logo-img" src="images/CarpoolingColombia_small.png" width="101" height="40" />
+            </a>
+            <ul id="nav-mobile" class="right hide-on-small-only">
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title activator">Register information<i class="material-icons right">more_vert</i></span>
+                        <div class="input-field col s12">
+                            <input id="user-id" type="text" />
+                            <label for="user-id">User Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="password" type="password" />
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="card-action">
+                        <a href="#" >Log in</a>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">Forgot your credentials?<i class="material-icons right">close</i></span>
+                        <p>No problem here you can recover your Password and your User Name.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" ></main>
+
+    <footer class="page-footer green darken-1">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <h5 class="white-text">Carpooling Colombia</h5>
+                    <p class="grey-text text-lighten-4">The entire WebSite is still underconstruction, we are working hard to </p>
+                </div>
+                <div>
+                    <h5 class="white-text">More info</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col s8">
+                        <span>&copy; 2016 Copyright Carpooling</span>
+                    </div>
+                    <!--<div class="col s2">
+                        <a class="grey-text text-lighten-4 right">More Links</a>
+                    </div>-->
+                    <div class="col s4 right">
+                        <a href="Index.html" class="right">
+                            <img src="images/LogoSimple_small.png" width="24" height="40" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!--Custom JS (Materialized, JQuery and so on)-->
+    <script src="js/jquery-2.2.1.js"></script>
+    <script src="js/materialize.js"></script>
+</body>
+</html>

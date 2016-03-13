@@ -34,18 +34,7 @@
         <script src="/Scripts/front-js/SiteMaster.js"> </script>
         <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
         
-        <script type="text/javascript">
-            //resucribe los eventos los controles en los panel updates al cargar la pagina
-            function InicializarMaster() {
-                var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
-
-                pageRequestManager.add_endRequest(function() {
-                    $("[ClientID='btnIniciarSesion']").click(function() {
-                        btnIniciarSesion_OnClientClick();
-                    });
-                });
-            }
-        </script>
+        
     </head>
 
     <body onload="InicializarMaster()">
@@ -172,5 +161,23 @@
                 </div>
             </footer>
         </form>
+        <script type="text/javascript">
+            //resucribe los eventos los controles en los panel updates al cargar la pagina
+            function InicializarMaster() {
+                var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+
+                pageRequestManager.add_endRequest(function() {
+                    $("[ClientID='btnIniciarSesion']").click(function() {
+                        btnIniciarSesion_OnClientClick();
+                    });
+                });
+
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+                    $("[ClientID='btnIniciarSesion']").click(function () {
+                        btnIniciarSesion_OnClientClick();
+                    });
+                });
+            }
+        </script>
     </body>    
 </html>
