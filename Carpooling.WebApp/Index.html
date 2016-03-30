@@ -7,6 +7,7 @@
     <link href="css/materialize.css"  rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        /* My base colors green #43A047  */
         body{
             display: flex;
             min-height: 100vh;
@@ -15,9 +16,48 @@
         main {
             flex: 1 0 auto;
         }
+
+        .parallax-container{
+            color: white;
+        }
+
+        section:nth-child(even){
+            background-color: #F3F2F2;
+        }
+
+        section#how-it-works .tabs{
+            background-color: transparent;
+            margin-bottom: 50px;
+        }
+
+        section#how-it-works .tabs a{
+            color: #43A047;
+        }
+
+        section#how-it-works .tabs .active{
+            color: #43A047;
+            font-weight: bold;
+        }
+
+        section#how-it-works .tabs .indicator{
+            background-color: #43A047;
+            height: 5px;
+        }
+
+        #main-image{
+            display: block;
+        }
+
         #main-logo-img{
             margin-top: 13px;
         }
+        #subscribe-email{
+            background-color: white;
+            border: none;
+            color: black;
+            padding-left: 15px;
+        }
+
     </style>
 </head>
 <body>
@@ -27,9 +67,9 @@
                 <img id="main-logo-img" src="images/CarpoolingColombia_small.png" width="101" height="40" />
             </a>
             <ul class="right hide-on-small-only">
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#">Ingresar</a></li>
+                <li><a href="#">Como funciona?</a></li>
+                <li><a href="#how-it-works">Registrarse</a></li>
             </ul>
             <ul class="hide-on-med-and-up right">
                 <li><a href="#"><i class="material-icons">perm_identity</i></a></li>
@@ -39,7 +79,7 @@
 
         </nav>
     </header>
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
             <div class="col s12 m6">
                 <div class="card">
@@ -65,9 +105,94 @@
                 </div>
             </div>
         </div>
+    </div>-->
+
+    <div class="parallax-container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="center">Carpooling</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+                    <div class="row">
+                        <div class="col m8 s12">
+                            <input id="subscribe-email" type="text" placeholder="Inscribe tu email" />
+                        </div>
+                        <div class="col m2 s12">
+                            <a class="btn btn-large green" href="#">Registrate</a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <img id="main-image" src="images/MainRoad.jpg" width="1687" height="1126" />
+        </div>
     </div>
 
-    <main id="main-content" ></main>
+    <section id="benefits">
+        <div class="container">
+            <div class="row center">
+                <h2>Beneficios</h2>
+                <div class="col m4 s12">
+                    <img src="images/LogoSimple_small.png" />
+                    <h4>Ahorra dinero</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                </div>
+                <div class="col m4 s12">
+                    <img src="images/LogoSimple_small.png" />
+                    <h4>Cuida el planeta</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                </div>
+                <div class="col m4 s12">
+                    <img src="images/LogoSimple_small.png" />
+                    <h4>Red de amigos</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="container">
+            <div class="row center">
+                <h2>Como funciona</h2>
+                <div class="col s12 m6 offset-m3">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a href="#driver-info" class="green-text">Yo conduzco</a></li>
+                        <li class="tab col s3"><a href="#passanger-info">Soy pasajero</a></li>
+                    </ul>
+                </div>
+
+                <div id="driver-info" class="col s12">
+                    <div class="row">
+                        <div class="col m4">
+                            <img src="images/LogoSimple_small.png" />
+                            <h4>Cuida el planeta</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                        </div>
+                        <div class="col m4">
+                            <img src="images/LogoSimple_small.png" />
+                            <h4>Cuida el planeta</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                        </div>
+                        <div class="col m4">
+                            <img src="images/LogoSimple_small.png" />
+                            <h4>Cuida el planeta</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="passanger-info" class="col s12">
+                    <p>passanger info</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main id="main-content"></main>
 
     <footer class="page-footer green darken-1">
         <div class="container">
@@ -87,7 +212,6 @@
         </div>
 
         <div class="footer-copyright">
-
             <div class="container">
                 <div class="row">
                     <div class="col s8">
