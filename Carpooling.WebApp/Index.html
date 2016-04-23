@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="mainModule">
 <head>
     <title>Carpooling Co</title>
     <meta charset="utf-8">
@@ -191,6 +191,16 @@
         </div>
     </section>
 
+    <section id="sectionMap">
+        <div class="container">
+            <div class="row">
+                <h2>GoogleMaps example</h2>
+                <iframe width="600" height="450" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJzW1WuQSXvUcRvihRUCQ_P_o&destination=place_id:ChIJYYsK_8O9vUcRsIOfOYeW3j4&key=AIzaSyDXuuTo_s5l378ZgJlOBxghNZeIH61bPQk" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
 
     <main id="main-content"></main>
 
@@ -234,5 +244,6 @@
     <!--Custom JS (Materialized, JQuery and so on)-->
     <script src="js/jquery-2.2.1.js"></script>
     <script src="js/materialize.js"></script>
+    <script src="js/angular.js"></script>
 </body>
 </html>
