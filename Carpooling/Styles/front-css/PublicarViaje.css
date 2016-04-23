@@ -1,0 +1,93 @@
+.boton{
+	width: 110px;
+	height: 13px;
+	margin-top: 15px;
+	text-align: center;
+	background-color: green;
+	border: 1px solid #787878;
+	cursor: pointer;
+	color: white;
+	font-family: arial,sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	font-weight: 600;
+	padding: 7px;
+	margin-right: 8px;
+	text-transform: uppercase;;
+	background-image: -moz-linear-gradient(center top, #6CC437, #549A2B);
+}
+.elementoPaso1{
+	width: 50%;
+}
+.labelCiudad {
+    font-size: 13px;
+    padding: 2px;
+}
+.labelInformacionBasica{
+	width: 40%;
+	text-align: right;
+	margin-top: 10px;
+	padding-right: 10px; 
+}
+.txbInformacionBasica{
+	width: 50%;
+}
+.CustomValidatorCalloutStyle div, 
+.CustomValidatorCalloutStyle td { 
+    border:solid 1px blue; background-color: #ffff8a; 
+}
+.invalidValue{
+	background-color: lemonchiffon;
+}
+.btnEliminar{
+	background-image: url(../Resources/deleteIcon.png);
+	width: 21px;
+	height: 20px;
+}
+#divContenedorCiudades {
+    padding-right: 10px;
+    width: 250px;
+}
+#contenedorMapa{
+	width: 700px;
+	height: 380px;
+}
+#divPaso1{
+	display: block;
+}
+#divPaso2{
+	display: none;
+}
+#divPublicacionExitosa{
+	display: none;
+}
+#comboBoxHora,#comboBoxMinutos{
+	width: 20px;
+}
+#divCupos, #divTarifa, #divHora{
+	padding-top: 10px;
+}
+#btnAgregarParada {
+    width: 80px !important;
+    margin-top: 10px;
+}
+
+.dviRefresh {
+    background-image: url(../../Styles/images/refresh.png);
+    cursor: pointer;
+    width: 26px;
+    height: 28px;
+    display: block;
+    margin-top: 10px;
+}
+#divInfoPaso2 * {
+    font-size: 13px;
+    padding: 3px;
+}
+#divFecha input[type="text"] {
+    width: 120px !important;
+}
+.btnCancelar {
+    margin-left: 10px !important;
+}

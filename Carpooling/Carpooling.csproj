@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{065989BD-E7BF-4C76-9283-92D416FBDD28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Carpooling</RootNamespace>
+    <AssemblyName>Carpooling</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.7.0429\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Front\Bienvenida.aspx" />
+    <Content Include="Front\Contacto.aspx" />
+    <Content Include="Front\Cuentas\CrearCuenta.aspx" />
+    <Content Include="Front\Cuentas\EditarPerfil.aspx" />
+    <Content Include="Front\Cuentas\MiPerfil.aspx" />
+    <Content Include="Front\Cuentas\RecuperarContrasenia.aspx" />
+    <Content Include="Front\Cuentas\RegistroUsuario.aspx" />
+    <Content Include="Front\Cuentas\wuc\DesactivarCuenta.ascx" />
+    <Content Include="Front\Cuentas\wuc\PerfilPublico.ascx" />
+    <Content Include="Front\UserControls\PopupCalificarParticipante.ascx" />
+    <Content Include="Front\UserControls\PopUpOk.ascx" />
+    <Content Include="Front\Cuentas\wuc\CambioContrasenia.ascx" />
+    <Content Include="Front\Error.aspx" />
+    <Content Include="Front\Viajes\DetalleViaje.aspx" />
+    <Content Include="Front\Viajes\DetalleViaje_MisViajes.aspx" />
+    <Content Include="Front\Viajes\EditarViaje.aspx" />
+    <Content Include="Front\Viajes\MisViajes.aspx" />
+    <Content Include="Scripts\front-js\BuscarViaje.js" />
+    <Content Include="Scripts\front-js\CrearCuenta.js" />
+    <Content Include="Scripts\front-js\EditarPerfil.js" />
+    <Content Include="Scripts\front-js\EditarViaje.js" />
+    <Content Include="Scripts\front-js\MisViajes.js" />
+    <Content Include="Scripts\front-js\RegistroUsuario.js" />
+    <Content Include="Scripts\front-js\SiteMaster.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Styles\front-css\MisViajes.css" />
+    <Content Include="Styles\images\Bienvenida.png" />
+    <Content Include="Styles\images\CarpoolingColombia.png" />
+    <Content Include="Styles\images\CarpoolingColombia_small.png" />
+    <Content Include="Styles\images\close-icon.png" />
+    <Content Include="Styles\images\down_arrow_select.jpg" />
+    <Content Include="Styles\images\fumador.jpg" />
+    <Content Include="Styles\images\icon_waiting.gif" />
+    <Content Include="Styles\images\Inicio.png" />
+    <Content Include="Styles\images\LogoCompleto.png" />
+    <Content Include="Styles\images\LogoSimple.png" />
+    <Content Include="Styles\images\LogoSimple_small.png" />
+    <Content Include="Styles\images\nofumador.png" />
+    <Content Include="Styles\images\novehiculo.png" />
+    <Content Include="Styles\images\orderedList0.png" />
+    <Content Include="Styles\images\orderedList1.png" />
+    <Content Include="Styles\images\orderedList2.png" />
+    <Content Include="Styles\images\orderedList3.png" />
+    <Content Include="Styles\images\orderedList4.png" />
+    <Content Include="Styles\images\orderedList5.png" />
+    <Content Include="Styles\images\orderedList6.png" />
+    <Content Include="Styles\images\orderedList7.png" />
+    <Content Include="Styles\images\orderedList8.png" />
+    <Content Include="Styles\images\orderedList9.png" />
+    <Content Include="Scripts\jquery.fineuploader\fileuploader.js" />
+    <Content Include="Scripts\jquery.fineuploader\jquery.fineuploader-3.0.js" />
+    <Content Include="Scripts\jquery.fineuploader\jquery.fineuploader-3.0.min.js" />
+    <Content Include="Scripts\jquery.wijmo\globalize.cultures.js" />
+    <Content Include="Scripts\jquery.wijmo\jquery.wijmo-complete.all.2.2.1.min.js" />
+    <Content Include="Scripts\jquery.wijmo\jquery.wijmo-open.all.2.2.1.min.js" />
+    <Content Include="Scripts\jqueryUI\globalize.js" />
+    <Content Include="Front\Viajes\BuscarViaje.aspx" />
+    <Content Include="Front\Viajes\PublicarViaje.aspx" />
+    <Content Include="Front\Inicio.aspx" />
+    <Content Include="Front\InicioSesion.aspx" />
+    <Content Include="Front\Viajes\PublicacionViajeExitosa.aspx" />
+    <Content Include="Front\Cuentas\Perfil.aspx" />
+    <Content Include="Styles\images\ajax_loader.gif" />
+    <Content Include="Styles\images\btnAgregarParadas.png" />
+    <Content Include="Front\Cuentas\Perfil3.aspx" />
+    <Content Include="Styles\images\btnBuscarViaje.png" />
+    <Content Include="Styles\images\btnIniciarSesion.png" />
+    <Content Include="Styles\fineuploader.css" />
+    <Content Include="Styles\images\Calendar_scheduleHS.png" />
+    <Content Include="Styles\images\deleteIcon.png" />
+    <Content Include="Styles\images\heroAccent.png" />
+    <Content Include="Styles\images\imgFotoPerfilHombre.jpg" />
+    <Content Include="Styles\images\imgFotoPerfilMujer.jpg" />
+    <Content Include="Styles\images\refresh.png" />
+    <Content Include="Styles\images\rating\ratingEmpty.png" />
+    <Content Include="Styles\images\rating\ratingFilled.png" />
+    <Content Include="Styles\images\rating\ratingGauge.png" />
+    <Content Include="Styles\images\rating\ratingSaved.png" />
+    <Content Include="Styles\images\rating\ratingStarEmpty.png" />
+    <Content Include="Styles\images\rating\ratingStarFilled.png" />
+    <Content Include="Styles\images\rating\ratingStarSaved.png" />
+    <Content Include="Styles\images\rating\ratingThermometer.png" />
+    <Content Include="Styles\images\rating\ratingThermometer2.png" />
+    <Content Include="Styles\images\uploading.gif" />
+    <Content Include="Styles\images\vehiculo.png" />
+    <Content Include="Styles\images\warning.gif" />
+    <Content Include="Scripts\front-js\PublicarViaje.js" />
+    <Content Include="Scripts\Inicio.js" />
+    <Content Include="Scripts\jqueryUI\jquery-ui-1.9.1.custom.min.js" />
+    <Content Include="Scripts\front-js\DetalleViaje.js" />
+    <Content Include="Styles\front-css\BuscarViaje.css" />
+    <Content Include="Styles\images\loading.gif" />
+    <Content Include="Styles\jquery.wijmo-complete.2.2.1.css" />
+    <Content Include="Styles\jquery.wijmo-open.2.2.1.css" />
+    <Content Include="Styles\mobile.css" />
+    <Content Include="Styles\normalize.css" />
+    <Content Include="Styles\front-css\RegistroUsuario.css" />
+    <Content Include="Styles\front-css\PublicarViaje.css" />
+    <Content Include="Styles\CrearViajePaso2.css" />
+    <Content Include="Styles\General.css" />
+    <Content Include="Styles\Inicio.css" />
+    <Content Include="Styles\InicioSesion.css" />
+    <Content Include="Styles\Perfil.css" />
+    <Content Include="Styles\Perfil2.css" />
+    <Content Include="Styles\Perfil3.css" />
+    <Content Include="Styles\front-css\DetalleViaje.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Styles\themes\aristo\images\scrollbar-horizontal.png" />
+    <Content Include="Styles\themes\aristo\images\scrollbar-vertical.png" />
+    <Content Include="Styles\themes\aristo\images\scrollbutton-vertical.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-down-arrow.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-down-arrow_hover.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-left-arrow.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-left-arrow_hover.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-right-arrow.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-right-arrow_hover.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-up-arrow.png" />
+    <Content Include="Styles\themes\aristo\images\scroller-up-arrow_hover.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_flat_0_2d5972_40x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_flat_0_4f4f4f_40x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_highlight-hard_80_c4c4c4_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_highlight-soft_100_83b0ca_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_highlight-soft_100_c0c0c0_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_highlight-soft_100_c4c4c4_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_highlight-soft_100_ccccd1_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_inset-hard_65_85b2cb_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_38667f_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_616161_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_898989_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\themes\aristo\images\vertical-menu-item.png" />
+    <Content Include="Styles\themes\aristo\images\wijmo-ui-icons_000000_240x112.png" />
+    <Content Include="Styles\themes\aristo\images\wijmo-ui-icons_ffffff_240x112.png" />
+    <Content Include="Styles\themes\aristo\jquery-wijmo.css" />
+    <Content Include="Styles\themes\base\images\loading.gif" />
+    <Content Include="Styles\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Styles\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Styles\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\base\jquery-ui.css" />
+    <Content Include="Styles\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Styles\themes\base\jquery.ui.all.css" />
+    <Content Include="Styles\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Styles\themes\base\jquery.ui.base.css" />
+    <Content Include="Styles\themes\base\jquery.ui.button.css" />
+    <Content Include="Styles\themes\base\jquery.ui.core.css" />
+    <Content Include="Styles\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Styles\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Styles\themes\base\jquery.ui.menu.css" />
+    <Content Include="Styles\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Styles\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Styles\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Styles\themes\base\jquery.ui.slider.css" />
+    <Content Include="Styles\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Styles\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Styles\themes\base\jquery.ui.theme.css" />
+    <Content Include="Styles\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Styles\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Styles\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Styles\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\themes\cupertino\jquery-ui-1.9.1.custom.css" />
+    <Content Include="Styles\themes\cupertino\jquery-ui-1.9.1.custom.min.css" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_diagonals-small_25_c9c9c9_40x40.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_flat_0_313f3c_40x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_flat_0_4d4d4d_40x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_flat_100_f1eeee_40x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_50_f7e17d_1x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_65_e9f245_1x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_75_59c9c0_1x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_highlight-soft_75_d8ff94_1x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-bg_inset-soft_95_f46f5d_1x100.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_16837f_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_186764_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_834916_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\images\ui-icons_9f1d1d_256x240.png" />
+    <Content Include="Styles\themes\Fresh-Squeezed\jquery-ui-1.9.0.custom.css" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Styles\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Styles\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Styles\themes\redmond\jquery-ui-1.9.1.custom.css" />
+    <Content Include="Styles\themes\redmond\jquery-ui-1.9.1.custom.min.css" />
+    <Content Include="Styles\themes\smoothness\images\animated-overlay.gif" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Styles\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\smoothness\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Styles\themes\smoothness\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_8DC262_256x240.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Styles\themes\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\themes\south-street\jquery-ui-1.9.1.custom.css" />
+    <Content Include="Styles\themes\south-street\jquery-ui-1.9.1.custom.min.css" />
+    <Content Include="Styles\themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Styles\themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Styles\themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Styles\themes\start\jquery-ui-1.9.1.custom.css" />
+    <Content Include="Styles\themes\start\jquery-ui-1.9.1.custom.min.css" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_flat_0_303030_40x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_flat_100_383838_40x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_flat_75_f2f2f2_40x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_inset-hard_5_2b2b2b_1x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_inset-soft_15_5e5e5e_1x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_inset-soft_45_ffc905_1x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_inset-soft_75_ffec52_1x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-bg_inset-soft_95_ff6124_1x100.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_1c1c1c_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_222222_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_303030_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_774322_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_8a4e19_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
+    <Content Include="Styles\themes\Supercharged\jquery-ui-1.9.0.custom.css" />
+    <Content Include="Styles\usercontrosl-css\PopUp.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebServices\SiteWebMethod.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Front\Bienvenida.aspx.cs">
+      <DependentUpon>Bienvenida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Bienvenida.aspx.designer.cs">
+      <DependentUpon>Bienvenida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\CrearCuenta.aspx.cs">
+      <DependentUpon>CrearCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\CrearCuenta.aspx.designer.cs">
+      <DependentUpon>CrearCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\EditarPerfil.aspx.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\EditarPerfil.aspx.designer.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\RecuperarContrasenia.aspx.cs">
+      <DependentUpon>RecuperarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\RecuperarContrasenia.aspx.designer.cs">
+      <DependentUpon>RecuperarContrasenia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\RegistroUsuario.aspx.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\RegistroUsuario.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\CambioContrasenia.ascx.cs">
+      <DependentUpon>CambioContrasenia.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\CambioContrasenia.ascx.designer.cs">
+      <DependentUpon>CambioContrasenia.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\DesactivarCuenta.ascx.cs">
+      <DependentUpon>DesactivarCuenta.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\DesactivarCuenta.ascx.designer.cs">
+      <DependentUpon>DesactivarCuenta.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\PerfilPublico.ascx.cs">
+      <DependentUpon>PerfilPublico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\wuc\PerfilPublico.ascx.designer.cs">
+      <DependentUpon>PerfilPublico.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Front\UserControls\PopupCalificarParticipante.ascx.cs">
+      <DependentUpon>PopupCalificarParticipante.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\UserControls\PopupCalificarParticipante.ascx.designer.cs">
+      <DependentUpon>PopupCalificarParticipante.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpOk.ascx.cs">
+      <DependentUpon>PopUpOk.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\UserControls\PopUpOk.ascx.designer.cs">
+      <DependentUpon>PopUpOk.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\BuscarViaje.aspx.cs">
+      <DependentUpon>BuscarViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\BuscarViaje.aspx.designer.cs">
+      <DependentUpon>BuscarViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje.aspx.cs">
+      <DependentUpon>DetalleViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje.aspx.designer.cs">
+      <DependentUpon>DetalleViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje_MisViajes.aspx.cs">
+      <DependentUpon>DetalleViaje_MisViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\DetalleViaje_MisViajes.aspx.designer.cs">
+      <DependentUpon>DetalleViaje_MisViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\EditarViaje.aspx.cs">
+      <DependentUpon>EditarViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\EditarViaje.aspx.designer.cs">
+      <DependentUpon>EditarViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\MisViajes.aspx.cs">
+      <DependentUpon>MisViajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\MisViajes.aspx.designer.cs">
+      <DependentUpon>MisViajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\PublicarViaje.aspx.cs">
+      <DependentUpon>PublicarViaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\PublicarViaje.aspx.designer.cs">
+      <DependentUpon>PublicarViaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Viajes\PublicacionViajeExitosa.aspx.cs">
+      <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Viajes\PublicacionViajeExitosa.aspx.designer.cs">
+      <DependentUpon>PublicacionViajeExitosa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Cuentas\Perfil3.aspx.cs">
+      <DependentUpon>Perfil3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Front\Cuentas\Perfil3.aspx.designer.cs">
+      <DependentUpon>Perfil3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\FilesUploader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Front\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServices\SiteWebMethod.asmx.cs">
+      <DependentUpon>SiteWebMethod.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CacheImagen\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Front\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{2c034f7d-c4d5-444e-b569-e18a59d11235}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\CapoolingAzure.pubxml" />
+    <None Include="Properties\PublishProfiles\CarpoolingCo.pubxml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52225</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

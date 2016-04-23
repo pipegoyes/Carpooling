@@ -1,0 +1,232 @@
+﻿.divNone {
+    display: none;
+}
+
+
+.tituloBox {
+    /*background-color: #7ac0da;
+    background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
+    background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);*/
+    /*background-color: #51A351;
+    background-image: -ms-linear-gradient(left, #51A351 0%, #62e362 100%);
+    background-image: -o-linear-gradient(left, #51A351 0%, #62e362 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #51A351), color-stop(1, #62e362));
+    background-image: -webkit-linear-gradient(left, #51A351 0%,#62e362 100%);
+    background-image: linear-gradient(left, #51A351 0%, #62e362 100%);*/
+    /*border: none;*/
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.trasparente {
+    opacity:0;
+}
+
+
+.tituloFont {
+    /*color: white;*/
+    font-family: Rockwell,Consolas,"Courier New",Courier,monospace;
+    /*font-weight: bold;*/
+    font-size: 23px;
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 10px;
+    height: 30px;
+}
+
+.contenidoBox {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 50px 30px 50px;
+}
+
+.columna-x2 {
+    width: 410px;    
+}
+
+.columna-x2-left {
+    padding-right: 20px;
+}
+
+.columna-x2-right {
+    padding-left: 20px;
+}
+
+.columna-x3 {
+    width: 266px;
+}
+
+.columna-x3-left {
+    padding-right: 20px;
+}
+
+.columna-x3-right{
+    padding-left: 20px;
+}
+.columna-x3-middle {
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
+    .columna-x2 input[type="text"], .columna-x2 input[type="password"],
+    .columna-x3 input[type="text"], .columna-x2 input[type="password"]{
+        width: 100%;
+    }
+
+
+#MainContent_txtNombreUsuario,
+#MainContent_txtCorreoElectronico,
+#MainContent_txtReCorreoElectronico,
+#MainContent_txtContrasena,
+#MainContent_txtReContrasena,
+#MainContent_txtNombres,
+#MainContent_txtApellidos,
+#MainContent_txtTelefonoFijo,
+#MainContent_txtTelefonoMovil,
+#MainContent_ddlOcupacion,
+#MainContent_txtMasInformacion {
+    width: 250px;
+}
+
+#MainContent_ddlPais,
+#MainContent_ddlDepartamento,
+#MainContent_ddlCiudad {
+    width: 256px;
+}
+
+#genero_usuario,
+#caracteristicas_usuarios {
+    margin: 0;
+}
+
+#genero_usuario label,
+#caracteristicas_usuarios label {
+    width: 205px;
+}
+
+.datosContenedor {
+    background-color: #F8FBFA;
+    border: thin solid #CAE7C2;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    text-align: center;
+    width: 400px;
+}
+
+.titulo {
+    border-bottom: thin solid green;
+    color: green;
+    font-size: medium;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.contenido {
+    padding: 0;
+    text-align: center;
+}
+
+.campoDato {
+    clear: both;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.textoCampo, .valorCampo {
+    text-align: left;
+    width: 100%;
+}
+
+    .valorCampo .nombres input[type="text"] {
+        margin: 0;
+        padding: 0;
+        padding-top: 3px;
+        width: 49%;
+    }
+
+    .valorCampo input[type="text"] {
+        width: 100%;
+    }
+
+.textoCampo {
+    font-weight: bold;
+}
+
+.valorCampo2 {
+    display: inline-block;
+    width: 100%;
+}
+
+.dialogoBotonesBox {
+    text-align: center;
+}
+
+.dialogoBotonesBox input[type="button"], .dialogoBotonesBox input[type="submit"] {
+    width: 90px;
+    height: 31px;
+}
+
+.botonesBox {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+       
+    .botonesBox input[type="submit"], .botonesBox input[type="button"] {
+        width: 160px;
+    }
+
+.marcoImagen {
+    border: 1px solid #EAE8E8;
+    display: inline-block;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.imagenFoto {
+    border: 2px solid gray;
+    height: 150px;
+    align-content:center;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 150px;
+}
+
+
+
+
+.modalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.50;
+    opacity: 0.50;
+}
+
+.updateProgress {
+    background-color: #FFFFFF;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    height: 200px;
+    padding: 20px;
+    width: 400px;
+}

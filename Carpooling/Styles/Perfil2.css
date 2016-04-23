@@ -1,0 +1,4324 @@
+.column
+{
+	border-left: 1px solid #E6E6E6;
+	float: right;
+	padding: 0 15px 0 25px;
+	width: 320px;
+}
+HTML, BODY, DIV, SPAN, APPLET, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE, A, ABBR, ACRONYM, ADDRESS, BIG, CITE, CODE, DEL, DFN, EM, FONT, IMG, INS, KBD, Q, S, SAMP, SMALL, STRIKE, STRONG, SUB, SUP, TT, VAR, DL, DT, DD, OL, UL, LI, FIELDSET, FORM, LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD, CENTER, U, B, I
+{
+	border: 0 none;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	outline: 0 none;
+	padding: 0;
+	vertical-align: baseline;
+}
+BODY
+{
+	line-height: 1;
+	position: relative;
+}
+:focus
+{
+	outline: 0 none;
+}
+.perso5
+{
+	font-family: Calibri;
+}
+#Image1
+{
+	width: 150px;
+	height: 150px;
+	border: 1px solid #FFFFFF;
+}
+.perso1
+{
+	background: #ECF3F3 url(one) repeat 0 0;
+	margin: 20px;
+	overflow: hidden;
+	text-align: center;
+	border: 1px solid #EAE8E8;
+	font-family: sans-serif;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	outline: 0 none;
+	padding: 10px;
+	vertical-align: baseline;
+	line-height: 1;
+	color: #696969;
+	width: 320px;
+	/*+placement:shift 113px 163px;*/
+	position: relative;
+	left: 113px;
+	top: 163px;
+}
+OL, UL
+{
+	list-style: none outside none;
+}
+TABLE
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+BLOCKQUOTE:before, BLOCKQUOTE:after, Q:before, Q:after
+{
+	content: "";
+}
+BLOCKQUOTE, Q
+{
+	quotes: "" "";
+}
+INPUT, TEXTAREA
+{
+	margin: 0;
+	padding: 0;
+}
+HR
+{
+	background-color: #000000;
+	border: 0 none;
+	color: #000000;
+	height: 1px;
+	margin: 0;
+	padding: 0;
+}
+.clearfix:after
+{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix
+{
+	display: inline-block;
+}
+* HTML .clearfix
+{
+	height: 1%;
+}
+.clearfix
+{
+	display: block;
+}
+TEXTAREA
+{
+	resize: none;
+}
+.hidden
+{
+	display: none;
+}
+.doc
+{
+	font-family: sans-serif;
+}
+.bold
+{
+	font-weight: bold;
+}
+.opaque
+{
+	opacity: 0.3;
+}
+.userImg DIV
+{
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 150px;
+	width: 150px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br
+{
+	border: medium none !important;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+.ui-state-default .ui-icon
+{
+	background: transparent repeat 0 0 !important;
+}
+.ui-selectmenu
+{
+	background: #FFFFFF url("/images/layout/select-bkg.png") no-repeat 90% 50% !important;
+	border: 1px solid #E6E6E6 !important;
+	color: #888888;
+	height: 31px !important;
+	padding-right: 30px;
+}
+.ui-selectmenu SPAN
+{
+	font-size: 15px !important;
+	line-height: 31px !important;
+	padding: 0 10px;
+}
+.ui-selectmenu-menu-dropdown
+{
+	border: 1px solid #E6E6E6;
+	padding: 0 10px;
+}
+.ui-selectmenu-menu-dropdown LI
+{
+	background: #FFFFFF repeat 0 0 !important;
+}
+.ui-selectmenu-item-focus, .ui-selectmenu-item-focus SPAN
+{
+	border: medium none !important;
+	font-size: 15px !important;
+	line-height: 31px !important;
+}
+.ui-selectmenu-item-focus A, .ui-state-hover A
+{
+	background: #F1F1F1 repeat 0 0 !important;
+	border: medium none !important;
+	color: #888888 !important;
+}
+.ui-selectmenu-menu-dropdown LI A
+{
+	color: #888888;
+	font-family: Arial;
+	font-size: 15px !important;
+	padding: 0 10px !important;
+}
+.ui-selectmenu-menu
+{
+	z-index: 100 !important;
+}
+.ui-selectmenu, .ui-selectmenu-menu-dropdown
+{
+	width: auto !important;
+}
+.ui-selectmenu-status
+{
+	font-size: 12px !important;
+}
+.ui-selectmenu-menu LI
+{
+	font-size: 12px !important;
+}
+.textWrp
+{
+	position: relative;
+}
+.loading-s
+{
+	background: transparent url("/images/layout/loading_30x30.gif") no-repeat center center !important;
+	cursor: default !important;
+	min-height: 30px;
+}
+.userLogin .socialLogin .loading-s
+{
+	background-position: center bottom !important;
+}
+.labelStyle
+{
+	color: #888888;
+	font-size: 15px;
+	font-weight: bold;
+}
+TEXTAREA
+{
+	color: #AEAEAE;
+	font-family: Arial;
+	font-size: 12px;
+}
+.confirm-btn
+{
+	background: transparent url("/images/ride/confirm-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 45px;
+	margin: 15px auto 0;
+	width: 232px;
+}
+.header, .footer, .site
+{
+	margin: 0 auto;
+	width: 1000px;
+}
+.title
+{
+	color: #595959;
+	font-family: "Myriad Pro", Arial;
+	font-size: 17px;
+	margin: 30px 0 10px;
+	padding: 0 0 0 30px;
+	text-transform: uppercase;
+}
+.overlay
+{
+	background: #000000 repeat 0 0;
+	height: 100%;
+	left: 0;
+	opacity: 0.4;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 20;
+}
+.popupWrp .close
+{
+	background: transparent url("/images/layout/close.png") no-repeat center center;
+	cursor: pointer;
+	height: 10px;
+	position: absolute;
+	right: 18px;
+	top: 18px;
+	width: 10px;
+	z-index: 120;
+}
+.popupWrp
+{
+	background: #EBEBEB repeat 0 0;
+	padding: 10px;
+	position: absolute;
+	top: 80px;
+	z-index: 30;
+}
+.popupWrp .popupTitle
+{
+	background: #FFFFFF repeat 0 0;
+	border-bottom: 1px solid #EBEBEB;
+	color: #888888;
+	font-family: "Myriad Pro", Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	text-transform: uppercase;
+}
+.popupWrp .popupBody
+{
+	background: #FFFFFF repeat 0 0;
+}
+.popupWrp .popupBody P
+{
+	color: #999999;
+	font-family: Arial;
+	font-size: 15px;
+	line-height: 20px;
+	padding: 10px 5px;
+	text-align: center;
+}
+.search-btn
+{
+	background: transparent url("/images/home/search-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 36px;
+	width: 100px;
+}
+.icon
+{
+	background: transparent url("/images/home/icons-sprite.png") no-repeat center top;
+}
+.icon.loupe
+{
+	background-position: 5px -122px;
+}
+.icon.coffee
+{
+	background-position: 5px -122px;
+}
+.icon.twitt
+{
+	background-position: 5px -41px;
+}
+.icon.marker
+{
+	background-position: 5px 0;
+}
+.icon.inbox
+{
+	background-position: 5px -150px;
+}
+.icon.calendar
+{
+	background-position: 5px -181px;
+}
+.inputStyle
+{
+	border: 1px solid #E6E6E6;
+	color: #888888;
+	font-family: Arial;
+	font-size: 15px;
+	height: 31px;
+	line-height: 33px;
+	padding: 0 10px;
+}
+.datepicker
+{
+	background: #FFFFFF url("/images/home/calendar-icon.png") no-repeat 90px 3px;
+	cursor: pointer;
+	width: 103px;
+}
+.paginator
+{
+	margin: 20px 0;
+	text-align: center;
+}
+.paginator .page-link
+{
+	background: #F1F1F1 repeat 0 0;
+	border: 1px solid #E3E3E3;
+	color: #666666;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 12px;
+	height: 24px;
+	line-height: 24px;
+	margin: 0 3px;
+	width: 26px;
+}
+.paginator .page-link:hover
+{
+	background: #E1EFBF repeat 0 0;
+}
+.paginator .page-link.current
+{
+	background: #FFFFFF repeat 0 0;
+	color: #A1C254;
+	font-weight: bold;
+}
+.PASSENGER
+{
+	background: transparent url("/images/layout/passenger.png") no-repeat center center;
+	display: inline-block;
+	height: 11px;
+	margin: 0 2px;
+	width: 12px;
+}
+.DRIVER
+{
+	background: transparent url("/images/layout/driver.png") no-repeat center center;
+	display: inline-block;
+	height: 12px;
+	margin: 0 2px;
+	width: 12px;
+}
+.border
+{
+	border: 1px solid #EAE8E8;
+}
+.select
+{
+	background: #FFFFFF url("/images/layout/select-bkg.png") no-repeat 90% 50%;
+	cursor: pointer;
+}
+.selectValues, .selectValuesHidden
+{
+	background: #FFFFFF repeat 0 0;
+	display: none;
+	max-height: 250px;
+	overflow-y: scroll;
+	position: absolute;
+	z-index: 100;
+}
+.selectValues DIV, .selectValuesHidden DIV
+{
+	cursor: pointer;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+}
+.selectValues DIV:hover, .selectValuesHidden DIV:hover
+{
+	background: #F1F1F1 repeat 0 0;
+}
+.async-message
+{
+	background: transparent url("/images/layout/messages-icons.png") no-repeat 0 0;
+	height: 47px;
+	line-height: 47px;
+	margin-top: 10px;
+	padding-left: 45px;
+	width: 960px;
+}
+#INLINE_RESPONSE
+{
+	display: none;
+}
+.async-message .message-text
+{
+	color: #666666;
+	font-size: 12px;
+}
+.async-message .type
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+.async-message.ERROR
+{
+	background-color: #FCCAC1;
+	background-position: 3px 8px;
+	border: 1px solid #EB5439;
+}
+.async-message.WARNING
+{
+	background-color: #FFFF99;
+	background-position: 3px -58px;
+	border: 1px solid #FFCC66;
+}
+.async-message.SUCCESS
+{
+	background-color: #EFFEB9;
+	background-position: 3px -124px;
+	border: 1px solid #98C700;
+}
+.async-message.INFO
+{
+	background-color: #D1E4F3;
+	background-position: 6px -190px;
+	border: 1px solid #4D8FCB;
+}
+.inviteFriends
+{
+	background: transparent url("/images/header/invite-bkg.png") no-repeat center center;
+	color: #475D86;
+	font-size: 16px;
+	height: 70px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.inviteFriends .text
+{
+	float: left;
+	margin: 26px 0 0 25px;
+}
+.inviteFriends:hover
+{
+	cursor: pointer;
+}
+.userBar
+{
+	background: transparent url("/images/layout/userBar-bkg.jpg") repeat-x center center;
+	border-bottom: 1px solid #FFFFFF;
+	color: #EAEAEA;
+	height: 31px;
+	line-height: 31px;
+}
+.userBar .leftSide
+{
+	float: left;
+	width: 45%;
+}
+.userBar .rightSide
+{
+	float: right;
+	width: 55%;
+}
+.userBar .leftSide A
+{
+	float: left;
+}
+.userBar .rightSide A
+{
+	float: right;
+}
+.userBar .publish
+{
+	background: transparent url("/images/header/publish.png") no-repeat center center;
+}
+.userBar A
+{
+	color: #EAEAEA;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	height: 30px;
+	margin: 1px 0 0;
+	padding: 0 10px;
+	text-decoration: none;
+}
+.userBar A:hover
+{
+	background: #90B83F repeat 0 0;
+	text-decoration: none;
+}
+.userBar A .new
+{
+	background: transparent url("/images/home/new.png") no-repeat center center;
+	display: block;
+	float: right;
+	font-size: 12px;
+	height: 20px;
+	line-height: 19px;
+	margin: 6px 0 0 7px;
+	width: 60px;
+}
+.userBar A .new SPAN
+{
+	padding: 0 0 0 13px;
+}
+.userBar .publish:hover
+{
+	background: transparent url("/images/header/publish.png") no-repeat center center;
+}
+.headerWrp
+{
+	background: transparent url("/images/header/top-shadow.jpg") repeat-x center top;
+	border-bottom: 1px solid #E6E6E6;
+}
+.header .logo
+{
+	background: transparent url("/images/header/logo-bkg.jpg") no-repeat center center;
+	float: left;
+	height: 99px;
+	margin: 0 0 0 -20px;
+	width: 312px;
+}
+.header .logo A
+{
+	display: block;
+	height: 49px;
+	margin: 28px auto 0;
+	width: 264px;
+}
+.header .menu
+{
+	float: right;
+	font-size: 14px;
+	margin: 33px 0 0;
+}
+.header .menu UL LI
+{
+	background: transparent url("/images/header/sep.png") no-repeat 100% 68%;
+	display: block;
+	float: left;
+	padding: 0 5px;
+	position: relative;
+}
+.header .menu UL LI A
+{
+	border: 1px solid #FFFFFF;
+	color: #7A7A7A;
+	cursor: pointer;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.header .menu UL LI:hover A
+{
+	background: #F7F7F7 repeat 0 0;
+	border: 1px solid #EAE8E8;
+	border-radius: 4px 4px 0 0;
+}
+.header .menu UL LI:hover .submenu, .header .menu UL .submenu:hover
+{
+}
+.header .menu UL .submenu
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #FFFFFF repeat 0 0;
+	border-color: -moz-use-text-color #EAE8E8 #EAE8E8;
+	border-image: none;
+	border-radius: 0 3px 3px 3px;
+	border-right: 1px solid #EAE8E8;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	box-shadow: 3px 3px 11px #E6E6E6;
+	color: #908F8F;
+	cursor: pointer;
+	display: none;
+	font-size: 13px;
+	left: 0;
+	position: absolute;
+	top: 33px;
+	width: 220px;
+}
+.header .menu UL .submenu .item
+{
+	padding: 0 7px;
+}
+.header .menu UL .submenu .item DIV
+{
+	border-bottom: 1px solid #D6D6D6;
+}
+.header .menu UL .submenu .item.last DIV
+{
+	border: medium none;
+}
+.header .menu UL .submenu .item:first-child
+{
+	border-top: 1px solid #EAE8E8;
+}
+.header .menu UL .submenu DIV .cufon
+{
+	margin: 12px 0;
+}
+.header .menu UL LI.last
+{
+	background: transparent repeat 0 0;
+	margin: 0;
+}
+DIV.ui-datepicker
+{
+	font-size: 12px;
+	z-index: 70 !important;
+}
+.jcrop-holder
+{
+	float: left;
+}
+.footerWrp
+{
+	border-top: 1px solid #E6E6E6;
+	height: 43px;
+}
+.footerWrp .links
+{
+	float: left;
+}
+.footerWrp .social
+{
+	float: right;
+	height: 43px;
+	overflow: hidden;
+	width: 300px;
+}
+.footerWrp .social .fb-like
+{
+	float: right;
+	margin-top: 12px;
+	width: 120px;
+}
+.footerWrp .social .twitter-follow
+{
+	float: right;
+	height: 30px;
+	margin-top: 12px;
+	overflow: hidden;
+	width: 180px;
+}
+.footerWrp .links A
+{
+	color: #666666;
+	font-size: 14px;
+	line-height: 43px;
+	padding-right: 30px;
+}
+.footer
+{
+	background: transparent url("/images/home/section-separator.png") no-repeat center top;
+	height: 259px;
+	position: relative;
+}
+.footer .logo
+{
+	background: transparent url("/images/footer/logo.png") no-repeat center center;
+	bottom: 68px;
+	height: 48px;
+	position: absolute;
+	right: 0;
+	width: 264px;
+}
+.copyrightWrp
+{
+	background: #F2F2F2 repeat 0 0;
+	border-bottom: 1px solid #E6E6E6;
+	border-top: 1px solid #E6E6E6;
+	color: #8C8C8C;
+	font-size: 11px;
+	height: 64px;
+}
+.copyrightWrp A
+{
+	color: #8C8C8C;
+	text-decoration: none;
+}
+.copyrightWrp A:hover
+{
+	text-decoration: underline;
+}
+.copyrightWrp .copyright
+{
+	padding: 30px 0 0;
+}
+.copyrightWrp .rights
+{
+	float: left;
+}
+.copyrightWrp .links
+{
+	float: right;
+}
+.home .intro
+{
+	position: relative;
+}
+.home .slider.logged
+{
+	left: 140px;
+}
+.home .videoWrp
+{
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 46px;
+	width: 700px;
+}
+.home .sliderAndLoginWrp
+{
+	background: transparent url("/images/home/home-bkg.jpg") repeat-x center bottom;
+	height: 430px;
+}
+.home .searchResults
+{
+	height: 375px;
+	overflow: hidden;
+}
+.home .userLogin
+{
+	position: absolute;
+	right: 0;
+	top: 40px;
+	z-index: 1;
+}
+.userLogin
+{
+	height: 372px;
+	width: 281px;
+}
+.popup .userLogin
+{
+	margin-top: 15px;
+}
+.userLogin .userBody
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #F2F2F2 repeat 0 0;
+	border-color: #EAE8E8 #EAE8E8 -moz-use-text-color;
+	border-image: none;
+	border-style: solid solid none;
+	border-width: 1px 1px medium;
+	height: 320px;
+	margin: -1px 0 0;
+	padding: 12px 0 0;
+	position: relative;
+}
+.home .searchResults .DRIVER-icon
+{
+	margin-top: 7px;
+}
+.loginError
+{
+	bottom: 103px;
+	color: #FF5151;
+	font-size: 12px;
+	left: 20px;
+	position: absolute;
+}
+.home .slider
+{
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 46px;
+	width: 700px;
+}
+.home .slider .slides
+{
+	height: 330px;
+}
+.home .slider .slides DIV
+{
+	height: 330px;
+	width: 700px;
+}
+.home .slider .slide1
+{
+	background: transparent url("/images/home/slider/slide1.png") no-repeat center center !important;
+}
+.home .slider .slide2
+{
+	background: transparent url("/images/home/slider/slide2.png") no-repeat center center !important;
+}
+.home .slider .slide3
+{
+	background: transparent url("/images/home/slider/slide3.png") no-repeat center center !important;
+}
+.home .slider .slide4
+{
+	background: transparent url("/images/home/slider/slide4.png") no-repeat center center !important;
+}
+.home .slider .nav
+{
+	text-align: center;
+}
+.home .slider .nav A
+{
+	background: transparent url("/images/home/slider-nav.png") no-repeat right center;
+	display: inline-block;
+	font-size: 0;
+	height: 16px;
+	margin: 0 4px;
+	width: 15px;
+}
+.home .slider .slides A
+{
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.home .slider A.activeSlide
+{
+	background: transparent url("/images/home/slider-nav.png") no-repeat left center;
+}
+.userLogin .tabs
+{
+	font-size: 15px;
+	padding: 6px 0 0;
+	width: 281px;
+}
+.userLogin .tabs DIV
+{
+	background: transparent url("/images/home/login-tab-outfocus.png") no-repeat center center;
+	color: #FFFFFF;
+	cursor: pointer;
+	height: 25px;
+	text-align: center;
+	width: 134px;
+}
+.userLogin .tabs .selected
+{
+	background: transparent url("/images/home/login-tab-selected.png") no-repeat center center;
+	color: #333333;
+	cursor: default;
+}
+.userLogin .tabs .cufon
+{
+	margin: 5px 0 0;
+}
+.userLogin .tabs .register
+{
+	float: right;
+}
+.userLogin .tabs .login
+{
+	float: left;
+}
+.userLogin .loginForm
+{
+	border-top: 1px solid #EAE8E8;
+	margin: 0 auto;
+	padding: 20px 0 0;
+	width: 245px;
+}
+.userLogin .registerBody .loginForm
+{
+	padding: 10px 0 0;
+}
+.userLogin .registerBody .registrationSuccess
+{
+	color: #7A7A7A;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 30px 10px 0;
+	text-align: center;
+}
+.userLogin .loginForm .label
+{
+	color: #999999;
+	font-family: Arial, Helvetica, Tahoma, sans-serif;
+	font-size: 12px;
+	padding: 0 0 0 2px;
+}
+.userLogin .loginForm .field
+{
+	border: 1px solid #E6E6E6;
+	height: 33px;
+	line-height: 33px;
+	margin: 7px 0 14px;
+	padding: 0 5px;
+	width: 100%;
+}
+.userLogin .registerBody .loginForm .field
+{
+	margin: 4px 0 8px;
+}
+.userLogin .terms
+{
+	color: #999999;
+	font-size: 11px;
+	margin: 8px 0;
+	text-align: center;
+}
+.userLogin .loginForm .submit
+{
+	background: transparent url("/images/home/login-btn.png") no-repeat center center;
+	cursor: pointer;
+	display: block;
+	height: 35px;
+	width: 90px;
+}
+.userLogin .loginForm .rememberMe
+{
+	color: #999999;
+	font-family: arial;
+	font-size: 12px;
+	margin: 10px 0;
+	width: 145px;
+}
+.userLogin .loginForm .forget A
+{
+	color: #999999;
+	text-decoration: none;
+}
+.userLogin .loginForm .remember
+{
+	margin: 10px 0 0;
+}
+.userLogin .loginForm .remember SPAN
+{
+	background: transparent url("/images/home/checkbox.jpg") no-repeat center center;
+	display: block;
+	float: left;
+	height: 13px;
+	margin: 0 5px 0 0;
+	width: 13px;
+}
+.userLogin .loginForm .forget A:hover
+{
+	text-decoration: underline;
+}
+.userLogin .socialLogin
+{
+	background: #FFFFFF repeat 0 0;
+	height: 100px;
+}
+.userLogin .socialLogin .fb
+{
+	height: 32px;
+	margin: 0 auto;
+	padding: 33px 0 0;
+	width: 245px;
+}
+.userLogin .socialLogin A, .fb_button
+{
+	background: transparent url("/images/home/fb-btn.jpg") no-repeat center center !important;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.fb_button SPAN
+{
+	background: transparent repeat 0 0 !important;
+	border: medium none !important;
+	display: none !important;
+}
+.userLogin .socialLogin .tw
+{
+	height: 32px;
+	margin: 10px 0 0;
+}
+.userLogin .loginForm .register
+{
+	background: transparent url("/images/home/register-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 36px;
+	margin: 0 auto;
+	width: 140px;
+}
+.userLogin .captchaField
+{
+	margin: 5px 0;
+}
+.userLogin .captchaField .image
+{
+	border: 1px solid #E6E6E6;
+	float: left;
+	height: 32px;
+	overflow: hidden;
+	width: 117px;
+}
+.userLogin .captchaField INPUT
+{
+	float: right;
+	font-size: 24px;
+	margin: 0 !important;
+	width: 110px !important;
+}
+.home .loginShadow
+{
+	background: transparent url("/images/home/login-shadow.png") no-repeat center center;
+	height: 23px;
+	position: absolute;
+	right: -16px;
+	top: 400px;
+	width: 315px;
+	z-index: 0;
+}
+.tweeterFeed
+{
+	color: #666666;
+	font-size: 12px;
+	line-height: 14px;
+}
+.tweeterFeed .tweet_time
+{
+	display: none;
+}
+.tweeterFeed .tweet_avatar
+{
+	float: left;
+	margin-right: 5px;
+}
+.tweeterFeed .tweet_time A
+{
+	color: #437EA1;
+	font-weight: bold;
+}
+.tweeterFeed .tweet_even, .tweeterFeed .tweet_odd
+{
+	display: inline-block;
+	height: auto;
+	margin: 0 0 10px;
+}
+.home .steps
+{
+	height: 422px;
+}
+.home .stepsWrp
+{
+	background: transparent url("/images/home/steps-bkg.jpg") repeat-x center center;
+	height: 138px;
+}
+.home .stepsWrp .step
+{
+	color: #666666;
+	float: left;
+	height: 78px;
+	margin: 30px 0 0;
+	width: 280px;
+}
+.home .stepsWrp .number1, .home .stepsWrp .number2, .home .stepsWrp .number3
+{
+	background: transparent url("/images/home/steps-sprite.png") no-repeat 0 0;
+	float: left;
+	height: 69px;
+	width: 68px;
+}
+.home .stepsWrp .number2
+{
+	background-position: 0 -85px;
+}
+.home .stepsWrp .number3
+{
+	background-position: 0 -170px;
+}
+.home .stepsWrp .arrow
+{
+	background: transparent url("/images/home/steps-sprite.png") no-repeat center bottom;
+	float: left;
+	height: 78px;
+	margin: 26px 32px 0 0;
+	width: 47px;
+}
+.home .stepsWrp .text
+{
+	float: left;
+	margin: 5px 0 0 10px;
+	width: 184px;
+}
+.home .stepsWrp .title
+{
+	color: #4D4D4D;
+	font-size: 13px;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+.home .stepsWrp .desc
+{
+	font-size: 12px;
+	margin: 10px 0 0;
+}
+.home .stepsWrp .desc .cufon
+{
+	margin: 0 0 8px;
+}
+.home .middleSectionWrp
+{
+	background: #FFFFFF repeat 0 0;
+	padding: 18px 0 50px;
+}
+.home .tip
+{
+	color: #BBBABA;
+	font-size: 13px;
+	margin: 5px 0 0;
+}
+.home .top .body
+{
+	width: 430px;
+}
+.home .top .column
+{
+	width: 500px;
+}
+.home .latestRides .title
+{
+	margin: 10px 0;
+}
+.home .column .twitterSearchContainter
+{
+	height: 400px !important;
+}
+.home .column #tweeterFeed
+{
+	border: medium none !important;
+}
+.home .column .twitterSearchBird, .home .column .twitterSearchTitle
+{
+	display: none;
+}
+.home .column .twitterSearchContainter
+{
+	background: transparent repeat 0 0 !important;
+}
+.home .column .twitterSearchProfileImg
+{
+	border: 1px solid #BBBBBB;
+	height: 40px !important;
+	width: 40px !important;
+}
+.home .column .twitterSearchTweet
+{
+	color: #666666;
+	font-family: Arial !important;
+	font-size: 11px !important;
+	font-weight: normal;
+	line-height: 14px;
+}
+.home .column .twitterSearchTweet A
+{
+	color: #437EA1 !important;
+}
+.body
+{
+	float: left;
+	width: 658px;
+}
+.home .middleSectionWrp .search
+{
+	padding: 0 0 0 15px;
+	width: 401px;
+}
+.home .middleSectionWrp .searchBox
+{
+	background: #F2F2F2 repeat 0 0;
+	border: 1px solid #EAE8E8;
+	color: #888888;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 23px 15px;
+	position: relative;
+}
+.home .middleSectionWrp .search .title, .home .middleSectionWrp .latestTwitts .title
+{
+	margin-top: 10px;
+}
+.home .middleSectionWrp .searchBox FORM
+{
+	float: left;
+}
+.home .middleSectionWrp .publish-btnWrp
+{
+	background: #F2F2F2 repeat 0 0;
+	margin: 5px 0 0;
+	padding: 20px 0 0;
+}
+.home .middleSectionWrp .publish-btn
+{
+	background: transparent url("/images/home/publish-btn.png") no-repeat center center;
+	display: block;
+	height: 90px;
+	position: relative;
+	width: 393px;
+}
+.home .middleSectionWrp .publish-btn A
+{
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.home .middleSectionWrp .searchBox .publish-btn
+{
+	bottom: 23px;
+	margin: 0;
+	position: absolute;
+	right: 19px;
+}
+.home .middleSectionWrp .searchBox .field
+{
+	margin: 0 0 30px;
+}
+.home .middleSectionWrp .searchBox .search-btn
+{
+	float: right;
+	margin: 0 20px 0 0;
+}
+.home .middleSectionWrp .searchBox LABEL
+{
+	float: left;
+	line-height: 33px;
+	width: 55px;
+}
+.home .middleSectionWrp .searchBox INPUT
+{
+	float: left;
+	width: 274px;
+}
+.home .middleSectionWrp .searchBox .datepicker
+{
+	width: 113px;
+}
+.home .middleSectionWrp .searchBox .datepicker
+{
+	background-position: 95% 50%;
+}
+.home .middleSectionWrp .searchBox .last
+{
+	margin: 0;
+}
+.home .middleSectionWrp .searchBox INPUT, .pac-container
+{
+	border: 1px solid #E6E6E6;
+	color: #888888;
+	font-family: Arial;
+	font-size: 15px;
+	height: 33px;
+	line-height: 33px;
+	padding: 0 10px;
+	width: 290px;
+}
+.home .latestTwitts
+{
+	height: auto;
+	overflow: hidden;
+}
+.home .latestNews .image
+{
+	background: transparent url("/images/home/news.jpg") no-repeat center center;
+	height: 174px;
+}
+.home .latestNews
+{
+	color: #666666;
+	font-family: Arial;
+}
+.home .latestNews .title
+{
+	margin-left: 6px;
+}
+.home .latestNews .sep
+{
+	border-bottom: 1px solid #E6E6E6;
+	height: 10px;
+	margin: 0 auto;
+	width: 280px;
+}
+.home .latestNews .newsTitle
+{
+	font-size: 13px;
+	font-weight: bold;
+	margin: 20px 0 10px;
+	text-transform: uppercase;
+}
+.home .latestNews .newsDesc
+{
+	font-size: 12px;
+}
+.home .latestNews .newsTitle, .home .latestNews .newsDesc
+{
+	padding: 0 10px;
+}
+.home .miniAds
+{
+	background: transparent url("/images/home/miniad-bkg.jpg") no-repeat center top;
+	border-bottom: 2px solid #EEEEEE;
+	margin-top: 45px;
+}
+.home .miniAds .box
+{
+	background: transparent url("/images/home/miniad-box.png") no-repeat center center;
+	color: #666666;
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	height: 125px;
+	margin: 20px 31px 10px;
+	position: relative;
+	width: 271px;
+}
+.home .miniAds .box:hover
+{
+	text-decoration: none;
+}
+.home .miniAds .box .titleDesc
+{
+	height: 90px;
+	margin: 20px 0 0 20px;
+	width: 150px;
+}
+.home .miniAds .box .title
+{
+	color: #666666;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 0;
+}
+.home .miniAds .box .desc
+{
+	font-size: 12px;
+	margin: 0;
+}
+.home .miniAds .miniad-icon
+{
+	background: transparent url("/images/home/miniad-sprite.png") no-repeat 0 0;
+	height: 70px;
+	position: absolute;
+	right: 30px;
+	top: 33px;
+	width: 66px;
+}
+.home .miniAds .miniad-icon.balloon
+{
+	background-position: 0 -178px;
+}
+.home .miniAds .miniad-icon.ok
+{
+	background-position: 0 -88px;
+}
+.home .miniAds .miniad-icon.rss
+{
+	background-position: 0 4px;
+}
+.home .eventsWrp
+{
+	border-top: 1px solid #E6E6E6;
+	margin-top: 30px;
+}
+.home .eventsWrp .eventsHeader .title
+{
+	float: left;
+	margin-top: 20px;
+}
+.home .eventsWrp .eventsHeader .link
+{
+	float: right;
+	font-size: 12px;
+	margin: 30px 35px 0 0;
+}
+.home .featuredEvents
+{
+	border-bottom: 1px solid #E6E6E6;
+	padding: 0 0 35px;
+	text-align: center;
+	width: 970px;
+}
+.home .featuredEvents .event.center
+{
+	margin: 0 26px;
+}
+.home .featuredEvents .event:hover
+{
+	cursor: pointer;
+	text-decoration: none;
+}
+.home .featuredEvents .event
+{
+	background: #F2F2F2 repeat 0 0;
+	display: inline-block;
+	height: 290px;
+	text-align: left;
+	vertical-align: top;
+	width: 300px;
+}
+.eventImageWrp
+{
+	height: 194px;
+	width: 300px;
+}
+.eventImageWrp IMG
+{
+	display: block;
+	height: 174px;
+	margin: 10px auto 0;
+	width: 280px;
+}
+.home .featuredEvents .title
+{
+	color: #666666;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 17px 0 10px;
+	padding: 0 10px;
+}
+.home .featuredEvents .description
+{
+	color: #666666;
+	font-family: arial;
+	font-size: 12px;
+	padding: 0 10px;
+}
+.home .adsWrp
+{
+	padding: 45px 0 0;
+}
+.home .ads
+{
+	padding: 0 0 0 15px;
+}
+.home .ads .column
+{
+	margin: 60px 0 0;
+}
+.home .ads .ad
+{
+	background: transparent url("/images/home/co2-counter.jpg") no-repeat center center;
+	height: 332px;
+	position: relative;
+	width: 661px;
+}
+.home .ads .ad .publish
+{
+	bottom: 29px;
+	height: 42px;
+	left: 72px;
+	position: absolute;
+	width: 203px;
+}
+.home .ads .ad .counter
+{
+	bottom: 120px;
+	color: #C9C8C8;
+	font-size: 18px;
+	font-weight: bold;
+	height: 50px;
+	left: 47px;
+	letter-spacing: 24px;
+	line-height: 50px;
+	position: absolute;
+	text-align: right;
+	width: 258px;
+}
+.home .adsWrp .paypal-btn
+{
+	background: transparent url("/images/home/paypal-btn.png") no-repeat center center;
+	height: 87px;
+	margin: 0 auto;
+	width: 229px;
+}
+.home .adsWrp .paypalTitle
+{
+	color: #7A7A7A;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 20px auto 0;
+	width: 229px;
+}
+.home .adsWrp .paypalBody
+{
+	color: #7A7A7A;
+	font-size: 12px;
+	margin: 20px auto 0;
+	width: 229px;
+}
+.home .adsWrp .column
+{
+	height: 268px;
+}
+.error
+{
+	border: 1px solid #FF5151 !important;
+	color: #FF5151 !important;
+}
+LABEL.error
+{
+	display: none !important;
+}
+.ui-datepicker
+{
+	border-radius: 0 0 0 0 !important;
+}
+.ui-datepicker-header
+{
+	background: transparent repeat 0 0 !important;
+	border: medium none !important;
+	color: #A5A5A5 !important;
+	font-size: 12px !important;
+}
+.ui-datepicker .ui-state-default
+{
+	background: #F2F2F2 repeat 0 0 !important;
+	border: medium none !important;
+	color: #666666 !important;
+	font-family: Arial;
+	font-size: 12px;
+	text-align: center !important;
+}
+.ui-datepicker TH
+{
+	color: #666666 !important;
+	font-family: Arial;
+	font-size: 12px;
+}
+.ui-datepicker .ui-icon-circle-triangle-w
+{
+	background: transparent url("/images/layout/datepicker-left.png") no-repeat center center !important;
+}
+.ui-datepicker .ui-icon-circle-triangle-e
+{
+	background: transparent url("/images/layout/datepicker-right.png") no-repeat center center !important;
+}
+.ui-datepicker .ui-datepicker-prev.ui-state-hover, .ui-datepicker .ui-datepicker-next.ui-state-hover
+{
+	background: inherit !important;
+	border: medium none !important;
+	cursor: pointer !important;
+}
+.ui-datepicker .ui-state-hover, .ui-datepicker .ui-state-active
+{
+	background: #B5DE55 repeat 0 0 !important;
+	color: #FFFFFF !important;
+}
+.profile
+{
+	position: relative;
+}
+.searchRide .noRides
+{
+	border-bottom: 2px solid #E8E8E8;
+	border-top: 2px solid #E8E8E8;
+	color: #666666;
+	font-size: 14px;
+	height: 70px;
+	text-align: center;
+}
+.searchRide .noRides .publish-btn
+{
+	background: transparent url("/images/ride/publish-search-btn.png") no-repeat center center;
+	float: right;
+	margin: 17px 10px 0 0;
+}
+.searchRide .noRides .text
+{
+	float: left;
+	width: 700px;
+}
+.searchRide
+{
+	padding-bottom: 50px;
+	position: relative;
+}
+.searchRide .searchBox
+{
+	background: #F2F2F2 repeat 0 0;
+	border: 1px solid #EAE8E8;
+	height: 79px;
+	margin: 0 0 15px;
+}
+.searchRide .searchBox .search-btn
+{
+	margin: 19px 0 0;
+}
+.searchRide .searchBox .flip-btn
+{
+	background: transparent url("/images/ride/flip-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 35px;
+	margin: 20px 3px 0;
+	width: 51px;
+}
+.resultsTitle
+{
+	color: #666666;
+	font-size: 12px;
+	line-height: 21px;
+	margin: 0 0 5px;
+}
+.resultsTitle .results
+{
+	float: left;
+	margin-left: 10px;
+}
+.resultsTitle .filters
+{
+	float: right;
+	margin-right: 10px;
+}
+.resultsTitle .label
+{
+	float: left;
+}
+.resultsTitle .filter-btn
+{
+	background: transparent url("/images/ride/filter-btn.png") no-repeat center center;
+	float: left;
+	height: 21px;
+	margin: 0 0 0 5px;
+	width: 217px;
+}
+.resultsTitle .filter-btn DIV
+{
+	cursor: pointer;
+	float: left;
+	font-size: 11px;
+	text-align: center;
+}
+.resultsTitle .all
+{
+	width: 44px;
+}
+.resultsTitle .drivers
+{
+	padding-left: 18px;
+	width: 78px;
+}
+.resultsTitle .passengers
+{
+	padding-left: 12px;
+	width: 64px;
+}
+.resultsInfo
+{
+	background: #EFEFC5 repeat 0 0;
+	height: 28px;
+}
+.resultsInfo SPAN
+{
+	border: 1px solid #EAE8E8;
+	color: #666666;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 28px;
+	padding-left: 10px;
+}
+.tooltip, .tooltipBottom
+{
+	background-color: #ECECEC;
+	border: 1px solid #D6D6D6;
+	color: #8A8A8A;
+	display: none;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 10px 15px;
+	text-align: left;
+	width: 200px;
+	z-index: 100;
+}
+.tooltip .arrow, .tooltipBottom .arrow
+{
+	background: transparent url("/images/tooltip/arrow.png") no-repeat center bottom;
+	bottom: -10px;
+	display: block;
+	height: 11px;
+	position: absolute;
+	width: 200px;
+}
+.tooltipBottom .arrow
+{
+	background: transparent url("/images/tooltip/arrow.png") no-repeat center top;
+	top: -10px;
+}
+.extraWidth, .extraWidth .arrow
+{
+	width: 350px !important;
+}
+.searchRide .searchBox .from, .searchRide .searchBox .to
+{
+	width: 290px;
+}
+.searchRide .searchBox .label
+{
+	color: #888888;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 5px;
+}
+.searchRide .searchBox .col1, .searchRide .searchBox .col2, .searchRide .searchBox .col3, .searchRide .searchBox .col4, .searchRide .searchBox .col5
+{
+	float: left;
+	margin: 0 0 0 10px;
+	padding: 7px 0 0;
+	position: relative;
+}
+.searchResults .DRIVER-icon
+{
+	background: transparent url("/images/ride/rideType-icons.png") no-repeat center top;
+	height: 60px;
+	margin: 22px 0 0 11px;
+	width: 70px;
+}
+.searchResults .PASSENGER-icon
+{
+	background: transparent url("/images/ride/rideType-icons.png") no-repeat center bottom;
+	height: 60px;
+	margin: 7px 0 0 11px;
+	width: 70px;
+}
+.searchResults .result
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 1px solid #E0E0E0;
+	cursor: pointer;
+	font-family: Arial;
+	height: 102px;
+	text-decoration: none;
+}
+.home .searchResults .result
+{
+	height: 75px;
+}
+.searchResults .noRides
+{
+	line-height: 70px;
+}
+.searchResults .detail
+{
+	color: #999999;
+	font-size: 14px;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 7px;
+	position: relative;
+}
+.home .searchResults .detail
+{
+	display: none;
+}
+.searchResults .rideInfo
+{
+	background: transparent url("/images/ride/details-btn.png") no-repeat center top;
+	bottom: 10px;
+	display: block;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	width: 102px;
+}
+.searchResults .result:hover
+{
+	background: #EAF4D2 repeat 0 0;
+}
+.searchResults .result:hover .rideInfo
+{
+	background-position: center bottom;
+}
+.searchResults .result .col1
+{
+	float: left;
+	height: 100%;
+	width: 67px;
+}
+.searchResults .result .col2
+{
+	float: left;
+	height: 72px;
+	overflow: hidden;
+	width: 830px;
+}
+.home .searchResults .result .col2
+{
+	width: 340px;
+}
+.searchResults .result .col3
+{
+	float: right;
+	height: 100%;
+	margin-right: 13px;
+	overflow: hidden;
+	width: 90px;
+}
+.home .searchResults .result .col3
+{
+	margin: 0;
+}
+.searchResults .result .userImg
+{
+	background: transparent url("/images/layout/nopic.jpg") no-repeat center center;
+	height: 52px;
+	margin: 9px auto 0;
+	width: 52px;
+}
+.searchResults .result .price
+{
+	color: #666666;
+	font-size: 30px;
+	margin: 8px 0 0 10px;
+	text-align: right;
+}
+.searchResults .result .tip
+{
+	color: #CCCCCC;
+	font-size: 10px;
+	margin: 5px 0 0;
+	text-align: right;
+}
+.searchResults .result .trip
+{
+	margin: 17px 0 0;
+}
+.home .searchResults .result .trip
+{
+	margin: 10px 0 0;
+}
+.searchResults .result .false
+{
+	background: transparent url("/images/layout/direction-icons.png") no-repeat center top;
+	display: inline-block;
+	height: 10px;
+	margin: 0 8px;
+	width: 20px;
+}
+.searchResults .result .true
+{
+	background: transparent url("/images/layout/direction-icons.png") no-repeat center bottom;
+	display: inline-block;
+	height: 10px;
+	margin: 0 8px;
+	width: 20px;
+}
+.searchResults .result .from, .searchResults .result .to
+{
+	color: #436D9C;
+	font-size: 18px;
+	font-weight: bold;
+}
+.home .searchResults .result .from, .home .searchResults .result .to
+{
+	font-size: 13px;
+}
+.searchResults .result .person
+{
+	color: #999999;
+	font-size: 12px;
+	margin: 5px 0 0;
+}
+.home .noRides
+{
+	color: #888888;
+	height: 300px;
+	line-height: 150px;
+	text-align: center;
+}
+.home .searchResults .result .person .distance
+{
+	display: none;
+	overflow: hidden;
+}
+.rideDetailsWrp
+{
+	background: #FAFAFA repeat 0 0;
+	padding: 20px 0 50px;
+}
+.rideDetails .eventLink
+{
+	text-transform: uppercase;
+}
+.rideDetails .rideFull
+{
+	font-size: 14px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.rideDetails .helpText
+{
+	left: 25px;
+	top: 20px;
+}
+.rideDetails .userName
+{
+	color: #999999;
+	font-size: 16px;
+	padding: 5px 0;
+	text-align: center;
+}
+.rideDetails .column
+{
+	height: 800px;
+	margin: 0;
+}
+.rideDetails .DRIVER-big
+{
+	background: #F9F9F9 url("/images/ride/role-icons.png") no-repeat 9px 12px;
+	height: 102px;
+	width: 102px;
+}
+.rideDetails .PASSENGER-big
+{
+	background: #F9F9F9 url("/images/ride/role-icons.png") no-repeat 9px -122px;
+	height: 102px;
+	width: 102px;
+}
+.rideDetails .fromAndTo
+{
+	background: #F2F2F2 repeat 0 0;
+	border: 1px solid #EAE8E8;
+	padding-bottom: 15px;
+	position: relative;
+}
+.rideDetails .info
+{
+	color: #999999;
+	float: right;
+	font-size: 11px;
+	margin: 9px 0 5px;
+	padding: 0 10px;
+}
+.rideDetails .fb-like
+{
+	float: left;
+}
+.rideDetails .actions
+{
+	border-bottom: medium none;
+	float: right;
+}
+.rideDetails .actions DIV
+{
+	color: #436D9C;
+	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 15px 0 30px;
+}
+.rideDetails .actions DIV:hover
+{
+	text-decoration: underline;
+}
+.rideDetails .actions .edit
+{
+	background: #F2F2F2 url("/images/ride/ride-action-icons.png") no-repeat 9px -29px;
+	border-right: 1px solid #EAE8E8;
+}
+.rideDetails .actions .disable
+{
+	background: #F2F2F2 url("/images/ride/ride-action-icons.png") no-repeat 9px -66px;
+}
+.rideDetails .actions A
+{
+	color: #436D9C;
+	text-decoration: none;
+}
+.rideDetails .fromAndTo .directionWrp, .ridePublished .fromAndTo .directionWrp
+{
+	height: 60px;
+	position: absolute;
+	right: 10px;
+	top: 8px;
+}
+.rideDetails .noQuestions
+{
+	color: #666666;
+	font-size: 12px;
+	text-align: center;
+}
+.rideDetails .fromAndTo .return, .ridePublished .fromAndTo .return
+{
+	background: transparent url("/images/ride/directions.png") no-repeat center top;
+	height: 50px;
+	margin: 0 auto;
+	width: 63px;
+}
+.rideDetails .fromAndTo .single, .ridePublished .fromAndTo .single
+{
+	background: transparent url("/images/ride/directions.png") no-repeat 0 -71px;
+	height: 50px;
+	margin: 0 auto;
+	width: 63px;
+}
+.rideDetails .fromAndTo .text, .ridePublished .fromAndTo .text
+{
+	color: #CCCCCC;
+	font-size: 11px;
+	text-align: center;
+}
+.rideDetails .fromAndTo .addressWrp
+{
+	margin: 14px 0 0 10px;
+	width: 570px;
+}
+.rideDetails .addressWrp .label
+{
+	width: 60px;
+}
+.rideDetails .label, .ridePublished .label
+{
+	color: #888888;
+	font-size: 15px;
+	font-weight: bold;
+}
+.rideDetails .fromAndTo .address, .ridePublished .fromAndTo .address
+{
+	color: #436D9C;
+	font-size: 15px;
+	font-weight: bold;
+}
+.rideDetails .dates
+{
+	background: #FAFAFA repeat 0 0;
+	border: 1px solid #EAE8E8;
+	height: 75px;
+	margin: 10px 0 0;
+}
+.rideDetails .dates .arrival, .rideDetails .dates .departure
+{
+	padding: 0 10px;
+	width: 306px;
+}
+.dates .label SPAN
+{
+	font-weight: normal;
+}
+.dates .label
+{
+	float: none;
+	margin: 7px 0 10px;
+}
+.dates .departure
+{
+	float: left;
+}
+.dates .arrival
+{
+	float: left;
+}
+.dates .date
+{
+	color: #888888;
+	font-size: 15px;
+}
+.dates .noReturn
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #9AAFC7;
+	line-height: 33px;
+	padding: 0 10px;
+}
+.dates .day
+{
+	background: #F2F2F2 repeat 0 0;
+	display: inline-block;
+	line-height: 33px;
+	padding: 0 10px;
+	width: 138px;
+}
+.dates .dayBox
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #CCCCCC;
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	width: 36px;
+}
+.dates .dayBox.selected
+{
+	background: #FCD984 repeat 0 0;
+	color: #FFFFFF;
+}
+.dates .hour
+{
+	background: #F2F2F2 repeat 0 0;
+	display: inline-block;
+	line-height: 33px;
+	padding: 0 10px;
+}
+.moreInfo
+{
+	margin: 10px 0 15px;
+}
+.moreInfo .box
+{
+	background: transparent url("/images/ride/box-bkg.jpg") repeat-x center center;
+	border: 1px solid #EAE8E8;
+	float: left;
+	height: 64px;
+	margin-right: 20px;
+	width: 147px;
+}
+.moreInfo .box .seats
+{
+	background: transparent url("/images/layout/price-seats.png") no-repeat 10% -11%;
+}
+.moreInfo .box.last
+{
+	margin-right: 0;
+}
+.moreInfo .dataLabel
+{
+	color: #CCCCCC;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 3px 9px 0;
+}
+.moreInfo .data
+{
+	color: #666666;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 10px 0 0;
+	text-align: center;
+}
+.rideDetails .map
+{
+	border: 1px solid #EAE8E8;
+	height: 360px;
+	width: 656px;
+}
+.rideDetails .user
+{
+	background: #ECF3F3 repeat 0 0;
+	border: 1px solid #EAEAEA;
+	color: #999999;
+	font-size: 16px;
+	margin: 5px 0 0;
+	overflow: hidden;
+	width: 249px;
+}
+.rideDetails .user .image
+{
+	border: 1px solid #E3E3E3;
+	height: 100px;
+	margin: 0 0 10px;
+	overflow: hidden;
+	width: 100px;
+}
+.rideDetails .user .image IMG
+{
+	max-width: 100px;
+}
+.rideDetails .user .profile-btn
+{
+	background: transparent url("/images/ride/profile-btn.png") no-repeat center center;
+	cursor: pointer;
+	display: block;
+	height: 25px;
+	margin: 10px 0;
+	width: 102px;
+}
+.rideDetails .user .isPassenger
+{
+	font-size: 12px;
+	margin: 0 0 10px;
+	padding: 0 10px;
+	text-align: center;
+}
+.rideDetails .user .imageAndProfile
+{
+	float: right;
+	margin: 10px 10px 0 5px;
+}
+.rideDetails .user .details
+{
+	color: #B5B5B5;
+	float: left;
+	font-size: 12px;
+	margin: 10px 0 0 10px;
+	text-align: center;
+	width: 104px;
+}
+.rideDetails .user .details .rideLabel
+{
+	margin: 15px 0 0;
+}
+.rideDetails .user .go-btn
+{
+	background: transparent url("/images/ride/go-btn.png") no-repeat center center;
+	display: block;
+	height: 45px;
+	margin: 0 0 10px;
+}
+.rideDetails .user .take-btn
+{
+	background: transparent url("/images/ride/take-btn.png") no-repeat center center;
+	display: block;
+	height: 45px;
+	margin: 0 0 10px;
+}
+.rideDetails .section
+{
+	border-bottom: 1px solid #E6E6E6;
+	margin: 30px 0 0;
+}
+.rideDetails .sectionTitle
+{
+	color: #888888;
+	font-family: "Myriad Pro", Arial;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.rideDetails .sectionBody
+{
+	color: #666666;
+	font-size: 12px;
+	margin: 20px 0;
+}
+.rideDetails .sectionBody.empty
+{
+	color: #B5B5B5;
+	text-align: center;
+}
+.rideDetails .sectionBody.empty SPAN
+{
+	color: #A0A0A0;
+	font-weight: bold;
+}
+.rideDetails .shareRideWithFB, .ridePublished .shareRideWithFB
+{
+	background: transparent url("/images/ride/fb-share.png") no-repeat center center;
+	cursor: pointer;
+	height: 28px;
+	margin: 0 auto 20px;
+	width: 225px;
+}
+.rideDetails .questions
+{
+	border-bottom: 1px solid #E2E2E2;
+	border-top: 1px solid #E2E2E2;
+	margin: 20px 0 0;
+	padding: 0 0 20px;
+}
+.questions .title
+{
+	margin-top: 20px;
+}
+.addQuestion
+{
+	padding: 20px 0 0;
+}
+.addQuestion .image, .userQuestion .image
+{
+	border: 1px solid #E3E3E3;
+	height: 51px;
+	width: 51px;
+}
+.addQuestion .userImage
+{
+	float: left;
+}
+.addQuestion .userImage IMG
+{
+	height: 50px;
+	width: 50px;
+}
+.addQuestion .balloonWrp
+{
+	float: right;
+}
+.addQuestion .balloon
+{
+	background: transparent url("/images/ride/balloon.png") no-repeat center center;
+	height: 134px;
+	position: relative;
+	width: 594px;
+}
+.addQuestion .balloon TEXTAREA
+{
+	background: #FAFAFA repeat 0 0;
+	border: 1px solid #D2D2D2;
+	color: #999999;
+	font-family: Arial;
+	font-size: 12px;
+	height: 64px;
+	padding: 5px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 552px;
+}
+.addQuestion .balloon .ask-btn
+{
+	background: transparent url("/images/ride/ask-btn.png") no-repeat center center;
+	bottom: 6px;
+	cursor: pointer;
+	height: 36px;
+	position: absolute;
+	right: 10px;
+	width: 110px;
+}
+.messagePage .addQuestion .balloon .ask-btn
+{
+	background: transparent url("/images/inbox/send-btn.png") no-repeat center center;
+	height: 35px;
+	width: 110px;
+}
+.addQuestion .tips
+{
+	color: #999999;
+	font-size: 11px;
+	margin: 10px 0 0 8px;
+}
+.addQuestion .tips DIV
+{
+	background: transparent url("/images/ride/bullet.png") no-repeat left center;
+	float: left;
+	height: 18px;
+	line-height: 18px;
+	margin-left: 8px;
+	padding-left: 9px;
+}
+.addQuestion .tips DIV.alert
+{
+	background: transparent url("/images/ride/alert.png") no-repeat left center;
+	padding-left: 19px;
+}
+.userQuestion
+{
+	margin: 0 0 10px;
+}
+.userQuestion .userImage
+{
+	float: left;
+}
+.userQuestion .userImage IMG
+{
+	height: 50px;
+	width: 50px;
+}
+.userQuestion.response .userImage
+{
+	float: right;
+}
+.userQuestion.response .balloon
+{
+	background: transparent url("/images/ride/user-question-response-balloon.png") no-repeat center center;
+	float: left;
+}
+.userQuestion .balloon
+{
+	background: transparent url("/images/ride/user-question-balloon.png") no-repeat center center;
+	float: right;
+	height: 84px;
+	width: 598px;
+}
+.userQuestion .top
+{
+	color: #50505A;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 10px 0 0 20px;
+}
+.userQuestion .text
+{
+	color: #666666;
+	font-size: 12px;
+	height: 42px;
+	line-height: 14px;
+	margin: 10px 10px 0 20px;
+	overflow: hidden;
+}
+.userQuestion .top SPAN
+{
+	color: #999999;
+	font-size: 12px;
+}
+.publishRide
+{
+	padding-bottom: 80px;
+	padding-top: 30px;
+}
+.publishRide .tip, .searchRide .tip, .rideDetails .tip
+{
+	color: #595959;
+	font-size: 11px;
+	margin: 4px 0 0;
+	padding: 0 3px;
+}
+.publishRide #progress
+{
+	margin: 0 auto;
+	width: 971px;
+}
+.publishRide .labels
+{
+	margin: 0 auto;
+	text-align: center;
+	width: 971px;
+}
+.publishRide .labels .label
+{
+	color: #999999;
+	display: inline-block;
+	font-family: "Myriad Pro", Arial;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+}
+.publishRide .labels .label2
+{
+	width: 435px;
+}
+.publishRide .labels .label1, .publishRide .labels .label3
+{
+	width: 250px;
+}
+.publishRide .labels .label.selected
+{
+	color: #666666;
+}
+.publishRide .progressBar
+{
+	background: transparent url("/images/ride/progressBar-sprite.jpg") no-repeat center top;
+	height: 56px;
+	margin: 10px auto 25px;
+}
+.publishRide .step1 .progressBar
+{
+	background-position: 0 -56px;
+}
+.publishRide .step2 .progressBar
+{
+	background-position: 0 -112px;
+}
+.publishRide .step3 .progressBar, .publishRide.editRide .progressBar
+{
+	background-position: 0 -168px;
+}
+.publishRide.editRide .progressBar
+{
+	background-position: center bottom;
+}
+.publishRide .step0 .typeSelection
+{
+	display: block;
+}
+.publishRide .typeSelection
+{
+	display: none;
+}
+.publishRide .typeSelection .driver
+{
+	background: #F2F2F2 url("/images/ride/driver-bkg.jpg") no-repeat center top;
+	float: left;
+	height: 220px;
+	position: relative;
+	width: 455px;
+}
+.publishRide .typeSelection .driver-btn
+{
+	background: transparent url("/images/ride/driver-btn.png") no-repeat center top;
+}
+.publishRide .typeSelection .driver-btn.disabled
+{
+	background-position: center bottom;
+}
+.publishRide .typeSelection .pass-btn
+{
+	background: transparent url("/images/ride/pass-btn.png") no-repeat center top;
+}
+.publishRide .typeSelection .pass-btn.disabled
+{
+	background-position: center bottom;
+}
+.publishRide .typeSelection .driver-btn, .publishRide .typeSelection .pass-btn
+{
+	bottom: 50px;
+	cursor: pointer;
+	height: 45px;
+	left: 113px;
+	position: absolute;
+	width: 232px;
+}
+.publishRide .typeSelection .btnTip
+{
+	background: transparent url("/images/ride/btnTip.png") no-repeat center top;
+	bottom: 20px;
+	height: 17px;
+	position: absolute;
+	width: 100%;
+}
+.publishRide .typeSelection .passenger
+{
+	background: #F2F2F2 url("/images/ride/pass-bkg.jpg") no-repeat center top;
+	float: right;
+	height: 220px;
+	position: relative;
+	width: 455px;
+}
+.publishRide .typeSelection .passenger .btnTip
+{
+	background-position: center bottom;
+}
+.publishRide.editRide .typeSelection, .publishRide.editRide .addressSelector, .publishRide.editRide .dateSelector, .publishRide.editRide .lastStep, .publishRide.editRide .mapWrp
+{
+	display: block;
+}
+.publishRide.editRide .addressSelector
+{
+	margin: 20px 0;
+}
+.publishRide.editRide .dateSelector
+{
+	margin: 20px 0;
+}
+.editRide .save-btn
+{
+	background: transparent url("/images/ride/save-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 36px;
+	margin: 20px auto;
+	width: 193px;
+}
+.publishRide .mapWrp
+{
+	display: none;
+}
+.publishRide .addressSelector
+{
+	display: none;
+}
+.publishRide .step1 .mapWrp
+{
+	display: block;
+}
+.publishRide .step1 .addressSelector
+{
+	display: block;
+}
+.publishRide .addressSelector
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 3px solid #E1E1E1;
+	height: 84px;
+	margin: 0 0 5px;
+}
+.publishRide .addressSelector .label
+{
+	color: #888888;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 0 10px;
+}
+.publishRide .addressSelector INPUT
+{
+	padding-left: 30px;
+	width: 320px;
+}
+.publishRide .addressSelector SELECT
+{
+	height: 33px;
+	padding: 7px 0 7px 5px;
+	width: 210px;
+}
+.publishRide .addressSelector SELECT:hover
+{
+	cursor: pointer;
+}
+.publishRide .addressSelector INPUT.from
+{
+	background: #FFFFFF url("/images/ride/origin-end-sprite.png") no-repeat 7px 2px;
+}
+.publishRide .addressSelector INPUT.to
+{
+	background: #FFFFFF url("/images/ride/origin-end-sprite.png") no-repeat 7px -38px;
+}
+.publishRide .addressSelector .col1, .publishRide .addressSelector .col2
+{
+	float: left;
+	margin: 5px 0 0 10px;
+	width: 360px;
+}
+.publishRide .addressSelector .col3
+{
+	float: left;
+	margin: 5px 0 0 10px;
+	width: 200px;
+}
+.publishRide .map
+{
+	height: 360px;
+	margin: 0 auto;
+}
+.publishRide .next-btn
+{
+	background: transparent url("/images/ride/next-btn.png") no-repeat center center;
+	cursor: pointer;
+	display: inline-block;
+	height: 35px;
+	margin: 0 10px;
+	width: 193px;
+}
+.publishRide .dateSelector
+{
+	display: none;
+}
+.publishRide .step2 .dateSelector
+{
+	display: block;
+}
+.publishRide .dateSelector .options
+{
+	color: #888888;
+	font-size: 13px;
+}
+.publishRide .dateSelector .options INPUT
+{
+	margin-left: 20px;
+}
+.publishRide .dateSelector .options .label
+{
+	font-size: 15px;
+	font-weight: bold;
+}
+.publishRide .dateSelector .single
+{
+	float: left;
+	width: 453px;
+}
+.publishRide .dateSelector .rideType, .publishRide .dateSelector .returnType
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 3px solid #E1E1E1;
+	color: #888888;
+	line-height: 80px;
+	margin: 5px 0 0;
+	text-align: center;
+}
+.publishRide .dateSelector .rideType .label, .publishRide .dateSelector .returnType .label
+{
+	font-size: 15px;
+	font-weight: bold;
+}
+.publishRide .dateSelector .endOnForm.disabled
+{
+	opacity: 0.3;
+}
+.publishRide .dateSelector .return
+{
+	float: right;
+	width: 453px;
+}
+.publishRide .dateSelector .returnType
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 3px solid #E1E1E1;
+	margin: 5px 0 0;
+}
+.publishRide .dateSelector .returnType .day-radios INPUT
+{
+	visibility: hidden;
+}
+.publishRide .lastStep
+{
+	display: none;
+}
+.publishRide .step3 .lastStep
+{
+	display: block;
+}
+.publishRide .lastStep .commentsWrp
+{
+	float: right;
+	width: 563px;
+}
+.publishRide .lastStep .comments
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 3px solid #E1E1E1;
+	height: 148px;
+	position: relative;
+}
+.publishRide .lastStep .label, .publishRide .lastStep .label SPAN
+{
+	color: #888888;
+	font-size: 14px;
+	font-weight: bold;
+}
+.publishRide .lastStep .label SPAN
+{
+	display: inline-block;
+	width: 160px;
+}
+.publishRide .lastStep .comments .label
+{
+	margin: 10px 15px 5px;
+}
+.publishRide .lastStep .comments .textWrp
+{
+	height: 91px;
+	margin: 5px 15px 10px;
+	padding: 5px;
+	width: 505px;
+}
+.publishRide .lastStep .comments TEXTAREA
+{
+	height: 100%;
+	padding: 5px;
+	width: 100%;
+}
+.helpText
+{
+	color: #AEAEAE;
+	font-family: Arial;
+	font-size: 12px;
+	left: 10px;
+	position: absolute;
+	top: 10px;
+	z-index: 10;
+}
+.publishRide .priceAndSeats INPUT
+{
+	color: #666666;
+	font-size: 30px;
+	font-weight: bold;
+	height: 48px;
+	padding-right: 10px;
+	text-align: right;
+	width: 102px;
+}
+.publishRide .lastStep .tips
+{
+	color: #888888;
+	font-size: 11px;
+	margin: 5px 0 0;
+	padding-right: 30px;
+	text-align: right;
+}
+.publishRide .daysFormRegular
+{
+	display: none;
+}
+.publishRide .daySelector
+{
+	width: 160px !important;
+}
+.publishRide .priceAndSeats .arrows
+{
+	background: transparent url("/images/layout/up-down-arrows.png") no-repeat center center;
+	height: 50px;
+	position: absolute;
+	right: 20px;
+	top: 0;
+	width: 28px;
+}
+.publishRide .day-radios
+{
+	float: right;
+	margin: 0 38px 10px 0;
+}
+.publishRide .day-radios .day
+{
+	float: left;
+	line-height: 15px;
+	margin: 0 4px;
+	width: 40px;
+}
+.publishRide .day-radios .box
+{
+	background: #FAFAFA repeat 0 0;
+	color: #CCCCCC;
+	font-size: 15px;
+	height: 36px;
+	line-height: 36px;
+	margin: 0 auto 10px;
+	width: 36px;
+}
+.publishRide .day-radios .box.selected
+{
+	background: #FCD984 repeat 0 0;
+	color: #FFFFFF;
+}
+.publishRide .priceAndSeats .arrows .up, .publishRide .priceAndSeats .arrows .down
+{
+	cursor: pointer;
+	height: 50%;
+}
+.publishRide .priceAndSeats .price
+{
+	background: #FFFFFF url("/images/ride/price-input-bkg.jpg") repeat-x center center;
+}
+.publishRide .priceAndSeats .seats
+{
+	background: #FFFFFF url("/images/ride/seats-input-bkg.jpg") repeat-x center center;
+}
+.publishRide .prev-btn
+{
+	background: transparent url("/images/ride/prev-btn.png") no-repeat center center;
+	cursor: pointer;
+	display: inline-block;
+	height: 35px;
+	margin: 0 10px;
+	width: 193px;
+}
+.publishRide .btnWrp
+{
+	margin: 30px 0 0;
+	text-align: center;
+}
+.publishRide .lastStep .priceAndSeats
+{
+	background: #F2F2F2 repeat 0 0;
+	border-top: 3px solid #E1E1E1;
+	float: left;
+	height: 148px;
+	width: 343px;
+}
+.publishRide .lastStep .priceAndSeats .label
+{
+	line-height: 30px;
+	margin: 10px 0 15px 10px;
+	position: relative;
+}
+.publishRide .lastStep .publish-btn, .noRides .publish-btn
+{
+	background: transparent url("/images/ride/publish-btn.png") no-repeat center center;
+	cursor: pointer;
+	display: inline-block;
+	height: 35px;
+	margin: 0 10px;
+	width: 193px;
+}
+.ridePublished
+{
+	padding-bottom: 50px;
+}
+.ridePublished .shareThis
+{
+	color: #9B9B9B;
+	float: right;
+	font-size: 12px;
+	margin-right: 20px;
+	width: 230px;
+}
+.ridePublished .shareRideWithFB
+{
+	margin-top: 30px;
+}
+.ridePublished .shareThis .title
+{
+	margin: 30px 0 10px;
+	padding: 0;
+}
+.ridePublished .dates .arrival, .ridePublished .dates .departure
+{
+	width: 315px;
+}
+.ridePublished .moreInfo
+{
+	margin: 5px 0 0;
+}
+.ridePublished .moreInfo .box
+{
+	background: transparent repeat 0 0;
+	border: medium none;
+	margin-right: 17px;
+}
+.ridePublished .moreInfo .box.last
+{
+	margin: 0;
+}
+.ridePublished .ride-details .addressWrp
+{
+	padding-top: 15px;
+}
+.ridePublished .ride-details
+{
+	float: left;
+}
+.ridePublished .ride-details .details
+{
+	width: 660px;
+}
+.ridePublished .ride-details .fromAndTo
+{
+	height: auto;
+	padding: 0 10px 15px;
+}
+.ridePublished .ride-details .addressWrp
+{
+	width: 570px;
+}
+.ridePublished .ride-details .extra
+{
+	padding-bottom: 15px;
+}
+.ridePublished .ride-details .days, .ridePublished .ride-details .extra
+{
+	height: 33.3%;
+	padding: 0 10px;
+}
+.ridePublished .ride-details .fromAndTo
+{
+	position: relative;
+}
+.ridePublished .ride-details .fromAndTo, .ridePublished .ride-details .days
+{
+	border-bottom: 1px solid #EAE8E8;
+}
+.ridePublished .ride-details .days
+{
+	padding-bottom: 10px;
+}
+.ridePublished .ride-details .details
+{
+	background: #F2F2F2 repeat 0 0;
+}
+.ridePublished .ride-details .title
+{
+	margin-left: 10px;
+	padding: 0;
+}
+.ridePublished .ride-details .title SPAN
+{
+	margin-right: 5px;
+}
+.ridePublished .links
+{
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+}
+.ridePublished .links A
+{
+	background: transparent url("/images/ride/ride-action-icons.png") no-repeat 0 0;
+	color: #436D9C;
+	font-size: 12px;
+	margin: 0 10px;
+	padding-left: 20px;
+	text-decoration: none;
+}
+.ridePublished .links A.moreDetails
+{
+	background-position: 3px 0;
+}
+.ridePublished .links A.edit
+{
+	background-position: 3px -37px;
+}
+.ridePublished .links A.disable
+{
+	background-position: 3px -74px;
+}
+.ridePublished .links A:hover
+{
+	text-decoration: underline;
+}
+.static
+{
+	color: #666666;
+	padding-bottom: 50px;
+}
+.static .h1
+{
+	background: #F2F2F2 repeat 0 0;
+	border: 1px solid #EAE8E8;
+	color: #97C142;
+	font-size: 28px;
+	margin: 20px 0;
+	padding: 5px 10px;
+}
+.static .h2
+{
+	border-bottom: 1px solid #EAE8E8;
+	color: #97C142;
+	font-size: 28px;
+	margin: 20px 0;
+	padding: 5px 10px;
+}
+.static P
+{
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 25px;
+	padding: 0 10px;
+	text-align: justify;
+}
+.static SPAN
+{
+	color: #86AB3C;
+	font-weight: bold;
+}
+.contact
+{
+	padding: 30px 0 70px;
+}
+.social-networks
+{
+	background: transparent url("/images/contact/social-networks.png") no-repeat center center;
+	height: 111px;
+	left: 0;
+	position: fixed;
+	top: 126px;
+	width: 38px;
+	z-index: 999;
+}
+.social-networks A
+{
+	background: transparent url("/images/contact/social-networks-btn.png") no-repeat 0 0;
+	display: block;
+	height: 30px;
+	margin: 5px 0;
+}
+.social-networks .facebook
+{
+	background-position: 9px 5px;
+}
+.social-networks .facebook:hover
+{
+	background-position: -31px 5px;
+}
+.social-networks .twitter
+{
+	background-position: 8px -29px;
+}
+.social-networks .twitter:hover
+{
+	background-position: -32px -29px;
+}
+.social-networks .blog
+{
+	background-position: 9px -62px;
+}
+.social-networks .blog:hover
+{
+	background-position: -31px -62px;
+}
+.feedback
+{
+	background: transparent url("/images/contact/panel.png") no-repeat center center;
+	height: 399px;
+	left: -279px;
+	position: fixed;
+	top: 240px;
+	width: 317px;
+	z-index: 999;
+}
+.feedback .image
+{
+	width: 121px !important;
+}
+.feedback .captcha INPUT
+{
+	width: 101px !important;
+}
+.feedback .line
+{
+	margin: 0 0 10px;
+}
+.feedback .back-btn
+{
+	background: transparent url("/images/contact/back-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 35px;
+	margin: 10px auto 0;
+	width: 100px;
+}
+.feedback .labelStyle
+{
+	font-size: 14px;
+	margin: 0 0 3px;
+}
+.feedback .send-btn
+{
+	margin: 8px 5px 0 0;
+}
+.feedback .line .inputStyle
+{
+	height: 27px;
+	width: 225px;
+}
+.feedback TEXTAREA
+{
+	height: 115px;
+	margin: 0 0 10px;
+	padding: 5px;
+	width: 235px;
+}
+.feedback .feedbackBody
+{
+	height: 366px;
+	margin: 20px 0 0 10px;
+	width: 252px;
+}
+.feedback .arrow
+{
+	background: transparent url("/images/contact/arrows.png") no-repeat center bottom;
+	height: 19px;
+	position: absolute;
+	right: 11px;
+	top: 10px;
+	width: 20px;
+}
+.feedback.opened .arrow
+{
+	background-position: center top;
+}
+.feedbackTab
+{
+	cursor: pointer;
+	height: 130px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+}
+.contact .body .title
+{
+	color: #97C142;
+	font-size: 28px;
+	text-transform: uppercase;
+}
+.contact .title
+{
+	margin-top: 10px;
+	padding: 0;
+}
+.contact A
+{
+	color: #A7CB4C;
+	font-weight: bold;
+}
+.contact .column
+{
+	height: 400px;
+}
+.contact .column .text
+{
+	color: #666666;
+	font-size: 12px;
+	line-height: 17px;
+}
+.contact P
+{
+	color: #666666;
+	font-size: 14px;
+	line-height: 18px;
+}
+.contact .labelStyle
+{
+	margin: 0 0 5px;
+}
+.contact FORM
+{
+	background: #F2F2F2 repeat 0 0;
+	margin: 20px 0 0;
+	padding: 20px 35px;
+}
+.contact .line
+{
+	margin: 0 0 10px;
+}
+.contact TEXTAREA
+{
+	height: 115px;
+	padding: 5px;
+	width: 570px;
+}
+.contact .image, .feedback .image
+{
+	border: 1px solid #E6E6E6;
+	float: left;
+	height: 31px;
+	overflow: hidden;
+	width: 117px;
+}
+.contact .captcha
+{
+	width: 230px;
+}
+.contact .userEmail
+{
+	float: left;
+}
+.contact .userEmail INPUT, .contact INPUT.userName
+{
+	width: 322px;
+}
+.contact .captcha
+{
+	float: right;
+}
+.contact .captchaLabel, .feedback .captchaLabel
+{
+	color: #999999;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+}
+.contact .captcha INPUT, .feedback .captcha INPUT
+{
+	font-size: 24px;
+	font-weight: bold;
+	width: 89px;
+}
+.contact .send-btn, .feedback .send-btn
+{
+	background: transparent url("/images/contact/send-btn.png") no-repeat center center;
+	cursor: pointer;
+	float: right;
+	height: 35px;
+	width: 100px;
+}
+.contact .messageSent, .feedback .messageSent
+{
+	color: #666666;
+	font-size: 14px;
+	line-height: 18px;
+}
+.editProfile
+{
+	margin-bottom: 30px;
+	padding-top: 30px;
+}
+.editProfile .crop-btn
+{
+	background: transparent url("/images/profile/crop-btn.png") no-repeat center center;
+	cursor: pointer;
+	height: 31px;
+	margin: 3px auto;
+	width: 76px;
+}
+.editProfile.full
+{
+	padding-top: 0;
+}
+.editProfile .cancel-btn
+{
+	background: transparent url("/images/profile/cancel-btn.png") no-repeat center center;
+	bottom: 10px;
+	display: block;
+	height: 31px;
+	position: absolute;
+	right: 170px;
+	width: 76px;
+}
+.editProfile.popupBody
+{
+	font-family: Arial;
+	width: 680px;
+}
+.editProfile .userImgWrp
+{
+	float: left;
+	margin: 20px 0 0 20px;
+}
+.editProfile .uploadImage
+{
+	color: #888888;
+	font-family: Arial;
+	height: 130px;
+	margin: 10px 0 0;
+	padding-top: 50px;
+	text-align: center;
+}
+.editProfile .uploadFile-btn
+{
+	background: transparent url("/images/profile/uploadFile-btn.png") no-repeat center center;
+	cursor: pointer !important;
+	height: 30px;
+	margin: 20px auto;
+	overflow: hidden;
+	width: 159px;
+}
+.editProfile .uploadedImage
+{
+	color: #888888;
+	font-family: Arial;
+	font-size: 15px;
+	text-align: center;
+}
+.editProfile .uploadedImage .text
+{
+	margin-bottom: 5px;
+	padding: 5px 10px;
+}
+.editProfile .jcrop-holder
+{
+	float: none;
+	margin: 0 auto !important;
+}
+.editProfile .uploadFile-btn INPUT
+{
+	cursor: pointer !important;
+	height: 100%;
+	opacity: 0;
+	position: relative;
+	width: auto;
+}
+.editProfile IFRAME
+{
+	height: 505px;
+	width: 100%;
+}
+.editProfile .buttons
+{
+	float: right;
+	margin: 55px 20px 0 0;
+}
+.editProfile .button
+{
+	color: #666666;
+	cursor: pointer;
+	display: block;
+	font-family: Arial;
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 0 10px;
+	padding-left: 40px;
+	text-decoration: none;
+	width: 192px;
+}
+.editProfile .button.upload
+{
+	background: #F9F9F9 url("/images/profile/image-btns.png") no-repeat 10px 8px;
+}
+.editProfile .button.edit
+{
+	background: #F9F9F9 url("/images/profile/image-btns.png") no-repeat 10px -22px;
+}
+.editProfile .button:hover
+{
+	background-color: #EAEAEA;
+}
+.editProfile .line
+{
+	margin-bottom: 15px;
+}
+.editProfile .full
+{
+	width: 350px;
+}
+.editProfile .homeAddress SPAN
+{
+	float: left;
+}
+.editProfile .homeAddress .elements
+{
+	float: right;
+}
+.editProfile .homeAddress .elements SELECT
+{
+	width: 300px;
+}
+.editProfile .phones INPUT
+{
+	width: 130px;
+}
+.editProfile .email INPUT
+{
+	width: 280px;
+}
+.editProfile .homeAddress .elements DIV
+{
+	margin-bottom: 10px;
+}
+.editProfile INPUT, .editProfile SELECT
+{
+	border: 1px solid #E6E6E6;
+	color: #888888;
+	font-size: 15px;
+}
+.editProfile .inputGender
+{
+	width: 160px !important;
+}
+.editProfile .save-btn
+{
+	background: transparent url("/images/profile/save-btn.png") no-repeat center center;
+	bottom: 10px;
+	cursor: pointer;
+	height: 31px;
+	position: absolute;
+	right: 10px;
+	width: 150px;
+}
+.editProfile .inputWrp
+{
+	display: inline-block;
+	width: 180px;
+}
+.editProfile .inputStyle
+{
+	z-index: 1000;
+}
+.editProfile .label
+{
+	color: #666666;
+	font-size: 15px;
+	font-weight: bold;
+}
+.editProfile .aboutProfile TEXTAREA
+{
+	height: 80px;
+	padding: 10px;
+	width: 430px;
+}
+.editProfile .menu
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #F5F3F3 repeat 0 0;
+	border-color: #E2E1E1 -moz-use-text-color #E2E1E1 #E2E1E1;
+	border-image: none;
+	border-style: solid none solid solid;
+	border-width: 1px medium 1px 1px;
+	float: left;
+	font-family: Arial;
+	height: 535px;
+	padding-top: 15px;
+	position: relative;
+	width: 184px;
+	z-index: 11;
+}
+.editProfile .menu .item
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #F5F3F3 -moz-use-text-color #F5F3F3 #F5F3F3;
+	border-image: none;
+	border-style: solid none solid solid;
+	border-width: 1px medium 1px 1px;
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	margin-right: -1px;
+	width: 178px;
+}
+.editProfile .menu .item SPAN
+{
+	color: #888888;
+	font-size: 15px;
+	font-weight: bold;
+	padding-left: 30px;
+}
+.editProfile .menu .item.selected
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: #FFFFFF repeat 0 0;
+	border-color: #E2E1E1 -moz-use-text-color #E2E1E1 #E2E1E1;
+	border-image: none;
+	border-style: solid none solid solid;
+	border-width: 1px medium 1px 1px;
+	cursor: default;
+}
+.editProfile .body
+{
+	background: #FFFFFF repeat 0 0;
+	border: 1px solid #E2E1E1;
+	float: left;
+	height: 550px;
+	position: relative;
+	width: 493px;
+	z-index: 10;
+}
+.editProfile .section
+{
+	padding: 15px;
+	position: relative;
+}
+.privateProfile
+{
+	padding: 30px 0 60px;
+}
+.privateProfile .column
+{
+	border-left: medium none;
+	border-right: 1px solid #E6E6E6;
+	float: left;
+	padding: 0 25px 0 15px;
+}
+.privateProfile .body
+{
+	float: right;
+}
+.privateProfile .searchResults
+{
+	width: 650px;
+}
+.privateProfile .searchResults .result .col2
+{
+	width: 480px;
+}
+.privateProfile .searchResults .DRIVER-icon, .privateProfile .searchResults .PASSENGER-icon
+{
+	margin-top: 7px;
+}
+.privateProfile .searchResults .detail
+{
+	display: none;
+}
+.privateProfile .ridesTitle
+{
+	margin-top: 20px;
+}
+.privateProfile .searchResults .result
+{
+	height: 75px;
+}
+.privateProfile .searchResults .result .from, .privateProfile .searchResults .result .to
+{
+	font-size: 13px;
+}
+.privateProfile .name
+{
+	color: #666666;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0 0 5px;
+	padding: 0 10px;
+}
+.privateProfile .imageWrp
+{
+	display: inline-block;
+	margin: 10px 0;
+	position: relative;
+	text-align: center;
+}
+.privateProfile .userInfo
+{
+	background: #ECF3F3 repeat 0 0;
+	margin: 0 0 20px;
+	overflow: hidden;
+	text-align: center;
+}
+.privateProfile .imageWrp:hover .editImage
+{
+	display: block;
+}
+.privateProfile .editImage
+{
+	background: transparent url("/images/profile/edit-img-bkg.png") repeat-x center center;
+	bottom: 0;
+	color: #666666;
+	cursor: pointer;
+	font-size: 15px;
+	height: 30px;
+	line-height: 26px;
+	position: absolute;
+	text-align: center;
+	width: 152px;
+}
+.privateProfile .userInfo IMG
+{
+	background-color: #FFFFFF;
+	max-width: 152px;
+	padding: 1px;
+}
+.privateProfile .userInfo .col
+{
+	color: #999999;
+	float: left;
+	font-size: 11px;
+	margin: 0 10px;
+	text-align: left;
+	width: 105px;
+}
+.privateProfile .userInfo .stats
+{
+	color: #999999;
+	float: left;
+	font-size: 11px;
+	margin: 0 0 0 0px;
+	text-align: center;
+	width: 100%;
+}
+.privateProfile .userInfo .label
+{
+	color: #666666;
+	margin: 0 0 3px;
+}
+.privateProfile .userInfo .labelCenter
+{
+	color: #666666;
+	margin: 0 0 0 0px;
+	text-align: center;
+}
+.privateProfile .userInfo .text
+{
+	margin: 0 0 10px;
+}
+.privateProfile .userInfo .textCenter
+{
+	margin: 0 0 10px;
+	text-align: center;
+	font-size: 15px;
+}
+.privateProfile .box
+{
+	background: #ECF3F3 repeat 0 0;
+	border-bottom: 1px solid #E6E6E6;
+	margin-bottom: 20px;
+	padding: 3px;
+}
+/*queda*/
+.privateProfile .box .title
+{
+	color: #888888;
+	font-family: "Myriad Pro", Arial;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 0 2px;
+	height: 20px;
+}
+.privateProfile .box .text
+{
+	color: #666666;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: italic;
+	margin: 0 0 10px;
+	padding: 0 2px;
+	height: 20px;
+}
+A
+{
+	color: #336699;
+	font-family: Arial;
+	text-decoration: none;
+	text-transform: none;
+}
+A:hover
+{
+	text-decoration: underline;
+}
+.privateProfile A
+{
+	float: right;
+	font-family: Arial;
+	font-size: 12px;
+	text-decoration: none;
+}
+.tools A
+{
+	color: #336699;
+	font-family: Arial;
+	text-decoration: none;
+	text-transform: none;
+}
+.privateProfile A:hover, .tools A:hover
+{
+	text-decoration: underline;
+}
+.privateProfile .body .data
+{
+	background: #F2F2F2 repeat 0 0;
+	font-size: 15px;
+	margin: 0 0 2px;
+	padding: 10px 7px;
+}
+.privateProfile .body .data DIV
+{
+	color: #999999;
+	float: left;
+}
+.privateProfile .body .data SPAN
+{
+	color: #666666;
+	font-weight: bold;
+	padding-right: 5px;
+}
+.privateProfile .body .data .sex
+{
+	width: 175px;
+}
+.privateProfile .body .data .age
+{
+	width: 180px;
+}
+.privateProfile .body .data .lang
+{
+	width: 290px;
+}
+.privateProfile .body .data .company
+{
+	width: 235px;
+}
+.privateProfile .body .data .university
+{
+	width: 402px;
+}
+.privateProfile .body .data .city
+{
+	margin-top: 10px;
+	width: 100%;
+}
+.privateProfile .body .data .phone
+{
+	width: 50%;
+}
+.privateProfile .body .data .cellphone
+{
+	width: 50%;
+}
+.privateProfile .body .data .email
+{
+	width: 100%;
+}
+.inbox
+{
+	padding-bottom: 40px;
+}
+.inbox .noMessages
+{
+	color: #666666;
+	font-size: 14px;
+	height: 100px;
+	padding: 100px;
+	text-align: center;
+}
+.inbox .noMessages .search
+{
+	background: transparent url("/images/inbox/search-btn.png") no-repeat center center;
+	display: block;
+	height: 88px;
+	margin: 30px auto 0;
+	width: 399px;
+}
+.inbox .messages .message IMG
+{
+	float: left;
+	margin: 15px 0 0 10px;
+}
+.inbox .messages .message .messageLine
+{
+	float: left;
+	margin: 30px 0 0 20px;
+}
+.inbox .messages .message .messageLine .link
+{
+	color: #336699;
+	font-weight: bold;
+}
+.messagePage
+{
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+.inbox .title, .messagePage .title
+{
+	padding-bottom: 0;
+}
+.messagePage .title
+{
+	margin-top: 0;
+}
+.inbox .message
+{
+	background: #F8F8F8 repeat 0 0;
+	color: #999999;
+	display: block;
+	height: 80px;
+	position: relative;
+	text-decoration: none;
+}
+.inbox .message.unread
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #787878;
+}
+.inbox .message .new
+{
+	color: #C55B5B;
+}
+.inbox .message:hover
+{
+	background: #EAF4D2 repeat 0 0;
+}
+.inbox .message .userImg
+{
+	float: left;
+	height: auto;
+	margin: 13px 10px 0;
+	width: auto;
+}
+.inbox .message .messageBody
+{
+	float: left;
+}
+.inbox .message .messageDate
+{
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.inbox .message .messageTitle
+{
+	font-size: 12px;
+	margin: 15px 0 0;
+}
+.inbox .message .messageTitle SPAN
+{
+	font-weight: bold;
+}
+.inbox .message .messageContent
+{
+	color: #9BABBD;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 4px 0 0;
+}
+.inbox .message.unread .messageContent
+{
+	color: #436D9C;
+}
+.messagePage .questions .title
+{
+	display: none;
+}
+.messagePage .messageTitle
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #999999;
+	font-size: 15px;
+	margin: 20px 0 10px;
+	padding: 10px;
+}
+.messagePage .map
+{
+	height: 215px;
+	margin: 0 auto 20px;
+	width: 255px;
+}
+.messagePage .column
+{
+	padding: 0 10px 0 0;
+	width: 290px;
+}
+.messagePage .rideInfo
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #888888;
+	font-size: 12px;
+	padding: 20px 0;
+}
+.messagePage .rideInfo .data, .messagePage .rideTitle
+{
+	padding: 0 13px;
+}
+.messagePage .rideTitle
+{
+	margin-bottom: 15px;
+	text-align: center;
+}
+.messagePage .rideInfo .data DIV
+{
+	margin-bottom: 4px;
+}
+.messagePage .rideInfo .data .address
+{
+	color: #436D9C;
+	margin-bottom: 7px;
+}
+.howItWorks
+{
+	padding: 30px 0 40px;
+}
+.howItWorks .background
+{
+	background: transparent url("/images/howItWorks/howItWorks.jpg?v=1") no-repeat center center;
+	height: 700px;
+}
+.howItWorks .buttons
+{
+	background: transparent url("/images/howItWorks/buttons.jpg") no-repeat center center;
+	height: 181px;
+	margin: 60px 0 0;
+	position: relative;
+}
+.howItWorks .buttons A
+{
+	display: block;
+	height: 68px;
+	position: absolute;
+	top: 55px;
+	width: 301px;
+}
+.howItWorks .buttons .search
+{
+	left: 101px;
+}
+.howItWorks .buttons .publish
+{
+	right: 93px;
+}
+.setPassword .captcha
+{
+	float: none;
+}
+.myRides .noRides
+{
+	height: auto;
+	padding-bottom: 20px;
+}
+.myRides .noRides .publish-btn
+{
+	display: block;
+	float: none;
+	margin: 0 auto;
+}
+.about
+{
+	background: transparent url("/images/about/about.jpg?v=1") no-repeat center center;
+	height: 700px;
+	padding: 30px;
+}
+.eventDetails
+{
+	padding: 30px;
+}
+.eventDetails .noRides
+{
+	color: #666666;
+	font-size: 14px;
+	height: 180px;
+	text-align: center;
+}
+.eventDetails .info
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #666666;
+	float: left;
+	font-family: Arial;
+	font-size: 12px;
+	width: 666px;
+}
+.eventDetails .infoBody
+{
+	padding: 21px 15px;
+	position: relative;
+}
+.eventDetails .info .title
+{
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 0;
+	text-transform: uppercase;
+}
+.eventDetails .info .startingTime
+{
+	margin: 0 0 10px;
+	text-transform: capitalize;
+}
+.eventDetails .info .friendlyAddress
+{
+	margin: 0 0 10px;
+}
+.eventDetails .info .description
+{
+	line-height: 16px;
+}
+.eventDetails .info .imageWrp
+{
+	float: left;
+}
+.eventDetails .info .imageWrp IMG
+{
+	height: 174px;
+	width: 280px;
+}
+.eventDetails .info .details
+{
+	float: left;
+	margin: 0 0 0 20px;
+	width: 335px;
+}
+.eventDetails .eventLocation
+{
+	float: right;
+}
+.eventDetails .info .publish
+{
+	bottom: 24px;
+	color: #018FCD;
+	font-family: Arial;
+	font-size: 14px;
+	left: 316px;
+	position: absolute;
+}
+.eventDetails .info .eventsPage
+{
+	bottom: 24px;
+	color: #018FCD;
+	font-family: Arial;
+	font-size: 14px;
+	position: absolute;
+	right: 20px;
+}
+.eventDetails .eventLocation, .eventDetails .info
+{
+	height: 219px;
+}
+.eventDetails .eventLocation
+{
+	width: 317px;
+}
+.eventDetails .eventLocation .map
+{
+	height: 100%;
+	width: 100%;
+}
+.eventDetails .searchResults .detail
+{
+	display: none;
+}
+.eventDetails .searchResults .result
+{
+	height: 74px;
+}
+.eventDetails .searchResults .DRIVER-icon, .eventDetails .searchResults .PASSENGER-icon
+{
+	margin: 7px 0 0 11px;
+}
+.resultsTitle
+{
+	margin: 15px 0 6px;
+}
+.events
+{
+	padding-bottom: 30px;
+}
+.events .eventsHeader
+{
+	margin: 0 auto;
+	width: 984px;
+}
+.events .allEvents
+{
+	text-align: center;
+}
+.events .allEvents .event
+{
+	background: #F2F2F2 repeat 0 0;
+	display: inline-block;
+	height: 310px;
+	margin: 10px 5px;
+	text-align: left;
+	vertical-align: top;
+	width: 317px;
+}
+.events .allEvents .event:hover
+{
+	text-decoration: none;
+}
+.events .allEvents .imageWrp
+{
+	margin: 0 auto;
+	width: 300px;
+}
+.events .allEvents .imageWrp IMG
+{
+	display: block;
+	height: 174px;
+	margin: 10px auto 0;
+	width: 280px;
+}
+.events .allEvents .title
+{
+	color: #666666;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 17px 0 10px;
+	padding: 0 17px;
+}
+.events .allEvents .description
+{
+	color: #666666;
+	font-family: arial;
+	font-size: 12px;
+	height: 54px;
+	padding: 0 17px;
+}
+.events .allEvents .event .link
+{
+	float: right;
+	font-size: 12px;
+	margin: 10px;
+	padding: 0 10px;
+	text-align: right;
+}
+.events .allEvents .event .date
+{
+	float: left;
+	font-size: 12px;
+	margin: 10px;
+	padding: 0 10px;
+	text-align: right;
+}
+.events .allEvents .event .link:hover
+{
+	text-decoration: underline;
+}
+.events .info
+{
+	background: #F2F2F2 repeat 0 0;
+	color: #666666;
+	float: left;
+	font-family: Arial;
+	font-size: 12px;
+	width: 650px;
+}
+.events .infoBody
+{
+	padding: 21px 15px;
+	position: relative;
+}
+.events .infoBody .imageWrp
+{
+	float: left;
+	height: 177px;
+	width: 280px;
+}
+.events .infoBody .imageWrp A
+{
+	display: block;
+}
+.events .infoBody .imageWrp IMG
+{
+	height: 177px;
+	width: 280px;
+}
+.events .info .title
+{
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 0;
+	text-transform: uppercase;
+}
+.events .info .startingTime
+{
+	margin: 0 0 10px;
+	text-transform: capitalize;
+}
+.events .info .friendlyAddress
+{
+	margin: 0 0 10px;
+}
+.events .info .description
+{
+	line-height: 16px;
+}
+.events .info .details
+{
+	float: left;
+	margin: 0 0 0 20px;
+	width: 302px;
+}
+.events .eventLocation
+{
+	float: right;
+}
+.events .info .publish
+{
+	bottom: 24px;
+	color: #018FCD;
+	font-family: Arial;
+	font-size: 14px;
+	left: 316px;
+	position: absolute;
+}
+.events .eventLocation, .events .info
+{
+	height: 219px;
+}
+.events .eventLocation
+{
+	width: 317px;
+}
+.events .eventLocation .map
+{
+	height: 100%;
+	width: 100%;
+}
+.events .noEvents
+{
+	color: #666666;
+	font-size: 14px;
+	margin: 0 0 50px;
+	padding-top: 30px;
+	text-align: center;
+}
+.events .noEvents A
+{
+	background: transparent url("/images/event/noEvents.jpg") no-repeat center center;
+	display: block;
+	height: 218px;
+	margin: 0 auto;
+	width: 904px;
+}
+.events .suggestEvent
+{
+	background: transparent url("/images/event/suggestEvent.jpg") no-repeat center center;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.rateUser .ratings
+{
+	font-family: Arial;
+	font-size: 14px;
+}
+.rateUser .ratings DIV
+{
+	margin: 8px 0;
+}
+.rateUser .ratings .negative
+{
+	color: #950000;
+}
+.rateUser .ratings .positive
+{
+	color: #2A9500;
+}
+.rateUser .ratings
+{
+	color: #666666;
+}
+.rateUser .ratings DIV INPUT
+{
+	margin: 0 5px 0 7px;
+	vertical-align: middle;
+}
+.notFound
+{
+	font-family: Arial;
+	text-align: center;
+}
+.notFound IMG
+{
+	margin-bottom: 20px;
+}

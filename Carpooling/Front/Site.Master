@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="True" CodeBehind="Site.master.cs" Inherits="Carpooling.Front.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es" > 
+    <head runat="server">
+        <meta charset="iso-8859-1" />
+        <title>Carpooling Colombia</title>
+        <link rel="shortcup icon" type="image/x-icon" href="/Styles/images/LogoSimple.png"/>
+
+        <link href="../Styles/usercontrosl-css/PopUp.css" rel="stylesheet"/>
+        <link href="/Styles/normalize.css" rel="stylesheet"/>
+        <link href="/Styles/Site.css" rel="stylesheet"/>
+        <link href="/Styles/General.css" rel="stylesheet"/>
+        <%--<link href="~/Styles/themes/base/jquery-ui.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/redmond/jquery-ui-1.9.1.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/south-street/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>
+        <link href="/Styles/themes/aristo/jquery-wijmo.css" rel="stylesheet"/>
+        <link href="../Styles/themes/smoothness/jquery-ui-1.10.3.custom.css" type="text/css" rel="stylesheet"/>
+        <%--<link href="Styles/themes/Fresh-Squeezed/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/Supercharged/jquery-ui-1.9.0.custom.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/start/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">--%>
+        <%--<link href="Styles/themes/cupertino/jquery-ui-1.9.1.custom.css" rel="stylesheet">--%>    
+        <link href="/Styles/jquery.wijmo-complete.2.2.1.css" rel="stylesheet"/>
+        <link href="/Styles/jquery.wijmo-open.2.2.1.css" rel="stylesheet"/>       
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+
+        <script src="/Scripts/modernizr.js"> </script>
+        <script src="/Scripts/prefixfree.min.js"> </script>
+        <script src="/Scripts/jquery-1.8.2.min.js"> </script>
+        <script src="/Scripts/jqueryUI/jquery-ui-1.9.1.custom.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-complete.all.2.2.1.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/jquery.wijmo-open.all.2.2.1.min.js"> </script>
+        <script src="/Scripts/jquery.wijmo/globalize.cultures.js"> </script>
+        <script src="/Scripts/front-js/SiteMaster.js"> </script>
+        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server"/>      
+        
+        
+    </head>
+
+    <body onload="InicializarMaster()">
+        <form id="Form1" runat="server">
+            <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManagerSiteMaster" runat="server" EnablePartialRendering="true"></ajaxToolkit:ToolkitScriptManager>
+                       
+            <header>
+                <div id="login-div">
+                    <div id="carpoolingSmall">
+                        <a href="/Front/Bienvenida.aspx">
+                            <img id="" src="/Styles/images/CarpoolingColombia_small.png" class="float-left" alt="" />
+                        </a>    
+                    </div>
+                    
+                    <img id="imgLogoSmall" src="/Styles/images/LogoSimple_small.png" class="float-right" alt=""/>
+                    <section id="login">
+                        <asp:LoginView ID="loginStatus" runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul id="menuUsuarioInvitado">
+                                    <li>
+                                        <a id="lnkRegistrate" runat="server" href="~/Front/Cuentas/CrearCuenta.aspx">Regístrate</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkIniciaSesion" href="#">Inicia sesión</a>
+                                        <asp:UpdatePanel ID="uppLoginForm" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <input type="hidden" id="hfdNombreUsuario" name="hfdNombreUsuario" value=""/>
+                                                <input type="hidden" id="hfdContrasenia" name="hfdContrasenia" value="" />
+
+                                                <script type="text/javascript">
+                                                    function positionDivLog(msgError) {
+                                                        var lnkIniciaSesion = $('#lnkIniciaSesion');
+                                                        var divLogin = $('#divLoginFormFloat');
+                                                        var leftDivLogin = lnkIniciaSesion.offset().left - (divLogin.width() - lnkIniciaSesion.width());
+                                                            var topDivLogin = 30 + lnkIniciaSesion.height();
+                                                        $('#divLoginFormFloat').css('display', 'block');
+                                                        $('#divLoginFormFloat').css('left', leftDivLogin);
+                                                        $('#divLoginFormFloat').css('top', topDivLogin);
+
+                                                        var errorDiv = $('#errorLoging');
+                                                        var errorMsg = $('#lblMensajeError');
+                                                        errorMsg.text(msgError);
+                                                        errorDiv.css('display', 'block');
+                                                    }
+                                                </script>
+
+                                                <div id="divLoginFormFloat">
+                                                    <fieldset>
+                                                        <label for="txbNombreUsuario"><strong>Nombre de usuario o Email</strong></label>
+                                                        <input id="txbNombreUsuario" type="text" value="" />
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <label for="txbContrasenia"><strong>Contraseña</strong></label>
+                                                        <input id="txbContrasenia" type="password" value="" />
+                                                    </fieldset>
+                                                    <asp:Button ID="btnIniciarSesion" ClientID="btnIniciarSesion" runat="server" Text="Iniciar sesión" CssClass="button-gradient blue"  OnClick="btnIniciarSesion_Click"/>
+
+                                                    <div id="errorLoging" class="ui-state-error ui-corner-all" style="margin: 20px auto 0 auto; padding: 0 8px; display:none;">
+                                                        <p>
+                                                            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                                            <span id="lblMensajeError"></span>
+                                                        </p>
+                                                    </div>
+
+                                                    <a runat="server" href="~/Front/Cuentas/RecuperarContrasenia.aspx?formulario=contrasenia">¿Olvidaste tu usuario o contraseña?</a>
+                                                    <a runat="server" href="~/Front/Cuentas/RecuperarContrasenia.aspx?formulario=activar">¿Tu cuenta está inactiva?</a>
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <ul id="menuIzquierdoUsuarioRegistrado">
+                                    <li>
+                                        <a id="lnkMiPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">Mi Perfil</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkMisViajes" runat="server" href="~/Front/Viajes/MisViajes.aspx">Mis Viajes</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkPublicarViaje" runat="server" href="~/Front/Viajes/PublicarViaje.aspx">Publica un Viaje</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkBuscarViaje" runat="server" href="~/Front/Viajes/BuscarViaje.aspx">Encuentra un Viaje</a>
+                                    </li>
+                                </ul>
+                                <ul id="menuDerechoUsuarioRegistrado">
+                                    <li>
+                                        <a id="lnkUsuarioPerfil" runat="server" href="~/Front/Cuentas/MiPerfil.aspx">
+                                            <asp:LoginName ID="lblNombreUsuario" runat="server" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <asp:LoginStatus ID="lblCerrarSesion" runat="server" LogoutAction="Redirect" LogoutText="Salir" LogoutPageUrl="~/Front/Bienvenida.aspx" />
+                                    </li>
+                                </ul>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </section>
+                    <div class="divClear"></div>
+                </div>   
+            </header>      
+            <%--<div style="height:50px;"></div>--%>  
+            <div id="body" style="margin-top:50px !important;">
+                <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                <section class="main-content content-wrapper clear-fix" >
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </section>
+            </div>
+            <footer style="position:relative; vertical-align:baseline;">
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; <%: DateTime.Now.Year %> - Carpooling Colombia</p>
+                    </div>
+                    <nav>
+                        <ul id="menu">
+                            <li>
+                                <a id="navAbout" runat="server" href="Inicio.aspx">Ayuda</a>
+                            </li>
+                            <li><a id="navContact" runat="server" href="Contacto.aspx">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </footer>
+        </form>
+        <script type="text/javascript">
+            //resucribe los eventos los controles en los panel updates al cargar la pagina
+            function InicializarMaster() {
+                var pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+
+                pageRequestManager.add_endRequest(function() {
+                    $("[ClientID='btnIniciarSesion']").click(function() {
+                        btnIniciarSesion_OnClientClick();
+                    });
+                });
+
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+                    $("[ClientID='btnIniciarSesion']").click(function () {
+                        btnIniciarSesion_OnClientClick();
+                    });
+                });
+            }
+        </script>
+    </body>    
+</html>

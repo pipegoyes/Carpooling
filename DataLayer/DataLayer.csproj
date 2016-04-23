@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16976F2A-B9A4-4323-811F-2D85629CEB26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAOs\BaseDao.cs" />
+    <Compile Include="DAOs\CalificacionDao.cs" />
+    <Compile Include="DAOs\ListaDesplegableDao.cs" />
+    <Compile Include="DAOs\ParadaDao.cs" />
+    <Compile Include="DAOs\PreguntaDao.cs" />
+    <Compile Include="DAOs\SolicitudDao.cs" />
+    <Compile Include="DAOs\TrayectoDao.cs" />
+    <Compile Include="DAOs\ViajeDao.cs" />
+    <Compile Include="ModeloEntityFramework\CALIFICACION.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CARPOOLModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\CIUDAD.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\DEPARTAMENTO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\OCUPACION.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PAIS.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PARADA.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\PREGUNTA.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\SOLICITUD.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\TRAYECTO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\USUARIO.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloEntityFramework\VIAJE.cs">
+      <DependentUpon>CARPOOLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAOs\UsuarioDao.cs" />
+    <Compile Include="Transformador\ToBusinessEntity.cs" />
+    <Compile Include="Transformador\ToDataEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ModeloEntityFramework\CARPOOLModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CARPOOLModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloEntityFramework\CARPOOLModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+      <LastGenOutput>CARPOOLModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModeloEntityFramework\CARPOOLModel.edmx.diagram">
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+    </None>
+    <None Include="ModeloEntityFramework\CARPOOLModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CARPOOLModel.edmx</DependentUpon>
+      <LastGenOutput>CARPOOLModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Scripts\backup_db.bak" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{c196e97b-e7a1-4279-8647-6ceb4757951b}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Creacion BD.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

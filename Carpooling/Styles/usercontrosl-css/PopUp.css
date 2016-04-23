@@ -1,0 +1,41 @@
+/*.modalBackgroundMensajeModal
+{
+	background-color: Black;
+	filter: alpha(opacity=50);
+	opacity: 0.50;
+	z-index: 10030 !important;
+}
+#btnClosePopUp {
+    background-image: url(../../Styles/images/close-icon.png);
+    width: 28px;
+    height: 28px;
+    float: right;
+}
+#tituloPopUp{
+	width: 100%;
+	height: 28px;
+	position: absolute;
+	text-align: center;
+	border-bottom: thin solid black;
+	float: left;
+}
+#mainContentPopUp{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.popUpContainer {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+}
+.divBotonPopUp{
+	width: 50%;
+	float: left;
+}
+#btnClosePopUp2{
+	float: right;
+	padding: 0px;
+	border: none;
+	width: 28px;
+	height: 28px;
+}*/

@@ -1,0 +1,153 @@
+.bannerInfoDiv{
+	background-color: lime;
+	height: 150px;
+}
+.titulo{
+	color: green;
+	font-size: medium;
+	border-bottom: thin solid green;
+}
+
+.tituloEditarPerfil{
+	color: green;
+	font-size: medium;
+	border-bottom: thin solid green;
+    width:70% !important; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.subtitulo{
+	color: green;
+	border-bottom: thin solid green;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+.text{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 13px;
+}
+.leftPosition{
+	float: left;
+}
+.rightPosition{
+	float: right;
+}
+.divMediaLinea{
+	border-top: thin solid #559B2B;
+	width: 50%;
+	height: 15px;	
+}
+
+.divRelleno{
+	height: 10px;
+}
+.divClear{
+	clear: both;
+}
+.centerDivs{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Estilos del Popup*/
+/*Fondo*/
+.modalBackgroundMensajeModal
+{
+	background-color: Black;
+	filter: alpha(opacity=50);
+	opacity: 0.50;
+	z-index: 10030 !important;
+}
+
+.popUpContainer {
+    -webkit-box-shadow: 6px 15px 16px #000000;
+    -moz-box-shadow: 6px 15px 16px #000000;
+    background-color: white;
+    box-shadow: 6px 15px 16px #000000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f5f6', endColorstr='#c8d7dc', GradientType=0); /* IE6-9 */
+
+    border-radius: 6px !important;
+    
+}
+
+.divEncabezado {
+    text-align: center;
+    /*cursor:move;*/
+
+    padding: 5px;
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+    border-radius: 6px 6px 0 0 !important;
+}
+
+.mainContentPopUp {
+    padding: 15px;
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+    height: 100%;
+    
+    border-radius: 0 0 6px 6px !important;
+}
+.divBotonesPopUp {
+    margin: auto;
+    padding-top: 15px;
+    text-align:center;
+}
+	.divBotonesPopUp input[type="submit"] {
+        display: inline-block !important;
+    	margin: 0 5px;
+	}
+	.mainContentPopUp textarea{
+			height: 85px;
+		}
+
+.divWithoutShadow {
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+.textLeft{
+	text-align: left;
+}
+
+.roundBorders {
+    -webkit-border-radius: 20px;
+    border-radius: 20px; 
+}
+#linkRegistrarse {
+    color: white !important;
+    font-size: 40px !important;
+    left: 296px !important;
+    position: absolute !important;
+    font-style: italic !important;
+}
+    #linkRegistrarse:hover {
+        -webkit-text-shadow: 1px 1px 2px #080606;
+        text-shadow: 1px 1px 2px #080606;
+        filter: dropshadow(color=#080606, offx=1, offy=1);
+        background: none;
+    }
+
+.campoCrearCuenta{
+    margin: 5px 5px !important;
+}
+
+.campoCrearCuenta input[type="text"], .campoCrearCuenta input[type="password"]{
+    width: 300px !important;
+}
