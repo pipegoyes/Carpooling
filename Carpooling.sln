@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C196E97B-E7A1-4279-8647-6CEB4757951B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.WebApp", "Carpooling.WebApp\Carpooling.WebApp.csproj", "{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{D34B8C9C-5CA3-42F1-9300-08AAF477A8C8}"
 	ProjectSection(SolutionItems) = preProject
 		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
@@ -25,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.Controllers", "Carpooling.Controllers\Carpooling.Controllers.csproj", "{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carpooling.WebApp", "CarpoolingWebApp\Carpooling.WebApp.csproj", "{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,14 +48,14 @@ Global
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C196E97B-E7A1-4279-8647-6CEB4757951B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09A2B40C-7B1E-4BFA-BC9D-E9C13771D9B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E4ED8C-ABD8-4AD2-9196-B6E7C999E4EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
